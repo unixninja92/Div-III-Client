@@ -5,13 +5,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+
 
 public class MainActivity extends ActionBarActivity {
 
+    String address = "localhost";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Socket serverSocket = new Socket();
+        InetSocketAddress serverAddress = new InetSocketAddress(address, 443);
+        try {
+            serverSocket.connect(serverAddress);
+            System.out.println("Is connected:"+serverSocket.isConnected());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
