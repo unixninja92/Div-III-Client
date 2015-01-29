@@ -1,5 +1,12 @@
 package systems.obscure.servertestingwithouttor.client;
 
+import org.whispersystems.curve25519.Curve25519;
+import org.whispersystems.curve25519.Curve25519KeyPair;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+
 import systems.obscure.servertestingwithouttor.protos.Fetch;
 import systems.obscure.servertestingwithouttor.protos.ProtoMessage;
 import systems.obscure.servertestingwithouttor.protos.Request;
@@ -42,7 +49,7 @@ public class Client {
     Integer generation;
 
     // priv is an Ed25519 private key.
-    byte[] priv = new byte[64];
+    private byte[] priv;
 
     // pub is the public key corresponding to |priv|.
     byte[] pub = new byte[32];
@@ -178,5 +185,27 @@ public class Client {
         boolean sending;
 
         //TODO methods for this
+    }
+
+    public void start() {
+        boolean newAccount = true;
+
+        if(newAccount) {
+            try {
+                SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
+                MessageDigest digest = MessageDigest.getInstance("SHA256");
+                byte[] seed = new byte[32];
+                random.nextBytes(seed);
+//                priv = Ed25519.ExpandPrivateKey(digest.digest(seed));
+//                pub = Ed25519.PublicKeyFromPrivateKey(priv);
+                Curve25519KeyPair pair = Curve25519.generateKeyPair(random);
+                identity = pair.getPrivateKey();
+                identityPublic = pair.getPrivateKey();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

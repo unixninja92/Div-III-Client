@@ -12,6 +12,8 @@ import java.net.Inet4Address;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
+import systems.obscure.servertestingwithouttor.client.Client;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -31,6 +33,9 @@ public class MainActivity extends ActionBarActivity {
             InputStream in = serverSocket.getInputStream();
             OutputStream out = serverSocket.getOutputStream();
             System.out.println("Is connected:"+serverSocket.isConnected());
+
+            Client client = new Client();
+            client.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
