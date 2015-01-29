@@ -1,28 +1,37 @@
 package systems.obscure.servertestingwithouttor;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Inet4Address;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    String address = "localhost";
+    String address = "whirlpool.obscure.systems";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         Socket serverSocket = new Socket();
-        InetSocketAddress serverAddress = new InetSocketAddress(address, 443);
         try {
+            InetSocketAddress serverAddress = new InetSocketAddress(Inet4Address.getByName(address), 16333);
             serverSocket.connect(serverAddress);
+            InputStream in = serverSocket.getInputStream();
+            OutputStream out = serverSocket.getOutputStream();
             System.out.println("Is connected:"+serverSocket.isConnected());
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
