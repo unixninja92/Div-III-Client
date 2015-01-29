@@ -1,5 +1,7 @@
 package systems.obscure.servertestingwithouttor.client;
 
+import com.github.dazoe.android.Ed25519;
+
 import org.whispersystems.curve25519.Curve25519;
 import org.whispersystems.curve25519.Curve25519KeyPair;
 
@@ -196,8 +198,8 @@ public class Client {
                 MessageDigest digest = MessageDigest.getInstance("SHA256");
                 byte[] seed = new byte[32];
                 random.nextBytes(seed);
-//                priv = Ed25519.ExpandPrivateKey(digest.digest(seed));
-//                pub = Ed25519.PublicKeyFromPrivateKey(priv);
+                priv = Ed25519.ExpandPrivateKey(digest.digest(seed));
+                pub = Ed25519.PublicKeyFromPrivateKey(priv);
                 Curve25519KeyPair pair = Curve25519.generateKeyPair(random);
                 identity = pair.getPrivateKey();
                 identityPublic = pair.getPrivateKey();
