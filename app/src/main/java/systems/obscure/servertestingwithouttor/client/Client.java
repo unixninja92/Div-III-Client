@@ -2,6 +2,7 @@ package systems.obscure.servertestingwithouttor.client;
 
 import systems.obscure.servertestingwithouttor.protos.Fetch;
 import systems.obscure.servertestingwithouttor.protos.ProtoMessage;
+import systems.obscure.servertestingwithouttor.protos.Request;
 import systems.obscure.servertestingwithouttor.protos.ServerAnnounce;
 
 /**
@@ -150,5 +151,32 @@ public class Client {
     }
 
     // contactList is a sortable slice of Contacts.
-    
+    public class ContactList {
+        Contact[] contactList;
+        public int len() {
+            return contactList.length;
+        }
+        public boolean less(int i, int j) {
+            return contactList[i].name.compareTo(contactList[j].name) < 0;
+        }
+        //TODO sort contacts list
+    }
+
+    public class QueuedMessage {
+        Request request;
+        Long id;
+        Long to;
+        String server;
+        int created;
+        int sent;
+        int acked;
+        boolean revocation;
+        ProtoMessage message;
+
+        // sending is true if the transact goroutine is currently sending this
+        // message. This is protected by the queueMutex. TODO adjust comment for java
+        boolean sending;
+
+        //TODO methods for this
+    }
 }

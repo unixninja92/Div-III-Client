@@ -1,0 +1,3 @@
+[submodule "libs/Android.Ed25519"]
+	path = libs/Android.Ed25519
+	url = https://github.com/unixninja92/Android.Ed25519.git
