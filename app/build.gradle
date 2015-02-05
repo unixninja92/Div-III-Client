@@ -24,5 +24,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.squareup.wire:wire-runtime:1.6.0'
     compile 'org.whispersystems:curve25519-android:0.1.3'
+    compile 'org.whispersystems:axolotl-android:1.0.1'
+//    compile 'org.abstractj.kalium:kalium-jni:0.2.0'
     compile project(":Android.Ed25519")
 }
