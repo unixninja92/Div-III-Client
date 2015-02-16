@@ -64,6 +64,7 @@ public class Client {
         int receivedTime;
         Long from;
 
+
         // sealed contained the encrypted message if the contact who sent this
         // message is still pending.
         byte[] sealed;
@@ -203,6 +204,8 @@ public class Client {
                 Curve25519KeyPair pair = Curve25519.generateKeyPair(random);
                 identity = pair.getPrivateKey();
                 identityPublic = pair.getPrivateKey();
+
+
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
             } catch (Exception e) {
