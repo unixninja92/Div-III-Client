@@ -1,9 +1,9 @@
 package systems.obscure.servertestingwithouttor.client;
 
-import com.github.dazoe.android.Ed25519;
-
-import org.whispersystems.curve25519.Curve25519;
-import org.whispersystems.curve25519.Curve25519KeyPair;
+import org.abstractj.kalium.keys.KeyPair;
+import org.abstractj.kalium.keys.PublicKey;
+import org.abstractj.kalium.keys.SigningKey;
+import org.abstractj.kalium.keys.VerifyKey;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -35,8 +35,7 @@ public class Client {
 
     // identity is a curve25519 private value that's used to authenticate
     // the client to its home server.
-    byte[] identity = new byte[32];
-    byte[] identityPublic = new byte[32];
+    KeyPair identity;
 
     // groupPriv is the group private key for the user's delivery group.
     byte[] groupPriv;
@@ -50,11 +49,8 @@ public class Client {
     // incremented when a member of the group is revoked.
     Integer generation;
 
-    // priv is an Ed25519 private key.
-    private byte[] priv;
-
-    // pub is the public key corresponding to |priv|.
-    byte[] pub = new byte[32];
+    // siging Ed25519 keypair.
+    SigningKey signingKey;
 
     // InboxMessage represents a message in the client's inbox. (Acks also appear
     // as InboxMessages, but their message.Body is empty.)
@@ -135,11 +131,11 @@ public class Client {
         String theirServer;
 
         // theirPub is their Ed25519 public key.
-        byte[] theirPub = new byte[32];
+        VerifyKey theirPub;
 
         // theirIdentityPublic is the public identity that their home server
         // knows them by.
-        byte[] theirIdentityPublic = new byte[32];
+        PublicKey theirIdentityPublic;
 
         // supportedVersion contains the greatest protocol version number that
         // we have observed from this contact.
@@ -199,11 +195,8 @@ public class Client {
                 MessageDigest digest = MessageDigest.getInstance("SHA256");
                 byte[] seed = new byte[32];
                 random.nextBytes(seed);
-                priv = Ed25519.ExpandPrivateKey(digest.digest(seed));
-                pub = Ed25519.PublicKeyFromPrivateKey(priv);
-                Curve25519KeyPair pair = Curve25519.generateKeyPair(random);
-                identity = pair.getPrivateKey();
-                identityPublic = pair.getPrivateKey();
+                signingKey = new SigningKey(digest.digest(seed));
+                identity = new KeyPair();
 
 
             } catch (NoSuchAlgorithmException e) {
