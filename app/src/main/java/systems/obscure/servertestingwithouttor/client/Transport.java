@@ -2,6 +2,9 @@ package systems.obscure.servertestingwithouttor.client;
 
 import android.os.StrictMode;
 
+import com.squareup.wire.Message;
+import com.squareup.wire.Wire;
+
 import org.abstractj.kalium.crypto.SecretBox;
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.PublicKey;
@@ -61,6 +64,38 @@ public class Transport {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void writeProto(Message message) throws IOException {
+        byte[] data = message.toByteArray();
+
+        if(data.length > Constants.TRANSPORT_SIZE)
+            throw new IOException("transport: message too large");
+
+        byte[] buf = new byte[Constants.TRANSPORT_SIZE+2];
+        buf[0] = (byte) data.length;
+        buf[1] = (byte) (data.length >> 8);
+        for (int i = 0; i < data.length; i++){
+            buf[i+2] = data[i];
+        }
+        write(buf);
+    }
+
+    public Message readProto(Class proto) throws IOException {
+        byte[] buf = new byte[Constants.TRANSPORT_SIZE+2+Constants.SECRETBOX_OVERHEAD];
+        int n = read(buf);
+        if(n != Constants.TRANSPORT_SIZE+2)
+            throw new IOException("transport: message wrong length");
+
+        n = (int)buf[0] + ((int)buf[1]) << 8;
+
+        byte[] data = new byte[buf.length-2];
+        for(int i = 0; i < data.length; i++)
+            data[i] = buf[i+2];
+        if(n > data.length)
+            throw new IOException("transport: corrupt message");
+        Wire wire = new Wire();
+        return wire.parseFrom(data, proto);
     }
 
     public void Close() throws IOException {
