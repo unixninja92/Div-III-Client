@@ -1,4 +1,4 @@
-package systems.obscure.servertestingwithouttor.client;
+package systems.obscure.servertesting.client;
 
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.PublicKey;
@@ -9,10 +9,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
-import systems.obscure.servertestingwithouttor.protos.Fetch;
-import systems.obscure.servertestingwithouttor.protos.ProtoMessage;
-import systems.obscure.servertestingwithouttor.protos.Request;
-import systems.obscure.servertestingwithouttor.protos.ServerAnnounce;
+import systems.obscure.servertesting.protos.Fetch;
+import systems.obscure.servertesting.protos.ProtoMessage;
+import systems.obscure.servertesting.protos.Request;
+import systems.obscure.servertesting.protos.ServerAnnounce;
 
 /**
  * Created by charles on 1/28/15.

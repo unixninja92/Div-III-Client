@@ -1,4 +1,4 @@
-package systems.obscure.servertestingwithouttor.client;
+package systems.obscure.servertesting.client;
 
 /**
  * Created by charles on 2/16/15.

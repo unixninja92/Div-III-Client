@@ -1,4 +1,4 @@
-package systems.obscure.servertestingwithouttor;
+package systems.obscure.servertesting;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

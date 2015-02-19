@@ -1,4 +1,4 @@
-package systems.obscure.servertestingwithouttor;
+package systems.obscure.servertesting;
 
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -12,7 +12,7 @@ import java.net.Inet4Address;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
-import systems.obscure.servertestingwithouttor.client.Client;
+import systems.obscure.servertesting.client.Client;
 
 
 public class MainActivity extends ActionBarActivity {

@@ -1,4 +1,4 @@
-package systems.obscure.servertestingwithouttor.protos;
+package systems.obscure.servertesting.protos;
 
 // This protocol buffer file defines the protocol between Pond clients and
 // servers, and between clients directly.

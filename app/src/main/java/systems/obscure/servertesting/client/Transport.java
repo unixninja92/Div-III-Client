@@ -1,4 +1,4 @@
-package systems.obscure.servertestingwithouttor.client;
+package systems.obscure.servertesting.client;
 
 import android.os.StrictMode;
 
