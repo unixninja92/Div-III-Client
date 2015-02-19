@@ -167,10 +167,7 @@ public class Transport {
 
         n = (int)buf[0] + ((int)buf[1]) << 8;
 
-//        byte[] data = new byte[buf.length-2];
         byte[] data = Arrays.copyOfRange(buf, 2, buf.length);
-//        for(int i = 0; i < data.length; i++)
-//            data[i] = buf[i+2];
         if(n > data.length)
             throw new IOException("transport: corrupt message");
         Wire wire = new Wire();
@@ -206,15 +203,10 @@ public class Transport {
             int theirLen = (int)lenBytes[1] + (int)lenBytes[2]<<8;
             if(theirLen > data.length)
                 throw new IOException("tranport: given buffer too small ("+data.length+" vs "+theirLen+")");
-//            byte[] theirData = new byte[theirLen];
             byte[] theirData = Arrays.copyOf(data, theirLen);
-//            for(int i = 0; i < theirLen; i++)
-//                theirData[i] = data[i];
             reader.read(theirData);
             byte[] plain = decrypt(theirData);
             data = Arrays.copyOf(plain, plain.length);
-//            for(int i = 0; i < plain.length; i++)
-//                data[i] = plain[i];
             return plain.length;
         } catch (IOException e) {
             e.printStackTrace();
