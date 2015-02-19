@@ -7,6 +7,7 @@ import com.squareup.wire.Wire;
 
 import org.abstractj.kalium.crypto.SecretBox;
 import org.abstractj.kalium.keys.KeyPair;
+import org.abstractj.kalium.keys.PrivateKey;
 import org.abstractj.kalium.keys.PublicKey;
 
 import java.io.BufferedInputStream;
@@ -18,6 +19,9 @@ import java.net.Socket;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+
+import javax.crypto.Mac;
+import javax.crypto.ShortBufferException;
 
 /**
  * Created by charles on 2/16/15.
@@ -68,9 +72,13 @@ public class Transport {
 
     private byte[] serverKeysMagic = "server keys\\x00".getBytes();
     private byte[] clientKeysMagic = "client keys\\x00".getBytes();//TODO set charset(utf-8)
+    //FIXME?? make x00 actually bytes rather than chars?
+    private byte[] serverProofMagic = "server proof\\x00".getBytes();
     private byte[] clientProofMagic = "client proof\\x00".getBytes();
 
-    String address = "whirlpool.obscure.systems";
+    private String address = "whirlpool.obscure.systems";
+
+    private String shortMessageError = "transport: received short handshake message";
 
     public Transport(KeyPair i, PublicKey server) {
         identity = i;
@@ -257,12 +265,73 @@ public class Transport {
         }
     }
 
-    public void handshake() {
+    public void handshake() throws IOException {
+        ephemeralKeyPair = new KeyPair();
 
+        write(ephemeralKeyPair.getPublicKey().toBytes());
+
+        byte[] theirEphemeralPublicKey = new byte[32];
+        int n = read(theirEphemeralPublicKey);
+        if(n != theirEphemeralPublicKey.length)
+            throw new IOException(shortMessageError);
+
+        try {
+            MessageDigest handshakeHash = MessageDigest.getInstance("SHA256");
+            handshakeHash.update(ephemeralKeyPair.getPublicKey().toBytes());
+            handshakeHash.update(theirEphemeralPublicKey);
+
+            //TODO ScalarMult(&ephemeralShared, &ephemeralPrivate, &theirEphemeralPublic)
+            setUpKeys(ephemeralShared);
+            handshakeClient(handshakeHash, ephemeralKeyPair.getPrivateKey());
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void handshakeClient() {
+    private void handshakeClient(MessageDigest handshakeHash, PrivateKey ephemeralPrivate) throws IOException {
+        byte[] ephemeralIdentityShared = new byte[32];
+        //TODO ScalarMult(&ephemeralIdentityShared, ephemeralPrivate, &c.Peer)
 
+        byte[] digest = handshakeHash.digest();
+        try {
+            Mac h = Mac.getInstance("HmacSHA256");
+//            h.init() TODO init h with ephemeralIdentityShared
+            h.update(serverProofMagic);
+            h.update(digest);
+            digest = h.doFinal();
+
+            byte[] digestReceived = new byte[digest.length + Constants.SECRETBOX_OVERHEAD];
+            int n = read(digestReceived);
+            if(n != digest.length)
+                throw new IOException(shortMessageError);
+
+            digestReceived = Arrays.copyOf(digestReceived, n);
+
+            if(!MessageDigest.isEqual(digest, digestReceived))
+                throw new IOException("transport: server identity incorrect");
+
+            byte[] identityShared = new byte[32];
+            //TODO ScalarMult(&identityShared, &c.identity, &c.Peer)
+
+            handshakeHash.update(digest);
+            digest = handshakeHash.digest();
+
+//            h.init(); TODO init h with identityShared
+            h.update(clientProofMagic);
+            h.update(digest);
+
+            byte[] finalMessage = new byte[32+256];
+            byte[] pub = identity.getPublicKey().toBytes();
+            for(int i = 0; i < pub.length; i++)
+                finalMessage[i] = pub[i];
+            h.doFinal(finalMessage, 32);
+
+            write(finalMessage);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (ShortBufferException e) {
+            e.printStackTrace();
+        }
     }
 
     private byte[] incSequence(byte[] seq) {
