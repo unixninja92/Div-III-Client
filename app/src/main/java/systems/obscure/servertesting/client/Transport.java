@@ -14,6 +14,7 @@ import org.whispersystems.curve25519.java.scalarmult;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.Inet4Address;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -73,11 +74,11 @@ public class Transport {
     private KeyPair ephemeralKeyPair;
     private byte[] ephemeralShared = new byte[32];
 
-    private byte[] serverKeysMagic = "server keys\\x00".getBytes();
-    private byte[] clientKeysMagic = "client keys\\x00".getBytes();//TODO set charset(utf-8)
-    //FIXME?? make x00 actually bytes rather than chars?
-    private byte[] serverProofMagic = "server proof\\x00".getBytes();
-    private byte[] clientProofMagic = "client proof\\x00".getBytes();
+    private byte[] serverKeysMagic;
+    private byte[] clientKeysMagic;
+
+    private byte[] serverProofMagic;
+    private byte[] clientProofMagic;
 
     private String address = "whirlpool.obscure.systems";
 
@@ -98,6 +99,17 @@ public class Transport {
 
 
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            byte b = 0x00;
+            serverKeysMagic = ("server keys"+b).getBytes("UTF-8");
+            clientKeysMagic = ("client keys"+b).getBytes("UTF-8");
+
+            serverProofMagic = ("server proof"+b).getBytes("UTF-8");
+            clientProofMagic = ("client proof"+b).getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }
