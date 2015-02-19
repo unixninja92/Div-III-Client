@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 /**
@@ -64,6 +66,7 @@ public class Transport {
     private KeyPair ephemeralKeyPair;
     private byte[] ephemeralShared = new byte[32];
 
+    private byte[] serverKeysMagic = "server keys\\x00".getBytes();
     private byte[] clientKeysMagic = "client keys\\x00".getBytes();//TODO set charset(utf-8)
     private byte[] clientProofMagic = "client proof\\x00".getBytes();
 
@@ -128,17 +131,22 @@ public class Transport {
 
         reader.read(readBuffer, 0, n);
 
-        if(out.length >= n - Constants.SECRETBOX_OVERHEAD) {
-            // We can decrypt directly into the output buffer.
-            out = readBox.decrypt(readSequence, readBuffer);
-            n = out.length;
-        } else {
-            // We need to decrypt into a side buffer and copy a prefix of
-            // the result into the caller's buffer.
-            decryptBuffer = readBox.decrypt(readSequence, readBuffer);
-            out = Arrays.copyOf(decryptBuffer, n);
-            n = out.length;
-            readPending = Arrays.copyOfRange(decryptBuffer, n, decryptBuffer.length);
+        try {
+            if (out.length >= n - Constants.SECRETBOX_OVERHEAD) {
+                // We can decrypt directly into the output buffer.
+                out = readBox.decrypt(readSequence, readBuffer);
+                n = out.length;
+            } else {
+                // We need to decrypt into a side buffer and copy a prefix of
+                // the result into the caller's buffer.
+                decryptBuffer = readBox.decrypt(readSequence, readBuffer);
+                out = Arrays.copyOf(decryptBuffer, n);
+                n = out.length;
+                readPending = Arrays.copyOfRange(decryptBuffer, n, decryptBuffer.length);
+            }
+        }catch (RuntimeException e) {
+            readPending = new byte[0];
+            throw new IOException("transport: bad MAC");
         }
         incSequence(readSequence);
         return n;
@@ -229,6 +237,24 @@ public class Transport {
         incSequence(readSequence);
         //TODO check MAC??
         return plain;
+    }
+
+    private void setUpKeys(byte[] ephemeralShared) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA256");
+            digest.update(clientKeysMagic);
+            digest.update(ephemeralShared);
+            writeKey = digest.digest();
+            writeKeyValid = true;
+
+            digest.reset();
+            digest.update(serverKeysMagic);
+            digest.update(ephemeralShared);
+            readKey = digest.digest();
+            readKeyValid = true;
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
     }
 
     public void handshake() {
