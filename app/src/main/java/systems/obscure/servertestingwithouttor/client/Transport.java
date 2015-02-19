@@ -112,7 +112,7 @@ public class Transport {
     }
 
     public int Read(byte[] out) throws IOException {
-        if(readPending.length > 0) {
+        if(readPending == null || readPending.length > 0) {
             out = Arrays.copyOf(readPending, out.length);
             readPending = Arrays.copyOfRange(readPending, out.length, readPending.length);
             return out.length;
