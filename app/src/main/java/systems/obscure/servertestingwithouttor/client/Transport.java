@@ -99,6 +99,8 @@ public class Transport {
                 m = blockSize - Constants.SECRETBOX_OVERHEAD;
             byte[] cipherText = writeBox.encrypt(writeSequence, Arrays.copyOf(buf, m));
             int l = cipherText.length;
+            for(int i= 0; i<l; i++)
+                writeBuffer[i+2] = cipherText[i];
             writeBuffer[0] = (byte)l;
             writeBuffer[1] = (byte)(l >> 8);
             writer.write(writeBuffer, 0, l+2);
@@ -107,6 +109,39 @@ public class Transport {
             incSequence(writeSequence);
         }
         return  n;
+    }
+
+    public int Read(byte[] out) throws IOException {
+        if(readPending.length > 0) {
+            out = Arrays.copyOf(readPending, out.length);
+            readPending = Arrays.copyOfRange(readPending, out.length, readPending.length);
+            return out.length;
+        }
+
+        if(readBuffer == null)
+            readBuffer = new byte[blockSize+2];
+
+        reader.read(readBuffer, 0, 2);
+        int n = (int)readBuffer[0] | (int)(readBuffer[1] << 8);
+        if(n > readBuffer.length)
+            throw new IOException("transport: peer's message too large for Read");
+
+        reader.read(readBuffer, 0, n);
+
+        if(out.length >= n - Constants.SECRETBOX_OVERHEAD) {
+            // We can decrypt directly into the output buffer.
+            out = readBox.decrypt(readSequence, readBuffer);
+            n = out.length;
+        } else {
+            // We need to decrypt into a side buffer and copy a prefix of
+            // the result into the caller's buffer.
+            decryptBuffer = readBox.decrypt(readSequence, readBuffer);
+            out = Arrays.copyOf(decryptBuffer, n);
+            n = out.length;
+            readPending = Arrays.copyOfRange(decryptBuffer, n, decryptBuffer.length);
+        }
+        incSequence(readSequence);
+        return n;
     }
 
     public void writeProto(Message message) throws IOException {
