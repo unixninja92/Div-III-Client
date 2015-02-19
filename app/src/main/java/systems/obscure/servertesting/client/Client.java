@@ -15,7 +15,7 @@ import systems.obscure.servertesting.protos.Request;
 import systems.obscure.servertesting.protos.ServerAnnounce;
 
 /**
- * Created by charles on 1/28/15.
+ * @author unixninja92
  */
 public class Client {
     // messageLifetime is the default amount of time for which we'll keep a

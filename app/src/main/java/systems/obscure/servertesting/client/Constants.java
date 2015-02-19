@@ -1,7 +1,7 @@
 package systems.obscure.servertesting.client;
 
 /**
- * Created by charles on 2/16/15.
+ * @author unixninja92
  */
 public class Constants {
     //The number of bytes of overhead when boxing a message with SecretBox.

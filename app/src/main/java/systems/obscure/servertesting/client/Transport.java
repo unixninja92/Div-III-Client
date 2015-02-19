@@ -26,7 +26,7 @@ import javax.crypto.Mac;
 import javax.crypto.ShortBufferException;
 
 /**
- * Created by charles on 2/16/15.
+ * @author unixninja92
  */
 public class Transport {
     // blockSize is the size of the blocks of data that we'll send and receive when
@@ -233,7 +233,7 @@ public class Transport {
             reader.read(lenBytes);
             int theirLen = (int)lenBytes[1] + (int)lenBytes[2]<<8;
             if(theirLen > data.length)
-                throw new IOException("tranport: given buffer too small ("+data.length+" vs "+theirLen+")");
+                throw new IOException("transport: given buffer too small ("+data.length+" vs "+theirLen+")");
             byte[] theirData = Arrays.copyOf(data, theirLen);
             reader.read(theirData);
             byte[] plain = decrypt(theirData);
