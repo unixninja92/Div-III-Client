@@ -9,6 +9,7 @@ import org.abstractj.kalium.crypto.SecretBox;
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.PrivateKey;
 import org.abstractj.kalium.keys.PublicKey;
+import org.whispersystems.curve25519.java.scalarmult;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -41,6 +42,8 @@ public class Transport {
     private KeyPair identity;
 
     private PublicKey serverIdentity;
+
+    public byte[] peer;
 
     private byte[] writeKey = new byte[32];
     private byte[] readKey = new byte[32];
@@ -280,7 +283,8 @@ public class Transport {
             handshakeHash.update(ephemeralKeyPair.getPublicKey().toBytes());
             handshakeHash.update(theirEphemeralPublicKey);
 
-            //TODO ScalarMult(&ephemeralShared, &ephemeralPrivate, &theirEphemeralPublic)
+            scalarmult.crypto_scalarmult(ephemeralShared,
+                    ephemeralKeyPair.getPrivateKey().toBytes(), theirEphemeralPublicKey);
             setUpKeys(ephemeralShared);
             handshakeClient(handshakeHash, ephemeralKeyPair.getPrivateKey());
         } catch (NoSuchAlgorithmException e) {
@@ -290,7 +294,7 @@ public class Transport {
 
     private void handshakeClient(MessageDigest handshakeHash, PrivateKey ephemeralPrivate) throws IOException {
         byte[] ephemeralIdentityShared = new byte[32];
-        //TODO ScalarMult(&ephemeralIdentityShared, ephemeralPrivate, &c.Peer)
+        scalarmult.crypto_scalarmult(ephemeralIdentityShared, ephemeralPrivate.toBytes(), peer);
 
         byte[] digest = handshakeHash.digest();
         try {
@@ -311,7 +315,7 @@ public class Transport {
                 throw new IOException("transport: server identity incorrect");
 
             byte[] identityShared = new byte[32];
-            //TODO ScalarMult(&identityShared, &c.identity, &c.Peer)
+            scalarmult.crypto_scalarmult(identityShared, identity.getPrivateKey().toBytes(), peer);
 
             handshakeHash.update(digest);
             digest = handshakeHash.digest();
