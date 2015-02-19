@@ -15,11 +15,18 @@ import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.util.Arrays;
 
 /**
  * Created by charles on 2/16/15.
  */
 public class Transport {
+    // blockSize is the size of the blocks of data that we'll send and receive when
+    // working in streaming mode. Each block is prefixed by two length bytes (which
+    // aren't counted in blockSize) and includes secretbox.Overhead bytes of MAC
+    // tag (which are).
+    private final int blockSize = 4096 - 2;
+
     private Socket serverSocket;
 
     private BufferedInputStream reader;
@@ -38,6 +45,21 @@ public class Transport {
 
     private byte[] writeSequence = new byte[24];
     private byte[] readSequence = new byte[24];
+
+    // readBuffer is used to receive bytes from the network when this Conn
+    // is used to stream data.
+    private byte[] readBuffer;
+    // decryptBuffer is used to store decrypted payloads when this Conn is
+    // used to stream data and the caller's buffer isn't large enough to
+    // decrypt into directly.
+    private byte[] decryptBuffer;
+    // readPending aliases into decryptBuffer when a partial decryption had
+    // to be returned to a caller because of buffer size limitations.
+    private byte[] readPending;
+
+    // writeBuffer is used to hold encrypted payloads when this Conn is
+    // used for streaming data.
+    private byte[] writeBuffer;
 
     private KeyPair ephemeralKeyPair;
     private byte[] ephemeralShared = new byte[32];
@@ -66,6 +88,27 @@ public class Transport {
         }
     }
 
+    public int Write(byte[] buf) throws IOException {
+        int n = 0;
+        if(writeBuffer == null)
+            writeBuffer = new byte[blockSize];
+
+        while(buf.length > 0) {
+            int m = buf.length;
+            if( m > blockSize - Constants.SECRETBOX_OVERHEAD)
+                m = blockSize - Constants.SECRETBOX_OVERHEAD;
+            byte[] cipherText = writeBox.encrypt(writeSequence, Arrays.copyOf(buf, m));
+            int l = cipherText.length;
+            writeBuffer[0] = (byte)l;
+            writeBuffer[1] = (byte)(l >> 8);
+            writer.write(writeBuffer, 0, l+2);
+            n += m;
+            buf = Arrays.copyOfRange(buf, m, buf.length);
+            incSequence(writeSequence);
+        }
+        return  n;
+    }
+
     public void writeProto(Message message) throws IOException {
         byte[] data = message.toByteArray();
 
@@ -89,9 +132,10 @@ public class Transport {
 
         n = (int)buf[0] + ((int)buf[1]) << 8;
 
-        byte[] data = new byte[buf.length-2];
-        for(int i = 0; i < data.length; i++)
-            data[i] = buf[i+2];
+//        byte[] data = new byte[buf.length-2];
+        byte[] data = Arrays.copyOfRange(buf, 2, buf.length);
+//        for(int i = 0; i < data.length; i++)
+//            data[i] = buf[i+2];
         if(n > data.length)
             throw new IOException("transport: corrupt message");
         Wire wire = new Wire();
@@ -127,13 +171,15 @@ public class Transport {
             int theirLen = (int)lenBytes[1] + (int)lenBytes[2]<<8;
             if(theirLen > data.length)
                 throw new IOException("tranport: given buffer too small ("+data.length+" vs "+theirLen+")");
-            byte[] theirData = new byte[theirLen];
-            for(int i = 0; i < theirLen; i++)
-                theirData[i] = data[i];
+//            byte[] theirData = new byte[theirLen];
+            byte[] theirData = Arrays.copyOf(data, theirLen);
+//            for(int i = 0; i < theirLen; i++)
+//                theirData[i] = data[i];
             reader.read(theirData);
             byte[] plain = decrypt(theirData);
-            for(int i = 0; i < plain.length; i++)
-                data[i] = plain[i];
+            data = Arrays.copyOf(plain, plain.length);
+//            for(int i = 0; i < plain.length; i++)
+//                data[i] = plain[i];
             return plain.length;
         } catch (IOException e) {
             e.printStackTrace();
