@@ -4,6 +4,10 @@ package systems.obscure.servertesting.client;
  * @author unixninja92
  */
 public class Constants {
+    // messageLifetime is the default amount of time for which we'll keep a
+    // message. (Counting from the time that it was received.)
+    public static final int MESSAGE_LIFETIME = 7 * 24;
+
     //The number of bytes of overhead when boxing a message with SecretBox.
     public static final int SECRETBOX_OVERHEAD = 16;
 
