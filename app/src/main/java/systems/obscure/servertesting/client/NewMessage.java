@@ -11,5 +11,5 @@ import systems.obscure.servertesting.protos.ServerAnnounce;
 public class NewMessage {
     Fetch fetched;
     ServerAnnounce serverAnnounce;
-    boolean ack = false;
+    boolean ack = false; //TODO make chan
 }

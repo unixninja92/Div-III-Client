@@ -1,27 +1,34 @@
 package systems.obscure.servertesting.client;
 
+import org.abstractj.kalium.crypto.Random;
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.SigningKey;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.HashMap;
 
 /**
  * @author unixninja92
  */
 public class Client {
-    // messageLifetime is the default amount of time for which we'll keep a
-    // message. (Counting from the time that it was received.)
-    public final int messageLifetime = 7 * 24;
 
+    // autoFetch controls whether the network goroutine performs periodic
+    // transactions or waits for outside prompting.
+    boolean autoFetch;
 
-    // The current protocol version implemented by this code.
-    int protoVersion = 1;
+    // newMeetingPlace is a function that returns a PANDA MeetingPlace. In
+    // tests this can be overridden to return a testing meeting place.
+//    newMeetingPlace func() panda.MeetingPlace TODO fix this
 
     // stateFilename is the filename of the file on disk in which we
     // load/save our state.
     String stateFile;
+
+    // torAddress contains a string like "127.0.0.1:9050", which specifies
+    // the address of the local Tor SOCKS proxy.
+    String torAddress;
 
     // server is the URL of the user's home server.
     String server;
@@ -45,6 +52,19 @@ public class Client {
     // siging Ed25519 keypair.
     SigningKey signingKey;
 
+    Random rand;
+
+    // outbox contains all outgoing messages.
+    QueuedMessage[] outbox;
+    HashMap<Long, Draft> drafts;
+    HashMap<Long, Contact> contacts;
+    InboxMessage[] inbox;
+
+    // queue is a queue of messages for transmission that's shared with the
+    // network goroutine and protected by queueMutex.
+     QueuedMessage[] queue; //synchronized
+
+
     public void start() {
         boolean newAccount = true;
 
@@ -65,4 +85,31 @@ public class Client {
             }
         }
     }
+
+    public Draft outboxToDraft(QueuedMessage msg) {
+        Draft draft = new Draft();
+        draft.id = msg.id;
+        //TODO draft.created = msg.created;
+        draft.to = msg.to;
+        draft.body = msg.message.body.toString();
+        draft.attachments = msg.message.files;
+        draft.detachments = msg.message.detached_files;
+
+        long irt = msg.message.in_reply_to;
+        if(irt != 0){
+            // The inReplyTo value of a draft references *our* id for the
+            // inbox message. But the InReplyTo field of a pond.Message
+            // references's the contact's id for the message. So we need to
+            // enumerate the messages in the inbox from that contact and
+            // find the one with the matching id.
+            for(InboxMessage inboxMsg: inbox) {
+                if(inboxMsg.from == msg.to && inboxMsg.message != null && inboxMsg.message.id == irt){
+                    draft.inReplyTo = inboxMsg.id;
+                    break;
+                }
+            }
+        }
+        return draft;
+    }
+
 }

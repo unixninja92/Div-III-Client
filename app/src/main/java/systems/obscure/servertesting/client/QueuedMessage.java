@@ -21,5 +21,5 @@ public class QueuedMessage {
     // message. This is protected by the queueMutex. TODO adjust comment for java
     boolean sending;
 
-    //TODO methods for this
+    //TODO indicator func
 }

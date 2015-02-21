@@ -1,5 +1,7 @@
 package systems.obscure.servertesting.client;
 
+import java.util.HashMap;
+
 import systems.obscure.servertesting.protos.ProtoMessage;
 
 /**
@@ -26,6 +28,8 @@ public class InboxMessage {
     // retained is true if the user has chosen to retain this message -
     // i.e. to opt it out of the usual, time-based, auto-deletion.
     boolean retained = false;
+
+    HashMap<Long, PendingDecryption> decryptions;
 
     public String getSentTime(){
         if(message == null)

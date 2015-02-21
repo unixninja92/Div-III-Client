@@ -4,10 +4,6 @@ package systems.obscure.servertesting.client;
  * @author unixninja92
  */
 public class Constants {
-    // messageLifetime is the default amount of time for which we'll keep a
-    // message. (Counting from the time that it was received.)
-    public static final int MESSAGE_LIFETIME = 7 * 24;
-
     //The number of bytes of overhead when boxing a message with SecretBox.
     public static final int SECRETBOX_OVERHEAD = 16;
 
@@ -35,4 +31,21 @@ public class Constants {
     //      [serialized message           ]
     public static final int MAX_SERIALIZED_MESSAGE = TRANSPORT_SIZE -
             (SECRETBOX_OVERHEAD + 4 + 4 + 32 + 24) - SECRETBOX_OVERHEAD - MESSAGE_OVERHEAD;
+
+    // messageLifetime is the default amount of time for which we'll keep a
+    // message. (Counting from the time that it was received.)
+    public static final int MESSAGE_LIFETIME = 7 * 24;
+
+    // messagePreIndicationLifetime is the amount of time that a message
+    // remains before the background color changes to indicate that it will
+    // be deleted soon.
+//    public static final int messagePreIndicationLifetime = 6 * 24 * time.Hour;
+
+    // messageGraceTime is the amount of time that we'll leave a message
+    // before deletion after it has been marked as not-retained, or after
+    // startup.
+//    public static final int messageGraceTime = 5 * time.Minute
+
+    // The current protocol version implemented by this code.
+    public static final int PROTO_VERSION = 1;
 }
