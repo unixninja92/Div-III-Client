@@ -8,6 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author unixninja92
@@ -64,6 +65,8 @@ public class Client {
     // network goroutine and protected by queueMutex.
      QueuedMessage[] queue; //synchronized
 
+    HashMap<Long, Boolean> usedIds;
+
 
     public void start() {
         boolean newAccount = true;
@@ -112,4 +115,84 @@ public class Client {
         return draft;
     }
 
+    public String contactName(long id) {
+        if(id == 0)
+            return "Home Server";
+        return contacts.get(id).name;
+    }
+
+    //TODO randBytes func
+
+    //TODO randId func
+
+    //TODO now func
+
+    // registerId records that an ID number has been used, typically because we are
+    // loading a state file.
+    public void registerId(long id) throws Exception {//TODO choose better execption to throw
+        if(usedIds.get(id))
+            throw new Exception("duplicate ID registered");
+        usedIds.put(id, true);
+    }
+
+    //TODO newRatchet func
+
+    //TODO newKeyExchange func
+
+    public Contact contactByName(String name) {
+        for(Map.Entry entry: contacts.entrySet()) {
+            Contact c = (Contact)entry.getValue();
+            if(c.name == name)
+                return c;
+        }
+        return  null;
+    }
+
+    public void deleteInboxMsg(long id) {
+        InboxMessage[] newInbox = new InboxMessage[inbox.length];
+        int pos = 0;
+        for(int i = 0; i < inbox.length; i++){
+            InboxMessage inboxMsg = inbox[i];
+            if(inboxMsg.id == id)
+                continue;
+            newInbox[pos++] = inboxMsg;
+        }
+        inbox = newInbox;
+    }
+
+    // dropSealedAndAckMessagesFrom removes all sealed or pure-ack messages from
+    // the given contact, from the inbox.
+    public void dropSealedAndAckMessagesFrom(Contact contact) {
+        InboxMessage[] newInbox = new InboxMessage[inbox.length];
+        int pos = 0;
+        for(int i = 0; i < inbox.length; i++){
+            InboxMessage inboxMsg = inbox[i];
+            if(inboxMsg.from == contact.id && inboxMsg.sealed.length > 0 ||
+                    inboxMsg.message != null && inboxMsg.message.body.size() == 0)
+                continue;
+            newInbox[pos++] = inboxMsg;
+        }
+        inbox = newInbox;
+    }
+
+    public void deleteOutboxMsg(long id) {
+        QueuedMessage[] newOutbox = new QueuedMessage[outbox.length];
+        int pos = 0;
+        for(int i = 0; i < outbox.length; i++){
+            QueuedMessage outboxMsg = outbox[i];
+            if(outboxMsg.id == id)
+                continue;
+            newOutbox[pos++] = outboxMsg;
+        }
+        outbox = newOutbox;
+    }
+
+    public int indexOfQueuedMessage(QueuedMessage msg) {
+        // c.queueMutex must be held before calling this function.
+        for(int i = 0; i < queue.length; i++) {
+            if(queue[i] == msg)
+                return i;
+        }
+        return -1;
+    }
 }

@@ -58,4 +58,20 @@ public class Contact {
     // pandaResult contains an error message in the event that a PANDA key
     // exchange failed.
     String pandaResult;
+
+    public String subline() {
+        if(revokedUs)
+            return "has revoked";
+        if(isPending)
+            return "pending";
+        if(pandaResult.length() > 0)
+            return "failed";
+        if(!isPending )//TODO rachet == null)
+            return "old ratchet";
+        return "";
+    }
+
+    //TODO indicator func
+
+    //TODO processKeyExchange func
 }
