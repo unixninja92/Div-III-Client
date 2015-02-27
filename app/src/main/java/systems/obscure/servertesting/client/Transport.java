@@ -96,6 +96,7 @@ public class Transport {
             serverSocket.connect(serverAddress);
             reader = new BufferedInputStream(serverSocket.getInputStream());
             writer = new BufferedOutputStream(serverSocket.getOutputStream());
+            System.out.println(serverSocket.isConnected());
 
 
         } catch (IOException e) {

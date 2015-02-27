@@ -2,6 +2,8 @@
 // Source file: ./pond.proto
 package systems.obscure.servertesting.protos;
 
+import com.google.common.primitives.UnsignedInteger;
+import com.google.common.primitives.UnsignedLong;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import okio.ByteString;
@@ -20,10 +22,10 @@ public final class Delivery extends Message {
 
   public static final ByteString DEFAULT_TO = ByteString.EMPTY;
   public static final ByteString DEFAULT_GROUP_SIGNATURE = ByteString.EMPTY;
-  public static final Integer DEFAULT_GENERATION = 0;
+  public static final UnsignedInteger DEFAULT_GENERATION = UnsignedInteger.valueOf(0);
   public static final ByteString DEFAULT_MESSAGE = ByteString.EMPTY;
   public static final ByteString DEFAULT_ONE_TIME_PUBLIC_KEY = ByteString.EMPTY;
-  public static final Long DEFAULT_HMAC_OF_PUBLIC_KEY = 0L;
+  public static final UnsignedLong DEFAULT_HMAC_OF_PUBLIC_KEY = UnsignedLong.valueOf(0);
   public static final ByteString DEFAULT_ONE_TIME_SIGNATURE = ByteString.EMPTY;
 
   /**
@@ -44,7 +46,7 @@ public final class Delivery extends Message {
    * revocation updates.
    */
   @ProtoField(tag = 3, type = FIXED32)
-  public final Integer generation;
+  public final UnsignedInteger generation;
 
   /**
    * The padded message to deliver.
@@ -64,7 +66,7 @@ public final class Delivery extends Message {
    * HMAC key known to server and recipient.
    */
   @ProtoField(tag = 6, type = FIXED64)
-  public final Long hmac_of_public_key;
+  public final UnsignedLong hmac_of_public_key;
 
   /**
    * one_time_signature contains a signature, by public_key, of message.
@@ -72,7 +74,7 @@ public final class Delivery extends Message {
   @ProtoField(tag = 7, type = BYTES)
   public final ByteString one_time_signature;
 
-  public Delivery(ByteString to, ByteString group_signature, Integer generation, ByteString message, ByteString one_time_public_key, Long hmac_of_public_key, ByteString one_time_signature) {
+  public Delivery(ByteString to, ByteString group_signature, UnsignedInteger generation, ByteString message, ByteString one_time_public_key, UnsignedLong hmac_of_public_key, ByteString one_time_signature) {
     this.to = to;
     this.group_signature = group_signature;
     this.generation = generation;
@@ -121,10 +123,10 @@ public final class Delivery extends Message {
 
     public ByteString to;
     public ByteString group_signature;
-    public Integer generation;
+    public UnsignedInteger generation;
     public ByteString message;
     public ByteString one_time_public_key;
-    public Long hmac_of_public_key;
+    public UnsignedLong hmac_of_public_key;
     public ByteString one_time_signature;
 
     public Builder() {
@@ -163,7 +165,7 @@ public final class Delivery extends Message {
      * The current generation number in order for the server to send
      * revocation updates.
      */
-    public Builder generation(Integer generation) {
+    public Builder generation(UnsignedInteger generation) {
       this.generation = generation;
       return this;
     }
@@ -189,7 +191,7 @@ public final class Delivery extends Message {
      * hmac_of_public_key contains a 63-bit HMAC of public key using the
      * HMAC key known to server and recipient.
      */
-    public Builder hmac_of_public_key(Long hmac_of_public_key) {
+    public Builder hmac_of_public_key(UnsignedLong hmac_of_public_key) {
       this.hmac_of_public_key = hmac_of_public_key;
       return this;
     }

@@ -2,6 +2,7 @@
 // Source file: ./pond.proto
 package systems.obscure.servertesting.protos;
 
+import com.google.common.primitives.UnsignedInteger;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import okio.ByteString;
@@ -17,7 +18,7 @@ import static com.squareup.wire.Message.Label.REQUIRED;
  */
 public final class NewAccount extends Message {
 
-  public static final Integer DEFAULT_GENERATION = 0;
+  public static final UnsignedInteger DEFAULT_GENERATION = UnsignedInteger.valueOf(0);
   public static final ByteString DEFAULT_GROUP = ByteString.EMPTY;
   public static final ByteString DEFAULT_HMAC_KEY = ByteString.EMPTY;
 
@@ -27,7 +28,7 @@ public final class NewAccount extends Message {
    * revocations that the client has performed.
    */
   @ProtoField(tag = 1, type = FIXED32, label = REQUIRED)
-  public final Integer generation;
+  public final UnsignedInteger generation;
 
   /**
    * group contains the serialised bbssig.Group for authenticating
@@ -43,7 +44,7 @@ public final class NewAccount extends Message {
   @ProtoField(tag = 3, type = BYTES)
   public final ByteString hmac_key;
 
-  public NewAccount(Integer generation, ByteString group, ByteString hmac_key) {
+  public NewAccount(UnsignedInteger generation, ByteString group, ByteString hmac_key) {
     this.generation = generation;
     this.group = group;
     this.hmac_key = hmac_key;
@@ -78,7 +79,7 @@ public final class NewAccount extends Message {
 
   public static final class Builder extends Message.Builder<NewAccount> {
 
-    public Integer generation;
+    public UnsignedInteger generation;
     public ByteString group;
     public ByteString hmac_key;
 
@@ -98,7 +99,7 @@ public final class NewAccount extends Message {
      * client should pick it at random in order to hide the number of
      * revocations that the client has performed.
      */
-    public Builder generation(Integer generation) {
+    public Builder generation(UnsignedInteger generation) {
       this.generation = generation;
       return this;
     }

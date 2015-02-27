@@ -1,5 +1,7 @@
 package systems.obscure.servertesting.client;
 
+import com.google.common.primitives.UnsignedLong;
+
 import systems.obscure.servertesting.protos.ProtoMessage;
 import systems.obscure.servertesting.protos.Request;
 
@@ -8,8 +10,8 @@ import systems.obscure.servertesting.protos.Request;
  */
 public class QueuedMessage {
     Request request;
-    Long id;
-    Long to;
+    UnsignedLong id;
+    UnsignedLong to;
     String server;
     int created;
     int sent;

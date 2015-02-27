@@ -2,6 +2,7 @@
 // Source file: ./pond.proto
 package systems.obscure.servertesting.protos;
 
+import com.google.common.primitives.UnsignedLong;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 
@@ -11,16 +12,16 @@ import static com.squareup.wire.Message.Label.REQUIRED;
 
 public final class Upload extends Message {
 
-  public static final Long DEFAULT_ID = 0L;
+  public static final UnsignedLong DEFAULT_ID = UnsignedLong.valueOf(0);
   public static final Long DEFAULT_SIZE = 0L;
 
   @ProtoField(tag = 1, type = FIXED64, label = REQUIRED)
-  public final Long id;
+  public final UnsignedLong id;
 
   @ProtoField(tag = 2, type = INT64, label = REQUIRED)
   public final Long size;
 
-  public Upload(Long id, Long size) {
+  public Upload(UnsignedLong id, Long size) {
     this.id = id;
     this.size = size;
   }
@@ -52,7 +53,7 @@ public final class Upload extends Message {
 
   public static final class Builder extends Message.Builder<Upload> {
 
-    public Long id;
+    public UnsignedLong id;
     public Long size;
 
     public Builder() {
@@ -65,7 +66,7 @@ public final class Upload extends Message {
       this.size = message.size;
     }
 
-    public Builder id(Long id) {
+    public Builder id(UnsignedLong id) {
       this.id = id;
       return this;
     }

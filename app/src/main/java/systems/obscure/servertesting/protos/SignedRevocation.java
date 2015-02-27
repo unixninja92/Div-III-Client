@@ -2,6 +2,7 @@
 // Source file: ./pond.proto
 package systems.obscure.servertesting.protos;
 
+import com.google.common.primitives.UnsignedInteger;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import okio.ByteString;
@@ -89,16 +90,16 @@ public final class SignedRevocation extends Message {
 
   public static final class Revocation extends Message {
 
-    public static final Integer DEFAULT_GENERATION = 0;
+    public static final UnsignedInteger DEFAULT_GENERATION = UnsignedInteger.valueOf(0);
     public static final ByteString DEFAULT_REVOCATION = ByteString.EMPTY;
 
     @ProtoField(tag = 1, type = FIXED32, label = REQUIRED)
-    public final Integer generation;
+    public final UnsignedInteger generation;
 
     @ProtoField(tag = 2, type = BYTES, label = REQUIRED)
     public final ByteString revocation;
 
-    public Revocation(Integer generation, ByteString revocation) {
+    public Revocation(UnsignedInteger generation, ByteString revocation) {
       this.generation = generation;
       this.revocation = revocation;
     }
@@ -130,7 +131,7 @@ public final class SignedRevocation extends Message {
 
     public static final class Builder extends Message.Builder<Revocation> {
 
-      public Integer generation;
+      public UnsignedInteger generation;
       public ByteString revocation;
 
       public Builder() {
@@ -143,7 +144,7 @@ public final class SignedRevocation extends Message {
         this.revocation = message.revocation;
       }
 
-      public Builder generation(Integer generation) {
+      public Builder generation(UnsignedInteger generation) {
         this.generation = generation;
         return this;
       }

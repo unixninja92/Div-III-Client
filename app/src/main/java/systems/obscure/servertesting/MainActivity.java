@@ -1,18 +1,16 @@
 package systems.obscure.servertesting;
 
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Inet4Address;
-import java.net.InetSocketAddress;
-import java.net.Socket;
+import com.google.common.io.BaseEncoding;
+
+import org.abstractj.kalium.keys.PublicKey;
 
 import systems.obscure.servertesting.client.Client;
+import systems.obscure.servertesting.client.Transport;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -22,23 +20,29 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        byte[] pub = BaseEncoding.base32().decode("HU6S52V5AT444X3UA4GMDUFK2DAKBWPQDOLL6TARQQNKBX2RUMPQ");
+        PublicKey serverKey = new PublicKey(pub);
 
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+        Client client = new Client();
+        client.start();
+        Transport transport = new Transport(client.identity, serverKey);
 
-        Socket serverSocket = new Socket();
-        try {
-            InetSocketAddress serverAddress = new InetSocketAddress(Inet4Address.getByName(address), 16333);
-            serverSocket.connect(serverAddress);
-            InputStream in = serverSocket.getInputStream();
-            OutputStream out = serverSocket.getOutputStream();
-            System.out.println("Is connected:"+serverSocket.isConnected());
-
-            Client client = new Client();
-            client.start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+//        StrictMode.setThreadPolicy(policy);
+//
+//        Socket serverSocket = new Socket();
+//        try {
+//            InetSocketAddress serverAddress = new InetSocketAddress(Inet4Address.getByName(address), 16333);
+//            serverSocket.connect(serverAddress);
+//            InputStream in = serverSocket.getInputStream();
+//            OutputStream out = serverSocket.getOutputStream();
+//            System.out.println("Is connected:"+serverSocket.isConnected());
+//
+//            Client client = new Client();
+//            client.start();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
 

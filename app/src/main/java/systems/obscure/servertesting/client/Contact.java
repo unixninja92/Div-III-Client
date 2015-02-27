@@ -1,5 +1,7 @@
 package systems.obscure.servertesting.client;
 
+import com.google.common.primitives.UnsignedInteger;
+
 import org.abstractj.kalium.keys.PublicKey;
 import org.abstractj.kalium.keys.VerifyKey;
 
@@ -29,7 +31,7 @@ public class Contact {
 
     // generation is the current group generation number that we know for
     // this contact.
-    Long generation;
+    UnsignedInteger generation;
 
     // theirServer is the URL of the contact's home server.
     String theirServer;

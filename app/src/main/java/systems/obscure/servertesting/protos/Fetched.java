@@ -2,6 +2,7 @@
 // Source file: ./pond.proto
 package systems.obscure.servertesting.protos;
 
+import com.google.common.primitives.UnsignedInteger;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import okio.ByteString;
@@ -17,7 +18,7 @@ import static com.squareup.wire.Message.Label.REQUIRED;
 public final class Fetched extends Message {
 
   public static final ByteString DEFAULT_GROUP_SIGNATURE = ByteString.EMPTY;
-  public static final Integer DEFAULT_GENERATION = 0;
+  public static final UnsignedInteger DEFAULT_GENERATION = UnsignedInteger.valueOf(0);
   public static final ByteString DEFAULT_MESSAGE = ByteString.EMPTY;
 
   /**
@@ -30,7 +31,7 @@ public final class Fetched extends Message {
    * generation is the generation number used for delivery.
    */
   @ProtoField(tag = 2, type = FIXED32, label = REQUIRED)
-  public final Integer generation;
+  public final UnsignedInteger generation;
 
   @ProtoField(tag = 3, type = BYTES, label = REQUIRED)
   public final ByteString message;
@@ -38,7 +39,7 @@ public final class Fetched extends Message {
   @ProtoField(tag = 4, label = REQUIRED)
   public final AccountDetails details;
 
-  public Fetched(ByteString group_signature, Integer generation, ByteString message, AccountDetails details) {
+  public Fetched(ByteString group_signature, UnsignedInteger generation, ByteString message, AccountDetails details) {
     this.group_signature = group_signature;
     this.generation = generation;
     this.message = message;
@@ -77,7 +78,7 @@ public final class Fetched extends Message {
   public static final class Builder extends Message.Builder<Fetched> {
 
     public ByteString group_signature;
-    public Integer generation;
+    public UnsignedInteger generation;
     public ByteString message;
     public AccountDetails details;
 
@@ -104,7 +105,7 @@ public final class Fetched extends Message {
     /**
      * generation is the generation number used for delivery.
      */
-    public Builder generation(Integer generation) {
+    public Builder generation(UnsignedInteger generation) {
       this.generation = generation;
       return this;
     }

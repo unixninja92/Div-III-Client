@@ -2,6 +2,7 @@
 // Source file: ./pond.proto
 package systems.obscure.servertesting.protos;
 
+import com.google.common.primitives.UnsignedLong;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import okio.ByteString;
@@ -14,19 +15,19 @@ import static com.squareup.wire.Message.Label.REQUIRED;
 public final class Download extends Message {
 
   public static final ByteString DEFAULT_FROM = ByteString.EMPTY;
-  public static final Long DEFAULT_ID = 0L;
+  public static final UnsignedLong DEFAULT_ID = UnsignedLong.valueOf(0);
   public static final Long DEFAULT_RESUME = 0L;
 
   @ProtoField(tag = 1, type = BYTES, label = REQUIRED)
   public final ByteString from;
 
   @ProtoField(tag = 2, type = FIXED64, label = REQUIRED)
-  public final Long id;
+  public final UnsignedLong id;
 
   @ProtoField(tag = 3, type = INT64)
   public final Long resume;
 
-  public Download(ByteString from, Long id, Long resume) {
+  public Download(ByteString from, UnsignedLong id, Long resume) {
     this.from = from;
     this.id = id;
     this.resume = resume;
@@ -62,7 +63,7 @@ public final class Download extends Message {
   public static final class Builder extends Message.Builder<Download> {
 
     public ByteString from;
-    public Long id;
+    public UnsignedLong id;
     public Long resume;
 
     public Builder() {
@@ -81,7 +82,7 @@ public final class Download extends Message {
       return this;
     }
 
-    public Builder id(Long id) {
+    public Builder id(UnsignedLong id) {
       this.id = id;
       return this;
     }

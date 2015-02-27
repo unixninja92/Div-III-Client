@@ -2,6 +2,7 @@
 // Source file: ./pond.proto
 package systems.obscure.servertesting.protos;
 
+import com.google.common.primitives.UnsignedInteger;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 
@@ -13,23 +14,23 @@ import static com.squareup.wire.Message.Label.REQUIRED;
  */
 public final class AccountDetails extends Message {
 
-  public static final Integer DEFAULT_QUEUE = 0;
-  public static final Integer DEFAULT_MAX_QUEUE = 0;
+  public static final UnsignedInteger DEFAULT_QUEUE = UnsignedInteger.valueOf(0);
+  public static final UnsignedInteger DEFAULT_MAX_QUEUE = UnsignedInteger.valueOf(0);
 
   /**
    * queue is the number of messages waiting at the server.
    */
   @ProtoField(tag = 1, type = UINT32, label = REQUIRED)
-  public final Integer queue;
+  public final UnsignedInteger queue;
 
   /**
    * max_queue is the maximum number of messages that the server will
    * queue for this account.
    */
   @ProtoField(tag = 2, type = UINT32, label = REQUIRED)
-  public final Integer max_queue;
+  public final UnsignedInteger max_queue;
 
-  public AccountDetails(Integer queue, Integer max_queue) {
+  public AccountDetails(UnsignedInteger queue, UnsignedInteger max_queue) {
     this.queue = queue;
     this.max_queue = max_queue;
   }
@@ -61,8 +62,8 @@ public final class AccountDetails extends Message {
 
   public static final class Builder extends Message.Builder<AccountDetails> {
 
-    public Integer queue;
-    public Integer max_queue;
+    public UnsignedInteger queue;
+    public UnsignedInteger max_queue;
 
     public Builder() {
     }
@@ -77,7 +78,7 @@ public final class AccountDetails extends Message {
     /**
      * queue is the number of messages waiting at the server.
      */
-    public Builder queue(Integer queue) {
+    public Builder queue(UnsignedInteger queue) {
       this.queue = queue;
       return this;
     }
@@ -86,7 +87,7 @@ public final class AccountDetails extends Message {
      * max_queue is the maximum number of messages that the server will
      * queue for this account.
      */
-    public Builder max_queue(Integer max_queue) {
+    public Builder max_queue(UnsignedInteger max_queue) {
       this.max_queue = max_queue;
       return this;
     }

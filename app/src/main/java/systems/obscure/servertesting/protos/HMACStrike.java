@@ -2,6 +2,7 @@
 // Source file: ./pond.proto
 package systems.obscure.servertesting.protos;
 
+import com.google.common.primitives.UnsignedLong;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
@@ -22,9 +23,9 @@ public final class HMACStrike extends Message {
    * whether the HMAC should be considered used (0) or revoked (1).
    */
   @ProtoField(tag = 1, type = FIXED64, label = PACKED)
-  public final List<Long> hmacs;
+  public final List<UnsignedLong> hmacs;
 
-  public HMACStrike(List<Long> hmacs) {
+  public HMACStrike(List<UnsignedLong> hmacs) {
     this.hmacs = immutableCopyOf(hmacs);
   }
 
@@ -48,7 +49,7 @@ public final class HMACStrike extends Message {
 
   public static final class Builder extends Message.Builder<HMACStrike> {
 
-    public List<Long> hmacs;
+    public List<UnsignedLong> hmacs;
 
     public Builder() {
     }
@@ -63,7 +64,7 @@ public final class HMACStrike extends Message {
      * hmacs contains a number of 63-bit HMACs. The MSB is used to signal
      * whether the HMAC should be considered used (0) or revoked (1).
      */
-    public Builder hmacs(List<Long> hmacs) {
+    public Builder hmacs(List<UnsignedLong> hmacs) {
       this.hmacs = checkForNulls(hmacs);
       return this;
     }

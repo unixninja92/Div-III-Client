@@ -1,5 +1,7 @@
 package systems.obscure.servertesting.client;
 
+import com.google.common.primitives.UnsignedLong;
+
 import java.util.HashMap;
 
 import systems.obscure.servertesting.protos.ProtoMessage;
@@ -10,10 +12,10 @@ import systems.obscure.servertesting.protos.ProtoMessage;
 // InboxMessage represents a message in the client's inbox. (Acks also appear
 // as InboxMessages, but their message.Body is empty.)
 public class InboxMessage {
-    Long id;
+    UnsignedLong id;
     boolean read = false;
     int receivedTime;
-    Long from;
+    UnsignedLong from;
 
 
     // sealed contained the encrypted message if the contact who sent this

@@ -2,6 +2,7 @@
 // Source file: ./pond.proto
 package systems.obscure.servertesting.protos;
 
+import com.google.common.primitives.UnsignedInteger;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import okio.ByteString;
@@ -24,7 +25,7 @@ public final class KeyExchange extends Message {
   public static final ByteString DEFAULT_DH1 = ByteString.EMPTY;
   public static final ByteString DEFAULT_GROUP = ByteString.EMPTY;
   public static final ByteString DEFAULT_GROUP_KEY = ByteString.EMPTY;
-  public static final Integer DEFAULT_GENERATION = 0;
+  public static final UnsignedInteger DEFAULT_GENERATION = UnsignedInteger.valueOf(0);
 
   /**
    * Ed25519 public key.
@@ -76,9 +77,9 @@ public final class KeyExchange extends Message {
    * The generation number of |group|.
    */
   @ProtoField(tag = 7, type = UINT32, label = REQUIRED)
-  public final Integer generation;
+  public final UnsignedInteger generation;
 
-  public KeyExchange(ByteString public_key, ByteString identity_public, String server, ByteString dh, ByteString dh1, ByteString group, ByteString group_key, Integer generation) {
+  public KeyExchange(ByteString public_key, ByteString identity_public, String server, ByteString dh, ByteString dh1, ByteString group, ByteString group_key, UnsignedInteger generation) {
     this.public_key = public_key;
     this.identity_public = identity_public;
     this.server = server;
@@ -135,7 +136,7 @@ public final class KeyExchange extends Message {
     public ByteString dh1;
     public ByteString group;
     public ByteString group_key;
-    public Integer generation;
+    public UnsignedInteger generation;
 
     public Builder() {
     }
@@ -216,7 +217,7 @@ public final class KeyExchange extends Message {
     /**
      * The generation number of |group|.
      */
-    public Builder generation(Integer generation) {
+    public Builder generation(UnsignedInteger generation) {
       this.generation = generation;
       return this;
     }

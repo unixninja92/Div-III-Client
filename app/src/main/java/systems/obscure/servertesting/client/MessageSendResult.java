@@ -1,5 +1,7 @@
 package systems.obscure.servertesting.client;
 
+import com.google.common.primitives.UnsignedLong;
+
 import systems.obscure.servertesting.protos.SignedRevocation;
 
 /**
@@ -9,7 +11,7 @@ public class MessageSendResult {
     // If the id is zero then a message wasn't actually sent - this is just
     // the transact goroutine poking the UI because the queue has been
     // updated.
-    int id;
+    UnsignedLong id;
 
     // revocation optionally contains a revocation update that resulted
     // from attempting to send a message.

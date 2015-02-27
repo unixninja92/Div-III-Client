@@ -1,5 +1,8 @@
 package systems.obscure.servertesting.client;
 
+import com.google.common.primitives.UnsignedInteger;
+import com.google.common.primitives.UnsignedLong;
+
 import org.abstractj.kalium.crypto.Random;
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.SigningKey;
@@ -36,7 +39,7 @@ public class Client {
 
     // identity is a curve25519 private value that's used to authenticate
     // the client to its home server.
-    KeyPair identity;
+    public KeyPair identity;
 
     // groupPriv is the group private key for the user's delivery group.
     byte[] groupPriv;
@@ -48,7 +51,7 @@ public class Client {
 
     // generation is the generation number of the group private key and is
     // incremented when a member of the group is revoked.
-    Integer generation;
+    UnsignedInteger generation;
 
     // siging Ed25519 keypair.
     SigningKey signingKey;
@@ -98,15 +101,15 @@ public class Client {
         draft.attachments = msg.message.files;
         draft.detachments = msg.message.detached_files;
 
-        long irt = msg.message.in_reply_to;
-        if(irt != 0){
+        UnsignedLong irt = msg.message.in_reply_to;
+        if(!irt.equals(0)){
             // The inReplyTo value of a draft references *our* id for the
             // inbox message. But the InReplyTo field of a pond.Message
             // references's the contact's id for the message. So we need to
             // enumerate the messages in the inbox from that contact and
             // find the one with the matching id.
             for(InboxMessage inboxMsg: inbox) {
-                if(inboxMsg.from == msg.to && inboxMsg.message != null && inboxMsg.message.id == irt){
+                if(inboxMsg.from.equals(msg.to) && inboxMsg.message != null && inboxMsg.message.id.equals(irt)){
                     draft.inReplyTo = inboxMsg.id;
                     break;
                 }
@@ -148,12 +151,12 @@ public class Client {
         return  null;
     }
 
-    public void deleteInboxMsg(long id) {
+    public void deleteInboxMsg(UnsignedLong id) {
         InboxMessage[] newInbox = new InboxMessage[inbox.length];
         int pos = 0;
         for(int i = 0; i < inbox.length; i++){
             InboxMessage inboxMsg = inbox[i];
-            if(inboxMsg.id == id)
+            if(inboxMsg.id.equals(id))
                 continue;
             newInbox[pos++] = inboxMsg;
         }
@@ -167,7 +170,7 @@ public class Client {
         int pos = 0;
         for(int i = 0; i < inbox.length; i++){
             InboxMessage inboxMsg = inbox[i];
-            if(inboxMsg.from == contact.id && inboxMsg.sealed.length > 0 ||
+            if(inboxMsg.from.equals(contact.id) && inboxMsg.sealed.length > 0 ||
                     inboxMsg.message != null && inboxMsg.message.body.size() == 0)
                 continue;
             newInbox[pos++] = inboxMsg;
@@ -175,12 +178,12 @@ public class Client {
         inbox = newInbox;
     }
 
-    public void deleteOutboxMsg(long id) {
+    public void deleteOutboxMsg(UnsignedLong id) {
         QueuedMessage[] newOutbox = new QueuedMessage[outbox.length];
         int pos = 0;
         for(int i = 0; i < outbox.length; i++){
             QueuedMessage outboxMsg = outbox[i];
-            if(outboxMsg.id == id)
+            if(outboxMsg.id.equals(id))
                 continue;
             newOutbox[pos++] = outboxMsg;
         }
@@ -194,5 +197,17 @@ public class Client {
                 return i;
         }
         return -1;
+    }
+
+    public void removeQueuedMessage(int index) {
+        // c.queueMutex must be held before calling this function.
+
+        QueuedMessage[] newQueue = new QueuedMessage[queue.length];
+        int pos = 0;
+        for(int i = 0; i < queue.length; i++){
+            if(i != index)
+                newQueue[pos++] = queue[i];
+        }
+        queue = newQueue;
     }
 }
