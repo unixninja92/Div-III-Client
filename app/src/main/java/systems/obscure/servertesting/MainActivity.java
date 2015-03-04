@@ -9,6 +9,8 @@ import com.google.common.io.BaseEncoding;
 
 import org.abstractj.kalium.keys.PublicKey;
 
+import java.io.IOException;
+
 import systems.obscure.servertesting.client.Client;
 import systems.obscure.servertesting.client.Transport;
 
@@ -20,12 +22,22 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        byte[] pub = BaseEncoding.base32().decode("HU6S52V5AT444X3UA4GMDUFK2DAKBWPQDOLL6TARQQNKBX2RUMPQ");
-        PublicKey serverKey = new PublicKey(pub);
 
-        Client client = new Client();
-        client.start();
-        Transport transport = new Transport(client.identity, serverKey);
+
+        new Thread(new Runnable() {
+            public void run() {
+                byte[] pub = BaseEncoding.base32().decode("HU6S52V5AT444X3UA4GMDUFK2DAKBWPQDOLL6TARQQNKBX2RUMPQ");
+                PublicKey serverKey = new PublicKey(pub);
+                Client client = new Client();
+                client.start();
+                Transport transport = new Transport(client.identity, serverKey);
+                try {
+                    transport.handshake();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
 //        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 //        StrictMode.setThreadPolicy(policy);

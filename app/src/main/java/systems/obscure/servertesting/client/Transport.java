@@ -2,6 +2,7 @@ package systems.obscure.servertesting.client;
 
 import android.os.StrictMode;
 
+import com.google.common.io.ByteStreams;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
 
@@ -9,7 +10,7 @@ import org.abstractj.kalium.crypto.SecretBox;
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.PrivateKey;
 import org.abstractj.kalium.keys.PublicKey;
-import org.whispersystems.curve25519.java.scalarmult;
+import org.whispersystems.curve25519.Curve25519;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -18,12 +19,15 @@ import java.io.UnsupportedEncodingException;
 import java.net.Inet4Address;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.security.InvalidKeyException;
+import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 import javax.crypto.Mac;
 import javax.crypto.ShortBufferException;
+import javax.crypto.spec.SecretKeySpec;
 
 /**
  * @author unixninja92
@@ -87,12 +91,27 @@ public class Transport {
     public Transport(KeyPair i, PublicKey server) {
         identity = i;
         serverIdentity = server;
+        peer = serverIdentity.toBytes();
+
+
+
+        try {
+            byte b = 0x00;
+            serverKeysMagic = createMagic(("server keys").getBytes("UTF-8"));
+            clientKeysMagic = createMagic(("client keys").getBytes("UTF-8"));
+
+            serverProofMagic = createMagic(("server proof").getBytes("UTF-8"));
+            clientProofMagic = createMagic(("client proof").getBytes("UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         serverSocket = new Socket();
         try {
             InetSocketAddress serverAddress = new InetSocketAddress(Inet4Address.getByName(address), 16333);
+//            System.out.println("Test 1");
             serverSocket.connect(serverAddress);
             reader = new BufferedInputStream(serverSocket.getInputStream());
             writer = new BufferedOutputStream(serverSocket.getOutputStream());
@@ -102,17 +121,15 @@ public class Transport {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-        try {
-            byte b = 0x00;
-            serverKeysMagic = ("server keys"+b).getBytes("UTF-8");
-            clientKeysMagic = ("client keys"+b).getBytes("UTF-8");
-
-            serverProofMagic = ("server proof"+b).getBytes("UTF-8");
-            clientProofMagic = ("client proof"+b).getBytes("UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+    private byte[] createMagic(byte[] string){
+//        byte b = 0x00;
+        byte[] newBytes = new byte[string.length+1];
+        for(int i = 0; i<string.length; i++)
+            newBytes[i] = string[i];
+        newBytes[string.length] = 0x00;
+        return newBytes;
     }
 
     public int Write(byte[] buf) throws IOException {
@@ -148,12 +165,12 @@ public class Transport {
         if(readBuffer == null)
             readBuffer = new byte[blockSize+2];
 
-        reader.read(readBuffer, 0, 2);
-        int n = (int)readBuffer[0] | (int)(readBuffer[1] << 8);
+        ByteStreams.readFully(reader, readBuffer, 0, 2);
+        int n = (int)readBuffer[0] | (((int)readBuffer[1])<<8);
         if(n > readBuffer.length)
             throw new IOException("transport: peer's message too large for Read");
 
-        reader.read(readBuffer, 0, n);
+        ByteStreams.readFully(reader, readBuffer, 0, n);
 
         try {
             if (out.length >= n - Constants.SECRETBOX_OVERHEAD) {
@@ -197,7 +214,7 @@ public class Transport {
         if(n != Constants.TRANSPORT_SIZE+2)
             throw new IOException("transport: message wrong length");
 
-        n = (int)buf[0] + ((int)buf[1]) << 8;
+        n = (int)buf[0] + (((int)buf[1])<<8);
 
         byte[] data = Arrays.copyOfRange(buf, 2, buf.length);
         if(n > data.length)
@@ -231,12 +248,14 @@ public class Transport {
     private int read(byte[] data) {
         byte[] lenBytes = new byte[2];
         try {
-            reader.read(lenBytes);
-            int theirLen = (int)lenBytes[1] + (int)lenBytes[2]<<8;
+            ByteStreams.readFully(reader, lenBytes);
+//            reader.read(lenBytes);
+            System.out.println("len[0] = "+ (int)lenBytes[0]+", len[1] = "+ (int)lenBytes[1]);
+            int theirLen = (int)lenBytes[0] + (((int)lenBytes[1])<<8);
             if(theirLen > data.length)
                 throw new IOException("transport: given buffer too small ("+data.length+" vs "+theirLen+")");
             byte[] theirData = Arrays.copyOf(data, theirLen);
-            reader.read(theirData);
+            ByteStreams.readFully(reader, theirData);
             byte[] plain = decrypt(theirData);
             data = Arrays.copyOf(plain, plain.length);
             return plain.length;
@@ -296,8 +315,8 @@ public class Transport {
             handshakeHash.update(ephemeralKeyPair.getPublicKey().toBytes());
             handshakeHash.update(theirEphemeralPublicKey);
 
-            scalarmult.crypto_scalarmult(ephemeralShared,
-                    ephemeralKeyPair.getPrivateKey().toBytes(), theirEphemeralPublicKey);
+            ephemeralShared = Curve25519.calculateAgreement(theirEphemeralPublicKey,
+                    ephemeralKeyPair.getPrivateKey().toBytes());
             setUpKeys(ephemeralShared);
             handshakeClient(handshakeHash, ephemeralKeyPair.getPrivateKey());
         } catch (NoSuchAlgorithmException e) {
@@ -306,18 +325,19 @@ public class Transport {
     }
 
     private void handshakeClient(MessageDigest handshakeHash, PrivateKey ephemeralPrivate) throws IOException {
-        byte[] ephemeralIdentityShared = new byte[32];
-        scalarmult.crypto_scalarmult(ephemeralIdentityShared, ephemeralPrivate.toBytes(), peer);
+        byte[] ephemeralIdentityShared = Curve25519.calculateAgreement(peer, ephemeralPrivate.toBytes());
+        Key ephemIdentShared = new SecretKeySpec(ephemeralIdentityShared, "HmacSHA256");
 
         byte[] digest = handshakeHash.digest();
         try {
             Mac h = Mac.getInstance("HmacSHA256");
-//            h.init() TODO init h with ephemeralIdentityShared
+            h.init(ephemIdentShared);
             h.update(serverProofMagic);
             h.update(digest);
             digest = h.doFinal();
 
             byte[] digestReceived = new byte[digest.length + Constants.SECRETBOX_OVERHEAD];
+            System.out.println("We did the thing!");
             int n = read(digestReceived);
             if(n != digest.length)
                 throw new IOException(shortMessageError);
@@ -328,12 +348,13 @@ public class Transport {
                 throw new IOException("transport: server identity incorrect");
 
             byte[] identityShared = new byte[32];
-            scalarmult.crypto_scalarmult(identityShared, identity.getPrivateKey().toBytes(), peer);
+            identityShared = Curve25519.calculateAgreement(peer, identity.getPrivateKey().toBytes());
+            Key identShared = new SecretKeySpec(identityShared, "HmacSHA256");
 
             handshakeHash.update(digest);
             digest = handshakeHash.digest();
 
-//            h.init(); TODO init h with identityShared
+            h.init(identShared);
             h.update(clientProofMagic);
             h.update(digest);
 
@@ -347,6 +368,8 @@ public class Transport {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (ShortBufferException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
             e.printStackTrace();
         }
     }
