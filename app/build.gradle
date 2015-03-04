@@ -18,8 +18,8 @@ android {
     }
     sourceSets {
         main {
-            jniLibs.srcDirs = ['jniLibs']
-            jni.srcDirs = ['jniLibs']
+            jniLibs.srcDirs = ['src/main/jniLibs']
+            jni.srcDirs = []
         }
     }
     productFlavors {
