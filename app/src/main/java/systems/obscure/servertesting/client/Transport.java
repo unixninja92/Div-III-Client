@@ -110,7 +110,8 @@ public class Transport {
         StrictMode.setThreadPolicy(policy);
         serverSocket = new Socket();
         try {
-            InetSocketAddress serverAddress = new InetSocketAddress(Inet4Address.getByName(address), 16333);
+            InetSocketAddress serverAddress = new InetSocketAddress(Inet4Address.getByAddress(new byte[] { (byte)172, (byte)31, (byte)174, (byte)213 }), 16333);//getByName("172.31.174.213")
+//            InetSocketAddress serverAddress = new InetSocketAddress(Inet4Address.getByName(address), 16333);
 //            System.out.println("Test 1");
             serverSocket.connect(serverAddress);
             reader = new BufferedInputStream(serverSocket.getInputStream());
@@ -233,8 +234,9 @@ public class Transport {
     private int write(byte[] data) {
         byte[] enc = encrypt(data);
         byte[] lenBytes = new byte[2];
-        lenBytes[0] = (byte)enc.length;
-        lenBytes[1] = (byte)(enc.length >> 8);
+        lenBytes[1] = (byte)enc.length;
+        lenBytes[0] = (byte)(enc.length >> 8);
+        System.out.println("write len[0] = "+ (int)lenBytes[0]+", len[1] = "+ (int)lenBytes[1]);
         try {
             writer.write(lenBytes);
             writer.write(enc);
@@ -309,7 +311,7 @@ public class Transport {
         int n = read(theirEphemeralPublicKey);
         if(n != theirEphemeralPublicKey.length)
             throw new IOException(shortMessageError);
-
+//        write(ephemeralKeyPair.getPublicKey().toBytes());
         try {
             MessageDigest handshakeHash = MessageDigest.getInstance("SHA256");
             handshakeHash.update(ephemeralKeyPair.getPublicKey().toBytes());
@@ -317,6 +319,7 @@ public class Transport {
 
             ephemeralShared = Curve25519.calculateAgreement(theirEphemeralPublicKey,
                     ephemeralKeyPair.getPrivateKey().toBytes());
+            write(ephemeralKeyPair.getPublicKey().toBytes());
             setUpKeys(ephemeralShared);
             handshakeClient(handshakeHash, ephemeralKeyPair.getPrivateKey());
         } catch (NoSuchAlgorithmException e) {
