@@ -11,7 +11,6 @@ import org.abstractj.kalium.crypto.SecretBox;
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.PrivateKey;
 import org.abstractj.kalium.keys.PublicKey;
-import org.whispersystems.curve25519.Curve25519;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -27,7 +26,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 import javax.crypto.Mac;
-import javax.crypto.ShortBufferException;
 import javax.crypto.spec.SecretKeySpec;
 
 //import org.abstractj.kalium.c
@@ -256,7 +254,7 @@ public class Transport {
         try {
             ByteStreams.readFully(reader, lenBytes);
 //            reader.read(lenBytes);
-            System.out.println("len[1] = "+ (int)lenBytes[1]+", len[0] = "+ (int)lenBytes[0]);
+//            System.out.println("len[1] = "+ (int)lenBytes[1]+", len[0] = "+ (int)lenBytes[0]);
             int theirLen = (int)lenBytes[0] + (((int)lenBytes[1])<<8);
             if(theirLen > data.length)
                 throw new IOException("transport: given buffer too small ("+data.length+" vs "+theirLen+")");
@@ -266,7 +264,7 @@ public class Transport {
             ByteStreams.readFully(reader, theirData);
             byte[] plain = decrypt(theirData);
 //            printBytes(plain);
-            System.out.println("plain len: "+plain.length);
+//            System.out.println("plain len: "+plain.length);
 //            if(plain.length != theirData.length)
 //                throw new IOException(shortMessageError);
 //            data = Arrays.copyOf(plain, plain.length);
@@ -280,14 +278,14 @@ public class Transport {
     private byte[] encrypt(byte[] data) {
         if(!writeKeyValid)
             return data;
-        System.out.println("Encrypt len: "+data.length);
+//        System.out.println("Encrypt len: "+data.length);
         byte[] enc = writeBox.encrypt(writeSequence, data);
         incSequence(writeSequence);
         return enc;
     }
 
     private byte[] decrypt(byte[] data) {
-        System.out.println("Decrypt len: "+data.length);
+//        System.out.println("Decrypt len: "+data.length);
         if(!readKeyValid)
             return data;
         byte[] plain = readBox.decrypt(readSequence, data);
@@ -332,7 +330,7 @@ public class Transport {
             MessageDigest handshakeHash = MessageDigest.getInstance("SHA256");
             handshakeHash.update(ephemeralKeyPair.getPublicKey().toBytes());
             handshakeHash.update(theirEphemeralPublicKey);
-        System.out.println(Curve25519.isNative());
+//        System.out.println(Curve25519.isNative());
 
             Point theirPoint = new Point(theirEphemeralPublicKey);
             ephemeralShared = theirPoint.mult(ephemeralKeyPair.getPrivateKey().toBytes()).toBytes();
@@ -340,62 +338,75 @@ public class Transport {
 
 //            write(ephemeralKeyPair.getPublicKey().toBytes());
             setUpKeys(ephemeralShared);
-            handshakeClient(handshakeHash, ephemeralKeyPair.getPrivateKey());
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-    }
+//            handshakeClient(handshakeHash, ephemeralKeyPair.getPrivateKey());
+            PrivateKey ephemeralPrivate = ephemeralKeyPair.getPrivateKey();
 
-    private void handshakeClient(MessageDigest handshakeHash, PrivateKey ephemeralPrivate) throws IOException {
-        Point peerP = new Point(peer);
-        byte[] ephemeralIdentityShared = peerP.mult(ephemeralPrivate.toBytes()).toBytes();
-        Key ephemIdentShared = new SecretKeySpec(ephemeralIdentityShared, "HmacSHA256");
-        printBytes(ephemeralIdentityShared);
-        byte[] digest = handshakeHash.digest();
-        try {
-            Mac h = Mac.getInstance("HmacSHA256");
-            h.init(ephemIdentShared);
-            h.update(serverProofMagic);
-            h.update(digest);
-            digest = h.doFinal();
+            Point peerP = new Point(peer);
+            byte[] ephemeralIdentityShared = peerP.mult(ephemeralPrivate.toBytes()).toBytes();
+            Key ephemIdentShared = new SecretKeySpec(ephemeralIdentityShared, "HmacSHA256");
+            printBytes(ephemeralIdentityShared);
+            byte[] digest = handshakeHash.digest();
+            try {
+                Mac h = Mac.getInstance("HmacSHA256");
+                h.init(ephemIdentShared);
+                h.update(serverProofMagic);
+                h.update(digest);
+                digest = h.doFinal();
 
-            byte[] digestReceived = read(new byte[digest.length + Constants.SECRETBOX_OVERHEAD]);
+                byte[] digestReceived = read(new byte[digest.length + Constants.SECRETBOX_OVERHEAD]);
 //            int n = read(digestReceived);
 //            if(n != digest.length)
 //                throw new IOException(shortMessageError);
 
 //            digestReceived = Arrays.copyOf(digestReceived, n);
 
-            if(!MessageDigest.isEqual(digest, digestReceived))
-                throw new IOException("transport: server identity incorrect");
+                if(!MessageDigest.isEqual(digest, digestReceived))
+                    throw new IOException("transport: server identity incorrect");
 
-            byte[] identityShared = peerP.mult(identity.getPrivateKey().toBytes()).toBytes();
-            Key identShared = new SecretKeySpec(identityShared, "HmacSHA256");
-            printBytes(identityShared);
-            handshakeHash.update(digest);
-            digest = handshakeHash.digest();
+                byte[] identityShared = peerP.mult(identity.getPrivateKey().toBytes()).toBytes();
+                Key identShared = new SecretKeySpec(identityShared, "HmacSHA256");
+                printBytes(identityShared);
 
-            h.init(identShared);
-            h.update(clientProofMagic);
-            h.update(digest);
+                handshakeHash.update(ephemeralKeyPair.getPublicKey().toBytes());
+                handshakeHash.update(theirEphemeralPublicKey);
+                handshakeHash.update(digest);
+                digest = handshakeHash.digest();
+//                System.out.print("mac of mac: ");
+                printBytes(digest);
 
-            byte[] finalMessage = new byte[32+32];//pubkey + sha256
-            byte[] pub = identity.getPublicKey().toBytes();
-            for(int i = 0; i < pub.length; i++)
-                finalMessage[i] = pub[i];
-            h.doFinal(finalMessage, 32);
+                h.reset();
+                h.init(identShared);
+                h.update(clientProofMagic);
+                h.update(digest);
 
-            System.out.println("We did the thing!");
-            write(finalMessage);
-            System.out.println("We sent the thing!");
+                byte[] finalMac = h.doFinal();
+                printBytes(finalMac);
+            printBytes(digest);
+                byte[] pub = identity.getPublicKey().toBytes();
+                byte[] finalMessage = new byte[pub.length+finalMac.length];//pubkey + sha256
+                for(int i = 0; i < pub.length; i++)
+                    finalMessage[i] = pub[i];
+                for(int i = 0; i < finalMac.length; i++)
+                    finalMessage[pub.length+i] = finalMac[i];
+//            h.doFinal(finalMessage, 32);
+
+//                System.out.println("We did the thing!");
+                write(finalMessage);
+//                System.out.println("We sent the thing!");
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+//        } catch (ShortBufferException e) {
+//            e.printStackTrace();
+            } catch (InvalidKeyException e) {
+                e.printStackTrace();
+            }
+
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (ShortBufferException e) {
-            e.printStackTrace();
-        } catch (InvalidKeyException e) {
             e.printStackTrace();
         }
     }
+
+
 
     private byte[] incSequence(byte[] seq) {
         int n = 1;
