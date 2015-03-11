@@ -1,17 +1,22 @@
 package systems.obscure.servertesting.client;
 
-import com.google.common.primitives.UnsignedInteger;
+import com.google.common.io.BaseEncoding;
 import com.google.common.primitives.UnsignedLong;
+import com.google.protobuf.ByteString;
 
-import org.abstractj.kalium.crypto.Random;
 import org.abstractj.kalium.keys.KeyPair;
+import org.abstractj.kalium.keys.PublicKey;
 import org.abstractj.kalium.keys.SigningKey;
 
+import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
+
+import systems.obscure.servertesting.protos.Pond;
 
 /**
  * @author unixninja92
@@ -49,14 +54,16 @@ public class Client {
     // the time of the revocation.
     byte[][] preGroupPriv;
 
+    byte[] hmacKey = new byte[32];
+
     // generation is the generation number of the group private key and is
     // incremented when a member of the group is revoked.
-    UnsignedInteger generation;
+    Integer generation;
 
     // siging Ed25519 keypair.
     SigningKey signingKey;
 
-    Random rand;
+    SecureRandom rand;
 
     // outbox contains all outgoing messages.
     QueuedMessage[] outbox;
@@ -70,23 +77,31 @@ public class Client {
 
     HashMap<Long, Boolean> usedIds;
 
+    Transport transport;
+
 
     public void start() {
         boolean newAccount = true;
 
         if(newAccount) {
             try {
-                SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
+                rand = SecureRandom.getInstance("SHA1PRNG");
                 MessageDigest digest = MessageDigest.getInstance("SHA256");
                 byte[] seed = new byte[32];
-                random.nextBytes(seed);
+                rand.nextBytes(seed);
                 signingKey = new SigningKey(digest.digest(seed));
                 identity = new KeyPair();
+                rand.nextBytes(hmacKey);
 
+                byte[] pub = BaseEncoding.base32().decode("RX4SBLINCG6TUCR7FJYMNNSA33QAPVJAEYA5ROT6QG4IPX7FXE7Q");
+                PublicKey serverKey = new PublicKey(pub);
+                transport = new Transport(identity, serverKey);
+                transport.handshake();
+                doCreateAccount();
 
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
-            } catch (Exception e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
@@ -209,5 +224,36 @@ public class Client {
                 newQueue[pos++] = queue[i];
         }
         queue = newQueue;
+    }
+
+    public void doCreateAccount() {
+        byte[] gen = new byte[4];
+        rand.nextBytes(gen);
+        generation = ByteBuffer.wrap(gen).getInt();
+
+        Pond.NewAccount.Builder newAccount = Pond.NewAccount.newBuilder();
+        newAccount.setGeneration(generation);
+        newAccount.setGroup(ByteString.copyFrom(hmacKey));
+        newAccount.setHmacKey(ByteString.copyFrom(hmacKey));
+//        NewAccount.Builder newAccount = new NewAccount.Builder();
+//        newAccount.generation(generation);
+//        newAccount.group(ByteString.of(hmacKey));
+//        newAccount.hmac_key(ByteString.of(hmacKey));
+
+        Pond.Request.Builder request = Pond.Request.newBuilder();
+        request.setNewAccount(newAccount);
+//        request.new_account(newAccount.build());
+//        NewAccount newAccount = new NewAccount(generation, ByteString.of(hmacKey), null);
+//        Request request = new Request(newAccount, null, null, null, null, null, null, null);
+
+        try {
+            transport.writeProto(request.build());
+            Pond.Reply reply = transport.readProto();
+            System.out.println(reply.getAccountCreated().getDetails().toString());
+//            System.out.println(reply.account_created.details.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

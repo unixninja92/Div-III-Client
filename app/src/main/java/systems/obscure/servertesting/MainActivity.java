@@ -5,19 +5,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.common.io.BaseEncoding;
-
-import org.abstractj.kalium.keys.PublicKey;
-
-import java.io.IOException;
-
 import systems.obscure.servertesting.client.Client;
-import systems.obscure.servertesting.client.Transport;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    String address = "zkpp.obscure.systems";
+//    String address = "zkpp.obscure.systems";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,16 +19,16 @@ public class MainActivity extends ActionBarActivity {
 
         new Thread(new Runnable() {
             public void run() {
-                byte[] pub = BaseEncoding.base32().decode("RX4SBLINCG6TUCR7FJYMNNSA33QAPVJAEYA5ROT6QG4IPX7FXE7Q");
-                PublicKey serverKey = new PublicKey(pub);
+//                byte[] pub = BaseEncoding.base32().decode("RX4SBLINCG6TUCR7FJYMNNSA33QAPVJAEYA5ROT6QG4IPX7FXE7Q");
+//                PublicKey serverKey = new PublicKey(pub);
                 Client client = new Client();
                 client.start();
-                Transport transport = new Transport(client.identity, serverKey);
-                try {
-                    transport.handshake();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+//                Transport transport = new Transport(client.identity, serverKey);
+//                try {
+//                    transport.handshake();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
             }
         }).start();
 

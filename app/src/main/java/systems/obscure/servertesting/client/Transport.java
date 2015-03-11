@@ -3,8 +3,7 @@ package systems.obscure.servertesting.client;
 import android.os.StrictMode;
 
 import com.google.common.io.ByteStreams;
-import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
+import com.google.protobuf.Message;
 
 import org.abstractj.kalium.crypto.Point;
 import org.abstractj.kalium.crypto.SecretBox;
@@ -27,6 +26,12 @@ import java.util.Arrays;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+
+import systems.obscure.servertesting.protos.Pond;
+
+//import com.google.protobuf.
+//import com.squareup.wire.Message;
+//import com.squareup.wire.Wire;
 
 //import org.abstractj.kalium.c
 
@@ -210,7 +215,7 @@ public class Transport {
         write(buf);
     }
 
-    public Message readProto(Class proto) throws IOException {
+    public Pond.Reply readProto() throws IOException {
         byte[] buf = new byte[Constants.TRANSPORT_SIZE+2+Constants.SECRETBOX_OVERHEAD];
         buf = read(buf);
         int n = buf.length;
@@ -222,8 +227,10 @@ public class Transport {
         byte[] data = Arrays.copyOfRange(buf, 2, buf.length);
         if(n > data.length)
             throw new IOException("transport: corrupt message");
-        Wire wire = new Wire();
-        return wire.parseFrom(data, proto);
+//        Wire wire = new Wire();
+        Pond.Reply.parseFrom(data);
+//        requestParser.parsePartialFrom(data);
+        return Pond.Reply.parseFrom(data);
     }
 
     public void Close() throws IOException {
