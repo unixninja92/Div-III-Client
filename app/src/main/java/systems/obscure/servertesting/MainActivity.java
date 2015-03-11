@@ -17,7 +17,7 @@ import systems.obscure.servertesting.client.Transport;
 
 public class MainActivity extends ActionBarActivity {
 
-    String address = "whirlpool.obscure.systems";
+    String address = "zkpp.obscure.systems";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
 
         new Thread(new Runnable() {
             public void run() {
-                byte[] pub = BaseEncoding.base32().decode("HU6S52V5AT444X3UA4GMDUFK2DAKBWPQDOLL6TARQQNKBX2RUMPQ");
+                byte[] pub = BaseEncoding.base32().decode("RX4SBLINCG6TUCR7FJYMNNSA33QAPVJAEYA5ROT6QG4IPX7FXE7Q");
                 PublicKey serverKey = new PublicKey(pub);
                 Client client = new Client();
                 client.start();
