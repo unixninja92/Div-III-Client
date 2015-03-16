@@ -338,9 +338,10 @@ public class Transport {
             handshakeHash.update(ephemeralKeyPair.getPublicKey().toBytes());
             handshakeHash.update(theirEphemeralPublicKey);
 //        System.out.println(Curve25519.isNative());
-
+//            Curve25519 curve25519 =  Curve25519.getInstance(Curve25519.BEST);
             Point theirPoint = new Point(theirEphemeralPublicKey);
             ephemeralShared = theirPoint.mult(ephemeralKeyPair.getPrivateKey().toBytes()).toBytes();
+//            ephemeralShared = curve25519.calculateAgreement(theirEphemeralPublicKey, ephemeralKeyPair.getPrivateKey().toBytes());
             printBytes(ephemeralShared);
 
 //            write(ephemeralKeyPair.getPublicKey().toBytes());
