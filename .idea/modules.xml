@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/libs/Android.Ed25519/Android.Ed25519/Android.Ed25519.iml" filepath="$PROJECT_DIR$/libs/Android.Ed25519/Android.Ed25519/Android.Ed25519.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ServerTesting.iml" filepath="$PROJECT_DIR$/ServerTesting.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Div-III-ServerTesting.iml" filepath="$PROJECT_DIR$/Div-III-ServerTesting.iml" />
       <module fileurl="file://$PROJECT_DIR$/ServerTestingWithoutTor.iml" filepath="$PROJECT_DIR$/ServerTestingWithoutTor.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
