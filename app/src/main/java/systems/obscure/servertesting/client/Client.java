@@ -8,7 +8,6 @@ import org.abstractj.kalium.keys.PublicKey;
 import org.abstractj.kalium.keys.SigningKey;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -17,6 +16,7 @@ import java.util.Map;
 
 import okio.ByteString;
 import systems.obscure.servertesting.protos.NewAccount;
+import systems.obscure.servertesting.protos.Reply;
 import systems.obscure.servertesting.protos.Request;
 
 /**
@@ -99,6 +99,9 @@ public class Client {
 
                 transport = new Transport(identity, serverKey);
                 transport.handshake();
+
+                doCreateAccount();
+                transport.Close();
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -227,9 +230,11 @@ public class Client {
     }
 
     public void doCreateAccount() {
-        byte[] gen = new byte[4];
-        rand.nextBytes(gen);
-        generation = ByteBuffer.wrap(gen).getInt();
+//        byte[] gen = new byte[4];
+//        rand.nextBytes(gen);
+        generation = 0;//ByteBuffer.wrap(gen).getInt();
+
+        rand.nextBytes(hmacKey);
 
 //        Pond.NewAccount.Builder newAccount = Pond.NewAccount.newBuilder();
 //        newAccount.setGeneration(generation);
@@ -243,11 +248,12 @@ public class Client {
 //        Pond.Request.Builder request = Pond.Request.newBuilder();
 //        request.setNewAccount(newAccount);
 //        request.new_account(newAccount.build());
-        NewAccount newAccount = new NewAccount(generation, ByteString.of(hmacKey), null);
+        NewAccount newAccount = new NewAccount(generation, ByteString.of(hmacKey), ByteString.of(hmacKey));
         Request request = new Request(newAccount, null, null, null, null, null, null, null);
 
         try {
             transport.writeProto(request);
+            Reply reply = (Reply) transport.readProto(Reply.class);
 //            Pond.Reply reply = transport.readProto();
 //            System.out.println(reply.getAccountCreated().getDetails().toString());
 //            System.out.println(reply.account_created.details.toString());

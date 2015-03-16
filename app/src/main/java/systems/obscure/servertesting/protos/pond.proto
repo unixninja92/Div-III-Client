@@ -1,4 +1,4 @@
-package systems.obscure.servertesting.protos;
+package protos;
 
 // This protocol buffer file defines the protocol between Pond clients and
 // servers, and between clients directly.
@@ -92,7 +92,7 @@ message NewAccount {
 	required fixed32 generation = 1;
 	// group contains the serialised bbssig.Group for authenticating
 	// deliveries to this account.
-	required bytes group = 2;
+	optional bytes group = 2;
 	// hmac_key contains an HMAC key used to authenticate delivery
 	// attempts.
 	optional bytes hmac_key = 3;
@@ -145,7 +145,7 @@ message Fetch {
 // delivery.
 message Fetched {
 	// group_signature is the group signature presented by the sender.
-	required bytes group_signature = 1;
+	optional bytes group_signature = 1;
 	// generation is the generation number used for delivery.
 	required fixed32 generation = 2;
 	required bytes message = 3;
@@ -221,9 +221,9 @@ message KeyExchange {
 	// ratchet is being used.
 	optional bytes dh1 = 8;
 	// A serialised bbssig.Group.
-	required bytes group = 5;
+	optional bytes group = 5;
 	// A bbssig.PrivateKey to authorise message delivery.
-	required bytes group_key = 6;
+	optional bytes group_key = 6;
 	// The generation number of |group|.
 	required uint32 generation = 7;
 }
