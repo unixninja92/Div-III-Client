@@ -1,10 +1,10 @@
-package systems.obscure.servertesting.client;
+package systems.obscure.client.client;
 
 import com.google.common.primitives.UnsignedLong;
 
 import java.util.HashMap;
 
-import systems.obscure.servertesting.protos.Pond;
+import systems.obscure.client.protos.Pond;
 
 /**
  * @author unixninja92

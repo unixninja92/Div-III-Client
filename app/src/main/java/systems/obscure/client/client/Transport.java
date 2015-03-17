@@ -1,4 +1,4 @@
-package systems.obscure.servertesting.client;
+package systems.obscure.client.client;
 
 import android.os.StrictMode;
 
@@ -27,7 +27,7 @@ import java.util.Arrays;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-import systems.obscure.servertesting.protos.Pond;
+import systems.obscure.client.protos.Pond;
 
 //import com.google.protobuf.
 //import com.squareup.wire.Message;

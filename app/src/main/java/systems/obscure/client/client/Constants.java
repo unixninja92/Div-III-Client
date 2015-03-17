@@ -1,4 +1,4 @@
-package systems.obscure.servertesting.client;
+package systems.obscure.client.client;
 
 /**
  * @author unixninja92

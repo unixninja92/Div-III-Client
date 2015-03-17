@@ -1,6 +1,6 @@
-package systems.obscure.servertesting.client;
+package systems.obscure.client.client;
 
-import systems.obscure.servertesting.protos.Pond;
+import systems.obscure.client.protos.Pond;
 
 /**
  * @author unixninja92

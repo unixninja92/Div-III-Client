@@ -4,7 +4,7 @@ android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
     defaultConfig {
-        applicationId 'systems.obscure.servertesting'
+        applicationId 'systems.obscure.client'
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
