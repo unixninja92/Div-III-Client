@@ -1,9 +1,13 @@
 package systems.obscure.client;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import org.thoughtcrime.securesms.ConversationListActivity;
 
 import info.guardianproject.onionkit.ui.OrbotHelper;
 import systems.obscure.client.client.Client;
@@ -17,7 +21,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        System.out.println("We started!!");
 
 //        new Thread(new Runnable() {
 //            public void run() {
@@ -34,14 +38,14 @@ public class MainActivity extends ActionBarActivity {
 
         OrbotHelper oc = new OrbotHelper(this);
 
-//        if (!oc.isOrbotInstalled())
-//        {
-//            oc.promptToInstall(this);
-//        }
-//        else if (!oc.isOrbotRunning())
-//        {
-//            oc.requestOrbotStart(this);
-//        }
+        if (!oc.isOrbotInstalled())
+        {
+            oc.promptToInstall(this);
+        }
+        else if (!oc.isOrbotRunning())
+        {
+            oc.requestOrbotStart(this);
+        }
 
         if(clientThread == null) {
             clientThread = new Thread(new Runnable() {
@@ -75,5 +79,25 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void launchContacts(View view) {
+        Intent contacts = new Intent(MainActivity.this, ContactsListActivity.class);
+        startActivity(contacts);
+    }
+
+    public void launchCamera(View view) {
+        Intent camera = new Intent(MainActivity.this, CameraActivity.class);
+        startActivity(camera);
+    }
+
+    public void launchPicture(View view) {
+        Intent contacts = new Intent(MainActivity.this, PictureActivity.class);
+        startActivity(contacts);
+    }
+
+    public void launchMessages(View view) {
+        Intent messages = new Intent(MainActivity.this, ConversationListActivity.class);
+        startActivity(messages);
     }
 }

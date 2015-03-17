@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string-array name="language_entries">
+      <item>@string/preferences__default</item>
+      <item>English</item>
+      <item>Arabic العربية</item>
+      <item>Bulgarian български</item>
+      <item>Burmese မြန်မာစာ</item>
+      <item>Català</item>
+      <item>Čeština</item>
+      <item>Chinese 中国的</item>
+      <item>Dansk</item>
+      <item>Deutsch</item>
+      <item>Español</item>
+      <item>Français</item>
+      <item>Greek ελληνικά</item>
+      <item>Hebrew עברית</item>
+      <item>Hrvatski</item>
+      <item>Indonesia</item>
+      <item>Italiano</item>
+      <item>Japanese 日本人</item>
+      <item>Kannada ಕನ್ನಡ</item>
+      <item>Magyar</item>
+      <item>Nederlands</item>
+      <item>Norsk</item>
+      <item>Polski</item>
+      <item>Português</item>
+      <item>Português do Brasil</item>
+      <item>Român</item>
+      <item>Russian Pусский</item>
+      <item>Serbian српски</item>
+      <item>Slovenščina</item>
+      <item>Slovenský</item>
+      <item>Suomi</item>
+      <item>Svenska</item>
+      <item>Tibetan བོད་སྐད།</item>
+      <item>Türkçe</item>
+      <item>Ukrainian Український</item>
+  </string-array>
+
+  <array name="avatar_colors">
+    <item>#6dcaec</item>
+    <item>#cf9fe7</item>
+    <item>#b6db49</item>
+    <item>#ffd060</item>
+    <item>#ff7979</item>
+
+    <item>#2cb1e1</item>
+    <item>#c182e0</item>
+    <item>#92c500</item>
+    <item>#ffb61c</item>
+    <item>#f83a3a</item>
+  </array>
+
+  <string-array name="language_values">
+      <item>zz</item>
+      <item>en</item>
+      <item>ar</item>
+      <item>bg</item>
+      <item>my</item>
+      <item>ca</item>
+      <item>cs</item>
+      <item>zh_CN</item>
+      <item>da</item>
+      <item>de</item>
+      <item>es</item>
+      <item>fr</item>
+      <item>el</item>
+      <item>he</item>
+      <item>hr</item>
+      <item>id</item>
+      <item>it</item>
+      <item>ja</item>
+      <item>kn_IN</item>
+      <item>hu</item>
+      <item>nl</item>
+      <item>no</item>
+      <item>pl</item>
+      <item>pt</item>
+      <item>pt_BR</item>
+      <item>ro</item>
+      <item>ru</item>
+      <item>sr</item>
+      <item>sl</item>
+      <item>sk</item>
+      <item>fi</item>
+      <item>sv</item>
+      <item>bo</item>
+      <item>tr</item>
+      <item>uk</item>
+  </string-array>
+
+  <string-array name="minutes_hours">
+  	<item>@string/preferences__minutes</item>
+  	<item>@string/preferences__hours</item>
+  </string-array>
+
+  <string-array name="pref_theme_entries">
+      <item>@string/preferences__light_theme</item>
+      <item>@string/preferences__dark_theme</item>
+  </string-array>
+
+  <string-array name="pref_theme_values" translatable="false">
+      <item>light</item>
+      <item>dark</item>
+  </string-array>
+
+  <string-array name="pref_led_color_entries">
+    <item>@string/preferences__green</item>
+    <item>@string/preferences__red</item>
+    <item>@string/preferences__blue</item>
+    <item>@string/preferences__orange</item>
+    <item>@string/preferences__cyan</item>
+    <item>@string/preferences__magenta</item>
+    <item>@string/preferences__white</item>
+    <item>@string/preferences__none</item>
+  </string-array>
+  
+
+  <string-array name="pref_led_color_values" translatable="false">
+    <item>green</item>
+    <item>red</item>
+    <item>blue</item>
+    <item>yellow</item>
+    <item>cyan</item>
+    <item>magenta</item>
+    <item>white</item>
+    <item>none</item>
+  </string-array>
+  
+  <string-array name="pref_led_blink_pattern_entries">
+    <item>@string/preferences__fast</item>
+    <item>@string/preferences__normal</item>
+    <item>@string/preferences__slow</item>
+    <item>@string/preferences__custom</item>
+  </string-array>
+
+  <string-array name="pref_led_blink_pattern_values" translatable="false">
+    <item>300,300</item>
+    <item>500,2000</item>
+    <item>3000,3000</item>
+    <item>custom</item>
+  </string-array>
+
+  <string-array name="transport_selection_entries_text">
+    <item>@string/ConversationActivity_transport_insecure_sms</item>
+    <item>@string/ConversationActivity_transport_secure_sms</item>
+    <item>@string/ConversationActivity_transport_textsecure</item>
+  </string-array>
+
+  <string-array name="transport_selection_entries_media">
+    <item>@string/ConversationActivity_transport_insecure_mms</item>
+    <item>@string/ConversationActivity_transport_secure_mms</item>
+    <item>@string/ConversationActivity_transport_textsecure</item>
+  </string-array>
+
+  <string-array name="transport_selection_entries_compose_text">
+    <item>@string/conversation_activity__type_message_sms_insecure</item>
+    <item>@string/conversation_activity__type_message_sms_secure</item>
+    <item>@string/conversation_activity__type_message_push</item>
+  </string-array>
+
+  <string-array name="transport_selection_entries_compose_media">
+    <item>@string/conversation_activity__type_message_mms_insecure</item>
+    <item>@string/conversation_activity__type_message_mms_secure</item>
+    <item>@string/conversation_activity__type_message_push</item>
+  </string-array>
+
+  <string-array name="transport_selection_values">
+    <item>insecure_sms</item>
+    <item>secure_sms</item>
+    <item>textsecure</item>
+  </string-array>
+
+  <string-array name="transport_selection_icons_light">
+    <item>@drawable/ic_send_sms_insecure</item>
+    <item>@drawable/ic_send_sms_secure</item>
+    <item>@drawable/ic_send_push</item>
+  </string-array>
+
+  <string-array name="transport_selection_icons_dark">
+    <item>@drawable/ic_send_sms_insecure_dark</item>
+    <item>@drawable/ic_send_sms_secure</item>
+    <item>@drawable/ic_send_push</item>
+  </string-array>
+
+  <string-array name="pref_repeat_alerts_entries">
+      <item>@string/preferences__never</item>
+      <item>@string/preferences__one_time</item>
+      <item>@string/preferences__two_times</item>
+      <item>@string/preferences__three_times</item>
+      <item>@string/preferences__five_times</item>
+      <item>@string/preferences__ten_times</item>
+  </string-array>
+
+  <string-array name="pref_repeat_alerts_values" translatable="false">
+      <item>0</item>
+      <item>1</item>
+      <item>2</item>
+      <item>3</item>
+      <item>5</item>
+      <item>10</item>
+  </string-array>
+</resources>
