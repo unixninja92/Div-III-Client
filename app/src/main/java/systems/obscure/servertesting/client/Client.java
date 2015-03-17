@@ -112,19 +112,19 @@ public class Client {
         draft.id = msg.id;
         //TODO draft.created = msg.created;
         draft.to = msg.to;
-        draft.body = msg.message.body.toString();
-        draft.attachments = msg.message.files;
-        draft.detachments = msg.message.detached_files;
+        draft.body = msg.message.getBody().toString();
+        draft.attachments = msg.message.getFilesList();
+        draft.detachments = msg.message.getDetachedFilesList();
 
-        UnsignedLong irt = msg.message.in_reply_to;
-        if(!irt.equals(0)){
+        long irt = msg.message.getInReplyTo();
+        if(irt != 0){
             // The inReplyTo value of a draft references *our* id for the
             // inbox message. But the InReplyTo field of a pond.Message
             // references's the contact's id for the message. So we need to
             // enumerate the messages in the inbox from that contact and
             // find the one with the matching id.
             for(InboxMessage inboxMsg: inbox) {
-                if(inboxMsg.from.equals(msg.to) && inboxMsg.message != null && inboxMsg.message.id.equals(irt)){
+                if(inboxMsg.from.equals(msg.to) && inboxMsg.message != null && inboxMsg.message.getId() == irt){
                     draft.inReplyTo = inboxMsg.id;
                     break;
                 }
@@ -186,7 +186,7 @@ public class Client {
         for(int i = 0; i < inbox.length; i++){
             InboxMessage inboxMsg = inbox[i];
             if(inboxMsg.from.equals(contact.id) && inboxMsg.sealed.length > 0 ||
-                    inboxMsg.message != null && inboxMsg.message.body.size() == 0)
+                    inboxMsg.message != null && inboxMsg.message.getBody().size() == 0)
                 continue;
             newInbox[pos++] = inboxMsg;
         }
@@ -249,11 +249,21 @@ public class Client {
         try {
             transport.writeProto(request.build());
             Pond.Reply reply = transport.readProto();
-            System.out.println(reply.getAccountCreated().getDetails().toString());
+            replyToError(reply);
+//            System.out.println(reply.getAccountCreated().getDetails().toString());
 //            System.out.println(reply.account_created.details.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+    public void replyToError(Pond.Reply reply) throws IOException {
+        if(reply.hasStatus() || reply.getStatus() == Pond.Reply.Status.OK)
+            return;
+        if(reply.getStatus().getNumber()<29 && reply.getStatus().getNumber()>=0)
+            throw new IOException("error from server: "+reply.getStatus());
+        else
+            throw new IOException("unknown error from server: "+reply.getStatus());
     }
 }

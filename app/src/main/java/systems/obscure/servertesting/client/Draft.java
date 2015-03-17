@@ -5,7 +5,7 @@ import com.google.common.primitives.UnsignedLong;
 import java.util.HashMap;
 import java.util.List;
 
-import systems.obscure.servertesting.protos.ProtoMessage;
+import systems.obscure.servertesting.protos.Pond;
 
 /**
  * @author unixninja92
@@ -16,8 +16,8 @@ public class Draft {
     UnsignedLong to;
     String body;
     UnsignedLong inReplyTo;
-    List<ProtoMessage.Attachment> attachments;
-    List<ProtoMessage.Detachment> detachments;
+    List<Pond.Message.Attachment> attachments;
+    List<Pond.Message.Detachment> detachments;
 
     // pendingDetachments is only used by the GTK UI.
     HashMap<Long, PendingDetachment> pendingDetachments;

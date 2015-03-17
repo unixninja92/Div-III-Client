@@ -1,6 +1,6 @@
 package systems.obscure.servertesting.client;
 
-import systems.obscure.servertesting.protos.Request;
+import systems.obscure.servertesting.protos.Pond;
 
 /**
  * @author unixninja92
@@ -10,5 +10,5 @@ import systems.obscure.servertesting.protos.Request;
 // delivery.
 public class SigningRequest {
     QueuedMessage msg;
-    Request request; //TODO make chan
+    Pond.Request request; //TODO make chan
 }

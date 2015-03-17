@@ -4,7 +4,7 @@ import com.google.common.primitives.UnsignedLong;
 
 import java.util.HashMap;
 
-import systems.obscure.servertesting.protos.ProtoMessage;
+import systems.obscure.servertesting.protos.Pond;
 
 /**
  * @author unixninja92
@@ -25,7 +25,7 @@ public class InboxMessage {
 
     // message may be nil if the contact who sent this is pending. In this
     // case, sealed with contain the encrypted message.
-    ProtoMessage message;
+    Pond.Message message;
 
     // retained is true if the user has chosen to retain this message -
     // i.e. to opt it out of the usual, time-based, auto-deletion.
@@ -37,7 +37,7 @@ public class InboxMessage {
         if(message == null)
             return "(unknown)";
         else
-            return message.time.toString();//TODO format dat time!!!
+            return ""+message.getTime();//TODO format dat time!!!
     }
 
     public int getEraserTime(){
@@ -47,8 +47,8 @@ public class InboxMessage {
     public String getBody(){
         if(message == null)
             return "(cannot display message as key exchange is still pending)";
-        else if(message.body_encoding == ProtoMessage.Encoding.RAW)
-            return  message.body.toString();
+        else if(message.getBodyEncoding() == Pond.Message.Encoding.RAW)
+            return  message.getBody().toString();
         return  "(cannot display message as encoding is not supported)";
     }
 }

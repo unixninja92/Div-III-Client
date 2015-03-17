@@ -2,7 +2,7 @@ package systems.obscure.servertesting.client;
 
 import com.google.common.primitives.UnsignedLong;
 
-import systems.obscure.servertesting.protos.SignedRevocation;
+import systems.obscure.servertesting.protos.Pond;
 
 /**
  * @author unixninja92
@@ -15,9 +15,9 @@ public class MessageSendResult {
 
     // revocation optionally contains a revocation update that resulted
     // from attempting to send a message.
-    SignedRevocation revocation;
+    Pond.SignedRevocation revocation;
 
     // extraRevocations optionally contains revocations further to
     // |revocation|. This is only non-empty if |revocation| is non-nil.
-    SignedRevocation[] extraRevocations;
+    Pond.SignedRevocation[] extraRevocations;
 }

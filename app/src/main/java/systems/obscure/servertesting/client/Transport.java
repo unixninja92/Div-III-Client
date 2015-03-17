@@ -227,9 +227,9 @@ public class Transport {
         byte[] data = Arrays.copyOfRange(buf, 2, buf.length);
         if(n > data.length)
             throw new IOException("transport: corrupt message");
-//        Wire wire = new Wire();
-        Pond.Reply.parseFrom(data);
-//        requestParser.parsePartialFrom(data);
+
+        data = Arrays.copyOfRange(data, 0, n);
+
         return Pond.Reply.parseFrom(data);
     }
 
