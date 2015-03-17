@@ -1,2 +1,3 @@
-include ':app', ':Android.Ed25519'
-project(':Android.Ed25519').projectDir = new File('libs/Android.Ed25519/Android.Ed25519')
+include ':app'
+//, ':Android.Ed25519'
+//project(':Android.Ed25519').projectDir = new File('libs/Android.Ed25519/Android.Ed25519')

@@ -10,7 +10,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/libs/Android.Ed25519/Android.Ed25519" />
           </set>
         </option>
       </GradleProjectSettings>
