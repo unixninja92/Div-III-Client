@@ -15,8 +15,6 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.Inet4Address;
-import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -27,13 +25,8 @@ import java.util.Arrays;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
+import info.guardianproject.onionkit.proxy.SocksSocketFactory;
 import systems.obscure.client.protos.Pond;
-
-//import com.google.protobuf.
-//import com.squareup.wire.Message;
-//import com.squareup.wire.Wire;
-
-//import org.abstractj.kalium.c
 
 /**
  * @author unixninja92
@@ -91,6 +84,8 @@ public class Transport {
     private byte[] clientProofMagic;
 
     private String address = "zkpp.obscure.systems";
+    private String torAddress = "hv2pzxsx2drsyckk.onion";
+//    private String torAddress = "vx652n4utsodj5c6.onion";
 
     private String shortMessageError = "transport: received short handshake message";
 
@@ -112,18 +107,16 @@ public class Transport {
             e.printStackTrace();
         }
 
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-        serverSocket = new Socket();
         try {
-//            InetSocketAddress serverAddress = new InetSocketAddress(Inet4Address.getByAddress(new byte[] { (byte)172, (byte)31, (byte)174, (byte)213 }), 16333);//getByName("172.31.174.213")
-            InetSocketAddress serverAddress = new InetSocketAddress(Inet4Address.getByName(address), 16333);
-//            System.out.println("Test 1");
-            serverSocket.connect(serverAddress);
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
+            SocksSocketFactory s = SocksSocketFactory.getSocketFactory("127.0.0.1", 9050);
+            serverSocket = s.connectSocket(torAddress, 16333);
+
             reader = new BufferedInputStream(serverSocket.getInputStream());
             writer = serverSocket.getOutputStream();
             System.out.println(serverSocket.isConnected());
-
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -5,10 +5,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import info.guardianproject.onionkit.ui.OrbotHelper;
 import systems.obscure.client.client.Client;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    Thread clientThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,13 +19,39 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
 
-        new Thread(new Runnable() {
-            public void run() {
-                Client client = new Client();
-                client.start();
-//                }
-            }
-        }).start();
+//        new Thread(new Runnable() {
+//            public void run() {
+//                Client client = new Client();
+//                client.start();
+////                }
+//            }
+//        }).start();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        OrbotHelper oc = new OrbotHelper(this);
+
+//        if (!oc.isOrbotInstalled())
+//        {
+//            oc.promptToInstall(this);
+//        }
+//        else if (!oc.isOrbotRunning())
+//        {
+//            oc.requestOrbotStart(this);
+//        }
+
+        if(clientThread == null) {
+            clientThread = new Thread(new Runnable() {
+                public void run() {
+                    Client client = new Client();
+                    client.start();
+                }
+            });
+            clientThread.start();
+        }
     }
 
 

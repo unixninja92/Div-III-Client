@@ -94,6 +94,7 @@ public class Client {
                 rand.nextBytes(hmacKey);
 
                 byte[] pub = BaseEncoding.base32().decode("RX4SBLINCG6TUCR7FJYMNNSA33QAPVJAEYA5ROT6QG4IPX7FXE7Q");
+//                byte[] pub = BaseEncoding.base32().decode("25WHHEVD3565FGIOXJZWV7LGQFR4BTO3HF3FWHEW7PCYPFMFPVOQ");
                 PublicKey serverKey = new PublicKey(pub);
                 transport = new Transport(identity, serverKey);
                 transport.handshake();
