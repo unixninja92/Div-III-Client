@@ -1,1 +1,2 @@
-include ':app'
+include ':app', ':libnetcipher'
+project(':libnetcipher').projectDir = new File('libs/NetCipher/libnetcipher')
