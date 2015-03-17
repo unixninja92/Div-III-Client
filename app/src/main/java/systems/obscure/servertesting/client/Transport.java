@@ -234,7 +234,7 @@ public class Transport {
     }
 
     public void Close() throws IOException {
-        write(null);
+//        write(new byte[0]);
         reader.close();
         writer.close();
         serverSocket.close();
