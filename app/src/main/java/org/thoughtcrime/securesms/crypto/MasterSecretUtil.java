@@ -22,10 +22,6 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 
-import org.thoughtcrime.securesms.crypto.AsymmetricMasterSecret;
-import org.thoughtcrime.securesms.crypto.InvalidPassphraseException;
-import org.thoughtcrime.securesms.crypto.MasterCipher;
-import org.thoughtcrime.securesms.crypto.MasterSecret;
 import org.thoughtcrime.securesms.util.Base64;
 import org.thoughtcrime.securesms.util.Util;
 import org.whispersystems.libaxolotl.InvalidKeyException;
@@ -59,7 +55,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class MasterSecretUtil {
 
   public static final String UNENCRYPTED_PASSPHRASE  = "unencrypted";
-  public static final String PREFERENCES_NAME        = "SecureSMS-Preferences";
+  public static final String PREFERENCES_NAME        = "SnapSecure-Preferences";
 
   private static final String ASYMMETRIC_LOCAL_PUBLIC_DJB   = "asymmetric_master_secret_curve25519_public";
   private static final String ASYMMETRIC_LOCAL_PRIVATE_DJB  = "asymmetric_master_secret_curve25519_private";

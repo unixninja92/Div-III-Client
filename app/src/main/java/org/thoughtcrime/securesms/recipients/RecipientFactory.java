@@ -22,7 +22,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import org.thoughtcrime.securesms.contacts.ContactPhotoFactory;
-import org.thoughtcrime.securesms.database.CanonicalAddressDatabase;
+//import org.thoughtcrime.securesms.database.CanonicalAddressDatabase;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -62,10 +62,10 @@ public class RecipientFactory {
     return new Recipients(results);
   }
 
-  private static Recipient getRecipientForNumber(Context context, String number, boolean asynchronous) {
-    long recipientId = CanonicalAddressDatabase.getInstance(context).getCanonicalAddressId(number);
-    return provider.getRecipient(context, recipientId, asynchronous);
-  }
+//  private static Recipient getRecipientForNumber(Context context, String number, boolean asynchronous) {
+//    long recipientId = CanonicalAddressDatabase.getInstance(context).getCanonicalAddressId(number);
+//    return provider.getRecipient(context, recipientId, asynchronous);
+//  }
 
   public static Recipients getRecipientsFromString(Context context, @NonNull String rawText, boolean asynchronous) {
     List<Recipient> results   = new LinkedList<>();
@@ -107,13 +107,13 @@ public class RecipientFactory {
   private static Recipient parseRecipient(Context context, String recipient, boolean asynchronous) {
     recipient = recipient.trim();
 
-    if( recipient.length() == 0 )
+//    if( recipient.length() == 0 )
       return null;
 
-    if (hasBracketedNumber(recipient))
-      return getRecipientForNumber(context, parseBracketedNumber(recipient), asynchronous);
-
-    return getRecipientForNumber(context, recipient, asynchronous);
+//    if (hasBracketedNumber(recipient))
+//      return getRecipientForNumber(context, parseBracketedNumber(recipient), asynchronous);
+//
+//    return getRecipientForNumber(context, recipient, asynchronous);
   }
 
   public static void clearCache() {

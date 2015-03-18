@@ -6,10 +6,11 @@ import android.webkit.MimeTypeMap;
 
 import org.thoughtcrime.securesms.crypto.MasterSecret;
 import org.thoughtcrime.securesms.crypto.MasterSecretUtil;
-import org.thoughtcrime.securesms.database.DatabaseFactory;
 import org.thoughtcrime.securesms.recipients.RecipientFactory;
 import org.thoughtcrime.securesms.recipients.Recipients;
-import org.thoughtcrime.securesms.util.TextSecurePreferences;
+
+import info.guardianproject.onionkit.ui.OrbotHelper;
+
 
 public class RoutingActivity extends PassphraseRequiredActionBarActivity {
 
@@ -17,8 +18,6 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
   private static final int STATE_PROMPT_PASSPHRASE        = 2;
 
   private static final int STATE_CONVERSATION_OR_LIST     = 3;
-  private static final int STATE_UPGRADE_DATABASE         = 4;
-  private static final int STATE_PROMPT_PUSH_REGISTRATION = 5;
 
   private MasterSecret masterSecret   = null;
   private boolean      isVisible      = false;
@@ -36,6 +35,17 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
   public void onResume() {
     if (this.canceledResult && !this.newIntent) {
       finish();
+    }
+
+    OrbotHelper oc = new OrbotHelper(this);
+
+    if (!oc.isOrbotInstalled())
+    {
+      oc.promptToInstall(this);
+    }
+    else if (!oc.isOrbotRunning())
+    {
+      oc.requestOrbotStart(this);
     }
 
     this.newIntent      = false;
@@ -82,8 +92,6 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
     case STATE_CREATE_PASSPHRASE:        handleCreatePassphrase();          break;
     case STATE_PROMPT_PASSPHRASE:        handlePromptPassphrase();          break;
     case STATE_CONVERSATION_OR_LIST:     handleDisplayConversationOrList(); break;
-    case STATE_UPGRADE_DATABASE:         handleUpgradeDatabase();           break;
-    case STATE_PROMPT_PUSH_REGISTRATION: handlePushRegistration();          break;
     }
   }
 
@@ -95,23 +103,6 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
   private void handlePromptPassphrase() {
     Intent intent = new Intent(this, PassphrasePromptActivity.class);
     startActivityForResult(intent, 2);
-  }
-
-  private void handleUpgradeDatabase() {
-    Intent intent = new Intent(this, DatabaseUpgradeActivity.class);
-    intent.putExtra("master_secret", masterSecret);
-//    intent.putExtra("next_intent", TextSecurePreferences.hasPromptedPushRegistration(this) ?
-//                                   getConversationListIntent() : getPushRegistrationIntent());
-
-    startActivity(intent);
-    finish();
-  }
-
-  private void handlePushRegistration() {
-//    Intent intent = getPushRegistrationIntent();
-//    intent.putExtra("next_intent", getConversationListIntent());
-//    startActivity(intent);
-    finish();
   }
 
   private void handleDisplayConversationOrList() {
@@ -161,25 +152,12 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
     return intent;
   }
 
-//  private Intent getPushRegistrationIntent() {
-//    Intent intent = new Intent(this, RegistrationActivity.class);
-//    intent.putExtra("master_secret", masterSecret);
-//
-//    return intent;
-//  }
-
   private int getApplicationState() {
     if (!MasterSecretUtil.isPassphraseInitialized(this))
       return STATE_CREATE_PASSPHRASE;
 
     if (masterSecret == null)
       return STATE_PROMPT_PASSPHRASE;
-
-    if (DatabaseUpgradeActivity.isUpdate(this))
-      return STATE_UPGRADE_DATABASE;
-
-    if (!TextSecurePreferences.hasPromptedPushRegistration(this))
-      return STATE_PROMPT_PUSH_REGISTRATION;
 
     return STATE_CONVERSATION_OR_LIST;
   }
@@ -202,7 +180,7 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
 
     if (data != null && data.getSchemeSpecificPart() != null) {
       recipients = RecipientFactory.getRecipientsFromString(this, data.getSchemeSpecificPart(), false);
-      threadId   = DatabaseFactory.getThreadDatabase(this).getThreadIdIfExistsFor(recipients);
+//      threadId   = DatabaseFactory.getThreadDatabase(this).getThreadIdIfExistsFor(recipients);
     } else {
       recipients = null;
     }

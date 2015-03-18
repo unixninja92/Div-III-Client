@@ -44,8 +44,8 @@ import android.widget.ListView;
 import com.melnykov.fab.FloatingActionButton;
 
 import org.thoughtcrime.securesms.crypto.MasterSecret;
-import org.thoughtcrime.securesms.database.DatabaseFactory;
-import org.thoughtcrime.securesms.database.loaders.ConversationListLoader;
+//import org.thoughtcrime.securesms.database.DatabaseFactory;
+//import org.thoughtcrime.securesms.database.loaders.ConversationListLoader;
 import org.thoughtcrime.securesms.notifications.MessageNotifier;
 import org.thoughtcrime.securesms.recipients.Recipients;
 import org.thoughtcrime.securesms.util.Dialogs;
@@ -100,8 +100,8 @@ public class ConversationListFragment extends ListFragment
 //        startActivity(intent);
       }
     });
-    initializeListAdapter();
-    initializeBatchListener();
+//    initializeListAdapter();
+//    initializeBatchListener();
 
     getLoaderManager().initLoader(0, null, this);
   }
@@ -223,7 +223,7 @@ public class ConversationListFragment extends ListFragment
 
             @Override
             protected Void doInBackground(Void... params) {
-              DatabaseFactory.getThreadDatabase(getActivity()).deleteConversations(selectedConversations);
+//              DatabaseFactory.getThreadDatabase(getActivity()).deleteConversations(selectedConversations);
               MessageNotifier.updateNotification(getActivity(), masterSecret);
               return null;
             }
@@ -245,11 +245,11 @@ public class ConversationListFragment extends ListFragment
     alert.show();
   }
 
-  private void handleSelectAllThreads() {
-    ((ConversationListAdapter)this.getListAdapter()).selectAllThreads();
-    actionMode.setSubtitle(getString(R.string.conversation_fragment_cab__batch_selection_amount,
-                           ((ConversationListAdapter)this.getListAdapter()).getBatchSelections().size()));
-  }
+//  private void handleSelectAllThreads() {
+//    ((ConversationListAdapter)this.getListAdapter()).selectAllThreads();
+//    actionMode.setSubtitle(getString(R.string.conversation_fragment_cab__batch_selection_amount,
+//                           ((ConversationListAdapter)this.getListAdapter()).getBatchSelections().size()));
+//  }
 
   private void handleCreateConversation(long threadId, Recipients recipients, int distributionType) {
     listener.onCreateConversation(threadId, recipients, distributionType);
@@ -257,7 +257,8 @@ public class ConversationListFragment extends ListFragment
 
   @Override
   public Loader<Cursor> onCreateLoader(int arg0, Bundle arg1) {
-    return new ConversationListLoader(getActivity(), queryFilter);
+//    return new ConversationListLoader(getActivity(), queryFilter);
+      return null;
   }
 
   @Override
@@ -293,7 +294,7 @@ public class ConversationListFragment extends ListFragment
   @Override
   public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
     switch (item.getItemId()) {
-    case R.id.menu_select_all:      handleSelectAllThreads(); return true;
+//    case R.id.menu_select_all:      handleSelectAllThreads(); return true;
     case R.id.menu_delete_selected: handleDeleteAllSelected(); return true;
     }
 

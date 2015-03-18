@@ -30,7 +30,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import org.thoughtcrime.securesms.crypto.MasterSecret;
-import org.thoughtcrime.securesms.database.DatabaseFactory;
 import org.thoughtcrime.securesms.notifications.MessageNotifier;
 import org.thoughtcrime.securesms.recipients.RecipientFactory;
 import org.thoughtcrime.securesms.recipients.Recipients;
@@ -221,7 +220,7 @@ public class ConversationListActivity extends PassphraseRequiredActionBarActivit
     new AsyncTask<Void, Void, Void>() {
       @Override
       protected Void doInBackground(Void... params) {
-        DatabaseFactory.getThreadDatabase(ConversationListActivity.this).setAllThreadsRead();
+//        DatabaseFactory.getThreadDatabase(ConversationListActivity.this).setAllThreadsRead();
         MessageNotifier.updateNotification(ConversationListActivity.this, masterSecret);
         return null;
       }

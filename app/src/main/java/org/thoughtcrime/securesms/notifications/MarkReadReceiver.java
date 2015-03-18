@@ -8,7 +8,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import org.thoughtcrime.securesms.crypto.MasterSecret;
-import org.thoughtcrime.securesms.database.DatabaseFactory;
+//import org.thoughtcrime.securesms.database.DatabaseFactory;
 
 public class MarkReadReceiver extends BroadcastReceiver {
 
@@ -33,7 +33,7 @@ public class MarkReadReceiver extends BroadcastReceiver {
         protected Void doInBackground(Void... params) {
           for (long threadId : threadIds) {
             Log.w("MarkReadReceiver", "Marking as read: " + threadId);
-            DatabaseFactory.getThreadDatabase(context).setRead(threadId);
+//            DatabaseFactory.getThreadDatabase(context).setRead(threadId);
           }
 
           MessageNotifier.updateNotification(context, masterSecret);

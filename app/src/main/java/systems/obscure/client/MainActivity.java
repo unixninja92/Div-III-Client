@@ -9,7 +9,6 @@ import android.view.View;
 
 import org.thoughtcrime.securesms.ConversationListActivity;
 
-import info.guardianproject.onionkit.ui.OrbotHelper;
 import systems.obscure.client.client.Client;
 
 
@@ -35,16 +34,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        OrbotHelper oc = new OrbotHelper(this);
 
-        if (!oc.isOrbotInstalled())
-        {
-            oc.promptToInstall(this);
-        }
-        else if (!oc.isOrbotRunning())
-        {
-            oc.requestOrbotStart(this);
-        }
 
         if(clientThread == null) {
             clientThread = new Thread(new Runnable() {

@@ -32,16 +32,15 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.telephony.PhoneNumberUtils;
 
-import org.thoughtcrime.securesms.database.DatabaseFactory;
-import org.thoughtcrime.securesms.database.GroupDatabase;
-import org.thoughtcrime.securesms.database.TextSecureDirectory;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-import static org.thoughtcrime.securesms.database.GroupDatabase.GroupRecord;
+//import org.thoughtcrime.securesms.database.DatabaseFactory;
+//import org.thoughtcrime.securesms.database.GroupDatabase;
+//import org.thoughtcrime.securesms.database.TextSecureDirectory;
+
+//import static org.thoughtcrime.securesms.database.GroupDatabase.GroupRecord;
 
 /**
  * This class was originally a layer of indirection between
@@ -94,29 +93,29 @@ public class ContactAccessor {
                                               Contacts.DISPLAY_NAME + " ASC");
   }
 
-  public Collection<ContactData> getContactsWithPush(Context context) {
-    final ContentResolver resolver = context.getContentResolver();
-    final String[] inProjection    = new String[]{PhoneLookup._ID, PhoneLookup.DISPLAY_NAME};
-
-    List<String> pushNumbers = TextSecureDirectory.getInstance(context).getActiveNumbers();
-    final Collection<ContactData> lookupData = new ArrayList<ContactData>(pushNumbers.size());
-
-    for (String pushNumber : pushNumbers) {
-      Uri uri = Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, Uri.encode(pushNumber));
-      Cursor lookupCursor = resolver.query(uri, inProjection, null, null, null);
-      try {
-        if (lookupCursor != null && lookupCursor.moveToFirst()) {
-          final ContactData contactData = new ContactData(lookupCursor.getLong(0), lookupCursor.getString(1));
-          contactData.numbers.add(new NumberData("TextSecure", pushNumber));
-          lookupData.add(contactData);
-        }
-      } finally {
-        if (lookupCursor != null)
-          lookupCursor.close();
-      }
-    }
-    return lookupData;
-  }
+//  public Collection<ContactData> getContactsWithPush(Context context) {
+//    final ContentResolver resolver = context.getContentResolver();
+//    final String[] inProjection    = new String[]{PhoneLookup._ID, PhoneLookup.DISPLAY_NAME};
+//
+////    List<String> pushNumbers = TextSecureDirectory.getInstance(context).getActiveNumbers();
+//    final Collection<ContactData> lookupData = new ArrayList<ContactData>(pushNumbers.size());
+//
+//    for (String pushNumber : pushNumbers) {
+//      Uri uri = Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, Uri.encode(pushNumber));
+//      Cursor lookupCursor = resolver.query(uri, inProjection, null, null, null);
+//      try {
+//        if (lookupCursor != null && lookupCursor.moveToFirst()) {
+//          final ContactData contactData = new ContactData(lookupCursor.getLong(0), lookupCursor.getString(1));
+//          contactData.numbers.add(new NumberData("TextSecure", pushNumber));
+//          lookupData.add(contactData);
+//        }
+//      } finally {
+//        if (lookupCursor != null)
+//          lookupCursor.close();
+//      }
+//    }
+//    return lookupData;
+//  }
 
   public String getNameFromContact(Context context, Uri uri) {
     Cursor cursor = null;
@@ -237,19 +236,19 @@ public class ContactAccessor {
         cursor.close();
     }
 
-    GroupDatabase.Reader reader = null;
-    GroupRecord record;
-
-    try {
-      reader = DatabaseFactory.getGroupDatabase(context).getGroupsFilteredByTitle(constraint);
-
-      while ((record = reader.getNext()) != null) {
-        numberList.add(record.getEncodedId());
-      }
-    } finally {
-      if (reader != null)
-        reader.close();
-    }
+//    GroupDatabase.Reader reader = null;
+//    GroupRecord record;
+//
+//    try {
+//      reader = DatabaseFactory.getGroupDatabase(context).getGroupsFilteredByTitle(constraint);
+//
+//      while ((record = reader.getNext()) != null) {
+//        numberList.add(record.getEncodedId());
+//      }
+//    } finally {
+//      if (reader != null)
+//        reader.close();
+//    }
 
     return numberList;
   }

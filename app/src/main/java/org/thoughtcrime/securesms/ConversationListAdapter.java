@@ -26,9 +26,6 @@ import android.widget.AbsListView;
 
 import org.thoughtcrime.securesms.crypto.MasterCipher;
 import org.thoughtcrime.securesms.crypto.MasterSecret;
-import org.thoughtcrime.securesms.database.DatabaseFactory;
-import org.thoughtcrime.securesms.database.ThreadDatabase;
-import org.thoughtcrime.securesms.database.model.ThreadRecord;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -43,7 +40,7 @@ import systems.obscure.client.R;
  */
 public class ConversationListAdapter extends CursorAdapter implements AbsListView.RecyclerListener {
 
-  private final ThreadDatabase threadDatabase;
+//  private final ThreadDatabase threadDatabase;
   private final MasterCipher masterCipher;
   private final Context        context;
   private final LayoutInflater inflater;
@@ -58,7 +55,7 @@ public class ConversationListAdapter extends CursorAdapter implements AbsListVie
     else                      this.masterCipher = null;
 
     this.context        = context;
-    this.threadDatabase = DatabaseFactory.getThreadDatabase(context);
+//    this.threadDatabase = DatabaseFactory.getThreadDatabase(context);
     this.inflater       = LayoutInflater.from(context);
   }
 
@@ -70,10 +67,10 @@ public class ConversationListAdapter extends CursorAdapter implements AbsListVie
   @Override
   public void bindView(View view, Context context, Cursor cursor) {
     if (masterCipher != null) {
-      ThreadDatabase.Reader reader = threadDatabase.readerFor(cursor, masterCipher);
-      ThreadRecord record = reader.getCurrent();
+//      ThreadDatabase.Reader reader = threadDatabase.readerFor(cursor, masterCipher);
+//      ThreadRecord record = reader.getCurrent();
 
-      ((ConversationListItem)view).set(record, batchSet, batchMode);
+//      ((ConversationListItem)view).set(record, batchSet, batchMode);
     }
   }
 
@@ -88,31 +85,31 @@ public class ConversationListAdapter extends CursorAdapter implements AbsListVie
   public Set<Long> getBatchSelections() {
     return batchSet;
   }
-
+//
   public void initializeBatchMode(boolean toggle) {
     this.batchMode = toggle;
     unselectAllThreads();
   }
-
+//
   public void unselectAllThreads() {
     this.batchSet.clear();
     this.notifyDataSetChanged();
   }
-
-  public void selectAllThreads() {
-    Cursor cursor = DatabaseFactory.getThreadDatabase(context).getConversationList();
-
-    try {
-      while (cursor != null && cursor.moveToNext()) {
-        this.batchSet.add(cursor.getLong(cursor.getColumnIndexOrThrow(ThreadDatabase.ID)));
-      }
-    } finally {
-      if (cursor != null)
-        cursor.close();
-    }
-
-    this.notifyDataSetChanged();
-  }
+//
+//  public void selectAllThreads() {
+////    Cursor cursor = DatabaseFactory.getThreadDatabase(context).getConversationList();
+//
+////    try {
+////      while (cursor != null && cursor.moveToNext()) {
+////        this.batchSet.add(cursor.getLong(cursor.getColumnIndexOrThrow(ThreadDatabase.ID)));
+////      }
+////    } finally {
+////      if (cursor != null)
+////        cursor.close();
+////    }
+//
+//    this.notifyDataSetChanged();
+//  }
 
   @Override
   public void onMovedToScrapHeap(View view) {

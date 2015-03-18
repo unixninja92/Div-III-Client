@@ -26,17 +26,15 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import org.thoughtcrime.securesms.database.model.ThreadRecord;
 import org.thoughtcrime.securesms.recipients.Recipient;
 import org.thoughtcrime.securesms.recipients.Recipients;
-import org.thoughtcrime.securesms.util.DateUtils;
 import org.thoughtcrime.securesms.util.RecipientViewUtil;
 
 import java.util.Set;
 
 import systems.obscure.client.R;
 
-import static org.thoughtcrime.securesms.util.SpanUtil.color;
+//import org.thoughtcrime.securesms.database.model.ThreadRecord;
 
 //import org.thoughtcrime.securesms.util.Emoji;
 
@@ -89,31 +87,31 @@ public class ConversationListItem extends RelativeLayout
     initializeContactWidgetVisibility();
   }
 
-  public void set(ThreadRecord thread, Set<Long> selectedThreads, boolean batchMode) {
-    this.selectedThreads  = selectedThreads;
-    this.recipients       = thread.getRecipients();
-    this.threadId         = thread.getThreadId();
-    this.read             = thread.isRead();
-    this.distributionType = thread.getDistributionType();
-
-    this.recipients.addListener(this);
-    this.fromView.setText(RecipientViewUtil.formatFrom(context, recipients, read));
-
-//    this.subjectView.setText(Emoji.getInstance(context).emojify(thread.getDisplayBody(),
-//                                                                Emoji.EMOJI_SMALL,
-//                                                                new Emoji.InvalidatingPageLoadedListener(subjectView)),
-//                             TextView.BufferType.SPANNABLE);
-    this.subjectView.setTypeface(read ? LIGHT_TYPEFACE : BOLD_TYPEFACE);
-
-    if (thread.getDate() > 0) {
-      CharSequence date = DateUtils.getBriefRelativeTimeSpanString(context, thread.getDate());
-      dateView.setText(read ? date : color(getResources().getColor(R.color.textsecure_primary), date));
-      dateView.setTypeface(read ? LIGHT_TYPEFACE : BOLD_TYPEFACE);
-    }
-
-    setBackground(read, batchMode);
-    RecipientViewUtil.setContactPhoto(context, contactPhotoImage, recipients.getPrimaryRecipient(), true);
-  }
+//  public void set(ThreadRecord thread, Set<Long> selectedThreads, boolean batchMode) {
+//    this.selectedThreads  = selectedThreads;
+//    this.recipients       = thread.getRecipients();
+//    this.threadId         = thread.getThreadId();
+//    this.read             = thread.isRead();
+//    this.distributionType = thread.getDistributionType();
+//
+//    this.recipients.addListener(this);
+//    this.fromView.setText(RecipientViewUtil.formatFrom(context, recipients, read));
+//
+////    this.subjectView.setText(Emoji.getInstance(context).emojify(thread.getDisplayBody(),
+////                                                                Emoji.EMOJI_SMALL,
+////                                                                new Emoji.InvalidatingPageLoadedListener(subjectView)),
+////                             TextView.BufferType.SPANNABLE);
+//    this.subjectView.setTypeface(read ? LIGHT_TYPEFACE : BOLD_TYPEFACE);
+//
+//    if (thread.getDate() > 0) {
+//      CharSequence date = DateUtils.getBriefRelativeTimeSpanString(context, thread.getDate());
+//      dateView.setText(read ? date : color(getResources().getColor(R.color.textsecure_primary), date));
+//      dateView.setTypeface(read ? LIGHT_TYPEFACE : BOLD_TYPEFACE);
+//    }
+//
+//    setBackground(read, batchMode);
+//    RecipientViewUtil.setContactPhoto(context, contactPhotoImage, recipients.getPrimaryRecipient(), true);
+//  }
 
   public void unbind() {
     if (this.recipients != null)

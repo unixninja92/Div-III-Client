@@ -16,7 +16,6 @@
  */
 package org.thoughtcrime.securesms.contacts;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.CursorWrapper;
@@ -32,9 +31,7 @@ import android.util.Log;
 import org.thoughtcrime.securesms.util.NumberUtil;
 import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import systems.obscure.client.R;
@@ -191,13 +188,13 @@ public class ContactsDatabase {
       Log.d(TAG, "onCreate called for contacts database.");
       mDatabase = db;
       mDatabase.execSQL(TABLE_CREATE);
-      if (TextSecurePreferences.isPushRegistered(context)) {
-        try {
-          loadPushUsers();
-        } catch (IOException ioe) {
-          Log.e(TAG, "Issue when trying to load push users into memory db.", ioe);
-        }
-      }
+//      if (TextSecurePreferences.isPushRegistered(context)) {
+//        try {
+//          loadPushUsers();
+//        } catch (IOException ioe) {
+//          Log.e(TAG, "Issue when trying to load push users into memory db.", ioe);
+//        }
+//      }
     }
 
     @Override
@@ -208,21 +205,21 @@ public class ContactsDatabase {
       onCreate(db);
     }
 
-    private void loadPushUsers() throws IOException {
-      Log.d(TAG, "populating push users into virtual db.");
-      Collection<ContactAccessor.ContactData> pushUsers = ContactAccessor.getInstance().getContactsWithPush(context);
-      for (ContactAccessor.ContactData user : pushUsers) {
-        ContentValues values = new ContentValues();
-        values.put(ID_COLUMN, user.id);
-        values.put(NAME_COLUMN, user.name);
-        values.put(NUMBER_TYPE_COLUMN, ContactsContract.CommonDataKinds.Phone.TYPE_CUSTOM);
-        values.put(LABEL_COLUMN, (String)null);
-        values.put(NUMBER_COLUMN, user.numbers.get(0).number);
-        values.put(TYPE_COLUMN, PUSH_TYPE);
-        mDatabase.insertWithOnConflict(TABLE_NAME, null, values, SQLiteDatabase.CONFLICT_IGNORE);
-      }
-      Log.d(TAG, "finished populating push users.");
-    }
+//    private void loadPushUsers() throws IOException {
+//      Log.d(TAG, "populating push users into virtual db.");
+//      Collection<ContactAccessor.ContactData> pushUsers = ContactAccessor.getInstance().getContactsWithPush(context);
+//      for (ContactAccessor.ContactData user : pushUsers) {
+//        ContentValues values = new ContentValues();
+//        values.put(ID_COLUMN, user.id);
+//        values.put(NAME_COLUMN, user.name);
+//        values.put(NUMBER_TYPE_COLUMN, ContactsContract.CommonDataKinds.Phone.TYPE_CUSTOM);
+//        values.put(LABEL_COLUMN, (String)null);
+//        values.put(NUMBER_COLUMN, user.numbers.get(0).number);
+//        values.put(TYPE_COLUMN, PUSH_TYPE);
+//        mDatabase.insertWithOnConflict(TABLE_NAME, null, values, SQLiteDatabase.CONFLICT_IGNORE);
+//      }
+//      Log.d(TAG, "finished populating push users.");
+//    }
   }
 
   private static class TypedCursorWrapper extends CursorWrapper {
