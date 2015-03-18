@@ -909,7 +909,7 @@
 
     <!-- text_secure_normal -->
     <string name="text_secure_normal__menu_new_message">New message</string>
-    <string name="text_secure_normal__menu_new_group">New group</string>
+    <string name="text_secure_normal__menu_new_group">Main Menu</string>
     <string name="text_secure_normal__menu_settings">Settings</string>
     <string name="text_secure_normal__menu_clear_passphrase">Lock</string>
     <string name="text_secure_normal__mark_all_as_read">Mark all read</string>

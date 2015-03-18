@@ -40,6 +40,7 @@ import org.thoughtcrime.securesms.util.DynamicTheme;
 import org.thoughtcrime.securesms.util.MemoryCleaner;
 import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
+import systems.obscure.client.MainActivity;
 import systems.obscure.client.R;
 
 
@@ -177,9 +178,9 @@ public class ConversationListActivity extends PassphraseRequiredActionBarActivit
   }
 
   private void createGroup() {
-//    Intent intent = new Intent(this, GroupCreateActivity.class);
-//    intent.putExtra("master_secret", masterSecret);
-//    startActivity(intent);
+    Intent intent = new Intent(this, MainActivity.class);
+    intent.putExtra("master_secret", masterSecret);
+    startActivity(intent);
   }
 
   private void createConversation(long threadId, Recipients recipients, int distributionType) {

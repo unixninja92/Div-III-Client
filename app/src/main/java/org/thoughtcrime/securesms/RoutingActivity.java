@@ -10,6 +10,7 @@ import org.thoughtcrime.securesms.recipients.RecipientFactory;
 import org.thoughtcrime.securesms.recipients.Recipients;
 
 import info.guardianproject.onionkit.ui.OrbotHelper;
+import systems.obscure.client.CameraActivity;
 
 
 public class RoutingActivity extends PassphraseRequiredActionBarActivity {
@@ -146,9 +147,10 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
 //  }
 
   private Intent getConversationListIntent() {
-    Intent intent = new Intent(this, ConversationListActivity.class);
-    intent.putExtra("master_secret", masterSecret);
+//    Intent intent = new Intent(this, ConversationListActivity.class);
+      Intent intent = new Intent(this, CameraActivity.class);
 //      Intent intent = new Intent(this, MainActivity.class);
+    intent.putExtra("master_secret", masterSecret);
 
     return intent;
   }

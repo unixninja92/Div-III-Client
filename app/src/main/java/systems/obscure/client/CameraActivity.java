@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
+import org.thoughtcrime.securesms.ConversationListActivity;
+import org.thoughtcrime.securesms.crypto.MasterSecret;
+
 import systems.obscure.client.util.SystemUiHider;
 
 
@@ -26,6 +29,7 @@ public class CameraActivity extends Activity {
     private FrameLayout mFrame;
     private PreviewSurfaceView mPreview;
     private int camNum;
+    private MasterSecret masterSecret;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,7 @@ public class CameraActivity extends Activity {
 
         Intent intent = getIntent();
         camNum = intent.getIntExtra("cameraNum", 0);
+        masterSecret = intent.getParcelableExtra("master_secret");
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -102,6 +107,16 @@ public class CameraActivity extends Activity {
             startActivity(picIntent);
         }
     };
+
+    public void viewMessages(View view) {
+        Intent messages = new Intent(this, ConversationListActivity.class);
+        messages.putExtra("master_secret", masterSecret);
+        startActivity(messages);
+    }
+
+    public void viewContacts(View view) {
+
+    }
 
     Camera.PictureCallback raw = new Camera.PictureCallback() {
         @Override

@@ -8,19 +8,29 @@ import android.view.MenuItem;
 import android.view.View;
 
 import org.thoughtcrime.securesms.ConversationListActivity;
+import org.thoughtcrime.securesms.crypto.MasterSecret;
+import org.thoughtcrime.securesms.util.DynamicLanguage;
+import org.thoughtcrime.securesms.util.DynamicTheme;
 
 import systems.obscure.client.client.ClientS;
 
 
 public class MainActivity extends ActionBarActivity {
+    private final DynamicTheme dynamicTheme    = new DynamicTheme();
+    private final DynamicLanguage dynamicLanguage = new DynamicLanguage();
+    private MasterSecret masterSecret;
 
     Thread clientThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        dynamicTheme.onCreate(this);
+        dynamicLanguage.onCreate(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         System.out.println("We started!!");
+
+        this.masterSecret = getIntent().getParcelableExtra("master_secret");
 
 //        new Thread(new Runnable() {
 //            public void run() {
@@ -34,6 +44,8 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        dynamicTheme.onResume(this);
+        dynamicLanguage.onResume(this);
 
 
         if(clientThread == null) {
@@ -80,6 +92,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void launchCamera(View view) {
         Intent camera = new Intent(MainActivity.this, CameraActivity.class);
+        camera.putExtra("master_secret", masterSecret);
         startActivity(camera);
     }
 
@@ -90,6 +103,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void launchMessages(View view) {
         Intent messages = new Intent(MainActivity.this, ConversationListActivity.class);
+        messages.putExtra("master_secret", masterSecret);
         startActivity(messages);
     }
 }
