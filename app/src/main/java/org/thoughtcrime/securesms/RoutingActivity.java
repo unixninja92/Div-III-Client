@@ -148,6 +148,7 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
   private Intent getConversationListIntent() {
     Intent intent = new Intent(this, ConversationListActivity.class);
     intent.putExtra("master_secret", masterSecret);
+//      Intent intent = new Intent(this, MainActivity.class);
 
     return intent;
   }

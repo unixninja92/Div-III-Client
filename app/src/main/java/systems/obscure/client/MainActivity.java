@@ -9,7 +9,7 @@ import android.view.View;
 
 import org.thoughtcrime.securesms.ConversationListActivity;
 
-import systems.obscure.client.client.Client;
+import systems.obscure.client.client.ClientS;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -39,8 +39,11 @@ public class MainActivity extends ActionBarActivity {
         if(clientThread == null) {
             clientThread = new Thread(new Runnable() {
                 public void run() {
-                    Client client = new Client();
-                    client.start();
+//                    Client client = new Client(getFilesDir().getPath()+"/statefile",
+//                            "RX4SBLINCG6TUCR7FJYMNNSA33QAPVJAEYA5ROT6QG4IPX7FXE7Q", "127.0.0.1:9050");
+//                    client.start();
+                    ClientS client = ClientS.getInstance();
+                    client.start(getFilesDir().getPath()+"/statefile");
                 }
             });
             clientThread.start();

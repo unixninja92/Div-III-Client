@@ -21,8 +21,7 @@ import systems.obscure.client.protos.Pond;
 /**
  * @author unixninja92
  */
-public class Client {
-
+public class ClientS {
     // autoFetch controls whether the network goroutine performs periodic
     // transactions or waits for outside prompting.
     boolean autoFetch;
@@ -73,20 +72,26 @@ public class Client {
 
     // queue is a queue of messages for transmission that's shared with the
     // network goroutine and protected by queueMutex.
-     QueuedMessage[] queue; //synchronized
+    QueuedMessage[] queue; //synchronized
 
     HashMap<Long, Boolean> usedIds;
 
     Transport transport;
 
-    public Client(String path, String ser, String tor){
-        stateFile = path;
-        server = ser;
-        torAddress = tor;
+    private static ClientS ourInstance = new ClientS();
+
+    public static ClientS getInstance() {
+        return ourInstance;
     }
 
+    private ClientS() {
+        torAddress = "127.0.0.1:9050";
+        server = "RX4SBLINCG6TUCR7FJYMNNSA33QAPVJAEYA5ROT6QG4IPX7FXE7Q";
+    }
 
-    public void start() {
+    public void start(String file) {
+        stateFile = file;
+
         boolean newAccount = true;
 
         if(newAccount) {
