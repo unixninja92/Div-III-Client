@@ -35,7 +35,6 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         OrbotHelper oc = new OrbotHelper(this);
 
         if (!oc.isOrbotInstalled())
