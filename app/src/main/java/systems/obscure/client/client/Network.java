@@ -5,11 +5,14 @@ import com.google.protobuf.ByteString;
 
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.PublicKey;
+import org.jcsp.lang.Any2AnyChannel;
 import org.jcsp.lang.CSProcess;
+import org.jcsp.lang.Channel;
 import org.jcsp.lang.One2OneChannel;
 import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
 import java.io.IOException;
+import java.security.SecureRandom;
 
 import systems.obscure.client.Globals;
 import systems.obscure.client.protos.Pond;
@@ -177,6 +180,14 @@ public class Network implements CSProcess {
                 if(ackChan != null){
                     ackChan.out().write(true);
                     ackChan = null;
+                }
+
+                Any2AnyChannel<Long> timerChan = Channel.any2any(5);
+                if(client.autoFetch) {
+                    byte[] seedBytes = new byte[8];
+                    client.rand.nextBytes(seedBytes);
+                    SecureRandom r = new SecureRandom(seedBytes);
+//                    Math
                 }
             }
         }
