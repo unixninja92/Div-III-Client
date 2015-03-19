@@ -227,11 +227,15 @@ public class Transport {
         return Pond.Reply.parseFrom(data);
     }
 
-    public void Close() throws IOException {
-//        write(new byte[0]);
-        reader.close();
-        writer.close();
-        serverSocket.close();
+    public void Close() {
+        try {
+            writer.write(0);
+            reader.close();
+            writer.close();
+            serverSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private int write(byte[] data) {

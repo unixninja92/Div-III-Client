@@ -49,14 +49,13 @@ public class Network implements CSProcess {
                 client.queueLock.writeLock().lock();
                 Pond.Message.Builder messBuilder = queuedMsg.message;
                 messBuilder.getAlsoAckList().add(msg.message.getId());
-                //TODO write tooLarge()
-//                if(!tooLarge(queuedMsg)){
-//                    queuedMsg.message = messBuilder.build();
-//                    client.queueLock.writeLock().unlock();
-//                    System.out.println("ACK merged with queued message.");
-//                    //All done
-//                    return;
-//                }
+                if(!tooLarge(queuedMsg.message)){
+                    queuedMsg.message = messBuilder;
+                    client.queueLock.writeLock().unlock();
+                    System.out.println("ACK merged with queued message.");
+                    //All done
+                    return;
+                }
                 messBuilder.getAlsoAckList().remove(messBuilder.getAlsoAckCount()-1);
                 if(messBuilder.getAlsoAckCount() == 0)
                     messBuilder.clearAlsoAck();
@@ -84,7 +83,6 @@ public class Network implements CSProcess {
     }
 
     public void send(Contact to, Pond.Message.Builder messageBuilder) {
-//        Pond.Message message = messageBuilder.build();
 
         if(tooLarge(messageBuilder))
             throw new IllegalStateException("message too large");
@@ -136,6 +134,7 @@ public class Network implements CSProcess {
             transport.writeProto(request);
             Pond.Reply reply = transport.readProto();
             replyToError(reply);
+            transport.Close();
         } catch (IOException e) {
             e.printStackTrace();
             return;
@@ -309,6 +308,7 @@ public class Network implements CSProcess {
             client.signingRequestChan.out().write(signingRequest);
             req = resultChan.in().read();
             if(req == null)
+                conn.Close();
                 return null;
         }
 
@@ -317,14 +317,18 @@ public class Network implements CSProcess {
         } catch (IOException e) {
             System.out.print("Failed to send to " + server + ": ");
             e.printStackTrace();
+            conn.Close();
             return null;
         }
 
         try {
-            return conn.readProto();
+            Pond.Reply reply =  conn.readProto();
+            conn.Close();
+            return reply;
         } catch (IOException e) {
             System.out.print("Failed to read from " + server + ": ");
             e.printStackTrace();
+            conn.Close();
             return null;
         }
     }
