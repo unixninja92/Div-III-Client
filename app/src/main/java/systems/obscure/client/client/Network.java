@@ -5,14 +5,18 @@ import com.google.protobuf.ByteString;
 
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.PublicKey;
-import org.jcsp.lang.Any2AnyChannel;
+import org.apache.commons.math3.distribution.ExponentialDistribution;
+import org.apache.commons.math3.random.MersenneTwister;
+import org.jcsp.lang.Alternative;
+import org.jcsp.lang.Any2OneChannel;
 import org.jcsp.lang.CSProcess;
 import org.jcsp.lang.Channel;
+import org.jcsp.lang.Guard;
 import org.jcsp.lang.One2OneChannel;
 import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
 import java.io.IOException;
-import java.security.SecureRandom;
+import java.nio.ByteBuffer;
 
 import systems.obscure.client.Globals;
 import systems.obscure.client.protos.Pond;
@@ -163,7 +167,7 @@ public class Network implements CSProcess {
     @Override
     public void run() {
         boolean startup = true;
-        One2OneChannel<Boolean> ackChan = null;
+        Any2OneChannel<Boolean> ackChan = null;
         QueuedMessage head = null;
         boolean lastWasSend = false;
 
@@ -182,12 +186,26 @@ public class Network implements CSProcess {
                     ackChan = null;
                 }
 
-                Any2AnyChannel<Long> timerChan = Channel.any2any(5);
+                One2OneChannel<Long> timerChan = Channel.one2one(5);
                 if(client.autoFetch) {
                     byte[] seedBytes = new byte[8];
                     client.rand.nextBytes(seedBytes);
-                    SecureRandom r = new SecureRandom(seedBytes);
-//                    Math
+                    long seed = ByteBuffer.wrap(seedBytes).getLong();
+                    ExponentialDistribution distribution = new ExponentialDistribution(new MersenneTwister(seed), 1);
+                    double delaySeconds = distribution.sample() * Globals.TRANSACTION_RATE_SECONDS;
+                    long delay = ((long)(delaySeconds * 1000)) * Globals.SECONDS;
+                    System.out.println("Next network transaction in "+delay+" nano seconds");
+                    timerChan.out();//Fixme set for amount of time????
+                }
+
+                Guard[] chans = {client.fetchNowChan.in(), timerChan.in()};
+                Alternative alt = new Alternative(chans);
+                switch (alt.select()){
+                    case 0: ackChan = client.fetchNowChan;
+                        System.out.println("Starting fetch because of fetchNow signal");
+                        break;
+                    case 1: System.out.println("Starting fetch because of timer");
+                        break;
                 }
             }
         }

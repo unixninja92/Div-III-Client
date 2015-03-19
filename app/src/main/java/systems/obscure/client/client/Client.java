@@ -53,6 +53,11 @@ public class Client {
     // has finished all pending updates.
     SharedChannelInput writerDone;
 
+    // fetchNowChan is the channel that the network goroutine reads from
+    // that triggers an immediate network transaction. Mostly intended for
+    // testing.
+    Any2OneChannel<Boolean> fetchNowChan;
+
     // lastErasureStorageTime is the time at which we last rotated the
     // erasure storage value.
     long lastErasureStorageTime;

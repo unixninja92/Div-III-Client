@@ -36,22 +36,25 @@ public class Globals {
     public static final int MAX_SERIALIZED_MESSAGE = TRANSPORT_SIZE -
             (SECRETBOX_OVERHEAD + 4 + 4 + 32 + 24) - SECRETBOX_OVERHEAD - MESSAGE_OVERHEAD;
 
+    public static final long SECONDS = 60000000000L;
+
     // messageLifetime is the default amount of time for which we'll keep a
     // message. (Counting from the time that it was received.)
-    public static final long MESSAGE_LIFETIME = 7 * 24 * 60 * 60000000L;
+    public static final long MESSAGE_LIFETIME = 7 * 24 * 60 * SECONDS;
 
     // messagePreIndicationLifetime is the amount of time that a message
     // remains before the background color changes to indicate that it will
     // be deleted soon.
-    public static final long MESSAGE_PRE_INDICATION_LIFETIME = 6 * 24 * 60 * 60000000L;
+    public static final long MESSAGE_PRE_INDICATION_LIFETIME = 6 * 24 * 60 * SECONDS;
 
     // messageGraceTime is the amount of time that we'll leave a message
     // before deletion after it has been marked as not-retained, or after
     // startup.
-    public static final long MESSAGE_GRACE_TIME = 5 * 60000000L;
+    public static final long MESSAGE_GRACE_TIME = 5 * SECONDS;
 
     // The current protocol version implemented by this code.
     public static final int PROTO_VERSION = 1;
+
 
 
 
