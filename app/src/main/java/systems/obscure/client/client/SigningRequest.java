@@ -1,5 +1,6 @@
 package systems.obscure.client.client;
 
+import org.jcsp.lang.ChannelOutput;
 import org.jcsp.lang.SharedChannelInput;
 
 import systems.obscure.client.protos.Pond;
@@ -12,5 +13,5 @@ import systems.obscure.client.protos.Pond;
 // delivery.
 public class SigningRequest {
     QueuedMessage msg;
-    SharedChannelInput<Pond.Request> resultChan;
+    ChannelOutput<Pond.Request.Builder> resultChan;
 }

@@ -1,5 +1,7 @@
 package systems.obscure.client.client;
 
+import java.util.List;
+
 import systems.obscure.client.protos.Pond;
 
 /**
@@ -17,5 +19,19 @@ public class MessageSendResult {
 
     // extraRevocations optionally contains revocations further to
     // |revocation|. This is only non-empty if |revocation| is non-nil.
-    Pond.SignedRevocation[] extraRevocations;
+    List<Pond.SignedRevocation> extraRevocations;
+
+    public MessageSendResult() {}
+
+    public MessageSendResult(long id) {this.id = id;}
+
+    public MessageSendResult(long id, Pond.SignedRevocation revocation) {
+        this(id);
+        this.revocation = revocation;
+    }
+
+    public MessageSendResult(long id, Pond.SignedRevocation revocation, List<Pond.SignedRevocation> extraRevocations) {
+        this(id, revocation);
+        this.extraRevocations = extraRevocations;
+    }
 }

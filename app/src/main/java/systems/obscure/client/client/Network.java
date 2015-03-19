@@ -105,7 +105,7 @@ public class Network implements CSProcess {
         return message.getSerializedSize() > Globals.MAX_SERIALIZED_MESSAGE;
     }
 
-    public Transport dialServer(String server, boolean useRandomIdentity) {
+    public Transport dialServer(String server, boolean useRandomIdentity) throws IOException {
         KeyPair identity;
         if(useRandomIdentity)
             identity = new KeyPair();
@@ -116,13 +116,8 @@ public class Network implements CSProcess {
         PublicKey serverKey = new PublicKey(pub);
 
         Transport transport = new Transport(identity, serverKey);
-        try {
-            transport.handshake();
-            return transport;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+        transport.handshake();
+        return transport;
     }
 
     public void doCreateAccount() {
@@ -195,7 +190,7 @@ public class Network implements CSProcess {
                     long seed = ByteBuffer.wrap(seedBytes).getLong();
                     ExponentialDistribution distribution = new ExponentialDistribution(new MersenneTwister(seed), 1);
                     double delaySeconds = distribution.sample() * Globals.TRANSACTION_RATE_SECONDS;
-                    long delay = ((long)(delaySeconds * 1000)) * 1000;
+                    long delay = ((long)(delaySeconds * 1000)) * 1000;//TODO verify this math is correct.
                     System.out.println("Next network transaction in "+delay+" milliseconds");
                     Timer timer = new Timer();
                     timer.schedule(new TimerChanTask(timerChan.out()), delay);
@@ -247,6 +242,90 @@ public class Network implements CSProcess {
             // Poke the UI thread so that it knows that a message has
             // started sending.
             client.messageSentChan.out().write(new MessageSendResult());
+
+            Pond.Reply reply = sendRecv(server, useAnonymousIdentity, lastWasSend, head, req);
+
+            if(reply == null){
+                if(!isFetch){
+                    client.queueLock.writeLock().lock();
+                    client.moveContactsMessagesToEndOfQueue(head.to);
+                    client.queueLock.writeLock().unlock();
+                }
+                continue;
+            }
+
+            if(!isFetch){
+                client.queueLock.writeLock().lock();
+
+                if(!client.queue.contains(head))
+                    continue;
+
+                head.sending = false;
+
+                if(!reply.hasStatus()) {
+                    client.removeQueuedMessage(head);
+                    client.queueLock.writeLock().unlock();
+                    client.messageSentChan.out().write(new MessageSendResult(head.id));
+                } else {
+                    client.moveContactsMessagesToEndOfQueue(head.to);
+                    client.queueLock.writeLock().unlock();
+
+                    if(reply.getStatus() == Pond.Reply.Status.GENERATION_REVOKED && reply.hasRevocation()){
+                        client.messageSentChan.out().write(new MessageSendResult(head.id, reply.getRevocation(), reply.getExtraRevocationsList()));
+                    }
+                }
+                head = null;
+            } else if(reply.hasFetched() || reply.hasAnnounce()) {
+                ackChan = Channel.any2one();
+                client.newMessageChan.out().write(new NewMessage(reply.getFetched(), reply.getAnnounce(), ackChan.out()));
+                ackChan.in().read();
+            }
+
+            try {
+                replyToError(reply);
+            } catch (IOException e) {
+                System.out.print("Error from server " + server + ": ");
+                e.printStackTrace();
+                continue;
+            }
+        }
+    }
+
+    private Pond.Reply sendRecv(String server, boolean useAnonymousIdentity, boolean lastWasSend, QueuedMessage head, Pond.Request.Builder req){
+        Transport conn;
+        try {
+            conn = dialServer(server, useAnonymousIdentity);
+        } catch (IOException e) {
+            System.out.print("Failed to connect to " + server + ": ");
+            e.printStackTrace();
+            return null;
+        }
+
+        if(lastWasSend && req == null){
+            One2OneChannel<Pond.Request.Builder> resultChan = Channel.one2one();
+            SigningRequest signingRequest = new SigningRequest();
+            signingRequest.msg = head;
+            signingRequest.resultChan = resultChan.out();
+            client.signingRequestChan.out().write(signingRequest);
+            req = resultChan.in().read();
+            if(req == null)
+                return null;
+        }
+
+        try {
+            conn.writeProto(req);
+        } catch (IOException e) {
+            System.out.print("Failed to send to " + server + ": ");
+            e.printStackTrace();
+            return null;
+        }
+
+        try {
+            return conn.readProto();
+        } catch (IOException e) {
+            System.out.print("Failed to read from " + server + ": ");
+            e.printStackTrace();
+            return null;
         }
     }
 
