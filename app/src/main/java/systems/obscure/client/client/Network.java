@@ -65,7 +65,7 @@ public class Network implements CSProcess {
 
         Pond.Message.Builder message = Pond.Message.newBuilder();
         message.setId(id);
-//        message.setTime()
+        message.setTime(System.nanoTime());
         message.setBody(ByteString.copyFrom(new byte[1]));
         message.setBodyEncoding(Pond.Message.Encoding.RAW);
 //        message.setMyNextDh()
@@ -85,7 +85,7 @@ public class Network implements CSProcess {
         out.to = to.id;
         out.server = to.theirServer;
         out.message = messageBuilder;
-//        out.created =
+        out.created = messageBuilder.getTime();
         client.enqueue(out);
 //        client.outbox.add(out); TODO make outbox an ArrayList
     }
@@ -160,7 +160,7 @@ public class Network implements CSProcess {
     @Override
     public void run() {
         boolean startup = true;
-        One2OneChannel<Boolean> ackChan;
+        One2OneChannel<Boolean> ackChan = null;
         QueuedMessage head = null;
         boolean lastWasSend = false;
 
@@ -171,6 +171,13 @@ public class Network implements CSProcess {
                 head.sending = false;
                 client.queueLock.writeLock().unlock();
                 head = null;
+            }
+
+            if(!startup || !client.autoFetch) {
+                if(ackChan != null){
+                    ackChan.out().write(true);
+                    ackChan = null;
+                }
             }
         }
     }

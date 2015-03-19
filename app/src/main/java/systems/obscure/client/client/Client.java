@@ -32,7 +32,7 @@ import systems.obscure.client.disk.StateFile;
 public class Client {
     // autoFetch controls whether the network goroutine performs periodic
     // transactions or waits for outside prompting.
-    boolean autoFetch;
+    boolean autoFetch = true;
 
     // newMeetingPlace is a function that returns a PANDA MeetingPlace. In
     // tests this can be overridden to return a testing meeting place.
@@ -52,6 +52,10 @@ public class Client {
     // writerDone is a channel that is closed by the disk goroutine when it
     // has finished all pending updates.
     SharedChannelInput writerDone;
+
+    // lastErasureStorageTime is the time at which we last rotated the
+    // erasure storage value.
+    long lastErasureStorageTime;
 
     // torAddress contains a string like "127.0.0.1:9050", which specifies
     // the address of the local Tor SOCKS proxy.
@@ -215,7 +219,7 @@ public class Client {
 
     // logEvent records an exceptional event relating to the given contact.
     public void logEvent(Contact contact, String msg) {
-        Long time = (long)0;//get current time
+        Long time = System.nanoTime();
         Event e = new Event(time, msg);
         contact.events.add(e);
         //LOGME

@@ -30,6 +30,15 @@ public class InboxMessage {
     // i.e. to opt it out of the usual, time-based, auto-deletion.
     boolean retained = false;
 
+    // exposureTime contains the time when the message was last "exposed".
+    // This is used to allow a small period of time for the user to mark a
+    // message as retained (messageGraceTime). For example, if a message is
+    // loaded at startup and has expired then it's a candidate for
+    // deletion, but the exposureTime will be the startup time, which
+    // ensures that we leave it a few minutes before deletion. Setting
+    // retained to false also resets the exposureTime.
+    long exposureTime;
+
     HashMap<Long, PendingDecryption> decryptions;
 
     public String getSentTime(){

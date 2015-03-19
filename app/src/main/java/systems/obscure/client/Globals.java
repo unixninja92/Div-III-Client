@@ -38,28 +38,25 @@ public class Globals {
 
     // messageLifetime is the default amount of time for which we'll keep a
     // message. (Counting from the time that it was received.)
-    public static final int MESSAGE_LIFETIME = 7 * 24;
+    public static final long MESSAGE_LIFETIME = 7 * 24 * 60 * 60000000L;
 
     // messagePreIndicationLifetime is the amount of time that a message
     // remains before the background color changes to indicate that it will
     // be deleted soon.
-//    public static final int messagePreIndicationLifetime = 6 * 24 * time.Hour;
+    public static final long MESSAGE_PRE_INDICATION_LIFETIME = 6 * 24 * 60 * 60000000L;
 
     // messageGraceTime is the amount of time that we'll leave a message
     // before deletion after it has been marked as not-retained, or after
     // startup.
-//    public static final int messageGraceTime = 5 * time.Minute
+    public static final long MESSAGE_GRACE_TIME = 5 * 60000000L;
 
     // The current protocol version implemented by this code.
     public static final int PROTO_VERSION = 1;
 
 
-    public static final int kdfSaltLen = 32;
-    public static final int kdfKeyLen = 32;
-    public static final int erasureKeyLen = 32;
 
     // transactionRateSeconds is the mean of the exponential distribution that
-// we'll sample in order to distribute the time between our network
-// connections.
-    public static final int transactionRateSeconds = 300;
+    // we'll sample in order to distribute the time between our network
+    // connections. TRANSACTION_RATE_SECONDS
+    public static final int TRANSACTION_RATE_SECONDS = 300;
 }

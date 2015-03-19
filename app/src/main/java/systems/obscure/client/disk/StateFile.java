@@ -16,13 +16,16 @@ import java.security.KeyException;
 import java.security.SecureRandom;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import systems.obscure.client.Globals;
 import systems.obscure.client.protos.LocalStorage;
 
 /**
  * @author unixninja92
  */
 public class StateFile implements CSProcess{
+    public static final int kdfSaltLen = 32;
+    public static final int kdfKeyLen = 32;
+    public static final int erasureKeyLen = 32;
+
     String path;
     SecureRandom rand;
 
@@ -32,8 +35,8 @@ public class StateFile implements CSProcess{
     ErasureStorage erasureStorage;
 
     LocalStorage.Header header;
-    byte[] key = new byte[Globals.kdfKeyLen];
-    byte[] mask = new byte[Globals.erasureKeyLen];
+    byte[] key = new byte[kdfKeyLen];
+    byte[] mask = new byte[erasureKeyLen];
     boolean valid = false;
 
     private final byte[] headerMagic = {(byte)0xa8, (byte)0x34, (byte)0x64, (byte)0x9e,(byte) 0xce,
@@ -58,11 +61,11 @@ public class StateFile implements CSProcess{
             throw new KeyException("bad password");
         LocalStorage.Header.SCrypt prams = header.getScrypt();
         key = SCrypt.generate(pw.getBytes(), header.getKdfSalt().toByteArray(), prams.getN(),
-                prams.getR(), prams.getP(), Globals.kdfKeyLen);
+                prams.getR(), prams.getP(), kdfKeyLen);
     }
 
     public void Create(String pw) throws KeyException {
-        byte[] salt = new byte[Globals.kdfSaltLen];
+        byte[] salt = new byte[kdfSaltLen];
         rand.nextBytes(salt);
         LocalStorage.Header.Builder hBuilder = LocalStorage.Header.newBuilder();
         if(pw.length() > 0) {
@@ -114,7 +117,7 @@ public class StateFile implements CSProcess{
 
             b.position(b.position()+24*smearedCopies);
 
-            byte[] effectiveKey = new byte[Globals.kdfKeyLen];
+            byte[] effectiveKey = new byte[kdfKeyLen];
 
             for(int i = 0; i < effectiveKey.length; i++) {
                 effectiveKey[i] = (byte)(mask[i] ^ key[i]);
