@@ -16,6 +16,7 @@ import java.security.KeyException;
 import java.security.SecureRandom;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+import systems.obscure.client.Globals;
 import systems.obscure.client.protos.LocalStorage;
 
 /**
@@ -31,8 +32,8 @@ public class StateFile implements CSProcess{
     ErasureStorage erasureStorage;
 
     LocalStorage.Header header;
-    byte[] key = new byte[Constants.kdfKeyLen];
-    byte[] mask = new byte[Constants.erasureKeyLen];
+    byte[] key = new byte[Globals.kdfKeyLen];
+    byte[] mask = new byte[Globals.erasureKeyLen];
     boolean valid = false;
 
     private final byte[] headerMagic = {(byte)0xa8, (byte)0x34, (byte)0x64, (byte)0x9e,(byte) 0xce,
@@ -57,11 +58,11 @@ public class StateFile implements CSProcess{
             throw new KeyException("bad password");
         LocalStorage.Header.SCrypt prams = header.getScrypt();
         key = SCrypt.generate(pw.getBytes(), header.getKdfSalt().toByteArray(), prams.getN(),
-                prams.getR(), prams.getP(), Constants.kdfKeyLen);
+                prams.getR(), prams.getP(), Globals.kdfKeyLen);
     }
 
     public void Create(String pw) throws KeyException {
-        byte[] salt = new byte[Constants.kdfSaltLen];
+        byte[] salt = new byte[Globals.kdfSaltLen];
         rand.nextBytes(salt);
         LocalStorage.Header.Builder hBuilder = LocalStorage.Header.newBuilder();
         if(pw.length() > 0) {
@@ -113,7 +114,7 @@ public class StateFile implements CSProcess{
 
             b.position(b.position()+24*smearedCopies);
 
-            byte[] effectiveKey = new byte[Constants.kdfKeyLen];
+            byte[] effectiveKey = new byte[Globals.kdfKeyLen];
 
             for(int i = 0; i < effectiveKey.length; i++) {
                 effectiveKey[i] = (byte)(mask[i] ^ key[i]);
@@ -145,6 +146,7 @@ public class StateFile implements CSProcess{
     }
 
     //poison channel for closing. Then catch poison exception to detect that closing
+    @Override
     public void run() {
 
         while(true) {

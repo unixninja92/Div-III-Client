@@ -2,6 +2,7 @@ package systems.obscure.client.client;
 
 import java.util.HashMap;
 
+import systems.obscure.client.Globals;
 import systems.obscure.client.protos.Pond;
 
 /**
@@ -39,7 +40,7 @@ public class InboxMessage {
     }
 
     public Long getEraserTime(){
-        return receivedTime + Constants.MESSAGE_LIFETIME;//TODO format dat time!!!
+        return receivedTime + Globals.MESSAGE_LIFETIME;//TODO format dat time!!!
     }
 
     public String getBody(){

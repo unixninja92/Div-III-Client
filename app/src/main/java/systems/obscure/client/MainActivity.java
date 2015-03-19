@@ -12,7 +12,7 @@ import org.thoughtcrime.securesms.crypto.MasterSecret;
 import org.thoughtcrime.securesms.util.DynamicLanguage;
 import org.thoughtcrime.securesms.util.DynamicTheme;
 
-import systems.obscure.client.client.ClientS;
+import systems.obscure.client.client.Client;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -54,7 +54,7 @@ public class MainActivity extends ActionBarActivity {
 //                    Client client = new Client(getFilesDir().getPath()+"/statefile",
 //                            "RX4SBLINCG6TUCR7FJYMNNSA33QAPVJAEYA5ROT6QG4IPX7FXE7Q", "127.0.0.1:9050");
 //                    client.start();
-                    ClientS client = ClientS.getInstance();
+                    Client client = Client.getInstance();
                     client.start(getFilesDir().getPath()+"/statefile", getApplicationContext());
                 }
             });

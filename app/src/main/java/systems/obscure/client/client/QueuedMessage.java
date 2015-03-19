@@ -6,7 +6,7 @@ import systems.obscure.client.protos.Pond;
  * @author unixninja92
  */
 public class QueuedMessage {
-    Pond.Request request;
+    Pond.Request.Builder request;
     Long id;
     Long to;
     String server;
@@ -14,7 +14,7 @@ public class QueuedMessage {
     Long sent;
     Long acked;
     boolean revocation;
-    Pond.Message message;
+    Pond.Message.Builder message;
 
     // sending is true if the transact goroutine is currently sending this
     // message. This is protected by the queueMutex. TODO adjust comment for java

@@ -26,6 +26,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 import info.guardianproject.onionkit.proxy.SocksSocketFactory;
+import systems.obscure.client.Globals;
 import systems.obscure.client.protos.Pond;
 
 /**
@@ -139,8 +140,8 @@ public class Transport {
 
         while(buf.length > 0) {
             int m = buf.length;
-            if( m > blockSize - Constants.SECRETBOX_OVERHEAD)
-                m = blockSize - Constants.SECRETBOX_OVERHEAD;
+            if( m > blockSize - Globals.SECRETBOX_OVERHEAD)
+                m = blockSize - Globals.SECRETBOX_OVERHEAD;
             byte[] cipherText = writeBox.encrypt(writeSequence, Arrays.copyOf(buf, m));
             int l = cipherText.length;
             for(int i= 0; i<l; i++)
@@ -173,7 +174,7 @@ public class Transport {
         ByteStreams.readFully(reader, readBuffer, 0, n);
 
         try {
-            if (out.length >= n - Constants.SECRETBOX_OVERHEAD) {
+            if (out.length >= n - Globals.SECRETBOX_OVERHEAD) {
                 // We can decrypt directly into the output buffer.
                 out = readBox.decrypt(readSequence, readBuffer);
                 n = out.length;
@@ -193,13 +194,13 @@ public class Transport {
         return n;
     }
 
-    public void writeProto(Message message) throws IOException {
-        byte[] data = message.toByteArray();
+    public void writeProto(Message.Builder message) throws IOException {
+        byte[] data = message.build().toByteArray();
 
-        if(data.length > Constants.TRANSPORT_SIZE)
+        if(data.length > Globals.TRANSPORT_SIZE)
             throw new IOException("transport: message too large");
 
-        byte[] buf = new byte[Constants.TRANSPORT_SIZE+2];
+        byte[] buf = new byte[Globals.TRANSPORT_SIZE+2];
         buf[0] = (byte) data.length;
         buf[1] = (byte) (data.length >> 8);
         for (int i = 0; i < data.length; i++){
@@ -209,10 +210,10 @@ public class Transport {
     }
 
     public Pond.Reply readProto() throws IOException {
-        byte[] buf = new byte[Constants.TRANSPORT_SIZE+2+Constants.SECRETBOX_OVERHEAD];
+        byte[] buf = new byte[Globals.TRANSPORT_SIZE+2+Globals.SECRETBOX_OVERHEAD];
         buf = read(buf);
         int n = buf.length;
-        if(n != Constants.TRANSPORT_SIZE+2)
+        if(n != Globals.TRANSPORT_SIZE+2)
             throw new IOException("transport: message wrong length");
 
         n = (int)buf[0] + (((int)buf[1])<<8);
@@ -273,6 +274,12 @@ public class Transport {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public byte readByte() throws IOException {
+        byte[] b = new byte[1];
+        ByteStreams.readFully(reader, b);
+        return b[0];
     }
 
     private byte[] encrypt(byte[] data) {
@@ -354,7 +361,7 @@ public class Transport {
                 h.update(digest);
                 digest = h.doFinal();
 
-                byte[] digestReceived = read(new byte[digest.length + Constants.SECRETBOX_OVERHEAD]);
+                byte[] digestReceived = read(new byte[digest.length + Globals.SECRETBOX_OVERHEAD]);
 //            int n = read(digestReceived);
 //            if(n != digest.length)
 //                throw new IOException(shortMessageError);

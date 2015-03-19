@@ -11,7 +11,7 @@ import org.thoughtcrime.securesms.recipients.Recipients;
 
 import info.guardianproject.onionkit.ui.OrbotHelper;
 import systems.obscure.client.CameraActivity;
-import systems.obscure.client.client.ClientS;
+import systems.obscure.client.client.Client;
 
 
 public class RoutingActivity extends PassphraseRequiredActionBarActivity {
@@ -22,7 +22,7 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
   private static final int STATE_CONVERSATION_OR_LIST     = 3;
 
   private MasterSecret masterSecret   = null;
-  private ClientS client = ClientS.getInstance();
+  private Client client = Client.getInstance();
   private boolean      isVisible      = false;
   private boolean      canceledResult = false;
   private boolean      newIntent      = false;

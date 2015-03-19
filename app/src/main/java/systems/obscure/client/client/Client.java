@@ -1,28 +1,35 @@
 package systems.obscure.client.client;
 
-import com.google.common.io.BaseEncoding;
+import android.content.Context;
+
 import com.google.common.primitives.UnsignedLong;
-import com.google.protobuf.ByteString;
 
 import org.abstractj.kalium.keys.KeyPair;
-import org.abstractj.kalium.keys.PublicKey;
 import org.abstractj.kalium.keys.SigningKey;
+import org.jcsp.lang.Any2OneChannel;
+import org.jcsp.lang.Channel;
+import org.jcsp.lang.One2AnyChannel;
+import org.jcsp.lang.SharedChannelInput;
+import org.jcsp.lang.SharedChannelOutput;
+import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
-import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import systems.obscure.client.protos.Pond;
+import systems.obscure.client.disk.NewState;
+import systems.obscure.client.disk.StateFile;
 
 /**
  * @author unixninja92
  */
 public class Client {
-
     // autoFetch controls whether the network goroutine performs periodic
     // transactions or waits for outside prompting.
     boolean autoFetch;
@@ -33,7 +40,18 @@ public class Client {
 
     // stateFilename is the filename of the file on disk in which we
     // load/save our state.
-    String stateFile;
+    String stateFilename;
+    // stateLock protects the state against concurrent access by another
+    // program.
+    ReentrantReadWriteLock stateLock;
+
+    // writerChan is a channel that the disk goroutine reads from to
+    // receive updated, serialised states.
+    SharedChannelOutput<NewState> writerChan;
+
+    // writerDone is a channel that is closed by the disk goroutine when it
+    // has finished all pending updates.
+    SharedChannelInput writerDone;
 
     // torAddress contains a string like "127.0.0.1:9050", which specifies
     // the address of the local Tor SOCKS proxy.
@@ -73,50 +91,94 @@ public class Client {
 
     // queue is a queue of messages for transmission that's shared with the
     // network goroutine and protected by queueMutex.
-     QueuedMessage[] queue; //synchronized
+    LinkedBlockingQueue<QueuedMessage> queue; //synchronized
+    ReentrantReadWriteLock queueLock;
+
+    // newMessageChan receives messages that have been read from the home
+    // server by the network goroutine.
+    SharedChannelInput<NewMessage> newMessageChan;
+    // messageSentChan receives the ids of messages that have been sent by
+    // the network goroutine.
+    SharedChannelInput<MessageSendResult> messageSentChan;
+    // backgroundChan is used for signals from background processes - e.g.
+    // detachment uploads.
+    SharedChannelInput backgroundChan;
+    // signingRequestChan receives requests to sign messages for delivery,
+    // just before they are sent to the destination server.
+    SharedChannelInput<SigningRequest> signingRequestChan;
 
     HashMap<Long, Boolean> usedIds;
 
-    Transport transport;
+    Context context;
 
-    public Client(String path, String ser, String tor){
-        stateFile = path;
-        server = ser;
-        torAddress = tor;
+
+    private static Client ourInstance = new Client();
+
+    public static Client getInstance() {
+        return ourInstance;
     }
 
+    private Client() {
+        torAddress = "127.0.0.1:9050";
+        server = "RX4SBLINCG6TUCR7FJYMNNSA33QAPVJAEYA5ROT6QG4IPX7FXE7Q";
+    }
 
-    public void start() {
-        boolean newAccount = true;
+    public void start(String filename, Context con) {
+        stateFilename = filename;
+        context = con;
 
-        if(newAccount) {
-            try {
-                rand = SecureRandom.getInstance("SHA1PRNG");
-                MessageDigest digest = MessageDigest.getInstance("SHA256");
-                byte[] seed = new byte[32];
-                rand.nextBytes(seed);
-                signingKey = new SigningKey(digest.digest(seed));
-                identity = new KeyPair();
-                rand.nextBytes(hmacKey);
+        try {
+            rand = SecureRandom.getInstance("SHA1PRNG");
 
-                byte[] pub = BaseEncoding.base32().decode(server);
-                PublicKey serverKey = new PublicKey(pub);
-                transport = new Transport(identity, serverKey);
-                transport.handshake();
-                doCreateAccount();
+            StateFile stateFile = new StateFile(rand, stateFilename);
+            stateLock = stateFile.getLock();
+//            stateLock.
 
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+
+            boolean newAccount = TextSecurePreferences.isRegisteredOnServer(context);
+
+            if(newAccount) {
+//                try {
+                    MessageDigest digest = MessageDigest.getInstance("SHA256");
+                    byte[] seed = new byte[32];
+                    rand.nextBytes(seed);
+                    signingKey = new SigningKey(digest.digest(seed));
+                    identity = new KeyPair();
+                    rand.nextBytes(hmacKey);
+//
+//                    byte[] pub = BaseEncoding.base32().decode(server);
+//                    PublicKey serverKey = new PublicKey(pub);
+//                    transport = new Transport(identity, serverKey);
+//                    transport.handshake();
+//                    doCreateAccount();
+
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
             }
+
+            Any2OneChannel<NewState> stateChan = Channel.any2one(5);
+            writerChan = stateChan.out();
+
+            One2AnyChannel doneChan = Channel.one2any(5);
+            writerDone = doneChan.in();
+
+            stateFile.StartWrtie(stateChan.in(), doneChan.out());//TODO put on seperate thread
+            //TODO transact()
+            if(newAccount){
+                //TODO save
+            }
+
+
+        } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
         }
     }
 
     public Draft outboxToDraft(QueuedMessage msg) {
         Draft draft = new Draft();
         draft.id = msg.id;
-        //TODO draft.created = msg.created;
+        draft.created = msg.created;
         draft.to = msg.to;
         draft.body = msg.message.getBody().toString();
         draft.attachments = msg.message.getFilesList();
@@ -145,11 +207,33 @@ public class Client {
         return contacts.get(id).name;
     }
 
-    //TODO randBytes func
+    public void enqueue(QueuedMessage m) {
+        queueLock.writeLock().lock();
+        queue.add(m);
+        queueLock.writeLock().unlock();
+    }
 
-    //TODO randId func
+    // logEvent records an exceptional event relating to the given contact.
+    public void logEvent(Contact contact, String msg) {
+        Long time = (long)0;//get current time
+        Event e = new Event(time, msg);
+        contact.events.add(e);
+        //LOGME
+    }
 
-    //TODO now func
+    public Long randId() {
+        byte[] idBytes = new byte[8];
+        while(true) {
+            rand.nextBytes(idBytes);
+            Long n = ByteBuffer.wrap(idBytes).getLong();
+            if(n == 0)
+                continue;
+            if(usedIds.get(n))
+                continue;
+            usedIds.put(n, true);
+            return n;
+        }
+    }
 
     // registerId records that an ID number has been used, typically because we are
     // loading a state file.
@@ -211,65 +295,93 @@ public class Client {
         outbox = newOutbox;
     }
 
-    public int indexOfQueuedMessage(QueuedMessage msg) {
+//    public int indexOfQueuedMessage(QueuedMessage msg) {
+//        // c.queueMutex must be held before calling this function.
+//        for(int i = 0; i < queue.length; i++) {
+//            queue.
+//            if(queue[i] == msg)
+//                return i;
+//        }
+//        return -1;
+//    }
+
+    public void removeQueuedMessage(QueuedMessage msg) {
         // c.queueMutex must be held before calling this function.
-        for(int i = 0; i < queue.length; i++) {
-            if(queue[i] == msg)
-                return i;
-        }
-        return -1;
+//        queueLock.writeLock().lock();
+        if(queueLock.writeLock().isHeldByCurrentThread())
+            queue.remove(msg);
+//        queueLock.writeLock().unlock();
     }
 
-    public void removeQueuedMessage(int index) {
+    // If sending a message fails for any reason then we want to move the
+// message to the end of the queue so that we never clog the queue with
+// an unsendable message. However, we also don't want to reorder messages
+// so all messages to the same contact are moved to the end of the queue.
+    public void moveContactsMessagesToEndOfQueue(Long id) {
         // c.queueMutex must be held before calling this function.
 
-        QueuedMessage[] newQueue = new QueuedMessage[queue.length];
-        int pos = 0;
-        for(int i = 0; i < queue.length; i++){
-            if(i != index)
-                newQueue[pos++] = queue[i];
-        }
-        queue = newQueue;
-    }
-
-    public void doCreateAccount() {
-        byte[] gen = new byte[4];
-        rand.nextBytes(gen);
-        generation = ByteBuffer.wrap(gen).getInt();
-
-        Pond.NewAccount.Builder newAccount = Pond.NewAccount.newBuilder();
-        newAccount.setGeneration(generation);
-        newAccount.setGroup(ByteString.copyFrom(hmacKey));
-        newAccount.setHmacKey(ByteString.copyFrom(hmacKey));
-//        NewAccount.Builder newAccount = new NewAccount.Builder();
-//        newAccount.generation(generation);
-//        newAccount.group(ByteString.of(hmacKey));
-//        newAccount.hmac_key(ByteString.of(hmacKey));
-
-        Pond.Request.Builder request = Pond.Request.newBuilder();
-        request.setNewAccount(newAccount);
-//        request.new_account(newAccount.build());
-//        NewAccount newAccount = new NewAccount(generation, ByteString.of(hmacKey), null);
-//        Request request = new Request(newAccount, null, null, null, null, null, null, null);
-
-        try {
-            transport.writeProto(request.build());
-            Pond.Reply reply = transport.readProto();
-            replyToError(reply);
-//            System.out.println(reply.getAccountCreated().getDetails().toString());
-//            System.out.println(reply.account_created.details.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void replyToError(Pond.Reply reply) throws IOException {
-        if(reply.hasStatus() || reply.getStatus() == Pond.Reply.Status.OK)
+        if(queue.size() < 2)
+            // There are no other orders for queues of length zero or one.
             return;
-        if(reply.getStatus().getNumber()<29 && reply.getStatus().getNumber()>=0)
-            throw new IOException("error from server: "+reply.getStatus());
-        else
-            throw new IOException("unknown error from server: "+reply.getStatus());
+
+        LinkedBlockingQueue<QueuedMessage> newQueue = new LinkedBlockingQueue<>();
+        ArrayList<QueuedMessage> movedMessages = new ArrayList<>();
+
+        for(QueuedMessage m: queue){
+            if(m.to == id)
+                movedMessages.add(m);
+            else
+                newQueue.add(m);
+        }
+        newQueue.addAll(movedMessages);
+        queue = newQueue;
+
     }
+
+    public void deleteContact(Contact contact){
+        InboxMessage[] newInbox = new InboxMessage[inbox.length];
+        int pos = 0;
+        for(int i = 0; i < inbox.length; i++){
+            InboxMessage inboxMsg = inbox[i];
+            if(inboxMsg.from == contact.id)
+                continue;
+            newInbox[pos++] = inboxMsg;
+        }
+        inbox = newInbox;
+        //TODO update UI
+
+        for(Draft d: drafts.values()) {
+            if(d.to == contact.id)
+                d.to = 0L;
+        }
+
+        queueLock.readLock().lock();
+        LinkedBlockingQueue<QueuedMessage> newQueue = new LinkedBlockingQueue<>();
+        for(QueuedMessage msg: queue) {
+            if(msg.to == contact.id && !msg.revocation)
+                continue;
+            newQueue.add(msg);
+        }
+        queueLock.readLock().unlock();
+        queueLock.writeLock().lock();
+        queue = newQueue;
+        queueLock.writeLock().unlock();
+
+        QueuedMessage[] newOutbox = new QueuedMessage[outbox.length];
+        pos = 0;
+        for(int i = 0; i < outbox.length; i++){
+            QueuedMessage outboxMsg = outbox[i];
+            if(outboxMsg.id == contact.id)
+                continue;
+            newOutbox[pos++] = outboxMsg;
+        }
+        outbox = newOutbox;
+
+        //TODO revocationMessage := c.revoke(contact)
+        //c.ui.addRevocationMessageUI(revocationMessage)
+
+        contacts.remove(contact.id);
+    }
+
+
 }
