@@ -1,7 +1,5 @@
 package systems.obscure.client.client;
 
-import com.google.common.primitives.UnsignedLong;
-
 import systems.obscure.client.protos.Pond;
 
 /**
@@ -9,12 +7,12 @@ import systems.obscure.client.protos.Pond;
  */
 public class QueuedMessage {
     Pond.Request request;
-    UnsignedLong id;
-    UnsignedLong to;
+    Long id;
+    Long to;
     String server;
-    int created;
-    int sent;
-    int acked;
+    Long created;
+    Long sent;
+    Long acked;
     boolean revocation;
     Pond.Message message;
 

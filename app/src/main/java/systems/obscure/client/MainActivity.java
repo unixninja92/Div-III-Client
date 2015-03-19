@@ -55,7 +55,7 @@ public class MainActivity extends ActionBarActivity {
 //                            "RX4SBLINCG6TUCR7FJYMNNSA33QAPVJAEYA5ROT6QG4IPX7FXE7Q", "127.0.0.1:9050");
 //                    client.start();
                     ClientS client = ClientS.getInstance();
-                    client.start(getFilesDir().getPath()+"/statefile");
+                    client.start(getFilesDir().getPath()+"/statefile", getApplicationContext());
                 }
             });
             clientThread.start();

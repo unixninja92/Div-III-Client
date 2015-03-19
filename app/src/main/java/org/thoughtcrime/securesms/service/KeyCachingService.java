@@ -32,6 +32,7 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.RemoteViews;
 
+import org.thoughtcrime.securesms.DummyActivity;
 import org.thoughtcrime.securesms.RoutingActivity;
 import org.thoughtcrime.securesms.crypto.InvalidPassphraseException;
 import org.thoughtcrime.securesms.crypto.MasterSecret;
@@ -46,7 +47,6 @@ import systems.obscure.client.R;
 
 //import org.thoughtcrime.securesms.ApplicationContext;
 //import org.thoughtcrime.securesms.DatabaseUpgradeActivity;
-//import org.thoughtcrime.securesms.DummyActivity;
 
 /**
  * Small service that stays running to keep a key cached in memory.
@@ -58,15 +58,15 @@ public class KeyCachingService extends Service {
 
   public static final int SERVICE_RUNNING_ID = 4141;
 
-  public  static final String KEY_PERMISSION           = "org.thoughtcrime.securesms.ACCESS_SECRETS";
-  public  static final String NEW_KEY_EVENT            = "org.thoughtcrime.securesms.service.action.NEW_KEY_EVENT";
-  public  static final String CLEAR_KEY_EVENT          = "org.thoughtcrime.securesms.service.action.CLEAR_KEY_EVENT";
-  private static final String PASSPHRASE_EXPIRED_EVENT = "org.thoughtcrime.securesms.service.action.PASSPHRASE_EXPIRED_EVENT";
-  public  static final String CLEAR_KEY_ACTION         = "org.thoughtcrime.securesms.service.action.CLEAR_KEY";
-  public  static final String DISABLE_ACTION           = "org.thoughtcrime.securesms.service.action.DISABLE";
-  public  static final String ACTIVITY_START_EVENT     = "org.thoughtcrime.securesms.service.action.ACTIVITY_START_EVENT";
-  public  static final String ACTIVITY_STOP_EVENT      = "org.thoughtcrime.securesms.service.action.ACTIVITY_STOP_EVENT";
-  public  static final String LOCALE_CHANGE_EVENT      = "org.thoughtcrime.securesms.service.action.LOCALE_CHANGE_EVENT";
+  public  static final String KEY_PERMISSION           = "systems.obscure.client.ACCESS_SECRETS";
+  public  static final String NEW_KEY_EVENT            = "systems.obscure.client.service.action.NEW_KEY_EVENT";
+  public  static final String CLEAR_KEY_EVENT          = "systems.obscure.client.service.action.CLEAR_KEY_EVENT";
+  private static final String PASSPHRASE_EXPIRED_EVENT = "systems.obscure.client.service.action.PASSPHRASE_EXPIRED_EVENT";
+  public  static final String CLEAR_KEY_ACTION         = "systems.obscure.client.service.action.CLEAR_KEY";
+  public  static final String DISABLE_ACTION           = "systems.obscure.client.service.action.DISABLE";
+  public  static final String ACTIVITY_START_EVENT     = "systems.obscure.client.service.action.ACTIVITY_START_EVENT";
+  public  static final String ACTIVITY_STOP_EVENT      = "systems.obscure.client.service.action.ACTIVITY_STOP_EVENT";
+  public  static final String LOCALE_CHANGE_EVENT      = "systems.obscure.client.service.action.LOCALE_CHANGE_EVENT";
 
   private DynamicLanguage dynamicLanguage = new DynamicLanguage();
 
@@ -103,18 +103,18 @@ public class KeyCachingService extends Service {
       broadcastNewSecret();
       startTimeoutIfAppropriate();
 
-      new AsyncTask<Void, Void, Void>() {
-        @Override
-        protected Void doInBackground(Void... params) {
-//          if (!DatabaseUpgradeActivity.isUpdate(KeyCachingService.this)) {
-//            ApplicationContext.getInstance(KeyCachingService.this)
-//                              .getJobManager()
-//                              .setEncryptionKeys(new EncryptionKeys(ParcelUtil.serialize(masterSecret)));
-//            MessageNotifier.updateNotification(KeyCachingService.this, masterSecret);
-//          }
-          return null;
-        }
-      }.execute();
+//      new AsyncTask<Void, Void, Void>() {
+//        @Override
+//        protected Void doInBackground(Void... params) {
+////          if (!DatabaseUpgradeActivity.isUpdate(KeyCachingService.this)) {
+////            ApplicationContext.getInstance(KeyCachingService.this)
+////                              .getJobManager()
+////                              .setEncryptionKeys(new EncryptionKeys(ParcelUtil.serialize(masterSecret)));
+////            MessageNotifier.updateNotification(KeyCachingService.this, masterSecret);
+////          }
+//          return null;
+//        }
+//      }.execute();
     }
   }
 
@@ -165,9 +165,9 @@ public class KeyCachingService extends Service {
    */
   @Override
   public void onTaskRemoved(Intent rootIntent) {
-//    Intent intent = new Intent(this, DummyActivity.class);
-//    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//    startActivity(intent);
+    Intent intent = new Intent(this, DummyActivity.class);
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    startActivity(intent);
   }
 
   private void handleActivityStarted() {

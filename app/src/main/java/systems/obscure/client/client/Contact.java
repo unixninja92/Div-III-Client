@@ -1,9 +1,9 @@
 package systems.obscure.client.client;
 
-import com.google.common.primitives.UnsignedInteger;
-
 import org.abstractj.kalium.keys.PublicKey;
 import org.abstractj.kalium.keys.VerifyKey;
+
+import java.util.ArrayList;
 
 /**
  * @author unixninja92
@@ -31,7 +31,7 @@ public class Contact {
 
     // generation is the current group generation number that we know for
     // this contact.
-    UnsignedInteger generation;
+    Integer generation;
 
     // theirServer is the URL of the contact's home server.
     String theirServer;
@@ -60,6 +60,8 @@ public class Contact {
     // pandaResult contains an error message in the event that a PANDA key
     // exchange failed.
     String pandaResult;
+
+    ArrayList<Event> events;
 
     public String subline() {
         if(revokedUs)

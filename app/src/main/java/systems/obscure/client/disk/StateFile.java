@@ -1,11 +1,12 @@
 package systems.obscure.client.disk;
 
-import android.app.Activity;
-
 import com.google.common.io.Files;
 import com.google.protobuf.ByteString;
 
 import org.abstractj.kalium.crypto.SecretBox;
+import org.jcsp.lang.AltingChannelInput;
+import org.jcsp.lang.CSProcess;
+import org.jcsp.lang.ChannelOutput;
 import org.spongycastle.crypto.generators.SCrypt;
 
 import java.io.File;
@@ -13,13 +14,14 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.KeyException;
 import java.security.SecureRandom;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import systems.obscure.client.protos.LocalStorage;
 
 /**
  * @author unixninja92
  */
-public class StateFile extends Activity{
+public class StateFile implements CSProcess{
     String path;
     SecureRandom rand;
 
@@ -36,12 +38,16 @@ public class StateFile extends Activity{
     private final byte[] headerMagic = {(byte)0xa8, (byte)0x34, (byte)0x64, (byte)0x9e,(byte) 0xce,
             (byte)0x39, (byte)0x94, (byte)0xe3};
 
-//    private final ReentrantReadWriteLock lockFDMutex = new ReentrantReadWriteLock();
-//     int lockFD;
+    private final ReentrantReadWriteLock lock;
+
+    private AltingChannelInput<NewState> input;
+    private ChannelOutput output;
 
     public StateFile(SecureRandom r, String p) {
         rand = r;
         path = p;
+
+        lock = new ReentrantReadWriteLock();
     }
 
 
@@ -70,7 +76,7 @@ public class StateFile extends Activity{
 
     public LocalStorage.State Read(String pw) throws IOException {
         try {
-            File stateFile = new File(getFilesDir(), "state_file");
+            File stateFile = new File(path);
             ByteBuffer b = ByteBuffer.wrap(Files.toByteArray(stateFile));
 
             if(b.capacity() < headerMagic.length+4)
@@ -130,6 +136,24 @@ public class StateFile extends Activity{
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void StartWrtie(AltingChannelInput<NewState> in, ChannelOutput out) {
+        input = in;
+        output = out;
+        run();
+    }
+
+    //poison channel for closing. Then catch poison exception to detect that closing
+    public void run() {
+
+        while(true) {
+            NewState newState = input.read();
+        }
+    }
+
+    public ReentrantReadWriteLock getLock() {
+        return lock;
     }
 
 

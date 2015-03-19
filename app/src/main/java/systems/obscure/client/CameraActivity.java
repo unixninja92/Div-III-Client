@@ -1,6 +1,5 @@
 package systems.obscure.client;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,7 +12,10 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import org.thoughtcrime.securesms.ConversationListActivity;
+import org.thoughtcrime.securesms.PassphraseRequiredNoActionBarActivity;
+import org.thoughtcrime.securesms.RoutingActivity;
 import org.thoughtcrime.securesms.crypto.MasterSecret;
+import org.thoughtcrime.securesms.util.MemoryCleaner;
 
 import systems.obscure.client.util.SystemUiHider;
 
@@ -25,7 +27,7 @@ import systems.obscure.client.util.SystemUiHider;
  *
  * @see SystemUiHider
  */
-public class CameraActivity extends Activity {
+public class CameraActivity extends PassphraseRequiredNoActionBarActivity {
     private FrameLayout mFrame;
     private PreviewSurfaceView mPreview;
     private int camNum;
@@ -51,6 +53,12 @@ public class CameraActivity extends Activity {
     public void onResume() {
         super.onResume();
         newCamera();
+    }
+
+    @Override
+    public void onDestroy() {
+        MemoryCleaner.clean(masterSecret);
+        super.onDestroy();
     }
 
     private void newCamera() {
@@ -147,4 +155,9 @@ public class CameraActivity extends Activity {
                 source.getHeight(), matrix, false);
     }
 
+    @Override
+    public void onMasterSecretCleared() {
+        startActivity(new Intent(this, RoutingActivity.class));
+        super.onMasterSecretCleared();
+    }
 }

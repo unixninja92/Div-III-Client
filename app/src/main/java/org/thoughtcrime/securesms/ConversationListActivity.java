@@ -94,7 +94,7 @@ public class ConversationListActivity extends PassphraseRequiredActionBarActivit
 
   @Override
   public void onMasterSecretCleared() {
-//    this.fragment.setMasterSecret(null);
+    this.fragment.setMasterSecret(null);
     startActivity(new Intent(this, RoutingActivity.class));
     super.onMasterSecretCleared();
   }

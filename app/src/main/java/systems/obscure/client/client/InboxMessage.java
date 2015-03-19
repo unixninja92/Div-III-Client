@@ -1,7 +1,5 @@
 package systems.obscure.client.client;
 
-import com.google.common.primitives.UnsignedLong;
-
 import java.util.HashMap;
 
 import systems.obscure.client.protos.Pond;
@@ -12,10 +10,10 @@ import systems.obscure.client.protos.Pond;
 // InboxMessage represents a message in the client's inbox. (Acks also appear
 // as InboxMessages, but their message.Body is empty.)
 public class InboxMessage {
-    UnsignedLong id;
+    Long id;
     boolean read = false;
-    int receivedTime;
-    UnsignedLong from;
+    Long receivedTime;
+    Long from;
 
 
     // sealed contained the encrypted message if the contact who sent this
@@ -40,7 +38,7 @@ public class InboxMessage {
             return ""+message.getTime();//TODO format dat time!!!
     }
 
-    public int getEraserTime(){
+    public Long getEraserTime(){
         return receivedTime + Constants.MESSAGE_LIFETIME;//TODO format dat time!!!
     }
 

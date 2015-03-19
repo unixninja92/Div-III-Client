@@ -1,7 +1,5 @@
 package systems.obscure.client.client;
 
-import com.google.common.primitives.UnsignedLong;
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,11 +9,11 @@ import systems.obscure.client.protos.Pond;
  * @author unixninja92
  */
 public class Draft {
-    UnsignedLong id;
-    //time created; TODO figure out time
-    UnsignedLong to;
+    Long id;
+    Long created;
+    Long to;
     String body;
-    UnsignedLong inReplyTo;
+    Long inReplyTo;
     List<Pond.Message.Attachment> attachments;
     List<Pond.Message.Detachment> detachments;
 

@@ -4,8 +4,6 @@ import android.content.Context;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import org.thoughtcrime.securesms.util.Util;
-
 import java.io.IOException;
 
 public class TextSecurePreferences {
@@ -43,7 +41,7 @@ public class TextSecurePreferences {
   private static final String ENTER_PRESENT_PREF               = "pref_enter_key";
   private static final String SMS_DELIVERY_REPORT_PREF         = "pref_delivery_report_sms";
   private static final String THREAD_TRIM_ENABLED              = "pref_trim_threads";
-  private static final String LOCAL_NUMBER_PREF                = "pref_local_number";
+//  private static final String LOCAL_NUMBER_PREF                = "pref_local_number";
   private static final String VERIFYING_STATE_PREF             = "pref_verifying";
   public  static final String REGISTERED_GCM_PREF              = "pref_gcm_registered";
   private static final String GCM_PASSWORD_PREF                = "pref_gcm_password";
@@ -54,19 +52,31 @@ public class TextSecurePreferences {
   private static final String IN_THREAD_NOTIFICATION_PREF      = "pref_key_inthread_notifications";
 
   private static final String LOCAL_REGISTRATION_ID_PREF       = "pref_local_registration_id";
-  private static final String FALLBACK_SMS_ALLOWED_PREF        = "pref_allow_sms_traffic_out";
-  private static final String FALLBACK_SMS_ASK_REQUIRED_PREF   = "pref_sms_fallback_ask";
-  private static final String DIRECT_SMS_ALLOWED_PREF          = "pref_sms_non_data_out";
-  private static final String FALLBACK_MMS_ENABLED_PREF        = "pref_mms_fallback_enabled";
+//  private static final String FALLBACK_SMS_ALLOWED_PREF        = "pref_allow_sms_traffic_out";
+//  private static final String FALLBACK_SMS_ASK_REQUIRED_PREF   = "pref_sms_fallback_ask";
+//  private static final String DIRECT_SMS_ALLOWED_PREF          = "pref_sms_non_data_out";
+//  private static final String FALLBACK_MMS_ENABLED_PREF        = "pref_mms_fallback_enabled";
   private static final String SIGNED_PREKEY_REGISTERED_PREF    = "pref_signed_prekey_registered";
   private static final String WIFI_SMS_PREF                    = "pref_wifi_sms";
 
   private static final String GCM_REGISTRATION_ID_PREF         = "pref_gcm_registration_id";
   private static final String GCM_REGISTRATION_ID_VERSION_PREF = "pref_gcm_registration_id_version";
-  private static final String WEBSOCKET_REGISTERED_PREF        = "pref_websocket_registered";
+//  private static final String WEBSOCKET_REGISTERED_PREF        = "pref_websocket_registered";
 
   private static final String PUSH_REGISTRATION_REMINDER_PREF  = "pref_push_registration_reminder";
   public  static final String REPEAT_ALERTS_PREF               = "pref_repeat_alerts";
+
+
+  public  static final String REGISTERED_SERVER_PREF              = "pref_server_registered";
+  private static final String WEBSOCKET_REGISTERED_PREF        = "pref_websocket_registered";
+
+  public static boolean isRegisteredOnServer(Context context) {
+      return getBooleanPreference(context, REGISTERED_SERVER_PREF, false);
+  }
+
+  public static void setRegisteredOnServer(Context context, boolean registered) {
+      setBooleanPreference(context, REGISTERED_SERVER_PREF, registered);
+  }
 
   public static boolean isWebsocketRegistered(Context context) {
     return getBooleanPreference(context, WEBSOCKET_REGISTERED_PREF, false);
@@ -116,38 +126,6 @@ public class TextSecurePreferences {
     }
   }
 
-  public static boolean isFallbackSmsAllowed(Context context) {
-    return getBooleanPreference(context, FALLBACK_SMS_ALLOWED_PREF, true);
-  }
-
-  public static void setFallbackSmsAllowed(Context context, boolean allowed) {
-    setBooleanPreference(context, FALLBACK_SMS_ALLOWED_PREF, allowed);
-  }
-
-  public static boolean isFallbackSmsAskRequired(Context context) {
-    return getBooleanPreference(context, FALLBACK_SMS_ASK_REQUIRED_PREF, false);
-  }
-
-  public static void setFallbackSmsAskRequired(Context context, boolean required) {
-    setBooleanPreference(context, FALLBACK_SMS_ASK_REQUIRED_PREF, required);
-  }
-
-  public static boolean isFallbackMmsEnabled(Context context) {
-    return getBooleanPreference(context, FALLBACK_MMS_ENABLED_PREF, true);
-  }
-
-  public static void setFallbackMmsEnabled(Context context, boolean enabled) {
-    setBooleanPreference(context, FALLBACK_MMS_ENABLED_PREF, enabled);
-  }
-
-  public static boolean isDirectSmsAllowed(Context context) {
-    return getBooleanPreference(context, DIRECT_SMS_ALLOWED_PREF, true);
-  }
-
-  public static void setDirectSmsAllowed(Context context, boolean allowed) {
-    setBooleanPreference(context, DIRECT_SMS_ALLOWED_PREF, allowed);
-  }
-
   public static int getLocalRegistrationId(Context context) {
     return getIntegerPreference(context, LOCAL_REGISTRATION_ID_PREF, 0);
   }
@@ -166,14 +144,6 @@ public class TextSecurePreferences {
 
   public static void setDirectoryRefreshTime(Context context, long value) {
     setLongPreference(context, DIRECTORY_FRESH_TIME_PREF, value);
-  }
-
-  public static String getLocalNumber(Context context) {
-    return getStringPreference(context, LOCAL_NUMBER_PREF, "No Stored Number");
-  }
-
-  public static void setLocalNumber(Context context, String localNumber) {
-    setStringPreference(context, LOCAL_NUMBER_PREF, localNumber);
   }
 
   public static String getPushServerPassword(Context context) {
@@ -263,7 +233,7 @@ public class TextSecurePreferences {
  }
 
   public static String getTheme(Context context) {
-    return getStringPreference(context, THEME_PREF, "light");
+    return getStringPreference(context, THEME_PREF, "dark");
   }
 
   public static boolean isVerifying(Context context) {
