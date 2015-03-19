@@ -9,6 +9,7 @@ import org.abstractj.kalium.keys.SigningKey;
 import org.jcsp.lang.Any2OneChannel;
 import org.jcsp.lang.Channel;
 import org.jcsp.lang.One2AnyChannel;
+import org.jcsp.lang.One2OneChannel;
 import org.jcsp.lang.SharedChannelInput;
 import org.jcsp.lang.SharedChannelOutput;
 import org.thoughtcrime.securesms.util.TextSecurePreferences;
@@ -105,16 +106,16 @@ public class Client {
 
     // newMessageChan receives messages that have been read from the home
     // server by the network goroutine.
-    SharedChannelInput<NewMessage> newMessageChan;
+    One2OneChannel<NewMessage> newMessageChan;
     // messageSentChan receives the ids of messages that have been sent by
     // the network goroutine.
-    SharedChannelInput<MessageSendResult> messageSentChan;
+    One2OneChannel<MessageSendResult> messageSentChan;
     // backgroundChan is used for signals from background processes - e.g.
     // detachment uploads.
-    SharedChannelInput backgroundChan;
+    One2OneChannel backgroundChan;
     // signingRequestChan receives requests to sign messages for delivery,
     // just before they are sent to the destination server.
-    SharedChannelInput<SigningRequest> signingRequestChan;
+    One2OneChannel<SigningRequest> signingRequestChan;
 
     HashMap<Long, Boolean> usedIds;
 

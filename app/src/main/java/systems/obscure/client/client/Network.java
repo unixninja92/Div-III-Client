@@ -208,6 +208,42 @@ public class Network implements CSProcess {
                         break;
                 }
             }
+            startup = false;
+
+            Pond.Request.Builder req;
+            String server;
+            boolean useAnonymousIdentity = true;
+            boolean isFetch = false;
+
+            client.queueLock.readLock().lock();
+            if(lastWasSend || client.queue.size() == 0){
+                useAnonymousIdentity = false;
+                isFetch = true;
+                req = Pond.Request.newBuilder();
+                req.setFetch(Pond.Fetch.newBuilder());
+                server = client.server;
+                System.out.println("Starting fetch from home server");
+                lastWasSend = false;
+            } else {
+                head = client.queue.peek();
+                client.queueLock.readLock().unlock();
+                client.queueLock.writeLock().lock();
+                head.sending = true;
+                client.queueLock.writeLock().unlock();
+                client.queueLock.readLock().lock();
+                req = head.request;
+                server = head.server;
+                System.out.println("Starting message transmission to "+server);
+
+                if(head.revocation)
+                    useAnonymousIdentity = false;
+                lastWasSend = true;
+            }
+            client.queueLock.readLock().unlock();
+
+            // Poke the UI thread so that it knows that a message has
+            // started sending.
+            client.messageSentChan.out().write(new MessageSendResult());
         }
     }
 
