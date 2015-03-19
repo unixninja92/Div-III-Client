@@ -1,5 +1,7 @@
 package systems.obscure.client.disk;
 
+import java.io.IOException;
+
 import systems.obscure.client.protos.LocalStorage;
 
 /**
@@ -17,7 +19,7 @@ public interface ErasureStorage {
 
     // Write requests that the given value be stored and the old value
     // forgotten.
-    public void Write(byte[] key, byte[] value);
+    public void Write(byte[] key, byte[] value) throws IOException;
 
     // Destroy erases the NVRAM entry.
     public void Destroy(byte[] key);

@@ -7,9 +7,11 @@ import org.abstractj.kalium.crypto.SecretBox;
 import org.jcsp.lang.AltingChannelInput;
 import org.jcsp.lang.CSProcess;
 import org.jcsp.lang.ChannelOutput;
+import org.jcsp.lang.PoisonException;
 import org.spongycastle.crypto.generators.SCrypt;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.KeyException;
@@ -153,7 +155,66 @@ public class StateFile implements CSProcess{
     public void run() {
 
         while(true) {
-            NewState newState = input.read();
+            NewState newState = null;
+            try {
+                newState = input.read();
+                if(newState == null){
+                    output.poison(10);
+                    return;
+                }
+            }catch (PoisonException e){
+                output.poison(10);
+                return;
+            }
+
+            if(newState.Destruct) {
+                System.out.println("disk: Destruct command received.");
+                byte[] newMask = new byte[erasureKeyLen];
+                rand.nextBytes(newMask);
+                if(erasureStorage != null){
+                    try {
+                        erasureStorage.Write(key, newMask);
+                    } catch (IOException e) {
+                        System.out.print("disk: Error while clearing NVRAM: ");
+                        e.printStackTrace();
+                    }
+                    erasureStorage.Destroy(key);
+                }
+                File out = new File(path);
+                if(out.exists()){
+                    long pos = out.length();
+                    System.out.println("disk: writing "+pos+" zeros to statefile");
+                    byte[] zeros = new byte[(int)pos];
+                    try {
+                        FileOutputStream fileOutputStream = new FileOutputStream(out);
+                        synchronized (fileOutputStream) {
+                            fileOutputStream.write(zeros);
+                            fileOutputStream.flush();
+                            fileOutputStream.close();
+                        }
+                        out.delete();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                output.poison(10);
+                return;
+            }
+
+            byte[] s = newState.state;
+            int length = s.length+4;
+            for(int i = 17; i < 32; i++) {
+                int n = 1 << i;
+                if(n >= length) {
+                    length = n;
+                    break;
+                }
+            }
+
+            byte[] plaintext = new byte[length];
+            for(int i = 4; i < length; i++){
+                plaintext[i] = s[i-4];
+            }
         }
     }
 
