@@ -17,9 +17,11 @@ import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.util.Timer;
 
 import systems.obscure.client.Globals;
 import systems.obscure.client.protos.Pond;
+import systems.obscure.client.util.TimerChanTask;
 
 /**
  * @author unixninja92
@@ -193,9 +195,10 @@ public class Network implements CSProcess {
                     long seed = ByteBuffer.wrap(seedBytes).getLong();
                     ExponentialDistribution distribution = new ExponentialDistribution(new MersenneTwister(seed), 1);
                     double delaySeconds = distribution.sample() * Globals.TRANSACTION_RATE_SECONDS;
-                    long delay = ((long)(delaySeconds * 1000)) * Globals.SECONDS;
-                    System.out.println("Next network transaction in "+delay+" nano seconds");
-                    timerChan.out();//Fixme set for amount of time????
+                    long delay = ((long)(delaySeconds * 1000)) * 1000;
+                    System.out.println("Next network transaction in "+delay+" milliseconds");
+                    Timer timer = new Timer();
+                    timer.schedule(new TimerChanTask(timerChan.out()), delay);
                 }
 
                 Guard[] chans = {client.fetchNowChan.in(), timerChan.in()};
