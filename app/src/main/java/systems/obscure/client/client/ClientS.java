@@ -330,9 +330,64 @@ public class ClientS {
         if(queue.size() < 2)
             // There are no other orders for queues of length zero or one.
             return;
+
         LinkedBlockingQueue<QueuedMessage> newQueue = new LinkedBlockingQueue<>();
         ArrayList<QueuedMessage> movedMessages = new ArrayList<>();
 
+        for(QueuedMessage m: queue){
+            if(m.to == id)
+                movedMessages.add(m);
+            else
+                newQueue.add(m);
+        }
+        newQueue.addAll(movedMessages);
+        queue = newQueue;
+
+    }
+
+    public void deleteContact(Contact contact){
+        InboxMessage[] newInbox = new InboxMessage[inbox.length];
+        int pos = 0;
+        for(int i = 0; i < inbox.length; i++){
+            InboxMessage inboxMsg = inbox[i];
+            if(inboxMsg.from == contact.id)
+                continue;
+            newInbox[pos++] = inboxMsg;
+        }
+        inbox = newInbox;
+        //TODO update UI
+
+        for(Draft d: drafts.values()) {
+            if(d.to == contact.id)
+                d.to = 0L;
+        }
+
+        queueLock.readLock().lock();
+        LinkedBlockingQueue<QueuedMessage> newQueue = new LinkedBlockingQueue<>();
+        for(QueuedMessage msg: queue) {
+            if(msg.to == contact.id && !msg.revocation)
+                continue;
+            newQueue.add(msg);
+        }
+        queueLock.readLock().unlock();
+        queueLock.writeLock().lock();
+        queue = newQueue;
+        queueLock.writeLock().unlock();
+
+        QueuedMessage[] newOutbox = new QueuedMessage[outbox.length];
+        pos = 0;
+        for(int i = 0; i < outbox.length; i++){
+            QueuedMessage outboxMsg = outbox[i];
+            if(outboxMsg.id == contact.id)
+                continue;
+            newOutbox[pos++] = outboxMsg;
+        }
+        outbox = newOutbox;
+
+        //TODO revocationMessage := c.revoke(contact)
+        //c.ui.addRevocationMessageUI(revocationMessage)
+
+        contacts.remove(contact.id);
     }
 
     public void doCreateAccount() {
