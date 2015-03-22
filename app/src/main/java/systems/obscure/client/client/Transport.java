@@ -25,7 +25,7 @@ import java.util.Arrays;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-import info.guardianproject.onionkit.proxy.SocksSocketFactory;
+//import info.guardianproject.onionkit.proxy.SocksSocketFactory;
 import systems.obscure.client.Globals;
 import systems.obscure.client.protos.Pond;
 
@@ -112,8 +112,8 @@ public class Transport {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
 
-            SocksSocketFactory s = SocksSocketFactory.getSocketFactory("127.0.0.1", 9050);
-            serverSocket = s.connectSocket(torAddress, 16333);
+//            SocksSocketFactory s = SocksSocketFactory.getSocketFactory("127.0.0.1", 9050);
+//            serverSocket = s.connectSocket(torAddress, 16333);
 
             reader = new BufferedInputStream(serverSocket.getInputStream());
             writer = serverSocket.getOutputStream();

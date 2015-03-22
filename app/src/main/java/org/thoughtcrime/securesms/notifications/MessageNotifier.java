@@ -48,7 +48,6 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.concurrent.TimeUnit;
 
-import me.leolin.shortcutbadger.ShortcutBadger;
 import systems.obscure.client.R;
 
 //import org.thoughtcrime.securesms.database.DatabaseFactory;
@@ -389,7 +388,7 @@ public class MessageNotifier {
 
   private static void updateBadge(Context context, int count) {
     try {
-      ShortcutBadger.setBadge(context, count);
+//      ShortcutBadger.setBadge(context, count);
     } catch (Throwable t) {
       // NOTE :: I don't totally trust this thing, so I'm catching
       // everything.

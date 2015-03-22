@@ -20,34 +20,39 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['src/main/jniLibs']
-            jni.srcDirs = []
+//            jni.srcDirs = []
         }
     }
     productFlavors {
     }
-    dexOptions {
-        incremental true
-        javaMaxHeapSize "3g"
-    }
     packagingOptions {
         exclude 'META-INF/LICENSE'
+    }
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "2g"
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
-    compile 'com.android.support:multidex:'
-    compile project(':libnetcipher')
-    compile 'com.android.support:appcompat-v7:21.0.3'
+//    compile fileTree(dir: 'libs', include: '*.jar')
+    compile ('com.android.support:multidex:')
+//    compile (project(':libnetcipher'))
+    compile 'com.madgag.spongycastle:core:1.51.0.0'
+    compile ('com.android.support:appcompat-v7:21.0.3') {
+        exclude module: 'support-v4'
+        exclude module: 'support-annotation'
+    }
     compile ('com.android.support:support-v4-preferencefragment:1.0.0@aar'){
         exclude module: 'support-v4'
+        exclude module: 'support-annotation'
     }
     compile 'com.makeramen:roundedimageview:1.5.0'
-    provided 'com.squareup.dagger:dagger-compiler:1.2.2'
     compile ("com.doomonafireball.betterpickers:library:1.5.3") {
         exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-annotation'
     }
-    compile 'me.leolin:ShortcutBadger:1.0.2-WS2'
+//    compile 'me.leolin:ShortcutBadger:1.0.2-WS2'
     compile 'com.melnykov:floatingactionbutton:1.1.0'
     compile 'com.google.zxing:android-integration:3.1.0'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.0'
@@ -57,5 +62,10 @@ dependencies {
     compile 'com.google.guava:guava:18.0'
     compile 'org.codehaus.jcsp:jcsp:1.1-rc5'
     compile 'org.apache.commons:commons-math3:3.4.1'
+    compile (project(':libnetcipher')){
+        exclude group: 'com.madgag.spongycastle', module: 'core'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-annotation'
+    }
     compile files('libs/kalium-jni-1.0.0-SNAPSHOT/kalium-jni-1.0.0-SNAPSHOT.jar')
 }

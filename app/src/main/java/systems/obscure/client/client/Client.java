@@ -2,8 +2,6 @@ package systems.obscure.client.client;
 
 import android.content.Context;
 
-import com.google.common.primitives.UnsignedLong;
-
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.SigningKey;
 import org.jcsp.lang.Any2OneChannel;
@@ -266,7 +264,7 @@ public class Client {
         return  null;
     }
 
-    public void deleteInboxMsg(UnsignedLong id) {
+    public void deleteInboxMsg(Long id) {
         InboxMessage[] newInbox = new InboxMessage[inbox.length];
         int pos = 0;
         for(int i = 0; i < inbox.length; i++){
@@ -293,7 +291,7 @@ public class Client {
         inbox = newInbox;
     }
 
-    public void deleteOutboxMsg(UnsignedLong id) {
+    public void deleteOutboxMsg(Long id) {
         QueuedMessage[] newOutbox = new QueuedMessage[outbox.length];
         int pos = 0;
         for(int i = 0; i < outbox.length; i++){
