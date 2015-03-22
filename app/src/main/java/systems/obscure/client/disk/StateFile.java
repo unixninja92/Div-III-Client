@@ -214,7 +214,24 @@ public class StateFile implements CSProcess{
             byte[] plaintext = new byte[length];
             for(int i = 4; i < length; i++){
                 plaintext[i] = s[i-4];
-            }
+            }//FIXME io.ReadFull(sf.Rand, plaintext[len(s)+4:]) WTF????
+
+            int smearCopies = header.getNonceSmearCopies();
+            byte[] nonceSmear = new byte[smearCopies*24];
+            rand.nextBytes(nonceSmear);
+
+//            if(erasureStorage != null && newState.RotateErasureStorage){
+//
+//            }
+            byte[] effectiveKey = new byte[kdfKeyLen];
+
+            for(int i = 0; i < effectiveKey.length; i++)
+                effectiveKey[i] = (byte)(mask[i] ^ key[i]);
+
+            SecretBox secretBox = new SecretBox(effectiveKey);
+            byte[] ciphertext = secretBox.encrypt(nonceSmear, plaintext);
+
+
         }
     }
 
