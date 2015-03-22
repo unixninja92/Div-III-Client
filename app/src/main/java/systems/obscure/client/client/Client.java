@@ -258,7 +258,7 @@ public class Client {
     public Contact contactByName(String name) {
         for(Map.Entry entry: contacts.entrySet()) {
             Contact c = (Contact)entry.getValue();
-            if(c.name == name)
+            if(c.name.equals(name))
                 return c;
         }
         return  null;

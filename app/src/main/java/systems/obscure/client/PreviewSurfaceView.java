@@ -3,6 +3,7 @@ package systems.obscure.client;
 import android.content.Context;
 import android.hardware.Camera;
 import android.hardware.Camera.Size;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -20,6 +21,20 @@ public class PreviewSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 
     PreviewSurfaceView(Context context, int camNum) {//Camera cam,
         super(context);
+        init(camNum);
+    }
+
+    PreviewSurfaceView(Context context, AttributeSet attributeSet, int camNum) {
+        super(context, attributeSet);
+        init(camNum);
+    }
+
+    PreviewSurfaceView(Context context, AttributeSet attributeSet, int num, int camNum) {
+        super(context, attributeSet, num);
+        init(camNum);
+    }
+
+    private void init(int camNum) {
         safeCameraOpen(camNum);
 
 
