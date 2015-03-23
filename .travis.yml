@@ -3,7 +3,7 @@ language: android
 jdk:
   - openjdk7
 
-sudo: false
+#sudo: false
 
 before_script:
   - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
