@@ -41,17 +41,16 @@ public class CameraActivity extends PassphraseRequiredNoActionBarActivity {
         Intent intent = getIntent();
         camNum = intent.getIntExtra("cameraNum", 0);
         masterSecret = intent.getParcelableExtra("master_secret");
-
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        mFrame = (FrameLayout)findViewById(R.id.fullscreen_camera);
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        mFrame = (FrameLayout)findViewById(R.id.fullscreen_camera);
+
         newCamera();
     }
 
@@ -62,6 +61,7 @@ public class CameraActivity extends PassphraseRequiredNoActionBarActivity {
     }
 
     private void newCamera() {
+        System.out.println("WTF's the problem?? "+mFrame==null);
         mFrame.postDelayed(new Runnable() {
             @Override
             public void run() {

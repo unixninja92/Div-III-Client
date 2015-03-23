@@ -9,9 +9,11 @@ import org.thoughtcrime.securesms.crypto.MasterSecretUtil;
 import org.thoughtcrime.securesms.recipients.RecipientFactory;
 import org.thoughtcrime.securesms.recipients.Recipients;
 
-//import info.guardianproject.onionkit.ui.OrbotHelper;
+import info.guardianproject.onionkit.ui.OrbotHelper;
 import systems.obscure.client.CameraActivity;
 import systems.obscure.client.client.Client;
+
+//import info.guardianproject.onionkit.ui.OrbotHelper;
 
 
 public class RoutingActivity extends PassphraseRequiredActionBarActivity {
@@ -40,16 +42,16 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
       finish();
     }
 
-//    OrbotHelper oc = new OrbotHelper(this);
-//
-//    if (!oc.isOrbotInstalled())
-//    {
-//      oc.promptToInstall(this);
-//    }
-//    else if (!oc.isOrbotRunning())
-//    {
-//      oc.requestOrbotStart(this);
-//    }
+    OrbotHelper oc = new OrbotHelper(this);
+
+    if (!oc.isOrbotInstalled())
+    {
+      oc.promptToInstall(this);
+    }
+    else if (!oc.isOrbotRunning())
+    {
+      oc.requestOrbotStart(this);
+    }
 
     this.newIntent      = false;
     this.canceledResult = false;
