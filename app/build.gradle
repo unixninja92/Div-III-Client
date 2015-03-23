@@ -29,7 +29,7 @@ android {
     }
     dexOptions {
         incremental true
-        javaMaxHeapSize "1500m"
+        javaMaxHeapSize "1100m"
     }
     lintOptions {
         abortOnError false
