@@ -108,7 +108,7 @@ public class Client {
     public One2OneChannel<NewMessage> newMessageChan;
     // messageSentChan receives the ids of messages that have been sent by
     // the network goroutine.
-    public One2OneChannel<MessageSendResult> messageSentChan;
+    public Any2OneChannel<MessageSendResult> messageSentChan;
     // backgroundChan is used for signals from background processes - e.g.
     // detachment uploads.
     public One2OneChannel backgroundChan;
@@ -136,7 +136,7 @@ public class Client {
         queue = new LinkedBlockingQueue<>();
         queueLock = new ReentrantReadWriteLock();
         newMessageChan = Channel.one2one();
-        messageSentChan = Channel.one2one();
+        messageSentChan = Channel.any2one();
         backgroundChan = Channel.one2one();
         signingRequestChan = Channel.one2one();
         usedIds = new HashMap<>();

@@ -23,9 +23,7 @@ import java.util.Timer;
 import info.guardianproject.onionkit.ui.OrbotHelper;
 import systems.obscure.client.Globals;
 import systems.obscure.client.client.Client;
-import systems.obscure.client.client.MessageSendResult;
 import systems.obscure.client.client.Network;
-import systems.obscure.client.client.NewMessage;
 import systems.obscure.client.client.QueuedMessage;
 import systems.obscure.client.client.SigningRequest;
 import systems.obscure.client.client.Transport;
@@ -122,7 +120,7 @@ public class TransactService extends Service implements Runnable, InjectableType
                     long seed = ByteBuffer.wrap(seedBytes).getLong();
                     ExponentialDistribution distribution = new ExponentialDistribution(new MersenneTwister(seed), 1);
                     double delaySeconds = distribution.sample() * Globals.TRANSACTION_RATE_SECONDS;
-                    long delay = ((long)(delaySeconds * 1000)) * 1000;//TODO verify this math is correct.
+                    long delay = ((long)(delaySeconds * 1000)) ;//* 10;
                     System.out.println("Next network transaction in "+delay+" milliseconds");
                     Timer timer = new Timer();
                     timer.schedule(new TimerChanTask(timerChan.out()), delay);
@@ -182,9 +180,13 @@ public class TransactService extends Service implements Runnable, InjectableType
 
         // Poke the UI thread so that it knows that a message has
         // started sending.
-        client.messageSentChan.out().write(new MessageSendResult());
+        System.out.println("we get here?");
+//        client.messageSentChan.out().write(new MessageSendResult());TODO read this channel somewhere
 
+        System.out.println("how about here...");
         Pond.Reply reply = sendRecv(server, useAnonymousIdentity, lastWasSend, head, req);
+        System.out.println("sendRecv done");
+
 
         if(reply == null){
             if(!isFetch){
@@ -206,19 +208,19 @@ public class TransactService extends Service implements Runnable, InjectableType
             if(!reply.hasStatus()) {
                 client.removeQueuedMessage(head);
                 client.queueLock.writeLock().unlock();
-                client.messageSentChan.out().write(new MessageSendResult(head.id));
+//                client.messageSentChan.out().write(new MessageSendResult(head.id));TODO read this channel somewhere
             } else {
                 client.moveContactsMessagesToEndOfQueue(head.to);
                 client.queueLock.writeLock().unlock();
 
                 if(reply.getStatus() == Pond.Reply.Status.GENERATION_REVOKED && reply.hasRevocation()){
-                    client.messageSentChan.out().write(new MessageSendResult(head.id, reply.getRevocation(), reply.getExtraRevocationsList()));
+//                    client.messageSentChan.out().write(new MessageSendResult(head.id, reply.getRevocation(), reply.getExtraRevocationsList()));TODO read this channel somewhere
                 }
             }
             head = null;
         } else if(reply.hasFetched() || reply.hasAnnounce()) {
             ackChan = Channel.any2one();
-            client.newMessageChan.out().write(new NewMessage(reply.getFetched(), reply.getAnnounce(), ackChan.out()));
+//            client.newMessageChan.out().write(new NewMessage(reply.getFetched(), reply.getAnnounce(), ackChan.out()));TODO read this channel somewhere
             ackChan.in().read();
         }
 
@@ -232,7 +234,7 @@ public class TransactService extends Service implements Runnable, InjectableType
         System.out.println("Transact done!");
     }
 
-    private Pond.Reply sendRecv(String server, boolean useAnonymousIdentity, boolean lastWasSend, QueuedMessage head, Pond.Request.Builder req){
+    private synchronized Pond.Reply sendRecv(String server, boolean useAnonymousIdentity, boolean lastWasSend, QueuedMessage head, Pond.Request.Builder req){
         Transport conn;
         try {
             conn = Network.dialServer(server, useAnonymousIdentity);
@@ -241,13 +243,14 @@ public class TransactService extends Service implements Runnable, InjectableType
             e.printStackTrace();
             return null;
         }
+        System.out.println("Connected!");
 
         if(lastWasSend && req == null){
             One2OneChannel<Pond.Request.Builder> resultChan = Channel.one2one();
             SigningRequest signingRequest = new SigningRequest();
             signingRequest.msg = head;
             signingRequest.resultChan = resultChan.out();
-            client.signingRequestChan.out().write(signingRequest);
+//            client.signingRequestChan.out().write(signingRequest);TODO read this channel somewhere
             req = resultChan.in().read();
             if(req == null)
                 conn.Close();

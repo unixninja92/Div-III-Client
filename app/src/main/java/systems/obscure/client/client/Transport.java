@@ -29,8 +29,6 @@ import info.guardianproject.onionkit.proxy.SocksSocketFactory;
 import systems.obscure.client.Globals;
 import systems.obscure.client.protos.Pond;
 
-//import info.guardianproject.onionkit.proxy.SocksSocketFactory;
-
 /**
  * @author unixninja92
  */

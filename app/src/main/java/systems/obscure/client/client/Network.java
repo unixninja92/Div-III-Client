@@ -24,8 +24,6 @@ public class Network {
     // used when Contact.supportedVersion >= 1.
     final int ephemeralBlockLen = nonceLen + 32 + Globals.SECRETBOX_OVERHEAD;
 
-//    Transport transport;
-
     public static Client client = Client.getInstance(null);
 
     public static void sendAck(InboxMessage msg) {
