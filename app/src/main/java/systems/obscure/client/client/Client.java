@@ -11,7 +11,6 @@ import org.jcsp.lang.One2AnyChannel;
 import org.jcsp.lang.One2OneChannel;
 import org.jcsp.lang.SharedChannelInput;
 import org.jcsp.lang.SharedChannelOutput;
-import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
@@ -123,8 +122,10 @@ public class Client {
     private static Client ourInstance;// = new Client();
 
     public static Client getInstance(Context context) {
-        if(ourInstance == null)
+        if(ourInstance == null) {
             ourInstance = new Client(context);
+            ourInstance.start(context);
+        }
         return ourInstance;
     }
 
@@ -146,13 +147,17 @@ public class Client {
         inbox = new InboxMessage[10];
 
         fetchNowChan = Channel.any2one();
+
+    }
+
+    public void start(Context context) {
         try {
             rand = SecureRandom.getInstance("SHA1PRNG");
 
             StateFile stateFile = new StateFile(rand, stateFilename);
             stateLock = stateFile.getLock();
 
-            boolean newAccount = TextSecurePreferences.isRegisteredOnServer(context);
+            boolean newAccount = true;//TextSecurePreferences.isRegisteredOnServer(context);
 
             if(newAccount) {
                 MessageDigest digest = MessageDigest.getInstance("SHA256");
@@ -161,6 +166,8 @@ public class Client {
                 signingKey = new SigningKey(digest.digest(seed));
                 identity = new KeyPair();
                 rand.nextBytes(hmacKey);
+
+                Network.doCreateAccount(context);//TODO make async task
             }
 
             Any2OneChannel<NewState> stateChan = Channel.any2one(5);
@@ -181,63 +188,61 @@ public class Client {
             e.printStackTrace();
         }
     }
-
-    public void start(String filename, Context context) {
-        stateFilename = filename;
-//        context = con;
-
-        try {
-            rand = SecureRandom.getInstance("SHA1PRNG");
-
-            StateFile stateFile = new StateFile(rand, stateFilename);
-            stateLock = stateFile.getLock();
-//            stateLock.
-
-
-            boolean newAccount = TextSecurePreferences.isRegisteredOnServer(context);
-
-            if(newAccount) {
-//                try {
-                    MessageDigest digest = MessageDigest.getInstance("SHA256");
-                    byte[] seed = new byte[32];
-                    rand.nextBytes(seed);
-                    signingKey = new SigningKey(digest.digest(seed));
-                    identity = new KeyPair();
-                    rand.nextBytes(hmacKey);
+//        stateFilename = filename;
+////        context = con;
 //
-//                    byte[] pub = BaseEncoding.base32().decode(server);
-//                    PublicKey serverKey = new PublicKey(pub);
-//                    transport = new Transport(identity, serverKey);
-//                    transport.handshake();
-//                    doCreateAccount();
-
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-            }
-
-            Any2OneChannel<NewState> stateChan = Channel.any2one(5);
-            writerChan = stateChan.out();
-
-            One2AnyChannel doneChan = Channel.one2any(5);
-            writerDone = doneChan.in();
-
-//            stateFile.StartWrtie(stateChan.in(), doneChan.out());//TODO put on seperate thread
-
-            TransactService ts = new TransactService();
-            ts.registerActivityStarted(context);
-            ts.onCreate();
-//            ApplicationContext.getInstance(context);
-
-            if(newAccount){
-                //TODO save
-            }
-
-
-        } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-        }
-    }
+//        try {
+//            rand = SecureRandom.getInstance("SHA1PRNG");
+//
+//            StateFile stateFile = new StateFile(rand, stateFilename);
+//            stateLock = stateFile.getLock();
+////            stateLock.
+//
+//
+//            boolean newAccount = TextSecurePreferences.isRegisteredOnServer(context);
+//
+//            if(newAccount) {
+////                try {
+//                    MessageDigest digest = MessageDigest.getInstance("SHA256");
+//                    byte[] seed = new byte[32];
+//                    rand.nextBytes(seed);
+//                    signingKey = new SigningKey(digest.digest(seed));
+//                    identity = new KeyPair();
+//                    rand.nextBytes(hmacKey);
+////
+////                    byte[] pub = BaseEncoding.base32().decode(server);
+////                    PublicKey serverKey = new PublicKey(pub);
+////                    transport = new Transport(identity, serverKey);
+////                    transport.handshake();
+////                    doCreateAccount();
+//
+////                } catch (IOException e) {
+////                    e.printStackTrace();
+////                }
+//            }
+//
+//            Any2OneChannel<NewState> stateChan = Channel.any2one(5);
+//            writerChan = stateChan.out();
+//
+//            One2AnyChannel doneChan = Channel.one2any(5);
+//            writerDone = doneChan.in();
+//
+////            stateFile.StartWrtie(stateChan.in(), doneChan.out());//TODO put on seperate thread
+//
+//            TransactService ts = new TransactService();
+//            ts.registerActivityStarted(context);
+//            ts.onCreate();
+////            ApplicationContext.getInstance(context);
+//
+//            if(newAccount){
+//                //TODO save
+//            }
+//
+//
+//        } catch (NoSuchAlgorithmException e) {
+//                e.printStackTrace();
+//        }
+//    }
 
     public Draft outboxToDraft(QueuedMessage msg) {
         Draft draft = new Draft();
@@ -292,7 +297,7 @@ public class Client {
             Long n = ByteBuffer.wrap(idBytes).getLong();
             if(n == 0)
                 continue;
-            if(usedIds.get(n))
+            if(usedIds.containsKey(n))
                 continue;
             usedIds.put(n, true);
             return n;

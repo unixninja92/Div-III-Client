@@ -7,22 +7,12 @@ import com.google.protobuf.ByteString;
 
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.PublicKey;
-import org.apache.commons.math3.distribution.ExponentialDistribution;
-import org.apache.commons.math3.random.MersenneTwister;
-import org.jcsp.lang.Alternative;
-import org.jcsp.lang.Any2OneChannel;
-import org.jcsp.lang.Channel;
-import org.jcsp.lang.Guard;
-import org.jcsp.lang.One2OneChannel;
 import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.util.Timer;
 
 import systems.obscure.client.Globals;
 import systems.obscure.client.protos.Pond;
-import systems.obscure.client.util.TimerChanTask;
 
 /**
  * @author unixninja92
@@ -36,7 +26,7 @@ public class Network {
 
 //    Transport transport;
 
-    static Client client = Client.getInstance(null);
+    public static Client client = Client.getInstance(null);
 
     public static void sendAck(InboxMessage msg) {
         // First, see if we can merge this ack with a message to the same
@@ -124,7 +114,7 @@ public class Network {
 
         Pond.NewAccount.Builder newAccount = Pond.NewAccount.newBuilder();
         newAccount.setGeneration(client.generation);
-//        newAccount.setGroup(ByteString.copyFrom(client.hmacKey));
+        newAccount.setGroup(ByteString.copyFrom(client.hmacKey));
         newAccount.setHmacKey(ByteString.copyFrom(client.hmacKey));
 
         Pond.Request.Builder request = Pond.Request.newBuilder();
@@ -160,178 +150,5 @@ public class Network {
     //TODO transferDetachmentConn
 
     //TODO transferDetachment
-
-    public void run() {
-        boolean startup = true;
-        Any2OneChannel<Boolean> ackChan = null;
-        QueuedMessage head = null;
-        boolean lastWasSend = false;
-
-        while (true) {
-            if(head != null) {
-                // We failed to send a message.
-                client.queueLock.writeLock().lock();
-                head.sending = false;
-                client.queueLock.writeLock().unlock();
-                head = null;
-            }
-
-            if(!startup || !client.autoFetch) {
-                if(ackChan != null){
-                    ackChan.out().write(true);
-                    ackChan = null;
-                }
-
-                One2OneChannel<Long> timerChan = Channel.one2one(5);
-                if(client.autoFetch) {
-                    byte[] seedBytes = new byte[8];
-                    client.rand.nextBytes(seedBytes);
-                    long seed = ByteBuffer.wrap(seedBytes).getLong();
-                    ExponentialDistribution distribution = new ExponentialDistribution(new MersenneTwister(seed), 1);
-                    double delaySeconds = distribution.sample() * Globals.TRANSACTION_RATE_SECONDS;
-                    long delay = ((long)(delaySeconds * 1000)) * 1000;//TODO verify this math is correct.
-                    System.out.println("Next network transaction in "+delay+" milliseconds");
-                    Timer timer = new Timer();
-                    timer.schedule(new TimerChanTask(timerChan.out()), delay);
-                }
-
-                Guard[] chans = {client.fetchNowChan.in(), timerChan.in()};
-                Alternative alt = new Alternative(chans);
-                switch (alt.select()){
-                    case 0: ackChan = client.fetchNowChan;
-                        System.out.println("Starting fetch because of fetchNow signal");
-                        break;
-                    case 1: System.out.println("Starting fetch because of timer");
-                        break;
-                }
-            }
-            startup = false;
-
-            Pond.Request.Builder req;
-            String server;
-            boolean useAnonymousIdentity = true;
-            boolean isFetch = false;
-
-            client.queueLock.readLock().lock();
-            if(lastWasSend || client.queue.size() == 0){
-                useAnonymousIdentity = false;
-                isFetch = true;
-                req = Pond.Request.newBuilder();
-                req.setFetch(Pond.Fetch.newBuilder());
-                server = client.server;
-                System.out.println("Starting fetch from home server");
-                lastWasSend = false;
-            } else {
-                head = client.queue.peek();
-                client.queueLock.readLock().unlock();
-                client.queueLock.writeLock().lock();
-                head.sending = true;
-                client.queueLock.writeLock().unlock();
-                client.queueLock.readLock().lock();
-                req = head.request;
-                server = head.server;
-                System.out.println("Starting message transmission to "+server);
-
-                if(head.revocation)
-                    useAnonymousIdentity = false;
-                lastWasSend = true;
-            }
-            client.queueLock.readLock().unlock();
-
-            // Poke the UI thread so that it knows that a message has
-            // started sending.
-            client.messageSentChan.out().write(new MessageSendResult());
-
-            Pond.Reply reply = sendRecv(server, useAnonymousIdentity, lastWasSend, head, req);
-
-            if(reply == null){
-                if(!isFetch){
-                    client.queueLock.writeLock().lock();
-                    client.moveContactsMessagesToEndOfQueue(head.to);
-                    client.queueLock.writeLock().unlock();
-                }
-                continue;
-            }
-
-            if(!isFetch){
-                client.queueLock.writeLock().lock();
-
-                if(!client.queue.contains(head))
-                    continue;
-
-                head.sending = false;
-
-                if(!reply.hasStatus()) {
-                    client.removeQueuedMessage(head);
-                    client.queueLock.writeLock().unlock();
-                    client.messageSentChan.out().write(new MessageSendResult(head.id));
-                } else {
-                    client.moveContactsMessagesToEndOfQueue(head.to);
-                    client.queueLock.writeLock().unlock();
-
-                    if(reply.getStatus() == Pond.Reply.Status.GENERATION_REVOKED && reply.hasRevocation()){
-                        client.messageSentChan.out().write(new MessageSendResult(head.id, reply.getRevocation(), reply.getExtraRevocationsList()));
-                    }
-                }
-                head = null;
-            } else if(reply.hasFetched() || reply.hasAnnounce()) {
-                ackChan = Channel.any2one();
-                client.newMessageChan.out().write(new NewMessage(reply.getFetched(), reply.getAnnounce(), ackChan.out()));
-                ackChan.in().read();
-            }
-
-            try {
-                replyToError(reply);
-            } catch (IOException e) {
-                System.out.print("Error from server " + server + ": ");
-                e.printStackTrace();
-                continue;
-            }
-        }
-    }
-
-    public static Pond.Reply sendRecv(String server, boolean useAnonymousIdentity, boolean lastWasSend, QueuedMessage head, Pond.Request.Builder req){
-        Transport conn;
-        try {
-            conn = dialServer(server, useAnonymousIdentity);
-        } catch (IOException e) {
-            System.out.print("Failed to connect to " + server + ": ");
-            e.printStackTrace();
-            return null;
-        }
-
-        if(lastWasSend && req == null){
-            One2OneChannel<Pond.Request.Builder> resultChan = Channel.one2one();
-            SigningRequest signingRequest = new SigningRequest();
-            signingRequest.msg = head;
-            signingRequest.resultChan = resultChan.out();
-            client.signingRequestChan.out().write(signingRequest);
-            req = resultChan.in().read();
-            if(req == null)
-                conn.Close();
-                return null;
-        }
-
-        try {
-            conn.writeProto(req);
-        } catch (IOException e) {
-            System.out.print("Failed to send to " + server + ": ");
-            e.printStackTrace();
-            conn.Close();
-            return null;
-        }
-
-        try {
-            Pond.Reply reply =  conn.readProto();
-            conn.Close();
-            return reply;
-        } catch (IOException e) {
-            System.out.print("Failed to read from " + server + ": ");
-            e.printStackTrace();
-            conn.Close();
-            return null;
-        }
-    }
-
 
 }

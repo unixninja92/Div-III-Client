@@ -27,6 +27,8 @@ import systems.obscure.client.client.MessageSendResult;
 import systems.obscure.client.client.Network;
 import systems.obscure.client.client.NewMessage;
 import systems.obscure.client.client.QueuedMessage;
+import systems.obscure.client.client.SigningRequest;
+import systems.obscure.client.client.Transport;
 import systems.obscure.client.protos.Pond;
 import systems.obscure.client.util.TimerChanTask;
 
@@ -58,6 +60,7 @@ public class TransactService extends Service implements Runnable, InjectableType
     public void onCreate() {
         super.onCreate();
         client = Client.getInstance(getApplicationContext());
+        Network.client = client;
 
 //        ApplicationContext.getInstance(this).injectDependencies(this);
 
@@ -76,8 +79,8 @@ public class TransactService extends Service implements Runnable, InjectableType
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (intent == null) return START_STICKY;
 
-        if      (ACTION_ACTIVITY_STARTED.equals(intent.getAction()))  incrementActive();
-        else if (ACTION_ACTIVITY_FINISHED.equals(intent.getAction())) decrementActive();
+//        if      (ACTION_ACTIVITY_STARTED.equals(intent.getAction()))  incrementActive();
+//        else if (ACTION_ACTIVITY_FINISHED.equals(intent.getAction())) decrementActive();
 
         return START_STICKY;
     }
@@ -181,7 +184,7 @@ public class TransactService extends Service implements Runnable, InjectableType
         // started sending.
         client.messageSentChan.out().write(new MessageSendResult());
 
-        Pond.Reply reply = Network.sendRecv(server, useAnonymousIdentity, lastWasSend, head, req);
+        Pond.Reply reply = sendRecv(server, useAnonymousIdentity, lastWasSend, head, req);
 
         if(reply == null){
             if(!isFetch){
@@ -226,11 +229,55 @@ public class TransactService extends Service implements Runnable, InjectableType
             e.printStackTrace();
             return;
         }
+        System.out.println("Transact done!");
+    }
+
+    private Pond.Reply sendRecv(String server, boolean useAnonymousIdentity, boolean lastWasSend, QueuedMessage head, Pond.Request.Builder req){
+        Transport conn;
+        try {
+            conn = Network.dialServer(server, useAnonymousIdentity);
+        } catch (IOException e) {
+            System.out.print("Failed to connect to " + server + ": ");
+            e.printStackTrace();
+            return null;
+        }
+
+        if(lastWasSend && req == null){
+            One2OneChannel<Pond.Request.Builder> resultChan = Channel.one2one();
+            SigningRequest signingRequest = new SigningRequest();
+            signingRequest.msg = head;
+            signingRequest.resultChan = resultChan.out();
+            client.signingRequestChan.out().write(signingRequest);
+            req = resultChan.in().read();
+            if(req == null)
+                conn.Close();
+            return null;
+        }
+
+        try {
+            conn.writeProto(req);
+        } catch (IOException e) {
+            System.out.print("Failed to send to " + server + ": ");
+            e.printStackTrace();
+            conn.Close();
+            return null;
+        }
+
+        try {
+            Pond.Reply reply =  conn.readProto();
+            conn.Close();
+            return reply;
+        } catch (IOException e) {
+            System.out.print("Failed to read from " + server + ": ");
+            e.printStackTrace();
+            conn.Close();
+            return null;
+        }
     }
 
     private synchronized boolean canTransact() {
-        return orbotHelper.isOrbotRunning() //&& networkRequirement.isPresent()
-                && activeActivities > 0;
+        return orbotHelper.isOrbotRunning(); //&& networkRequirement.isPresent()
+                //&& activeActivities > 0;
     }
 
     private synchronized void waitForNetwork() {

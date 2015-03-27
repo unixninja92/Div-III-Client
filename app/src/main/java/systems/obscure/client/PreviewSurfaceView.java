@@ -35,7 +35,8 @@ public class PreviewSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     }
 
     private void init(int camNum) {
-        safeCameraOpen(camNum);
+        if(mCamera == null)
+            safeCameraOpen(camNum);
 
 
         List<Size> localSizes = mCamera.getParameters().getSupportedPreviewSizes();
