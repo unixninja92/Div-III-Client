@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import org.thoughtcrime.securesms.crypto.MasterSecret;
 
+import info.guardianproject.onionkit.ui.OrbotHelper;
+
 public class PassphraseRequiredNoActionBarActivity extends BaseActivity implements PassphraseRequiredActivity {
 
   private final PassphraseRequiredMixin delegate = new PassphraseRequiredMixin();
@@ -17,7 +19,14 @@ public class PassphraseRequiredNoActionBarActivity extends BaseActivity implemen
   @Override
   protected void onResume() {
     super.onResume();
-    delegate.onResume(this);
+
+    OrbotHelper oc = new OrbotHelper(this);
+    if (!oc.isOrbotInstalled())
+      oc.promptToInstall(this);
+    else if (!oc.isOrbotRunning())
+      oc.requestOrbotStart(this);
+
+      delegate.onResume(this);
   }
 
   @Override

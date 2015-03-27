@@ -10,8 +10,9 @@ import android.view.WindowManager;
 
 import org.thoughtcrime.securesms.crypto.MasterSecret;
 import org.thoughtcrime.securesms.service.KeyCachingService;
-import org.thoughtcrime.securesms.service.MessageRetrievalService;
 import org.thoughtcrime.securesms.util.TextSecurePreferences;
+
+import systems.obscure.client.service.TransactService;
 
 
 public class PassphraseRequiredMixin {
@@ -28,13 +29,15 @@ public class PassphraseRequiredMixin {
     initializeNewKeyReceiver(activity);
     initializeFromMasterSecret(activity);
     KeyCachingService.registerPassphraseActivityStarted(activity);
-    MessageRetrievalService.registerActivityStarted(activity);
+      TransactService.registerActivityStarted(activity);
+//    MessageRetrievalService.registerActivityStarted(activity);
   }
 
   public <T extends Activity & PassphraseRequiredActivity> void onPause(T activity) {
     removeNewKeyReceiver(activity);
     KeyCachingService.registerPassphraseActivityStopped(activity);
-    MessageRetrievalService.registerActivityStopped(activity);
+      TransactService.registerActivityStopped(activity);
+//    MessageRetrievalService.registerActivityStopped(activity);
   }
 
   public <T extends Activity & PassphraseRequiredActivity> void onDestroy(T activity) {

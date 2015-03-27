@@ -1,5 +1,7 @@
 package systems.obscure.client.client;
 
+import android.content.Context;
+
 import com.google.common.io.BaseEncoding;
 import com.google.protobuf.ByteString;
 
@@ -9,7 +11,6 @@ import org.apache.commons.math3.distribution.ExponentialDistribution;
 import org.apache.commons.math3.random.MersenneTwister;
 import org.jcsp.lang.Alternative;
 import org.jcsp.lang.Any2OneChannel;
-import org.jcsp.lang.CSProcess;
 import org.jcsp.lang.Channel;
 import org.jcsp.lang.Guard;
 import org.jcsp.lang.One2OneChannel;
@@ -26,18 +27,18 @@ import systems.obscure.client.util.TimerChanTask;
 /**
  * @author unixninja92
  */
-public class Network implements CSProcess {
+public class Network {
     // nonceLen is the length of a NaCl nonce.
-    int nonceLen = 24;
+    final int nonceLen = 24;
     // ephemeralBlockLen is the length of the signcrypted, ephemeral key
     // used when Contact.supportedVersion >= 1.
-    int ephemeralBlockLen = nonceLen + 32 + Globals.SECRETBOX_OVERHEAD;
+    final int ephemeralBlockLen = nonceLen + 32 + Globals.SECRETBOX_OVERHEAD;
 
 //    Transport transport;
 
-    Client client = Client.getInstance();
+    static Client client = Client.getInstance(null);
 
-    public void sendAck(InboxMessage msg) {
+    public static void sendAck(InboxMessage msg) {
         // First, see if we can merge this ack with a message to the same
         // contact that is pending transmission.
         client.queueLock.readLock().lock();
@@ -82,7 +83,7 @@ public class Network implements CSProcess {
         send(to, message);
     }
 
-    public void send(Contact to, Pond.Message.Builder messageBuilder) {
+    public static void send(Contact to, Pond.Message.Builder messageBuilder) {
 
         if(tooLarge(messageBuilder))
             throw new IllegalStateException("message too large");
@@ -97,13 +98,13 @@ public class Network implements CSProcess {
 //        client.outbox.add(out); TODO make outbox an ArrayList
     }
 
-    private boolean tooLarge(Pond.Message.Builder msg) {
+    private static boolean tooLarge(Pond.Message.Builder msg) {
         Pond.Message message = msg.build();
 
         return message.getSerializedSize() > Globals.MAX_SERIALIZED_MESSAGE;
     }
 
-    public Transport dialServer(String server, boolean useRandomIdentity) throws IOException {
+    public static Transport dialServer(String server, boolean useRandomIdentity) throws IOException {
         KeyPair identity;
         if(useRandomIdentity)
             identity = new KeyPair();
@@ -118,7 +119,7 @@ public class Network implements CSProcess {
         return transport;
     }
 
-    public void doCreateAccount() {
+    public static void doCreateAccount(Context context) {
         client.generation = client.randId().intValue();
 
         Pond.NewAccount.Builder newAccount = Pond.NewAccount.newBuilder();
@@ -139,11 +140,11 @@ public class Network implements CSProcess {
             e.printStackTrace();
             return;
         }
-        TextSecurePreferences.setRegisteredOnServer(client.context, true);
+        TextSecurePreferences.setRegisteredOnServer(context, true);
 
     }
 
-    public void replyToError(Pond.Reply reply) throws IOException {
+    public static void replyToError(Pond.Reply reply) throws IOException {
         if(reply.hasStatus() || reply.getStatus() == Pond.Reply.Status.OK)
             return;
         if(reply.getStatus().getNumber()<29 && reply.getStatus().getNumber()>=0)
@@ -160,7 +161,6 @@ public class Network implements CSProcess {
 
     //TODO transferDetachment
 
-    @Override
     public void run() {
         boolean startup = true;
         Any2OneChannel<Boolean> ackChan = null;
@@ -290,7 +290,7 @@ public class Network implements CSProcess {
         }
     }
 
-    private Pond.Reply sendRecv(String server, boolean useAnonymousIdentity, boolean lastWasSend, QueuedMessage head, Pond.Request.Builder req){
+    public static Pond.Reply sendRecv(String server, boolean useAnonymousIdentity, boolean lastWasSend, QueuedMessage head, Pond.Request.Builder req){
         Transport conn;
         try {
             conn = dialServer(server, useAnonymousIdentity);

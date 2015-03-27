@@ -44,8 +44,6 @@ import org.thoughtcrime.securesms.util.TextSecurePreferences;
 import java.util.concurrent.TimeUnit;
 
 import systems.obscure.client.R;
-
-//import org.thoughtcrime.securesms.ApplicationContext;
 //import org.thoughtcrime.securesms.DatabaseUpgradeActivity;
 
 /**

@@ -9,9 +9,7 @@ import org.thoughtcrime.securesms.crypto.MasterSecretUtil;
 import org.thoughtcrime.securesms.recipients.RecipientFactory;
 import org.thoughtcrime.securesms.recipients.Recipients;
 
-import info.guardianproject.onionkit.ui.OrbotHelper;
 import systems.obscure.client.CameraActivity;
-import systems.obscure.client.client.Client;
 
 //import info.guardianproject.onionkit.ui.OrbotHelper;
 
@@ -24,7 +22,7 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
   private static final int STATE_CONVERSATION_OR_LIST     = 3;
 
   private MasterSecret masterSecret   = null;
-  private Client client = Client.getInstance();
+//  private Client client;
   private boolean      isVisible      = false;
   private boolean      canceledResult = false;
   private boolean      newIntent      = false;
@@ -41,18 +39,8 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
     if (this.canceledResult && !this.newIntent) {
       finish();
     }
-
-    OrbotHelper oc = new OrbotHelper(this);
-
-    if (!oc.isOrbotInstalled())
-    {
-      oc.promptToInstall(this);
-    }
-    else if (!oc.isOrbotRunning())
-    {
-      oc.requestOrbotStart(this);
-    }
-
+//    if(this.getFilesDir() !=null)
+//        this.client         = Client.getInstance(getApplicationContext());
     this.newIntent      = false;
     this.canceledResult = false;
     this.isVisible      = true;

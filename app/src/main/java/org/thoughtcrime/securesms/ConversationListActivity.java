@@ -33,7 +33,6 @@ import org.thoughtcrime.securesms.crypto.MasterSecret;
 import org.thoughtcrime.securesms.notifications.MessageNotifier;
 import org.thoughtcrime.securesms.recipients.RecipientFactory;
 import org.thoughtcrime.securesms.recipients.Recipients;
-import org.thoughtcrime.securesms.service.DirectoryRefreshListener;
 import org.thoughtcrime.securesms.service.KeyCachingService;
 import org.thoughtcrime.securesms.util.DynamicLanguage;
 import org.thoughtcrime.securesms.util.DynamicTheme;
@@ -69,7 +68,7 @@ public class ConversationListActivity extends PassphraseRequiredActionBarActivit
     initializeResources();
     initializeContactUpdatesReceiver();
 
-    DirectoryRefreshListener.schedule(this);
+//    DirectoryRefreshListener.schedule(this);
   }
 
   @Override

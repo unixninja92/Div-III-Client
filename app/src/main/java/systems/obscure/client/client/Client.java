@@ -1,6 +1,7 @@
 package systems.obscure.client.client;
 
 import android.content.Context;
+import android.content.Intent;
 
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.SigningKey;
@@ -24,6 +25,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import systems.obscure.client.disk.NewState;
 import systems.obscure.client.disk.StateFile;
+import systems.obscure.client.service.TransactService;
 
 /**
  * @author unixninja92
@@ -31,7 +33,7 @@ import systems.obscure.client.disk.StateFile;
 public class Client {
     // autoFetch controls whether the network goroutine performs periodic
     // transactions or waits for outside prompting.
-    boolean autoFetch = true;
+    public boolean autoFetch = true;
 
     // newMeetingPlace is a function that returns a PANDA MeetingPlace. In
     // tests this can be overridden to return a testing meeting place.
@@ -39,34 +41,34 @@ public class Client {
 
     // stateFilename is the filename of the file on disk in which we
     // load/save our state.
-    String stateFilename;
+    public String stateFilename;
     // stateLock protects the state against concurrent access by another
     // program.
-    ReentrantReadWriteLock stateLock;
+    public ReentrantReadWriteLock stateLock;
 
     // writerChan is a channel that the disk goroutine reads from to
     // receive updated, serialised states.
-    SharedChannelOutput<NewState> writerChan;
+    public SharedChannelOutput<NewState> writerChan;
 
     // writerDone is a channel that is closed by the disk goroutine when it
     // has finished all pending updates.
-    SharedChannelInput writerDone;
+    public SharedChannelInput writerDone;
 
     // fetchNowChan is the channel that the network goroutine reads from
     // that triggers an immediate network transaction. Mostly intended for
     // testing.
-    Any2OneChannel<Boolean> fetchNowChan;
+    public Any2OneChannel<Boolean> fetchNowChan;
 
     // lastErasureStorageTime is the time at which we last rotated the
     // erasure storage value.
-    long lastErasureStorageTime;
+    public long lastErasureStorageTime;
 
     // torAddress contains a string like "127.0.0.1:9050", which specifies
     // the address of the local Tor SOCKS proxy.
-    String torAddress;
+    public String torAddress;
 
     // server is the URL of the user's home server.
-    String server;
+    public String server;
 
     // identity is a curve25519 private value that's used to authenticate
     // the client to its home server.
@@ -84,56 +86,105 @@ public class Client {
 
     // generation is the generation number of the group private key and is
     // incremented when a member of the group is revoked.
-    Integer generation;
+    public Integer generation;
 
     // siging Ed25519 keypair.
-    SigningKey signingKey;
+    public SigningKey signingKey;
 
-    SecureRandom rand;
+    public SecureRandom rand;
 
     // outbox contains all outgoing messages.
-    QueuedMessage[] outbox;
-    HashMap<Long, Draft> drafts;
-    HashMap<Long, Contact> contacts;
-    InboxMessage[] inbox;
+    public QueuedMessage[] outbox;
+    public HashMap<Long, Draft> drafts;
+    public HashMap<Long, Contact> contacts;
+    public InboxMessage[] inbox;
 
     // queue is a queue of messages for transmission that's shared with the
     // network goroutine and protected by queueMutex.
-    LinkedBlockingQueue<QueuedMessage> queue; //synchronized
-    ReentrantReadWriteLock queueLock;
+    public LinkedBlockingQueue<QueuedMessage> queue; //synchronized
+    public ReentrantReadWriteLock queueLock;
 
     // newMessageChan receives messages that have been read from the home
     // server by the network goroutine.
-    One2OneChannel<NewMessage> newMessageChan;
+    public One2OneChannel<NewMessage> newMessageChan;
     // messageSentChan receives the ids of messages that have been sent by
     // the network goroutine.
-    One2OneChannel<MessageSendResult> messageSentChan;
+    public One2OneChannel<MessageSendResult> messageSentChan;
     // backgroundChan is used for signals from background processes - e.g.
     // detachment uploads.
-    One2OneChannel backgroundChan;
+    public One2OneChannel backgroundChan;
     // signingRequestChan receives requests to sign messages for delivery,
     // just before they are sent to the destination server.
-    One2OneChannel<SigningRequest> signingRequestChan;
+    public One2OneChannel<SigningRequest> signingRequestChan;
 
-    HashMap<Long, Boolean> usedIds;
-
-    Context context;
+    public HashMap<Long, Boolean> usedIds;
 
 
-    private static Client ourInstance = new Client();
+    private static Client ourInstance;// = new Client();
 
-    public static Client getInstance() {
+    public static Client getInstance(Context context) {
+        if(ourInstance == null)
+            ourInstance = new Client(context);
         return ourInstance;
     }
 
-    private Client() {
+    private Client(Context context) {
         torAddress = "127.0.0.1:9050";
         server = "RX4SBLINCG6TUCR7FJYMNNSA33QAPVJAEYA5ROT6QG4IPX7FXE7Q";
+        stateFilename = context.getFilesDir().getPath()+"/statefile";
+        queue = new LinkedBlockingQueue<>();
+        queueLock = new ReentrantReadWriteLock();
+        newMessageChan = Channel.one2one();
+        messageSentChan = Channel.one2one();
+        backgroundChan = Channel.one2one();
+        signingRequestChan = Channel.one2one();
+        usedIds = new HashMap<>();
+
+        outbox = new QueuedMessage[10];
+        drafts = new HashMap<>();
+        contacts = new HashMap<>();
+        inbox = new InboxMessage[10];
+
+        fetchNowChan = Channel.any2one();
+        try {
+            rand = SecureRandom.getInstance("SHA1PRNG");
+
+            StateFile stateFile = new StateFile(rand, stateFilename);
+            stateLock = stateFile.getLock();
+
+            boolean newAccount = TextSecurePreferences.isRegisteredOnServer(context);
+
+            if(newAccount) {
+                MessageDigest digest = MessageDigest.getInstance("SHA256");
+                byte[] seed = new byte[32];
+                rand.nextBytes(seed);
+                signingKey = new SigningKey(digest.digest(seed));
+                identity = new KeyPair();
+                rand.nextBytes(hmacKey);
+            }
+
+            Any2OneChannel<NewState> stateChan = Channel.any2one(5);
+            writerChan = stateChan.out();
+
+            One2AnyChannel doneChan = Channel.one2any(5);
+            writerDone = doneChan.in();
+
+            //            stateFile.StartWrtie(stateChan.in(), doneChan.out());//TODO put on seperate thread
+
+            Intent intent = new Intent(context, TransactService.class);
+            context.startService(intent);
+
+            if(newAccount){
+                //TODO save
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void start(String filename, Context con) {
+    public void start(String filename, Context context) {
         stateFilename = filename;
-        context = con;
+//        context = con;
 
         try {
             rand = SecureRandom.getInstance("SHA1PRNG");
@@ -171,8 +222,13 @@ public class Client {
             One2AnyChannel doneChan = Channel.one2any(5);
             writerDone = doneChan.in();
 
-            stateFile.StartWrtie(stateChan.in(), doneChan.out());//TODO put on seperate thread
-            //TODO transact()
+//            stateFile.StartWrtie(stateChan.in(), doneChan.out());//TODO put on seperate thread
+
+            TransactService ts = new TransactService();
+            ts.registerActivityStarted(context);
+            ts.onCreate();
+//            ApplicationContext.getInstance(context);
+
             if(newAccount){
                 //TODO save
             }
