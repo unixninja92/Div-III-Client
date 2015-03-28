@@ -99,6 +99,9 @@ public class Client {
     public HashMap<Long, Contact> contacts;
     public InboxMessage[] inbox;
 
+
+    public ArrayList<Contact> contactList;
+
     // queue is a queue of messages for transmission that's shared with the
     // network goroutine and protected by queueMutex.
     public LinkedBlockingQueue<QueuedMessage> queue; //synchronized

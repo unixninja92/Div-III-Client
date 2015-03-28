@@ -18,6 +18,7 @@ public class PreviewSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     SurfaceHolder mHolder;
     Camera mCamera;
     List<Size> mSupportedPreviewSizes;
+    int cameraNum;
 
     PreviewSurfaceView(Context context, int camNum) {//Camera cam,
         super(context);
@@ -35,7 +36,8 @@ public class PreviewSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     }
 
     private void init(int camNum) {
-        safeCameraOpen(camNum);
+        cameraNum = camNum;
+        safeCameraOpen(cameraNum);
 
 
 //        List<Size> localSizes = mCamera.getParameters().getSupportedPreviewSizes();
@@ -49,12 +51,27 @@ public class PreviewSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
+        if (mCamera == null) { init(cameraNum); }
+
+        try {
+            mCamera.stopPreview();
+        } catch (Exception e){
+        }
+
+        try {
+            mCamera.setPreviewDisplay(mHolder);
+            mCamera.setDisplayOrientation(90);
+            mCamera.startPreview();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        requestLayout();
     }
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 
-        if (mCamera == null) { return; }
+        if (mCamera == null) { init(cameraNum); }
 
         try {
             mCamera.stopPreview();

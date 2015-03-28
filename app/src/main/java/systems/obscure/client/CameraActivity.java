@@ -59,6 +59,12 @@ public class CameraActivity extends PassphraseRequiredNoActionBarActivity {
     }
 
     @Override
+    public void onPause() {
+//        mPreview.surfaceDestroyed();
+        super.onPause();
+    }
+
+    @Override
     public void onDestroy() {
         MemoryCleaner.clean(masterSecret);
         super.onDestroy();
@@ -66,7 +72,7 @@ public class CameraActivity extends PassphraseRequiredNoActionBarActivity {
 
     private void newCamera() {
         System.out.println("WTF's the problem?? "+mFrame==null);
-        mFrame.postDelayed(new Runnable() {
+        Runnable thread = new Runnable() {
             @Override
             public void run() {
                 new Thread(new Runnable() {
@@ -88,7 +94,8 @@ public class CameraActivity extends PassphraseRequiredNoActionBarActivity {
                     }
                 }).start();
             }
-        }, 50);
+        };
+        mFrame.postDelayed(thread, 50);
     }
 
     public void switchCamera(View view) {
