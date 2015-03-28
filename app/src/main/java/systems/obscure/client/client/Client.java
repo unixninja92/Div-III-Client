@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+import systems.obscure.client.Globals;
 import systems.obscure.client.disk.NewState;
 import systems.obscure.client.disk.StateFile;
 import systems.obscure.client.service.TransactService;
@@ -121,10 +122,10 @@ public class Client {
 
     private static Client ourInstance;// = new Client();
 
-    public static Client getInstance(Context context) {
+    public static Client getInstance() {
         if(ourInstance == null) {
-            ourInstance = new Client(context);
-            ourInstance.start(context);
+            ourInstance = new Client(Globals.applicaiontContext);
+            ourInstance.start(Globals.applicaiontContext);
         }
         return ourInstance;
     }
@@ -167,7 +168,7 @@ public class Client {
                 identity = new KeyPair();
                 rand.nextBytes(hmacKey);
 
-                Network.doCreateAccount(context);//TODO make async task
+                Network.doCreateAccount();//TODO make async task
             }
 
             Any2OneChannel<NewState> stateChan = Channel.any2one(5);

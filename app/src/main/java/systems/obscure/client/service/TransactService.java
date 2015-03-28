@@ -57,7 +57,8 @@ public class TransactService extends Service implements Runnable, InjectableType
     @Override
     public void onCreate() {
         super.onCreate();
-        client = Client.getInstance(getApplicationContext());
+        Globals.applicaiontContext = getApplicationContext();
+        client = Client.getInstance();
         Network.client = client;
 
 //        ApplicationContext.getInstance(this).injectDependencies(this);

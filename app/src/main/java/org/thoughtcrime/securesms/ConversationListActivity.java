@@ -181,7 +181,7 @@ public class ConversationListActivity extends PassphraseRequiredActionBarActivit
 //    Intent intent = new Intent(this, MainActivity.class);
 //    intent.putExtra("master_secret", masterSecret);
 //    startActivity(intent);
-      Network.doCreateAccount(this);
+      Network.doCreateAccount();
   }
 
   private void createConversation(long threadId, Recipients recipients, int distributionType) {

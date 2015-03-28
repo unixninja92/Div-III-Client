@@ -127,7 +127,8 @@ public class CameraActivity extends PassphraseRequiredNoActionBarActivity {
     }
 
     public void viewContacts(View view) {
-
+        Intent contacts = new Intent(this, ContactListActivity.class);
+        startActivity(contacts);
     }
 
     Camera.PictureCallback raw = new Camera.PictureCallback() {

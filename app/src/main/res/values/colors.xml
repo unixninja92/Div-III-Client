@@ -53,4 +53,8 @@
 
     <color name="emoji_tab_indicator">#66ffffff</color>
     <color name="emoji_tab_underline">#11ffffff</color>
+
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="divider">#dcdcdc</color>
+    <color name="header">#ff54759e</color>
 </resources>

@@ -1,5 +1,6 @@
 package systems.obscure.client;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 
 /**
@@ -7,6 +8,8 @@ import android.graphics.Bitmap;
  */
 public class Globals {
     public static Bitmap lastImageTaken;
+
+    public static Context applicaiontContext;
 
     //The number of bytes of overhead when boxing a message with SecretBox.
     public static final int SECRETBOX_OVERHEAD = 16;

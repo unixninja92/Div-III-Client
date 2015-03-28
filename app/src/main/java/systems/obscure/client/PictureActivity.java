@@ -8,15 +8,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 
 
 public class PictureActivity extends Activity {
 //    DrawingView drawingView;
     ImageView imageView;
-    Button penButton;
-    Button eraseButton;
+//    Button penButton;
+//    Button eraseButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +33,8 @@ public class PictureActivity extends Activity {
 //        drawingView.loadBitmap(image);
 //        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 
-        penButton = (Button) findViewById(R.id.penButton);
-        eraseButton = (Button) findViewById(R.id.eraseButton);
+//        penButton = (Button) findViewById(R.id.penButton);
+//        eraseButton = (Button) findViewById(R.id.eraseButton);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);

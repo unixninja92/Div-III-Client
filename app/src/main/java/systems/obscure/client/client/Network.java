@@ -1,7 +1,5 @@
 package systems.obscure.client.client;
 
-import android.content.Context;
-
 import com.google.common.io.BaseEncoding;
 import com.google.protobuf.ByteString;
 
@@ -24,7 +22,7 @@ public class Network {
     // used when Contact.supportedVersion >= 1.
     final int ephemeralBlockLen = nonceLen + 32 + Globals.SECRETBOX_OVERHEAD;
 
-    public static Client client = Client.getInstance(null);
+    public static Client client = Client.getInstance();
 
     public static void sendAck(InboxMessage msg) {
         // First, see if we can merge this ack with a message to the same
@@ -107,7 +105,7 @@ public class Network {
         return transport;
     }
 
-    public static void doCreateAccount(Context context) {
+    public static void doCreateAccount() {
         client.generation = client.randId().intValue();
 
         Pond.NewAccount.Builder newAccount = Pond.NewAccount.newBuilder();
@@ -128,7 +126,7 @@ public class Network {
             e.printStackTrace();
             return;
         }
-        TextSecurePreferences.setRegisteredOnServer(context, true);
+        TextSecurePreferences.setRegisteredOnServer(Globals.applicaiontContext, true);
 
     }
 
