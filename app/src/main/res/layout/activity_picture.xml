@@ -3,11 +3,11 @@
     android:layout_height="match_parent"
     tools:context="systems.obscure.client.PictureActivity">
 
-    <view
+    <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        class="systems.obscure.client.DrawingView"
         android:id="@+id/imageReview" />
+    <!--class="systems.obscure.client.DrawingView"-->
 
     <RelativeLayout
             android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -39,27 +39,27 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pen"
-            android:id="@+id/penButton"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:onClick="penSelect"/>
+        <!--<Button-->
+            <!--style="?android:attr/buttonStyleSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Pen"-->
+            <!--android:id="@+id/penButton"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:onClick="penSelect"/>-->
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Erase"
-            android:id="@+id/eraseButton"
-            android:layout_alignTop="@+id/penButton"
-            android:layout_toLeftOf="@+id/sendButton"
-            android:layout_toStartOf="@+id/sendButton"
-            android:onClick="eraseSelect"/>
+        <!--<Button-->
+            <!--style="?android:attr/buttonStyleSmall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Erase"-->
+            <!--android:id="@+id/eraseButton"-->
+            <!--android:layout_alignTop="@+id/penButton"-->
+            <!--android:layout_toLeftOf="@+id/sendButton"-->
+            <!--android:layout_toStartOf="@+id/sendButton"-->
+            <!--android:onClick="eraseSelect"/>-->
 
     </RelativeLayout>
 

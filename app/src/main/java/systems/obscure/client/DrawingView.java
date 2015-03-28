@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,7 +26,10 @@ public class DrawingView extends View {
     //canvas
     private Canvas drawCanvas;
     //canvas bitmap
+    private Bitmap bitmap;
     private Bitmap canvasBitmap;//for later saving the image
+
+    private BitmapDrawable bitmapDrawable;
 
     //currently selected tool
     private boolean pen = false;
@@ -56,43 +60,122 @@ public class DrawingView extends View {
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-    //view given size, resizes canvas
+        //view given size, resizes canvas
         super.onSizeChanged(w, h, oldw, oldh);
+
+//        int bitmapW = bitmapDrawable.getIntrinsicWidth();
+//        int bitmapH = bitmapDrawable.getIntrinsicHeight();
+//        Point size = new Point();
+//        getDisplay().getSize(size);
+//        float scaleW = bitmapW / (float) size.x;
+//        float scaleH = bitmapH / (float) size.y;
+//        Paint paint = bitmapDrawable.getPaint();
+//
+//        if (isAspectFit) {
+//            float scale = Math.max(scaleW, scaleH);
+//            drawCanvas.save();
+//            bitmapW /= scale;
+//            bitmapH /= scale;
+//            Rect drawRegion = new Rect();
+//            drawRegion.set(canvasBitmap. + (imageW - bitmapW) / 2, imageY + (imageH - bitmapH) / 2, imageX + (imageW + bitmapW) / 2, imageY + (imageH + bitmapH) / 2);
+//            bitmapDrawable.setBounds(drawRegion);
+//            try {
+//                bitmapDrawable.setAlpha(alpha);
+//                bitmapDrawable.draw(drawCanvas);
+//            } catch (Exception e) {
+//            }
+//            drawCanvas.restore();
+//        } else {
+//            if (Math.abs(scaleW - scaleH) > 0.00001f) {
+//                drawCanvas.save();
+//                drawCanvas.clipRect(imageX, imageY, imageX + imageW, imageY + imageH);
+//
+//                if (bitmapW / scaleH > imageW) {
+//                    bitmapW /= scaleH;
+//                    drawRegion.set(imageX - (bitmapW - imageW) / 2, imageY, imageX + (bitmapW + imageW) / 2, imageY + imageH);
+//                } else {
+//                    bitmapH /= scaleW;
+//                    drawRegion.set(imageX, imageY - (bitmapH - imageH) / 2, imageX + imageW, imageY + (bitmapH + imageH) / 2);
+//                }
+//                bitmapDrawable.setBounds(drawRegion);
+//                if (isVisible) {
+//                    try {
+//                        bitmapDrawable.setAlpha(alpha);
+//                        bitmapDrawable.draw(canvas);
+//                    } catch (Exception e) {
+//                        if (bitmapDrawable == currentImage && currentKey != null) {
+//                            ImageLoader.getInstance().removeImage(currentKey);
+//                            currentKey = null;
+//                        } else if (bitmapDrawable == currentThumb && currentThumbKey != null) {
+//                            ImageLoader.getInstance().removeImage(currentThumbKey);
+//                            currentThumbKey = null;
+//                        }
+//                        setImage(currentImageLocation, currentHttpUrl, currentFilter, currentThumb, currentThumbLocation, currentThumbFilter, currentSize, currentCacheOnly);
+//                        FileLog.e("tmessages", e);
+//                    }
+//                }
+//
+//                canvas.restore();
+//            } else {
+//                drawRegion.set(imageX, imageY, imageX + imageW, imageY + imageH);
+//                bitmapDrawable.setBounds(drawRegion);
+//                if (isVisible) {
+//                    try {
+//                        bitmapDrawable.setAlpha(alpha);
+//                        bitmapDrawable.draw(canvas);
+//                    } catch (Exception e) {
+//                        if (bitmapDrawable == currentImage && currentKey != null) {
+//                            ImageLoader.getInstance().removeImage(currentKey);
+//                            currentKey = null;
+//                        } else if (bitmapDrawable == currentThumb && currentThumbKey != null) {
+//                            ImageLoader.getInstance().removeImage(currentThumbKey);
+//                            currentThumbKey = null;
+//                        }
+//                        setImage(currentImageLocation, currentHttpUrl, currentFilter, currentThumb, currentThumbLocation, currentThumbFilter, currentSize, currentCacheOnly);
+//                        FileLog.e("tmessages", e);
+//                    }
+//                }
+//            }
+//        }
+
+        canvasBitmap = Bitmap.createScaledBitmap(bitmap, w, h, false);
 //        if(canvasBitmap==null)
 //            canvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
 //        else
 //            canvasBitmap = Bitmap.createBitmap(canvasBitmap, 0, 0, w, h);
         drawCanvas = new Canvas(canvasBitmap);
     }
+    int touchX =0;
+    int touchY =0;
 
     @Override
     protected void onDraw(Canvas canvas) {
     //draw view
-        canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
-        canvas.drawPath(drawPath, drawPaint);
+        canvas.drawBitmap(canvasBitmap, touchX, touchY, canvasPaint);
+//        canvas.drawPath(drawPath, drawPaint);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
     //detect user touch
         if(pen || erase) {
-            float touchX = event.getX();
-            float touchY = event.getY();
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_DOWN://finger touches screen
-                    drawPath.moveTo(touchX, touchY);
-                    break;
-                case MotionEvent.ACTION_MOVE://finger moves on screen
-                    drawPath.lineTo(touchX, touchY);
-                    break;
-                case MotionEvent.ACTION_UP://finger is removed from screen
-                    drawCanvas.drawPath(drawPath, drawPaint);
-                    drawPath.reset();
-                    break;
-                default:
-                    return false;
-            }
-            invalidate();
+            touchX = (int)event.getX();
+            touchY = (int) event.getY();
+//            switch (event.getAction()) {
+//                case MotionEvent.ACTION_DOWN://finger touches screen
+//                    drawPath.moveTo(touchX, touchY);
+//                    break;
+//                case MotionEvent.ACTION_MOVE://finger moves on screen
+//                    drawPath.lineTo(touchX, touchY);
+//                    break;
+//                case MotionEvent.ACTION_UP://finger is removed from screen
+//                    drawCanvas.drawPath(drawPath, drawPaint);
+//                    drawPath.reset();
+//                    break;
+//                default:
+//                    return false;
+//            }
+//            invalidate();
         }
         return true;
     }
@@ -156,7 +239,11 @@ public class DrawingView extends View {
 //    }
 
     public void loadBitmap(Bitmap bitmap){
+
+        this.bitmap = bitmap;
         canvasBitmap = bitmap;
+        bitmapDrawable = new BitmapDrawable(getResources(), bitmap);
+//        bitmapDrawable.
         drawCanvas = new Canvas(canvasBitmap);
         invalidate();
     }

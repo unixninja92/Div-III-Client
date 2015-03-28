@@ -35,12 +35,12 @@ public class PreviewSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     }
 
     private void init(int camNum) {
-        if(mCamera == null)
-            safeCameraOpen(camNum);
+        safeCameraOpen(camNum);
 
 
-        List<Size> localSizes = mCamera.getParameters().getSupportedPreviewSizes();
-        mSupportedPreviewSizes = localSizes;
+//        List<Size> localSizes = mCamera.getParameters().getSupportedPreviewSizes();
+//        mSupportedPreviewSizes = localSizes;
+//        mCamera.getParameters().
         mHolder = getHolder();
         mHolder.addCallback(this);
         mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);

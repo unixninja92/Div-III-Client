@@ -32,6 +32,8 @@ public class CameraActivity extends PassphraseRequiredNoActionBarActivity {
     private PreviewSurfaceView mPreview;
     private int camNum;
     private MasterSecret masterSecret;
+
+    private int deviceHeight;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +52,8 @@ public class CameraActivity extends PassphraseRequiredNoActionBarActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         mFrame = (FrameLayout)findViewById(R.id.fullscreen_camera);
+
+        Globals.lastImageTaken = null;
 
         newCamera();
     }

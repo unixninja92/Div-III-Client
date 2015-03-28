@@ -9,10 +9,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 
 
 public class PictureActivity extends Activity {
-    DrawingView drawingView;
+//    DrawingView drawingView;
+    ImageView imageView;
     Button penButton;
     Button eraseButton;
 
@@ -26,8 +28,10 @@ public class PictureActivity extends Activity {
         Bitmap image = Globals.lastImageTaken;
 
 
-        drawingView = (DrawingView) findViewById(R.id.imageReview);
-        drawingView.loadBitmap(image);
+        imageView = (ImageView) findViewById(R.id.imageReview);
+        imageView.setImageBitmap(image);
+//        drawingView = (DrawingView) findViewById(R.id.imageReview);
+//        drawingView.loadBitmap(image);
 //        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 
         penButton = (Button) findViewById(R.id.penButton);
@@ -64,25 +68,25 @@ public class PictureActivity extends Activity {
         NavUtils.navigateUpFromSameTask(this);
     }
 
-    public void penSelect(View view) {
-        if(penButton.isSelected()){
-            penButton.setSelected(false);
-            drawingView.setNone();
-        }
-        else {
-            penButton.setSelected(true);
-            drawingView.setPen();
-        }
-    }
-
-    public void eraseSelect(View view) {
-        if(eraseButton.isSelected()){
-            eraseButton.setSelected(false);
-            drawingView.setNone();
-        }
-        else {
-            eraseButton.setSelected(true);
-            drawingView.setErase();
-        }
-    }
+//    public void penSelect(View view) {
+//        if(penButton.isSelected()){
+//            penButton.setSelected(false);
+//            drawingView.setNone();
+//        }
+//        else {
+//            penButton.setSelected(true);
+//            drawingView.setPen();
+//        }
+//    }
+//
+//    public void eraseSelect(View view) {
+//        if(eraseButton.isSelected()){
+//            eraseButton.setSelected(false);
+//            drawingView.setNone();
+//        }
+//        else {
+//            eraseButton.setSelected(true);
+//            drawingView.setErase();
+//        }
+//    }
 }
