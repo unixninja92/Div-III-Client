@@ -3,6 +3,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="systems.obscure.client.ContactsListActivity">
+    <!--
+    android:theme="@style/AppTheme"-->
     <!--android:theme="@style/Base.Theme.AppCompat">-->
 
     <include

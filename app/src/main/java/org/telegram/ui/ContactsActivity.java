@@ -17,9 +17,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.telegram.android.AndroidUtilities;
@@ -29,14 +33,17 @@ import org.telegram.ui.ActionBar.ActionBarMenuItem;
 import org.telegram.ui.ActionBar.BaseFragment;
 
 import systems.obscure.client.R;
+import systems.obscure.client.client.Client;
 import systems.obscure.client.client.Contact;
 
 public class ContactsActivity extends BaseFragment {//implements NotificationCenter.NotificationCenterDelegate {
 
-//    private BaseSectionsAdapter listViewAdapter;
+    private ArrayAdapter<Contact> listViewAdapter;
     private TextView emptyTextView;
-//    private SectionsListView listView;
+    private SectionsListView listView;
 //    private ContactsSearchAdapter searchListViewAdapter;
+
+    Client client = Client.getInstance();
 
     private boolean searchWas;
     private boolean searching;
@@ -101,8 +108,9 @@ public class ContactsActivity extends BaseFragment {//implements NotificationCen
     @Override
     public View createView(LayoutInflater inflater, ViewGroup container) {
         if (fragmentView == null) {
-            searching = false;
-            searchWas = false;
+//            searching = false;
+//            searchWas = false;
+
 
             actionBar.setBackButtonImage(R.drawable.ic_ab_back);
             actionBar.setAllowOverlayTitle(true);
@@ -116,7 +124,7 @@ public class ContactsActivity extends BaseFragment {//implements NotificationCen
 //                actionBar.setTitle(LocaleController.getString("Contacts", R.string.Contacts));
 //            }
 
-//            actionBar.setTitle(R.string.Contacts);
+            actionBar.setTitle("Contacts");
 
             actionBar.setActionBarMenuOnItemClick(new ActionBar.ActionBarMenuOnItemClick() {
                 @Override
@@ -139,14 +147,14 @@ public class ContactsActivity extends BaseFragment {//implements NotificationCen
 //                    searchListViewAdapter.searchDialogs(null);
 //                    searching = false;
 //                    searchWas = false;
-//                    ViewGroup group = (ViewGroup) listView.getParent();
-//                    listView.setAdapter(listViewAdapter);
-//                    listViewAdapter.notifyDataSetChanged();
+                    ViewGroup group = (ViewGroup) listView.getParent();
+                    listView.setAdapter(listViewAdapter);
+                    listViewAdapter.notifyDataSetChanged();
 //                    if (Build.VERSION.SDK_INT >= 11) {
-//                        listView.setFastScrollAlwaysVisible(true);
+                        listView.setFastScrollAlwaysVisible(true);
 //                    }
-//                    listView.setFastScrollEnabled(true);
-//                    listView.setVerticalScrollBarEnabled(false);
+                    listView.setFastScrollEnabled(true);
+                    listView.setVerticalScrollBarEnabled(false);
 //                    emptyTextView.setText(LocaleController.getString("NoContacts", R.string.NoContacts));
                 }
 
@@ -178,6 +186,8 @@ public class ContactsActivity extends BaseFragment {//implements NotificationCen
 //
 //            searchListViewAdapter = new ContactsSearchAdapter(getParentActivity(), ignoreUsers, allowUsernameSearch);
 //            listViewAdapter = new ContactsAdapter(getParentActivity(), onlyUsers, needPhonebook, ignoreUsers);
+//            listViewAdapter = new ArrayListCursor()
+            listViewAdapter = new ArrayAdapter<Contact>(getParentActivity(), R.layout.contact_list_fragment, client.contactList);
 
             fragmentView = new FrameLayout(getParentActivity());
 
@@ -218,27 +228,27 @@ public class ContactsActivity extends BaseFragment {//implements NotificationCen
             layoutParams1.weight = 0.5f;
             frameLayout.setLayoutParams(layoutParams1);
 
-//            listView = new SectionsListView(getParentActivity());
-//            listView.setEmptyView(emptyTextLayout);
-//            listView.setVerticalScrollBarEnabled(false);
-//            listView.setDivider(null);
-//            listView.setDividerHeight(0);
-//            listView.setFastScrollEnabled(true);
-//            listView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
-//            listView.setAdapter(listViewAdapter);
+            listView = new SectionsListView(getParentActivity());
+            listView.setEmptyView(emptyTextLayout);
+            listView.setVerticalScrollBarEnabled(false);
+            listView.setDivider(null);
+            listView.setDividerHeight(0);
+            listView.setFastScrollEnabled(true);
+            listView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
+            listView.setAdapter(listViewAdapter);
 //            if (Build.VERSION.SDK_INT >= 11) {
-//                listView.setFastScrollAlwaysVisible(true);
-//                listView.setVerticalScrollbarPosition(LocaleController.isRTL ? ListView.SCROLLBAR_POSITION_LEFT : ListView.SCROLLBAR_POSITION_RIGHT);
+                listView.setFastScrollAlwaysVisible(true);
+                listView.setVerticalScrollbarPosition(ListView.SCROLLBAR_POSITION_RIGHT);
 //            }
-//            ((FrameLayout) fragmentView).addView(listView);
-//            layoutParams = (FrameLayout.LayoutParams) listView.getLayoutParams();
+            ((FrameLayout) fragmentView).addView(listView);
+            layoutParams = (FrameLayout.LayoutParams) listView.getLayoutParams();
             layoutParams.width = FrameLayout.LayoutParams.MATCH_PARENT;
             layoutParams.height = FrameLayout.LayoutParams.MATCH_PARENT;
-//            listView.setLayoutParams(layoutParams);
+            listView.setLayoutParams(layoutParams);
 
-//            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                    if (searching && searchWas) {
 //                        TLRPC.User user = searchListViewAdapter.getItem(i);
 //                        if (user == null) {
@@ -274,98 +284,98 @@ public class ContactsActivity extends BaseFragment {//implements NotificationCen
 //                        if (!onlyUsers && section == 0) {
 //                            if (needPhonebook) {
 //                                if (row == 0) {
-//                                    try {
-//                                        Intent intent = new Intent(Intent.ACTION_SEND);
-//                                        intent.setType("text/plain");
-//                                        intent.putExtra(Intent.EXTRA_TEXT, ContactsController.getInstance().getInviteText());
-//                                        getParentActivity().startActivity(Intent.createChooser(intent, ""));
-//                                    } catch (Exception e) {
-//                                        FileLog.e("tmessages", e);
-//                                    }
+////                                    try {
+////                                        Intent intent = new Intent(Intent.ACTION_SEND);
+////                                        intent.setType("text/plain");
+////                                        intent.putExtra(Intent.EXTRA_TEXT, ContactsController.getInstance().getInviteText());
+////                                        getParentActivity().startActivity(Intent.createChooser(intent, ""));
+////                                    } catch (Exception e) {
+////                                        FileLog.e("tmessages", e);
+////                                    }
 //                                }
 //                            } else {
-//                                if (row == 0) {
-//                                    presentFragment(new GroupCreateActivity(), true);
-//                                } else if (row == 1) {
-//                                    Bundle args = new Bundle();
-//                                    args.putBoolean("onlyUsers", true);
-//                                    args.putBoolean("destroyAfterSelect", true);
-//                                    args.putBoolean("createSecretChat", true);
-//                                    presentFragment(new ContactsActivity(args), true);
-//                                } else if (row == 2) {
-//                                    Bundle args = new Bundle();
-//                                    args.putBoolean("broadcast", true);
-//                                    presentFragment(new GroupCreateActivity(args), true);
-//                                }
+////                                if (row == 0) {
+////                                    presentFragment(new GroupCreateActivity(), true);
+////                                } else if (row == 1) {
+////                                    Bundle args = new Bundle();
+////                                    args.putBoolean("onlyUsers", true);
+////                                    args.putBoolean("destroyAfterSelect", true);
+////                                    args.putBoolean("createSecretChat", true);
+////                                    presentFragment(new ContactsActivity(args), true);
+////                                } else if (row == 2) {
+////                                    Bundle args = new Bundle();
+////                                    args.putBoolean("broadcast", true);
+////                                    presentFragment(new GroupCreateActivity(args), true);
+////                                }
 //                            }
 //                        } else {
 //                            Object item = listViewAdapter.getItem(section, row);
-//
-//                            if (item instanceof TLRPC.User) {
-//                                TLRPC.User user = (TLRPC.User) item;
-//                                if (returnAsResult) {
-//                                    if (ignoreUsers != null && ignoreUsers.containsKey(user.id)) {
-//                                        return;
-//                                    }
-//                                    didSelectResult(user, true, null);
-//                                } else {
-//                                    if (createSecretChat) {
-//                                        creatingChat = true;
-//                                        SecretChatHelper.getInstance().startSecretChat(getParentActivity(), user);
-//                                    } else {
-//                                        Bundle args = new Bundle();
-//                                        args.putInt("user_id", user.id);
-//                                        presentFragment(new ChatActivity(args), true);
-//                                    }
-//                                }
-//                            } else if (item instanceof ContactsController.Contact) {
-//                                ContactsController.Contact contact = (ContactsController.Contact) item;
-//                                String usePhone = null;
-//                                if (!contact.phones.isEmpty()) {
-//                                    usePhone = contact.phones.get(0);
-//                                }
-//                                if (usePhone == null || getParentActivity() == null) {
-//                                    return;
-//                                }
-//                                AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-//                                builder.setMessage(LocaleController.getString("InviteUser", R.string.InviteUser));
-//                                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
-//                                final String arg1 = usePhone;
-//                                builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), new DialogInterface.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(DialogInterface dialogInterface, int i) {
-//                                        try {
-//                                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", arg1, null));
-//                                            intent.putExtra("sms_body", LocaleController.getString("InviteText", R.string.InviteText));
-//                                            getParentActivity().startActivity(intent);
-//                                        } catch (Exception e) {
-//                                            FileLog.e("tmessages", e);
-//                                        }
-//                                    }
-//                                });
-//                                builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), null);
-//                                showAlertDialog(builder);
-//                            }
-//                        }
+////
+////                            if (item instanceof TLRPC.User) {
+////                                TLRPC.User user = (TLRPC.User) item;
+////                                if (returnAsResult) {
+////                                    if (ignoreUsers != null && ignoreUsers.containsKey(user.id)) {
+////                                        return;
+////                                    }
+////                                    didSelectResult(user, true, null);
+////                                } else {
+////                                    if (createSecretChat) {
+////                                        creatingChat = true;
+////                                        SecretChatHelper.getInstance().startSecretChat(getParentActivity(), user);
+////                                    } else {
+////                                        Bundle args = new Bundle();
+////                                        args.putInt("user_id", user.id);
+////                                        presentFragment(new ChatActivity(args), true);
+////                                    }
+////                                }
+////                            } else if (item instanceof ContactsController.Contact) {
+////                                ContactsController.Contact contact = (ContactsController.Contact) item;
+////                                String usePhone = null;
+////                                if (!contact.phones.isEmpty()) {
+////                                    usePhone = contact.phones.get(0);
+////                                }
+////                                if (usePhone == null || getParentActivity() == null) {
+////                                    return;
+////                                }
+////                                AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
+////                                builder.setMessage(LocaleController.getString("InviteUser", R.string.InviteUser));
+////                                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+////                                final String arg1 = usePhone;
+////                                builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), new DialogInterface.OnClickListener() {
+////                                    @Override
+////                                    public void onClick(DialogInterface dialogInterface, int i) {
+////                                        try {
+////                                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", arg1, null));
+////                                            intent.putExtra("sms_body", LocaleController.getString("InviteText", R.string.InviteText));
+////                                            getParentActivity().startActivity(intent);
+////                                        } catch (Exception e) {
+////                                            FileLog.e("tmessages", e);
+////                                        }
+////                                    }
+////                                });
+////                                builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), null);
+////                                showAlertDialog(builder);
+////                            }
+////                        }
 //                    }
-//                }
-//            });
+                }
+            });
 //
-//            listView.setOnScrollListener(new AbsListView.OnScrollListener() {
-//                @Override
-//                public void onScrollStateChanged(AbsListView absListView, int i) {
-//                    if (i == SCROLL_STATE_TOUCH_SCROLL && searching && searchWas) {
-//                        AndroidUtilities.hideKeyboard(getParentActivity().getCurrentFocus());
-//                    }
-//                }
+            listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+                @Override
+                public void onScrollStateChanged(AbsListView absListView, int i) {
+                    if (i == SCROLL_STATE_TOUCH_SCROLL && searching && searchWas) {
+                        AndroidUtilities.hideKeyboard(getParentActivity().getCurrentFocus());
+                    }
+                }
 //
-//                @Override
-//                public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                @Override
+                public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 //                    if (absListView.isFastScrollEnabled()) {
 //                        AndroidUtilities.clearDrawableAnimation(absListView);
 //                    }
-//                }
-//            });
+                }
+            });
         } else {
             ViewGroup parent = (ViewGroup)fragmentView.getParent();
             if (parent != null) {
@@ -422,9 +432,9 @@ public class ContactsActivity extends BaseFragment {//implements NotificationCen
     @Override
     public void onResume() {
         super.onResume();
-//        if (listViewAdapter != null) {
-////            listViewAdapter.notifyDataSetChanged();
-//        }
+        if (listViewAdapter != null) {
+//            listViewAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override
@@ -457,15 +467,15 @@ public class ContactsActivity extends BaseFragment {//implements NotificationCen
 //    }
 
     private void updateVisibleRows(int mask) {
-//        if (listView != null) {
-//            int count = listView.getChildCount();
-//            for (int a = 0; a < count; a++) {
-//                View child = listView.getChildAt(a);
+        if (listView != null) {
+            int count = listView.getChildCount();
+            for (int a = 0; a < count; a++) {
+                View child = listView.getChildAt(a);
 //                if (child instanceof UserCell) {
 //                    ((UserCell) child).update(mask);
 //                }
-//            }
-//        }
+            }
+        }
     }
 
     public void setDelegate(ContactsActivityDelegate delegate) {

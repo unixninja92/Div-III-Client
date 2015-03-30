@@ -1,6 +1,5 @@
 package systems.obscure.client;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -10,8 +9,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import org.thoughtcrime.securesms.PassphraseRequiredNoActionBarActivity;
 
-public class PictureActivity extends Activity {
+
+public class PictureActivity extends PassphraseRequiredNoActionBarActivity {
 //    DrawingView drawingView;
     ImageView imageView;
 //    Button penButton;

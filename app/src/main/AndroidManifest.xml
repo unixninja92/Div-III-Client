@@ -45,7 +45,7 @@
                 android:value="systems.obscure.client.CameraActivity" />
         </activity>
         <activity
-            android:name=".Contact"
+            android:name=".ContactActivity"
             android:label="@string/title_activity_contact"
             android:parentActivityName=".ContactsListActivity" >
             <meta-data
@@ -85,25 +85,25 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SENDTO" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.SENDTO" />-->
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
 
-                <data android:scheme="sms" />
-                <data android:scheme="smsto" />
-                <data android:scheme="mms" />
-                <data android:scheme="mmsto" />
-            </intent-filter>
+                <!--<data android:scheme="sms" />-->
+                <!--<data android:scheme="smsto" />-->
+                <!--<data android:scheme="mms" />-->
+                <!--<data android:scheme="mmsto" />-->
+            <!--</intent-filter>-->
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
 
                 <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:mimeType="audio/*" />
+                <!--<data android:mimeType="audio/*" />-->
                 <data android:mimeType="image/*" />
-                <data android:mimeType="text/plain" />
-                <data android:mimeType="video/*" />
+                <!--<data android:mimeType="text/plain" />-->
+                <!--<data android:mimeType="video/*" />-->
             </intent-filter>
         </activity>
         <activity

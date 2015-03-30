@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<systems.obscure.client.ContactsListItem
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+    <!--<FrameLayout android:id="@+id/contact_photo_frame"-->
+                 <!--android:layout_width="wrap_content"-->
+                 <!--android:layout_height="wrap_content"-->
+                 <!--android:layout_centerVertical="true"-->
+                 <!--android:layout_alignParentLeft="true"-->
+                 <!--android:paddingTop="3dp"-->
+                 <!--android:paddingBottom="3dp"-->
+                 <!--android:paddingLeft="10dp"-->
+                 <!--android:paddingRight="10dp"-->
+                 <!--android:visibility="visible">-->
+
+        <!--<com.makeramen.RoundedImageView-->
+            <!--android:id="@+id/contact_photo_image"-->
+            <!--android:foreground="@drawable/contact_photo_background"-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--app:riv_oval="true"-->
+            <!--android:cropToPadding="true"-->
+            <!--android:scaleType="centerCrop"-->
+            <!--android:visibility="gone"-->
+            <!--tools:src="@drawable/ic_contact_picture"-->
+            <!--android:contentDescription="@string/conversation_list_item_view__contact_photo_image"-->
+            <!--android:layout_marginLeft="0dp" />-->
+    <!--</FrameLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dip"
+        android:layout_marginLeft="4dip"
+        android:layout_marginRight="8dip"
+        android:layout_marginBottom="4dip"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:gravity="bottom">
+
+            <TextView android:id="@+id/from"
+                      android:layout_weight="1"
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:textAppearance="?android:attr/textAppearanceMedium"
+                      android:textColor="?attr/conversation_list_item_contact_color"
+                      android:singleLine="true"
+                      tools:text="Jules Bonnot"
+                      android:ellipsize="marquee" />
+        </LinearLayout>
+
+    </LinearLayout>
+</systems.obscure.client.ContactsListItem>

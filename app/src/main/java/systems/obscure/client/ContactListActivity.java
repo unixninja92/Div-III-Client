@@ -1,6 +1,7 @@
 package systems.obscure.client;
 
 //import android.app.Fragment;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
@@ -25,7 +26,7 @@ public class ContactListActivity extends PassphraseRequiredActionBarActivity {
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_contact_list, menu);
+////        ((ContactsActivity)getSupportFragmentManager().getFragments().get(0)).
 //        return true;
 //    }
 //

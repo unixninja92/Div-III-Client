@@ -1,12 +1,13 @@
 package systems.obscure.client;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.thoughtcrime.securesms.PassphraseRequiredActionBarActivity;
 
-public class Contact extends ActionBarActivity {
+
+public class ContactActivity extends PassphraseRequiredActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

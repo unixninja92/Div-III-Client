@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:minHeight="?attr/actionBarSize"
     android:background="?attr/colorPrimary"
+    android:theme="@style/AppTheme"
     android:navigationContentDescription="@string/contacts">
 
 

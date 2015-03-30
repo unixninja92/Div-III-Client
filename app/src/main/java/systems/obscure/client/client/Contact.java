@@ -75,6 +75,10 @@ public class Contact {
         return "";
     }
 
+    public String toString() {
+        return name;
+    }
+
     //TODO indicator func
 
     //TODO processKeyExchange func
