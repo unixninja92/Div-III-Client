@@ -74,19 +74,13 @@ public class Client {
     // the client to its home server.
     public KeyPair identity;
 
-    // groupPriv is the group private key for the user's delivery group.
-    byte[] groupPriv;
-
-    // prevGroupPrivs contains previous group private keys that have been
-    // revoked. This allows us to process messages that were inflight at
-    // the time of the revocation.
-    byte[][] preGroupPriv;
-
+    // hmacKey is shared with clients home server so that the home server knows
+    // what messages to send to the client
     byte[] hmacKey = new byte[32];
-
-    // generation is the generation number of the group private key and is
-    // incremented when a member of the group is revoked.
-    public Integer generation;
+//
+//    // generation is the generation number of the group private key and is
+//    // incremented when a member of the group is revoked.
+//    public Integer generation;
 
     // siging Ed25519 keypair.
     public SigningKey signingKey;
@@ -150,6 +144,8 @@ public class Client {
         contacts = new HashMap<>();
         inbox = new InboxMessage[10];
 
+        contactList = new ArrayList<>();
+
         fetchNowChan = Channel.any2one();
 
     }
@@ -188,6 +184,11 @@ public class Client {
             if(newAccount){
                 //TODO save
             }
+
+
+            Contact temp = new Contact();
+            temp.name = "Bob";
+            contactList.add(temp);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }

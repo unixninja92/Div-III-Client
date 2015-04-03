@@ -17,18 +17,14 @@
 package systems.obscure.client;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import org.thoughtcrime.securesms.recipients.Recipient;
 import org.thoughtcrime.securesms.recipients.Recipients;
-import org.thoughtcrime.securesms.util.RecipientViewUtil;
 
 import java.util.Set;
 
@@ -44,7 +40,6 @@ import java.util.Set;
  */
 
 public class ContactsListItem extends RelativeLayout
-                                  implements Recipient.RecipientModifiedListener
 {
   private final static String TAG = ContactsListItem.class.getSimpleName();
 
@@ -76,13 +71,13 @@ public class ContactsListItem extends RelativeLayout
 
   @Override
   protected void onFinishInflate() {
-    this.subjectView       = (TextView) findViewById(R.id.subject);
+//    this.subjectView       = (TextView) findViewById(R.id.subject);
     this.fromView          = (TextView) findViewById(R.id.from);
-    this.dateView          = (TextView) findViewById(R.id.date);
+//    this.dateView          = (TextView) findViewById(R.id.date);
 
-    this.contactPhotoImage = (ImageView) findViewById(R.id.contact_photo_image);
+//    this.contactPhotoImage = (ImageView) findViewById(R.id.contact_photo_image);
 
-    initializeContactWidgetVisibility();
+//    initializeContactWidgetVisibility();
   }
 
 //  public void set(ThreadRecord thread, Set<Long> selectedThreads, boolean batchMode) {
@@ -112,31 +107,31 @@ public class ContactsListItem extends RelativeLayout
 //  }
 
   public void unbind() {
-    if (this.recipients != null)
-      this.recipients.removeListener(this);
+//    if (this.recipients != null)
+//      this.recipients.removeListener(this);
   }
 
   private void initializeContactWidgetVisibility() {
-    contactPhotoImage.setVisibility(View.VISIBLE);
+//    contactPhotoImage.setVisibility(View.VISIBLE);
   }
 
-  private void setBackground(boolean read, boolean batch) {
-    int[]      attributes = new int[]{R.attr.conversation_list_item_background_selected,
-                                      R.attr.conversation_list_item_background_read,
-                                      R.attr.conversation_list_item_background_unread};
-
-    TypedArray drawables  = context.obtainStyledAttributes(attributes);
-
-    if (batch && selectedThreads.contains(threadId)) {
-      setBackgroundDrawable(drawables.getDrawable(0));
-    } else if (read) {
-      setBackgroundDrawable(drawables.getDrawable(1));
-    } else {
-      setBackgroundDrawable(drawables.getDrawable(2));
-    }
-
-    drawables.recycle();
-  }
+//  private void setBackground(boolean read, boolean batch) {
+//    int[]      attributes = new int[]{R.attr.conversation_list_item_background_selected,
+//                                      R.attr.conversation_list_item_background_read,
+//                                      R.attr.conversation_list_item_background_unread};
+//
+//    TypedArray drawables  = context.obtainStyledAttributes(attributes);
+//
+//    if (batch && selectedThreads.contains(threadId)) {
+//      setBackgroundDrawable(drawables.getDrawable(0));
+//    } else if (read) {
+//      setBackgroundDrawable(drawables.getDrawable(1));
+//    } else {
+//      setBackgroundDrawable(drawables.getDrawable(2));
+//    }
+//
+//    drawables.recycle();
+//  }
 
   public Recipients getRecipients() {
     return recipients;
@@ -150,14 +145,14 @@ public class ContactsListItem extends RelativeLayout
     return distributionType;
   }
 
-  @Override
-  public void onModified(Recipient recipient) {
-    handler.post(new Runnable() {
-      @Override
-      public void run() {
-        ContactsListItem.this.fromView.setText(RecipientViewUtil.formatFrom(context, recipients, read));
-        RecipientViewUtil.setContactPhoto(context, contactPhotoImage, recipients.getPrimaryRecipient(), true);
-      }
-    });
-  }
+//  @Override
+//  public void onModified(Contact contact) {
+//    handler.post(new Runnable() {
+//      @Override
+//      public void run() {
+//        ContactsListItem.this.fromView.setText(RecipientViewUtil.formatFrom(context, recipients, read));
+////        RecipientViewUtil.setContactPhoto(context, contactPhotoImage, recipients.getPrimaryRecipient(), true);
+//      }
+//    });
+//  }
 }

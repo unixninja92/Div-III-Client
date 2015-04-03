@@ -134,7 +134,9 @@ public class CameraActivity extends PassphraseRequiredNoActionBarActivity {
     }
 
     public void viewContacts(View view) {
-        Intent contacts = new Intent(this, ContactListActivity.class);
+        mPreview.surfaceDestroyed(mPreview.getHolder());
+        Intent contacts = new Intent(this, ContactsListActivity.class);
+        contacts.putExtra("master_secret", masterSecret);
         startActivity(contacts);
     }
 

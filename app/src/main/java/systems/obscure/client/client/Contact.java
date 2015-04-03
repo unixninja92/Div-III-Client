@@ -24,14 +24,11 @@ public class Contact {
     // for this contact. (Only valid if |isPending| is true.)
     byte[] kxsBytes;
 
-    // groupKey is the group member key that we gave to this contact.
-    // groupKey TODO bbsig.MemberKey
-    // myGroupKey is the one that they gave to us.
-    // myGroupKey TODO bbsig.MemberKey
 
-    // generation is the current group generation number that we know for
-    // this contact.
-    Integer generation;
+
+//    // generation is the current group generation number that we know for
+//    // this contact.
+//    Integer generation;
 
     // theirServer is the URL of the contact's home server.
     String theirServer;

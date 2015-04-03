@@ -28,7 +28,11 @@
         </activity>
         <activity
             android:name=".ContactsListActivity"
-            android:label="@string/title_activity_contacts" >
+            android:label="@string/title_activity_contacts"
+            android:parentActivityName="org.thoughtcrime.securesms.RoutingActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.thoughtcrime.securesms.RoutingActivity" />
         </activity>
         <activity
             android:name=".CameraActivity"
@@ -39,10 +43,10 @@
         <activity
             android:name=".PictureActivity"
             android:label="@string/title_activity_picture"
-            android:parentActivityName=".CameraActivity" >
+            android:parentActivityName="org.thoughtcrime.securesms.RoutingActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="systems.obscure.client.CameraActivity" />
+                android:value="org.thoughtcrime.securesms.RoutingActivity" />
         </activity>
         <activity
             android:name=".ContactActivity"

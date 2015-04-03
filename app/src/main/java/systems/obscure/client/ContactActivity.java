@@ -1,18 +1,37 @@
 package systems.obscure.client;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import org.thoughtcrime.securesms.PassphraseRequiredActionBarActivity;
+import org.thoughtcrime.securesms.crypto.MasterSecret;
+
+import systems.obscure.client.client.Client;
+import systems.obscure.client.client.Contact;
 
 
 public class ContactActivity extends PassphraseRequiredActionBarActivity {
 
+    Contact contact;
+    Client client = Client.getInstance();
+    MasterSecret masterSecret;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_TITLE);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_ab_back);
         setContentView(R.layout.activity_contact);
+
+        Intent intent = getIntent();
+        masterSecret = intent.getParcelableExtra("master_secret");
+
+        int contact_id = intent.getIntExtra("contact_id", 0);
+        contact = client.contactList.get(contact_id);
+
+        getSupportActionBar().setTitle(contact.toString());
     }
 
 

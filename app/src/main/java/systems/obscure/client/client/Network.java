@@ -106,11 +106,11 @@ public class Network {
     }
 
     public static void doCreateAccount() {
-        client.generation = client.randId().intValue();
+//        client.generation = client.randId().intValue();
 
         Pond.NewAccount.Builder newAccount = Pond.NewAccount.newBuilder();
-        newAccount.setGeneration(client.generation);
-        newAccount.setGroup(ByteString.copyFrom(client.hmacKey));
+//        newAccount.setGeneration(client.generation);
+//        newAccount.setGroup(ByteString.copyFrom(client.hmacKey));
         newAccount.setHmacKey(ByteString.copyFrom(client.hmacKey));
 
         Pond.Request.Builder request = Pond.Request.newBuilder();

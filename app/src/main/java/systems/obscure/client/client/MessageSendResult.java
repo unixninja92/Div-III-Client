@@ -15,22 +15,23 @@ public class MessageSendResult {
 
     // revocation optionally contains a revocation update that resulted
     // from attempting to send a message.
-    Pond.SignedRevocation revocation;
+//    Pond.SignedRevocation revocation;
+    Pond.HMACStrike revocation;
 
     // extraRevocations optionally contains revocations further to
     // |revocation|. This is only non-empty if |revocation| is non-nil.
-    List<Pond.SignedRevocation> extraRevocations;
+    List<Pond.HMACStrike> extraRevocations;
 
     public MessageSendResult() {}
 
     public MessageSendResult(long id) {this.id = id;}
 
-    public MessageSendResult(long id, Pond.SignedRevocation revocation) {
+    public MessageSendResult(long id, Pond.HMACStrike revocation) {
         this(id);
         this.revocation = revocation;
     }
 
-    public MessageSendResult(long id, Pond.SignedRevocation revocation, List<Pond.SignedRevocation> extraRevocations) {
+    public MessageSendResult(long id, Pond.HMACStrike revocation, List<Pond.HMACStrike> extraRevocations) {
         this(id, revocation);
         this.extraRevocations = extraRevocations;
     }

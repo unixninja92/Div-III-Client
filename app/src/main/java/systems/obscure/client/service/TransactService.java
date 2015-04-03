@@ -214,7 +214,7 @@ public class TransactService extends Service implements Runnable, InjectableType
                 client.moveContactsMessagesToEndOfQueue(head.to);
                 client.queueLock.writeLock().unlock();
 
-                if(reply.getStatus() == Pond.Reply.Status.GENERATION_REVOKED && reply.hasRevocation()){
+                if(reply.getStatus() == Pond.Reply.Status.HMAC_REVOKED) {//&& reply.hasRevocation()){
 //                    client.messageSentChan.out().write(new MessageSendResult(head.id, reply.getRevocation(), reply.getExtraRevocationsList()));TODO read this channel somewhere
                 }
             }

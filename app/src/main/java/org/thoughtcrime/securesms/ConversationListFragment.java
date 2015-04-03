@@ -94,6 +94,7 @@ public class ConversationListFragment extends ListFragment
       @Override
       public void onClick(View v) {
           Intent intent = new Intent(getActivity(), CameraActivity.class);
+          intent.putExtra("master_secret", masterSecret);
           startActivity(intent);
 //        Intent intent = new Intent(getActivity(), NewConversationActivity.class);
 //        intent.putExtra(NewConversationActivity.MASTER_SECRET_EXTRA, masterSecret);

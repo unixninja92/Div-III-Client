@@ -22,56 +22,63 @@ public class PreviewSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 
     PreviewSurfaceView(Context context, int camNum) {//Camera cam,
         super(context);
-        init(camNum);
+        mHolder = getHolder();
+        mHolder.addCallback(this);
+        mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        safeCameraOpen(camNum);
     }
 
     PreviewSurfaceView(Context context, AttributeSet attributeSet, int camNum) {
         super(context, attributeSet);
-        init(camNum);
+        mHolder = getHolder();
+        mHolder.addCallback(this);
+        mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        safeCameraOpen(camNum);
     }
 
     PreviewSurfaceView(Context context, AttributeSet attributeSet, int num, int camNum) {
         super(context, attributeSet, num);
-        init(camNum);
+        mHolder = getHolder();
+        mHolder.addCallback(this);
+        mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        safeCameraOpen(camNum);
     }
 
-    private void init(int camNum) {
-        cameraNum = camNum;
-        safeCameraOpen(cameraNum);
+//    private void init(int camNum) {
+//        cameraNum = camNum;
+//        safeCameraOpen(cameraNum);
 
 
 //        List<Size> localSizes = mCamera.getParameters().getSupportedPreviewSizes();
 //        mSupportedPreviewSizes = localSizes;
 //        mCamera.getParameters().
-        mHolder = getHolder();
-        mHolder.addCallback(this);
-        mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-    }
+//    }
 
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        if (mCamera == null) { init(cameraNum); }
-
-        try {
-            mCamera.stopPreview();
-        } catch (Exception e){
-        }
-
-        try {
-            mCamera.setPreviewDisplay(mHolder);
-            mCamera.setDisplayOrientation(90);
-            mCamera.startPreview();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        requestLayout();
+//        if (mCamera == null) { init(cameraNum); }
+//
+//        try {
+//            mCamera.stopPreview();
+//        } catch (Exception e){
+//        }
+//
+//        try {
+//            mCamera.setPreviewDisplay(mHolder);
+//            mCamera.setDisplayOrientation(90);
+//            mCamera.startPreview();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        requestLayout();
     }
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 
-        if (mCamera == null) { init(cameraNum); }
+
+        if (mCamera == null) { safeCameraOpen(cameraNum); }
 
         try {
             mCamera.stopPreview();
@@ -82,7 +89,7 @@ public class PreviewSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 //            Camera.Parameters parameters = mCamera.getParameters();
 //            parameters.setPreviewSize(mSupportedPreviewSizes.get(0).width, mSupportedPreviewSizes.get(0).height);
 //            mCamera.setParameters(parameters);
-            mCamera.setPreviewDisplay(mHolder);
+            mCamera.setPreviewDisplay(holder);
             mCamera.setDisplayOrientation(90);
             mCamera.startPreview();
         } catch (IOException e) {
@@ -121,6 +128,7 @@ public class PreviewSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     }
 
     private boolean safeCameraOpen(int id) {
+        cameraNum = id;
         boolean qOpened = false;
 
         try {
