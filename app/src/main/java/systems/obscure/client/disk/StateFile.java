@@ -82,6 +82,7 @@ public class StateFile implements CSProcess{
 
     public LocalStorage.State Read(String pw) throws IOException {
         try {
+            lock.readLock().lock();
             File stateFile = new File(path);
             ByteBuffer b = ByteBuffer.wrap(Files.toByteArray(stateFile));
 
@@ -129,6 +130,8 @@ public class StateFile implements CSProcess{
             ByteBuffer plaintext = ByteBuffer.wrap(secretBox.decrypt(nonce, b.slice().array()));
             if(plaintext.capacity() < 4)
                 throw new IOException("state file corrupt");
+
+            lock.readLock().unlock();
 
             int length = plaintext.getInt();
             if(length > 1<<31 || length > plaintext.remaining())
@@ -212,9 +215,16 @@ public class StateFile implements CSProcess{
             }
 
             byte[] plaintext = new byte[length];
-            for(int i = 4; i < length; i++){
+            for(int i = 4; i < s.length; i++){
                 plaintext[i] = s[i-4];
-            }//FIXME io.ReadFull(sf.Rand, plaintext[len(s)+4:]) WTF????
+            }
+
+            int l = s.length+4;
+            byte[] randPlain = new byte[length - l];
+            rand.nextBytes(randPlain);
+            for(int i = l; i< length; i++) {
+                plaintext[i] = randPlain[i-l];
+            }
 
             int smearCopies = header.getNonceSmearCopies();
             byte[] nonceSmear = new byte[smearCopies*24];
@@ -231,7 +241,35 @@ public class StateFile implements CSProcess{
             SecretBox secretBox = new SecretBox(effectiveKey);
             byte[] ciphertext = secretBox.encrypt(nonceSmear, plaintext);
 
+            try {
+                File temp = File.createTempFile("state", null, new File(path));
+                FileOutputStream tempOut = new FileOutputStream(temp);
+                tempOut.write(headerMagic);
+                tempOut.write((byte) header.toByteArray().length);
+                tempOut.write(header.toByteArray());
+                tempOut.write(nonceSmear);
+                tempOut.write(ciphertext);
+                tempOut.flush();
+                tempOut.close();
+                temp.setReadOnly();
 
+                File oldTemp = new File(path+"~");
+                if(oldTemp.isFile())
+                    oldTemp.delete();
+
+                lock.writeLock().lock();
+                File oldState = new File(path);
+                oldState.renameTo(new File(path+"~"));
+
+                temp.renameTo(new File(path));
+
+                oldState.delete();
+
+                lock.writeLock().unlock();
+            } catch (IOException e) {
+                lock.writeLock().unlock();
+                e.printStackTrace();
+            }
         }
     }
 
