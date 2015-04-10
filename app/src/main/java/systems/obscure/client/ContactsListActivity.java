@@ -31,11 +31,11 @@ import android.view.MenuItem;
 import org.thoughtcrime.securesms.PassphraseRequiredActionBarActivity;
 import org.thoughtcrime.securesms.RoutingActivity;
 import org.thoughtcrime.securesms.crypto.MasterSecret;
-import org.thoughtcrime.securesms.recipients.RecipientFactory;
-import org.thoughtcrime.securesms.recipients.Recipients;
 import org.thoughtcrime.securesms.util.DynamicLanguage;
 import org.thoughtcrime.securesms.util.DynamicTheme;
 import org.thoughtcrime.securesms.util.MemoryCleaner;
+
+import systems.obscure.client.client.Contact;
 
 
 public class ContactsListActivity extends PassphraseRequiredActionBarActivity
@@ -168,7 +168,7 @@ public class ContactsListActivity extends PassphraseRequiredActionBarActivity
 //  }
 
   @Override
-  public void onCreateConversation(long threadId, Recipients recipients, int distributionType) {
+  public void onCreateConversation(long threadId, Contact recipients, int distributionType) {
     createConversation(threadId, recipients, distributionType);
   }
 
@@ -179,7 +179,7 @@ public class ContactsListActivity extends PassphraseRequiredActionBarActivity
 //      Network.doCreateAccount();
 //  }
 
-  private void createConversation(long threadId, Recipients recipients, int distributionType) {
+  private void createConversation(long threadId, Contact recipients, int distributionType) {
 //    Intent intent = new Intent(this, ConversationActivity.class);
 //    intent.putExtra(ConversationActivity.RECIPIENTS_EXTRA, recipients.getIds());
 //    intent.putExtra(ConversationActivity.THREAD_ID_EXTRA, threadId);
@@ -231,7 +231,7 @@ public class ContactsListActivity extends PassphraseRequiredActionBarActivity
         super.onChange(selfChange);
         Log.w("ConversationListActivity", "detected android contact data changed, refreshing cache");
         // TODO only clear updated recipients from cache
-        RecipientFactory.clearCache();
+//        RecipientFactory.clearCache();
 //        ContactsListActivity.this.runOnUiThread(new Runnable() {
 //            @Override
 //            public void run() {

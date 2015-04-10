@@ -41,12 +41,12 @@ import com.melnykov.fab.FloatingActionButton;
 
 import org.thoughtcrime.securesms.crypto.MasterSecret;
 import org.thoughtcrime.securesms.notifications.MessageNotifier;
-import org.thoughtcrime.securesms.recipients.Recipients;
 import org.thoughtcrime.securesms.util.Dialogs;
 
 import java.util.Set;
 
 import systems.obscure.client.client.Client;
+import systems.obscure.client.client.Contact;
 
 //import org.thoughtcrime.securesms.database.DatabaseFactory;
 //import org.thoughtcrime.securesms.database.loaders.ConversationListLoader;
@@ -252,7 +252,7 @@ public class ContactsListFragment extends ListFragment
 //                           ((ConversationListAdapter)this.getListAdapter()).getBatchSelections().size()));
 //  }
 
-  private void handleCreateConversation(long threadId, Recipients recipients, int distributionType) {
+  private void handleCreateConversation(long threadId, Contact recipients, int distributionType) {
     listener.onCreateConversation(threadId, recipients, distributionType);
   }
 
@@ -273,7 +273,7 @@ public class ContactsListFragment extends ListFragment
 //  }
 
   public interface ConversationSelectedListener {
-    public void onCreateConversation(long threadId, Recipients recipients, int distributionType);
+    public void onCreateConversation(long threadId, Contact recipients, int distributionType);
 }
 
   @Override

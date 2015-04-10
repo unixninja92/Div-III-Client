@@ -58,8 +58,6 @@ public class TransactService extends Service implements Runnable, InjectableType
     public void onCreate() {
         super.onCreate();
         Globals.applicaiontContext = getApplicationContext();
-        client = Client.getInstance();
-        Network.client = client;
 
 //        ApplicationContext.getInstance(this).injectDependencies(this);
 
@@ -70,6 +68,7 @@ public class TransactService extends Service implements Runnable, InjectableType
 //        networkRequirementProvider.setListener(this);
 
         orbotHelper = new OrbotHelper(this);
+
         startup = true;
         lastWasSend = false;
         new Thread(this, "TransactService").start();
@@ -97,6 +96,11 @@ public class TransactService extends Service implements Runnable, InjectableType
 
     @Override
     public void run() {
+        waitForNetwork();
+
+        client = Client.getInstance();
+        Network.client = client;
+
         System.out.println("It's runing!");
 
         while (true) {

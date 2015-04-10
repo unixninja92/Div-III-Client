@@ -5,8 +5,6 @@ import android.util.Log;
 
 import org.thoughtcrime.securesms.crypto.MasterCipher;
 import org.thoughtcrime.securesms.crypto.MasterSecret;
-import org.thoughtcrime.securesms.recipients.Recipient;
-import org.thoughtcrime.securesms.recipients.RecipientFactory;
 import org.thoughtcrime.securesms.util.Conversions;
 import org.whispersystems.libaxolotl.AxolotlAddress;
 import org.whispersystems.libaxolotl.InvalidMessageException;
@@ -121,7 +119,7 @@ public class TextSecureSessionStore implements SessionStore {
 
   @Override
   public List<Integer> getSubDeviceSessions(String name) {
-    long          recipientId = RecipientFactory.getRecipientsFromString(context, name, true).getPrimaryRecipient().getRecipientId();
+    long          recipientId = 0L;//RecipientFactory.getRecipientsFromString(context, name, true).getPrimaryRecipient().getRecipientId();
     List<Integer> results     = new LinkedList<>();
     File          parent      = getSessionDirectory();
     String[]      children    = parent.list();
@@ -161,9 +159,9 @@ public class TextSecureSessionStore implements SessionStore {
   }
 
   private String getSessionName(AxolotlAddress axolotlAddress) {
-    Recipient recipient   = RecipientFactory.getRecipientsFromString(context, axolotlAddress.getName(), true)
-                                          .getPrimaryRecipient();
-    long      recipientId = recipient.getRecipientId();
+//    Contact recipient   = RecipientFactory.getRecipientsFromString(context, axolotlAddress.getName(), true)
+//                                          .getPrimaryRecipient();
+//    long      recipientId = recipient.getRecipientId();
     int       deviceId    = axolotlAddress.getDeviceId();
 
 //    return recipientId + (deviceId == TextSecureAddress.DEFAULT_DEVICE_ID ? "" : "." + deviceId);

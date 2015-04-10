@@ -113,6 +113,6 @@ public class ConversationListAdapter extends CursorAdapter implements AbsListVie
 
   @Override
   public void onMovedToScrapHeap(View view) {
-    ((ConversationListItem)view).unbind();
+    //((ConversationListItem)view).unbind();
   }
 }

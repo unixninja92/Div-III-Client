@@ -8,11 +8,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import org.thoughtcrime.securesms.recipients.Recipient;
 
 import java.util.ArrayList;
 
 import systems.obscure.client.R;
+import systems.obscure.client.client.Contact;
 
 public class SelectedRecipientsAdapter extends ArrayAdapter<SelectedRecipientsAdapter.RecipientWrapper> {
 
@@ -42,7 +42,7 @@ public class SelectedRecipientsAdapter extends ArrayAdapter<SelectedRecipientsAd
     }
 
     final RecipientWrapper rw = getItem(position);
-    final Recipient p = rw.getRecipient();
+    final Contact p = rw.getRecipient();
     final boolean modifiable = rw.isModifiable();
 
     if (p != null) {
@@ -52,11 +52,11 @@ public class SelectedRecipientsAdapter extends ArrayAdapter<SelectedRecipientsAd
       ImageButton delete = (ImageButton) v.findViewById(R.id.delete);
 
       if (name != null) {
-        name.setText(p.getName());
+        name.setText(p.name);
       }
-      if (phone != null) {
-        phone.setText(p.getNumber());
-      }
+//      if (phone != null) {
+//        phone.setText(p.getNumber());
+//      }
       if (delete != null) {
         if (modifiable) {
           delete.setVisibility(View.VISIBLE);
@@ -85,19 +85,19 @@ public class SelectedRecipientsAdapter extends ArrayAdapter<SelectedRecipientsAd
   }
 
   public interface OnRecipientDeletedListener {
-    public void onRecipientDeleted(Recipient recipient);
+    public void onRecipientDeleted(Contact recipient);
   }
 
   public static class RecipientWrapper {
-    private final Recipient recipient;
+    private final Contact recipient;
     private final boolean modifiable;
 
-    public RecipientWrapper(final Recipient recipient, final boolean modifiable) {
+    public RecipientWrapper(final Contact recipient, final boolean modifiable) {
       this.recipient = recipient;
       this.modifiable = modifiable;
     }
 
-    public Recipient getRecipient() {
+    public Contact getRecipient() {
       return recipient;
     }
 

@@ -44,16 +44,14 @@ import android.widget.ListView;
 import com.melnykov.fab.FloatingActionButton;
 
 import org.thoughtcrime.securesms.crypto.MasterSecret;
-//import org.thoughtcrime.securesms.database.DatabaseFactory;
-//import org.thoughtcrime.securesms.database.loaders.ConversationListLoader;
 import org.thoughtcrime.securesms.notifications.MessageNotifier;
-import org.thoughtcrime.securesms.recipients.Recipients;
 import org.thoughtcrime.securesms.util.Dialogs;
 
 import java.util.Set;
 
 import systems.obscure.client.CameraActivity;
 import systems.obscure.client.R;
+import systems.obscure.client.client.Contact;
 
 //import org.thoughtcrime.securesms.components.DefaultSmsReminder;
 
@@ -125,7 +123,7 @@ public class ConversationListFragment extends ListFragment
     if (v instanceof ConversationListItem) {
       ConversationListItem headerView = (ConversationListItem) v;
       if (actionMode == null) {
-        handleCreateConversation(headerView.getThreadId(), headerView.getRecipients(),
+        handleCreateConversation(headerView.getThreadId(), headerView.getContact(),
                                  headerView.getDistributionType());
       } else {
         ConversationListAdapter adapter = (ConversationListAdapter)getListAdapter();
@@ -252,7 +250,7 @@ public class ConversationListFragment extends ListFragment
 //                           ((ConversationListAdapter)this.getListAdapter()).getBatchSelections().size()));
 //  }
 
-  private void handleCreateConversation(long threadId, Recipients recipients, int distributionType) {
+  private void handleCreateConversation(long threadId, Contact recipients, int distributionType) {
     listener.onCreateConversation(threadId, recipients, distributionType);
   }
 
@@ -273,7 +271,7 @@ public class ConversationListFragment extends ListFragment
   }
 
   public interface ConversationSelectedListener {
-    public void onCreateConversation(long threadId, Recipients recipients, int distributionType);
+    public void onCreateConversation(long threadId, Contact recipients, int distributionType);
 }
 
   @Override

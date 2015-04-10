@@ -21,10 +21,21 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 
-import org.thoughtcrime.securesms.recipients.Recipient;
+import org.thoughtcrime.securesms.crypto.storage.TextSecureIdentityKeyStore;
+import org.thoughtcrime.securesms.crypto.storage.TextSecurePreKeyStore;
+import org.thoughtcrime.securesms.crypto.storage.TextSecureSessionStore;
 import org.thoughtcrime.securesms.util.Dialogs;
+import org.whispersystems.libaxolotl.AxolotlAddress;
+import org.whispersystems.libaxolotl.SessionBuilder;
+import org.whispersystems.libaxolotl.state.IdentityKeyStore;
+import org.whispersystems.libaxolotl.state.PreKeyStore;
+import org.whispersystems.libaxolotl.state.SessionRecord;
+import org.whispersystems.libaxolotl.state.SessionStore;
+import org.whispersystems.libaxolotl.state.SignedPreKeyStore;
 
 import systems.obscure.client.R;
+import systems.obscure.client.client.Contact;
+import systems.obscure.client.protos.Pond;
 
 //import org.thoughtcrime.securesms.sms.MessageSender;
 //import org.thoughtcrime.securesms.sms.OutgoingKeyExchangeMessage;
@@ -32,7 +43,7 @@ import systems.obscure.client.R;
 
 public class KeyExchangeInitiator {
 
-  public static void initiate(final Context context, final org.thoughtcrime.securesms.crypto.MasterSecret masterSecret, final Recipient recipient, boolean promptOnExisting) {
+  public static void initiate(final Context context, final org.thoughtcrime.securesms.crypto.MasterSecret masterSecret, final Contact recipient, boolean promptOnExisting) {
     if (promptOnExisting && hasInitiatedSession(context, masterSecret, recipient)) {
       AlertDialog.Builder dialog = new AlertDialog.Builder(context);
       dialog.setTitle(R.string.KeyExchangeInitiator_initiate_despite_existing_request_question);
@@ -51,15 +62,16 @@ public class KeyExchangeInitiator {
     }
   }
 
-  private static void initiateKeyExchange(Context context, org.thoughtcrime.securesms.crypto.MasterSecret masterSecret, Recipient recipient) {
-//    SessionStore      sessionStore      = new TextSecureSessionStore(context, masterSecret);
-//    PreKeyStore       preKeyStore       = new TextSecurePreKeyStore(context, masterSecret);
-//    SignedPreKeyStore signedPreKeyStore = new TextSecurePreKeyStore(context, masterSecret);
-//    IdentityKeyStore  identityKeyStore  = new TextSecureIdentityKeyStore(context, masterSecret);
+  private static void initiateKeyExchange(Context context, org.thoughtcrime.securesms.crypto.MasterSecret masterSecret, Contact recipient) {
+    SessionStore sessionStore      = new TextSecureSessionStore(context, masterSecret);
+    PreKeyStore preKeyStore       = new TextSecurePreKeyStore(context, masterSecret);
+    SignedPreKeyStore signedPreKeyStore = new TextSecurePreKeyStore(context, masterSecret);
+    IdentityKeyStore identityKeyStore  = new TextSecureIdentityKeyStore(context, masterSecret);
 //
-////    SessionBuilder    sessionBuilder    = new SessionBuilder(sessionStore, preKeyStore, signedPreKeyStore,
-////                                                             identityKeyStore, new AxolotlAddress(recipient.getNumber(),
-////                                                                                                  TextSecureAddress.DEFAULT_DEVICE_ID));
+    SessionBuilder    sessionBuilder    = new SessionBuilder(sessionStore, preKeyStore, signedPreKeyStore,
+                                                             identityKeyStore, new AxolotlAddress(recipient.name, (int)recipient.id));
+    Pond.KeyExchange.Builder keyExchangeMessage = Pond.KeyExchange.newBuilder();
+//    keyExchangeMessage.s
 //
 //    KeyExchangeMessage         keyExchangeMessage = sessionBuilder.process();
 //    String                     serializedMessage  = Base64.encodeBytesWithoutPadding(keyExchangeMessage.serialize());
@@ -69,12 +81,12 @@ public class KeyExchangeInitiator {
   }
 
   private static boolean hasInitiatedSession(Context context, MasterSecret masterSecret,
-                                             Recipient recipient)
+                                             Contact recipient)
   {
-//    SessionStore  sessionStore  = new TextSecureSessionStore(context, masterSecret);
-//    SessionRecord sessionRecord = sessionStore.loadSession(new AxolotlAddress(recipient.getNumber(), TextSecureAddress.DEFAULT_DEVICE_ID));
-//
-//    return sessionRecord.getSessionState().hasPendingKeyExchange();
-      return false;
+    SessionStore  sessionStore  = new TextSecureSessionStore(context, masterSecret);
+    SessionRecord sessionRecord = sessionStore.loadSession(new AxolotlAddress(recipient.name, (int)recipient.id));
+
+    return sessionRecord.getSessionState().hasPendingKeyExchange();
+//      return false;
   }
 }

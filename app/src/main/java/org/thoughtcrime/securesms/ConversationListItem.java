@@ -26,13 +26,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import org.thoughtcrime.securesms.recipients.Recipient;
-import org.thoughtcrime.securesms.recipients.Recipients;
-import org.thoughtcrime.securesms.util.RecipientViewUtil;
-
 import java.util.Set;
 
 import systems.obscure.client.R;
+import systems.obscure.client.client.Contact;
 
 //import org.thoughtcrime.securesms.database.model.ThreadRecord;
 
@@ -46,7 +43,7 @@ import systems.obscure.client.R;
  */
 
 public class ConversationListItem extends RelativeLayout
-                                  implements Recipient.RecipientModifiedListener
+//                                  implements Recipient.RecipientModifiedListener
 {
   private final static String TAG = ConversationListItem.class.getSimpleName();
 
@@ -55,7 +52,7 @@ public class ConversationListItem extends RelativeLayout
 
   private Context           context;
   private Set<Long>         selectedThreads;
-  private Recipients recipients;
+  private Contact recipients;
   private long              threadId;
   private TextView          subjectView;
   private TextView          fromView;
@@ -113,10 +110,10 @@ public class ConversationListItem extends RelativeLayout
 //    RecipientViewUtil.setContactPhoto(context, contactPhotoImage, recipients.getPrimaryRecipient(), true);
 //  }
 
-  public void unbind() {
-    if (this.recipients != null)
-      this.recipients.removeListener(this);
-  }
+//  public void unbind() {
+//    if (this.recipients != null)
+//      this.recipients.removeListener(this);
+//  }
 
   private void initializeContactWidgetVisibility() {
     contactPhotoImage.setVisibility(View.VISIBLE);
@@ -140,7 +137,7 @@ public class ConversationListItem extends RelativeLayout
     drawables.recycle();
   }
 
-  public Recipients getRecipients() {
+  public Contact getContact() {
     return recipients;
   }
 
@@ -152,13 +149,13 @@ public class ConversationListItem extends RelativeLayout
     return distributionType;
   }
 
-  @Override
-  public void onModified(Recipient recipient) {
+//  @Override
+  public void onModified(final Contact recipient) {
     handler.post(new Runnable() {
       @Override
       public void run() {
-        ConversationListItem.this.fromView.setText(RecipientViewUtil.formatFrom(context, recipients, read));
-        RecipientViewUtil.setContactPhoto(context, contactPhotoImage, recipients.getPrimaryRecipient(), true);
+        ConversationListItem.this.fromView.setText(recipient.name);
+//        RecipientViewUtil.setContactPhoto(context, contactPhotoImage, recipients, true);
       }
     });
   }

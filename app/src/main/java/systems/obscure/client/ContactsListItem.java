@@ -24,9 +24,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import org.thoughtcrime.securesms.recipients.Recipients;
-
 import java.util.Set;
+
+import systems.obscure.client.client.Contact;
 
 //import org.thoughtcrime.securesms.database.model.ThreadRecord;
 
@@ -48,7 +48,7 @@ public class ContactsListItem extends RelativeLayout
 
   private Context           context;
   private Set<Long>         selectedThreads;
-  private Recipients recipients;
+  private Contact recipients;
   private long              threadId;
   private TextView          subjectView;
   private TextView          fromView;
@@ -133,7 +133,7 @@ public class ContactsListItem extends RelativeLayout
 //    drawables.recycle();
 //  }
 
-  public Recipients getRecipients() {
+  public Contact getRecipients() {
     return recipients;
   }
 

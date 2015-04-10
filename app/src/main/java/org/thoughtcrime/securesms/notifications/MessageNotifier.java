@@ -38,8 +38,6 @@ import android.util.Log;
 
 import org.thoughtcrime.securesms.RoutingActivity;
 import org.thoughtcrime.securesms.crypto.MasterSecret;
-import org.thoughtcrime.securesms.recipients.Recipient;
-import org.thoughtcrime.securesms.recipients.Recipients;
 import org.thoughtcrime.securesms.service.KeyCachingService;
 import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
@@ -49,6 +47,7 @@ import java.util.ListIterator;
 import java.util.concurrent.TimeUnit;
 
 import systems.obscure.client.R;
+import systems.obscure.client.client.Contact;
 
 //import org.thoughtcrime.securesms.database.DatabaseFactory;
 //import org.thoughtcrime.securesms.database.MmsSmsDatabase;
@@ -75,13 +74,13 @@ public class MessageNotifier {
     visibleThread = threadId;
   }
 
-  public static void notifyMessageDeliveryFailed(Context context, Recipients recipients, long threadId) {
+  public static void notifyMessageDeliveryFailed(Context context, Contact recipients, long threadId) {
     if (visibleThread == threadId) {
       sendInThreadNotification(context);
     } else {
       Intent intent = new Intent(context, RoutingActivity.class);
       intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-      intent.putExtra("recipients", recipients.getIds());
+      intent.putExtra("recipients", recipients.id);
       intent.putExtra("thread_id", threadId);
       intent.setData((Uri.parse("custom://"+System.currentTimeMillis())));
 
@@ -171,11 +170,11 @@ public class MessageNotifier {
 
     List<NotificationItem>notifications = notificationState.getNotifications();
     NotificationCompat.Builder builder  = new NotificationCompat.Builder(context);
-    Recipient recipient                 = notifications.get(0).getIndividualRecipient();
+    Contact recipient                 = notifications.get(0).getIndividualRecipient();
 
     builder.setSmallIcon(R.drawable.icon_notification);
-    builder.setLargeIcon(recipient.getContactPhoto());
-    builder.setContentTitle(recipient.toShortString());
+//    builder.setLargeIcon(recipient.getContactPhoto());
+    builder.setContentTitle(recipient.name);
     builder.setContentText(notifications.get(0).getText());
     builder.setContentIntent(notifications.get(0).getPendingIntent(context));
     builder.setContentInfo(String.valueOf(notificationState.getMessageCount()));

@@ -3,7 +3,6 @@ package org.thoughtcrime.securesms.notifications;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.util.Log;
 
 import org.thoughtcrime.securesms.crypto.MasterSecret;
@@ -38,9 +37,9 @@ public class NotificationState {
     return notifications;
   }
 
-  public Bitmap getContactPhoto() {
-    return notifications.get(0).getIndividualRecipient().getContactPhoto();
-  }
+//  public Bitmap getContactPhoto() {
+//    return notifications.get(0).getIndividualRecipient().getContactPhoto();
+//  }
 
   public PendingIntent getMarkAsReadIntent(Context context, MasterSecret masterSecret) {
     long[] threadArray = new long[threads.size()];

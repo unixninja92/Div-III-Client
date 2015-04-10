@@ -10,8 +10,6 @@ import android.support.v4.preference.PreferenceFragment;
 import android.util.Log;
 
 import org.thoughtcrime.securesms.ApplicationPreferencesActivity;
-import org.thoughtcrime.securesms.contacts.ContactAccessor;
-import org.thoughtcrime.securesms.contacts.ContactIdentityManager;
 import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
 import systems.obscure.client.R;
@@ -53,23 +51,23 @@ public class AdvancedPreferenceFragment extends PreferenceFragment {
   }
 
   private void initializeIdentitySelection() {
-    ContactIdentityManager identity = ContactIdentityManager.getInstance(getActivity());
-
-    Preference preference = this.findPreference(TextSecurePreferences.IDENTITY_PREF);
-
-    if (identity.isSelfIdentityAutoDetected()) {
-      this.getPreferenceScreen().removePreference(preference);
-    } else {
-      Uri contactUri = identity.getSelfIdentityUri();
-
-      if (contactUri != null) {
-        String contactName = ContactAccessor.getInstance().getNameFromContact(getActivity(), contactUri);
-        preference.setSummary(String.format(getString(R.string.ApplicationPreferencesActivity_currently_s),
-                                            contactName));
-      }
-
-      preference.setOnPreferenceClickListener(new IdentityPreferenceClickListener());
-    }
+//    ContactIdentityManager identity = ContactIdentityManager.getInstance(getActivity());
+//
+//    Preference preference = this.findPreference(TextSecurePreferences.IDENTITY_PREF);
+//
+//    if (identity.isSelfIdentityAutoDetected()) {
+//      this.getPreferenceScreen().removePreference(preference);
+//    } else {
+//      Uri contactUri = identity.getSelfIdentityUri();
+//
+//      if (contactUri != null) {
+//        String contactName = ContactAccessor.getInstance().getNameFromContact(getActivity(), contactUri);
+//        preference.setSummary(String.format(getString(R.string.ApplicationPreferencesActivity_currently_s),
+//                                            contactName));
+//      }
+//
+//      preference.setOnPreferenceClickListener(new IdentityPreferenceClickListener());
+//    }
   }
 
   private class IdentityPreferenceClickListener implements Preference.OnPreferenceClickListener {

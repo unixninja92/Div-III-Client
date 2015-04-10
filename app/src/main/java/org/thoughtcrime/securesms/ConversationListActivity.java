@@ -31,8 +31,6 @@ import android.view.MenuItem;
 
 import org.thoughtcrime.securesms.crypto.MasterSecret;
 import org.thoughtcrime.securesms.notifications.MessageNotifier;
-import org.thoughtcrime.securesms.recipients.RecipientFactory;
-import org.thoughtcrime.securesms.recipients.Recipients;
 import org.thoughtcrime.securesms.service.KeyCachingService;
 import org.thoughtcrime.securesms.util.DynamicLanguage;
 import org.thoughtcrime.securesms.util.DynamicTheme;
@@ -40,7 +38,7 @@ import org.thoughtcrime.securesms.util.MemoryCleaner;
 import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
 import systems.obscure.client.R;
-import systems.obscure.client.client.Network;
+import systems.obscure.client.client.Contact;
 
 
 public class ConversationListActivity extends PassphraseRequiredActionBarActivity
@@ -161,11 +159,11 @@ public class ConversationListActivity extends PassphraseRequiredActionBarActivit
     super.onOptionsItemSelected(item);
 
     switch (item.getItemId()) {
-    case R.id.menu_new_group:         createGroup();                  return true;
+//    case R.id.menu_new_group:         createGroup();                  return true;
     case R.id.menu_settings:          handleDisplaySettings();        return true;
     case R.id.menu_clear_passphrase:  handleClearPassphrase();        return true;
-    case R.id.menu_mark_all_read:     handleMarkAllRead();            return true;
-    case R.id.menu_import_export:     handleImportExport();           return true;
+//    case R.id.menu_mark_all_read:     handleMarkAllRead();            return true;
+//    case R.id.menu_import_export:     handleImportExport();           return true;
     case R.id.menu_my_identity:       handleMyIdentity();             return true;
     }
 
@@ -173,25 +171,19 @@ public class ConversationListActivity extends PassphraseRequiredActionBarActivit
   }
 
   @Override
-  public void onCreateConversation(long threadId, Recipients recipients, int distributionType) {
+  public void onCreateConversation(long threadId, Contact recipients, int distributionType) {
     createConversation(threadId, recipients, distributionType);
   }
 
-  private void createGroup() {
-//    Intent intent = new Intent(this, MainActivity.class);
-//    intent.putExtra("master_secret", masterSecret);
-//    startActivity(intent);
-      Network.doCreateAccount();
-  }
 
-  private void createConversation(long threadId, Recipients recipients, int distributionType) {
-//    Intent intent = new Intent(this, ConversationActivity.class);
-//    intent.putExtra(ConversationActivity.RECIPIENTS_EXTRA, recipients.getIds());
-//    intent.putExtra(ConversationActivity.THREAD_ID_EXTRA, threadId);
-//    intent.putExtra(ConversationActivity.MASTER_SECRET_EXTRA, masterSecret);
-//    intent.putExtra(ConversationActivity.DISTRIBUTION_TYPE_EXTRA, distributionType);
-//
-//    startActivity(intent);
+  private void createConversation(long threadId, Contact recipients, int distributionType) {
+////    Intent intent = new Intent(this, ConversationActivity.class);
+////    intent.putExtra(ConversationActivity.RECIPIENTS_EXTRA, recipients.getIds());
+////    intent.putExtra(ConversationActivity.THREAD_ID_EXTRA, threadId);
+////    intent.putExtra(ConversationActivity.MASTER_SECRET_EXTRA, masterSecret);
+////    intent.putExtra(ConversationActivity.DISTRIBUTION_TYPE_EXTRA, distributionType);
+////
+////    startActivity(intent);
   }
 
   private void handleDisplaySettings() {
@@ -204,12 +196,6 @@ public class ConversationListActivity extends PassphraseRequiredActionBarActivit
     Intent intent = new Intent(this, KeyCachingService.class);
     intent.setAction(KeyCachingService.CLEAR_KEY_ACTION);
     startService(intent);
-  }
-
-  private void handleImportExport() {
-//    final Intent intent = new Intent(this, ImportExportActivity.class);
-//    intent.putExtra("master_secret", masterSecret);
-//    startActivity(intent);
   }
 
   private void handleMyIdentity() {
@@ -236,7 +222,7 @@ public class ConversationListActivity extends PassphraseRequiredActionBarActivit
         super.onChange(selfChange);
         Log.w("ConversationListActivity", "detected android contact data changed, refreshing cache");
         // TODO only clear updated recipients from cache
-        RecipientFactory.clearCache();
+//        RecipientFactory.clearCache();
         ConversationListActivity.this.runOnUiThread(new Runnable() {
             @Override
             public void run() {

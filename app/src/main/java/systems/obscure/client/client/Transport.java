@@ -124,14 +124,14 @@ public class Transport {
         }
     }
 
-    private byte[] createMagic(byte[] string){
-//        byte b = 0x00;
-        byte[] newBytes = new byte[string.length+1];
-        for(int i = 0; i<string.length; i++)
-            newBytes[i] = string[i];
-        newBytes[string.length] = 0x00;
-        return newBytes;
-    }
+//    private byte[] createMagic(byte[] string){
+////        byte b = 0x00;
+//        byte[] newBytes = new byte[string.length+1];
+//        for(int i = 0; i<string.length; i++)
+//            newBytes[i] = string[i];
+//        newBytes[string.length] = 0x00;
+//        return newBytes;
+//    }
 
     public int Write(byte[] buf) throws IOException {
         int n = 0;

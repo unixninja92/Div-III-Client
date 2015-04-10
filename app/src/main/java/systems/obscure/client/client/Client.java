@@ -147,6 +147,7 @@ public class Client {
         contactList = new ArrayList<>();
 
         fetchNowChan = Channel.any2one();
+//        Pond.KeyExchange.
 
     }
 
