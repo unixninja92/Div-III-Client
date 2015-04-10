@@ -5,7 +5,6 @@ import com.google.protobuf.ByteString;
 
 import org.abstractj.kalium.crypto.SecretBox;
 import org.jcsp.lang.AltingChannelInput;
-import org.jcsp.lang.CSProcess;
 import org.jcsp.lang.ChannelOutput;
 import org.jcsp.lang.PoisonException;
 import org.spongycastle.crypto.generators.SCrypt;
@@ -23,7 +22,7 @@ import systems.obscure.client.protos.LocalStorage;
 /**
  * @author unixninja92
  */
-public class StateFile implements CSProcess{
+public class StateFile{
     public static final int kdfSaltLen = 32;
     public static final int kdfKeyLen = 32;
     public static final int erasureKeyLen = 32;
@@ -58,7 +57,7 @@ public class StateFile implements CSProcess{
 
 
 
-    public void deriveKey(String pw) throws KeyException {
+    private void deriveKey(String pw) throws KeyException {
         if(pw.length() == 0 && header.hasScrypt())
             throw new KeyException("bad password");
         LocalStorage.Header.SCrypt prams = header.getScrypt();
@@ -154,7 +153,7 @@ public class StateFile implements CSProcess{
     }
 
     //poison channel for closing. Then catch poison exception to detect that closing
-    @Override
+//    @Override
     public void run() {
 
         while(true) {

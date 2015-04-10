@@ -2,17 +2,23 @@ package systems.obscure.client.client;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 
 import org.abstractj.kalium.keys.KeyPair;
+import org.abstractj.kalium.keys.PublicKey;
 import org.abstractj.kalium.keys.SigningKey;
+import org.abstractj.kalium.keys.VerifyKey;
 import org.jcsp.lang.Any2OneChannel;
 import org.jcsp.lang.Channel;
 import org.jcsp.lang.One2AnyChannel;
 import org.jcsp.lang.One2OneChannel;
 import org.jcsp.lang.SharedChannelInput;
 import org.jcsp.lang.SharedChannelOutput;
+import org.thoughtcrime.securesms.service.KeyCachingService;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.security.KeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -25,6 +31,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import systems.obscure.client.Globals;
 import systems.obscure.client.disk.NewState;
 import systems.obscure.client.disk.StateFile;
+import systems.obscure.client.protos.LocalStorage;
+import systems.obscure.client.protos.Pond;
 import systems.obscure.client.service.TransactService;
 
 /**
@@ -88,13 +96,13 @@ public class Client {
     public SecureRandom rand;
 
     // outbox contains all outgoing messages.
-    public QueuedMessage[] outbox;
+    public HashMap<Long, QueuedMessage> outbox;
     public HashMap<Long, Draft> drafts;
     public HashMap<Long, Contact> contacts;
-    public InboxMessage[] inbox;
+    public HashMap<Long, InboxMessage> inbox;
 
 
-    public ArrayList<Contact> contactList;
+//    public ArrayList<Contact> contactList;
 
     // queue is a queue of messages for transmission that's shared with the
     // network goroutine and protected by queueMutex.
@@ -116,13 +124,17 @@ public class Client {
 
     public HashMap<Long, Boolean> usedIds;
 
+    public StateFile stateFile;
+
 
     private static Client ourInstance;// = new Client();
 
     public static Client getInstance() {
-        if(ourInstance == null) {
-            ourInstance = new Client(Globals.applicaiontContext);
-            ourInstance.start(Globals.applicaiontContext);
+        synchronized (ourInstance) {
+            if (ourInstance == null) {
+                ourInstance = new Client(Globals.applicaiontContext);
+                ourInstance.start(Globals.applicaiontContext);
+            }
         }
         return ourInstance;
     }
@@ -139,24 +151,25 @@ public class Client {
         signingRequestChan = Channel.one2one();
         usedIds = new HashMap<>();
 
-        outbox = new QueuedMessage[10];
+        outbox = new HashMap<>();
         drafts = new HashMap<>();
         contacts = new HashMap<>();
-        inbox = new InboxMessage[10];
+        inbox = new HashMap<>();
 
-        contactList = new ArrayList<>();
+//        contactList = new ArrayList<>();
 
         fetchNowChan = Channel.any2one();
 //        Pond.KeyExchange.
 
     }
 
-    public void start(Context context) {
+    public synchronized void start(Context context) {
         try {
             rand = SecureRandom.getInstance("SHA1PRNG");
 
-            StateFile stateFile = new StateFile(rand, stateFilename);
+            stateFile = new StateFile(rand, stateFilename);
             stateLock = stateFile.getLock();
+
 
             boolean newAccount = true;//TextSecurePreferences.isRegisteredOnServer(context);
 
@@ -168,7 +181,19 @@ public class Client {
                 identity = new KeyPair();
                 rand.nextBytes(hmacKey);
 
-                Network.doCreateAccount();//TODO make async task
+                stateFile.Create(KeyCachingService.getMasterSecret(context).toString());
+
+                new AsyncTask<Void, Void, Void>() {
+                    @Override
+                    protected Void doInBackground(Void... params) {
+                        Network.doCreateAccount();
+                        return null;
+                    }
+                }.execute();
+            }
+            else {
+                LocalStorage.State state = stateFile.Read(KeyCachingService
+                        .getMasterSecret(context).toString());
             }
 
             Any2OneChannel<NewState> stateChan = Channel.any2one(5);
@@ -177,20 +202,26 @@ public class Client {
             One2AnyChannel doneChan = Channel.one2any(5);
             writerDone = doneChan.in();
 
-            //            stateFile.StartWrtie(stateChan.in(), doneChan.out());//TODO put on seperate thread
+            stateFile.StartWrtie(stateChan.in(), doneChan.out());//TODO put on seperate thread
 
             Intent intent = new Intent(context, TransactService.class);
             context.startService(intent);
+
+
 
             if(newAccount){
                 //TODO save
             }
 
 
-            Contact temp = new Contact();
-            temp.name = "Bob";
-            contactList.add(temp);
+            Contact temp = new Contact(1L, "Bob");
+            contacts.put(1L, temp);
+//            contactList.add(temp);
         } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (KeyException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -233,7 +264,7 @@ public class Client {
 //            One2AnyChannel doneChan = Channel.one2any(5);
 //            writerDone = doneChan.in();
 //
-////            stateFile.StartWrtie(stateChan.in(), doneChan.out());//TODO put on seperate thread
+////            stateFile.StartWrtie(stateChan.in(), doneChan.out());
 //
 //            TransactService ts = new TransactService();
 //            ts.registerActivityStarted(context);
@@ -241,7 +272,7 @@ public class Client {
 ////            ApplicationContext.getInstance(context);
 //
 //            if(newAccount){
-//                //TODO save
+//
 //            }
 //
 //
@@ -266,7 +297,7 @@ public class Client {
             // references's the contact's id for the message. So we need to
             // enumerate the messages in the inbox from that contact and
             // find the one with the matching id.
-            for(InboxMessage inboxMsg: inbox) {
+            for(InboxMessage inboxMsg: inbox.values()) {
                 if(inboxMsg.from.equals(msg.to) && inboxMsg.message != null && inboxMsg.message.getId() == irt){
                     draft.inReplyTo = inboxMsg.id;
                     break;
@@ -332,42 +363,49 @@ public class Client {
     }
 
     public void deleteInboxMsg(Long id) {
-        InboxMessage[] newInbox = new InboxMessage[inbox.length];
-        int pos = 0;
-        for(int i = 0; i < inbox.length; i++){
-            InboxMessage inboxMsg = inbox[i];
-            if(inboxMsg.id.equals(id))
-                continue;
-            newInbox[pos++] = inboxMsg;
-        }
-        inbox = newInbox;
+        inbox.remove(id);
+//        InboxMessage[] newInbox = new InboxMessage[inbox.length];
+//        int pos = 0;
+//        for(int i = 0; i < inbox.length; i++){
+//            InboxMessage inboxMsg = inbox[i];
+//            if(inboxMsg.id.equals(id))
+//                continue;
+//            newInbox[pos++] = inboxMsg;
+//        }
+//        inbox = newInbox;
     }
 
     // dropSealedAndAckMessagesFrom removes all sealed or pure-ack messages from
     // the given contact, from the inbox.
     public void dropSealedAndAckMessagesFrom(Contact contact) {
-        InboxMessage[] newInbox = new InboxMessage[inbox.length];
-        int pos = 0;
-        for(int i = 0; i < inbox.length; i++){
-            InboxMessage inboxMsg = inbox[i];
+        for(InboxMessage inboxMsg: inbox.values()){
             if(inboxMsg.from.equals(contact.id) && inboxMsg.sealed.length > 0 ||
                     inboxMsg.message != null && inboxMsg.message.getBody().size() == 0)
-                continue;
-            newInbox[pos++] = inboxMsg;
+                inbox.remove(inboxMsg.id);
         }
-        inbox = newInbox;
+//        InboxMessage[] newInbox = new InboxMessage[inbox.length];
+//        int pos = 0;
+//        for(int i = 0; i < inbox.length; i++){
+//            InboxMessage inboxMsg = inbox[i];
+//            if(inboxMsg.from.equals(contact.id) && inboxMsg.sealed.length > 0 ||
+//                    inboxMsg.message != null && inboxMsg.message.getBody().size() == 0)
+//                continue;
+//            newInbox[pos++] = inboxMsg;
+//        }
+//        inbox = newInbox;
     }
 
     public void deleteOutboxMsg(Long id) {
-        QueuedMessage[] newOutbox = new QueuedMessage[outbox.length];
-        int pos = 0;
-        for(int i = 0; i < outbox.length; i++){
-            QueuedMessage outboxMsg = outbox[i];
-            if(outboxMsg.id.equals(id))
-                continue;
-            newOutbox[pos++] = outboxMsg;
-        }
-        outbox = newOutbox;
+        outbox.remove(id);
+//        QueuedMessage[] newOutbox = new QueuedMessage[outbox.length];
+//        int pos = 0;
+//        for(int i = 0; i < outbox.length; i++){
+//            QueuedMessage outboxMsg = outbox[i];
+//            if(outboxMsg.id.equals(id))
+//                continue;
+//            newOutbox[pos++] = outboxMsg;
+//        }
+//        outbox = newOutbox;
     }
 
 //    public int indexOfQueuedMessage(QueuedMessage msg) {
@@ -414,15 +452,10 @@ public class Client {
     }
 
     public void deleteContact(Contact contact){
-        InboxMessage[] newInbox = new InboxMessage[inbox.length];
-        int pos = 0;
-        for(int i = 0; i < inbox.length; i++){
-            InboxMessage inboxMsg = inbox[i];
+        for(InboxMessage inboxMsg: inbox.values()){
             if(inboxMsg.from == contact.id)
-                continue;
-            newInbox[pos++] = inboxMsg;
+                inbox.remove(inboxMsg.id);
         }
-        inbox = newInbox;
         //TODO update UI
 
         for(Draft d: drafts.values()) {
@@ -442,15 +475,10 @@ public class Client {
         queue = newQueue;
         queueLock.writeLock().unlock();
 
-        QueuedMessage[] newOutbox = new QueuedMessage[outbox.length];
-        pos = 0;
-        for(int i = 0; i < outbox.length; i++){
-            QueuedMessage outboxMsg = outbox[i];
+        for(QueuedMessage outboxMsg: outbox.values()){
             if(outboxMsg.id == contact.id)
-                continue;
-            newOutbox[pos++] = outboxMsg;
+                outbox.remove(outboxMsg.id);
         }
-        outbox = newOutbox;
 
         //TODO revocationMessage := c.revoke(contact)
         //c.ui.addRevocationMessageUI(revocationMessage)
@@ -458,5 +486,129 @@ public class Client {
         contacts.remove(contact.id);
     }
 
+    public void loadState() throws IOException {
+        LocalStorage.State state = stateFile.Read(KeyCachingService
+                .getMasterSecret(Globals.applicaiontContext).toString());
+
+        server = state.getServer();
+
+        if(state.getIdentity().size() != identity.getPrivateKey().toBytes().length)
+            throw new IOException("client: identity is wrong length in State");
+
+        identity = new KeyPair(state.getIdentity().toByteArray());
+
+        signingKey = new SigningKey(state.getSeed().toByteArray());
+
+
+        for (LocalStorage.Contact cont: state.getContactsList()){
+            Contact contact = new Contact(cont.getId(), cont.getName());
+            contact.kxsBytes = cont.getKeyExchangeBytes().toByteArray();
+            contact.revokedUs = cont.getRevokedUs();
+            try {
+                registerId(contact.id);
+                contacts.put(contact.id, contact);
+
+                if(cont.hasIsPending() && cont.getIsPending()) {
+                    contact.isPending = true;
+                    continue;
+                }
+
+                contact.theirServer = cont.getTheirServer();
+
+                contact.theirPub = new VerifyKey(cont.getTheirPub().toByteArray());
+
+                contact.theirIdentityPublic = new PublicKey(cont.getTheirIdentityPublic().toByteArray());
+
+                if(cont.hasSupportedVersion())
+                    contact.supportedVersion = cont.getSupportedVersion();
+
+                contact.events = new ArrayList<>();
+                for(LocalStorage.Contact.Event evt: cont.getEventsList()){
+                    contact.events.add(new Event(evt.getTime(), evt.getMessage()));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        for(LocalStorage.Inbox in: state.getInboxList()){
+            InboxMessage mesg = new InboxMessage();
+            mesg.id = in.getId();
+            mesg.from = in.getFrom();
+            mesg.receivedTime = in.getReceivedTime();
+            mesg.acked = in.getAcked();
+            mesg.read = in.getRead();
+            mesg.sealed = in.getSealed().toByteArray();
+            mesg.retained = in.getRetained();
+
+            try {
+                registerId(mesg.id);
+
+                if(in.getMessage().size() > 0){
+                    mesg.message = Pond.Message.parseFrom(in.getMessage());
+                }
+
+                inbox.put(mesg.id, mesg);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        for(LocalStorage.Outbox out: state.getOutboxList()){
+            QueuedMessage msg = new QueuedMessage();
+            msg.id = out.getId();
+            msg.to = out.getTo();
+            msg.server = out.getServer();
+            msg.created = out.getCreated();
+
+            try {
+                registerId(msg.id);
+
+                if(out.getMessage().size() > 0){
+                    msg.message = Pond.Message.parseFrom(out.getMessage()).toBuilder();
+                }
+
+                if(out.hasSent())
+                    msg.sent = out.getSent();
+                if(out.hasAcked())
+                    msg.acked = out.getAcked();
+
+                if(out.getRequest().size() > 0){
+                    msg.request = Pond.Request.parseFrom(out.getRequest()).toBuilder();
+                }
+                msg.revocation = out.getRevocation();
+                msg.server = out.getServer();
+
+                outbox.put(msg.id, msg);
+
+                if(msg.sent == 0L && (msg.to == 0L || !contacts.get(msg.to).revokedUs))
+                    enqueue(msg);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        for(LocalStorage.Draft d: state.getDraftsList()){
+            Draft draft = new Draft();
+            draft.id = d.getId();
+            draft.body = d.getBody();
+            draft.attachments = d.getAttachmentsList();
+            draft.detachments = d.getDetachmentsList();
+            draft.created = d.getCreated();
+
+            try {
+                registerId(draft.id);
+                if(d.hasTo())
+                    draft.to = d.getTo();
+                if(d.hasInReplyTo())
+                    draft.inReplyTo = d.getInReplyTo();
+
+                drafts.put(draft.id, draft);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }

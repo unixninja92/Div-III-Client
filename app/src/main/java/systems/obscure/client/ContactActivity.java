@@ -29,7 +29,7 @@ public class ContactActivity extends PassphraseRequiredActionBarActivity {
         masterSecret = intent.getParcelableExtra("master_secret");
 
         int contact_id = intent.getIntExtra("contact_id", 0);
-        contact = client.contactList.get(contact_id);
+        contact = client.contacts.get(contact_id);
 
         getSupportActionBar().setTitle(contact.toString());
     }

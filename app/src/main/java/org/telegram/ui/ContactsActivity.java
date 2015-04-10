@@ -32,6 +32,8 @@ import org.telegram.ui.ActionBar.ActionBarMenu;
 import org.telegram.ui.ActionBar.ActionBarMenuItem;
 import org.telegram.ui.ActionBar.BaseFragment;
 
+import java.util.ArrayList;
+
 import systems.obscure.client.R;
 import systems.obscure.client.client.Client;
 import systems.obscure.client.client.Contact;
@@ -187,7 +189,8 @@ public class ContactsActivity extends BaseFragment {//implements NotificationCen
 //            searchListViewAdapter = new ContactsSearchAdapter(getParentActivity(), ignoreUsers, allowUsernameSearch);
 //            listViewAdapter = new ContactsAdapter(getParentActivity(), onlyUsers, needPhonebook, ignoreUsers);
 //            listViewAdapter = new ArrayListCursor()
-            listViewAdapter = new ArrayAdapter<Contact>(getParentActivity(), R.layout.contact_list_fragment, client.contactList);
+            listViewAdapter = new ArrayAdapter<Contact>(getParentActivity(), R.layout.contact_list_fragment,
+                    new ArrayList<Contact>(client.contacts.values()));
 
             fragmentView = new FrameLayout(getParentActivity());
 

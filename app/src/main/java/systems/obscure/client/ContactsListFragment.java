@@ -43,6 +43,7 @@ import org.thoughtcrime.securesms.crypto.MasterSecret;
 import org.thoughtcrime.securesms.notifications.MessageNotifier;
 import org.thoughtcrime.securesms.util.Dialogs;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 import systems.obscure.client.client.Client;
@@ -192,7 +193,8 @@ public class ContactsListFragment extends ListFragment
   }
 
   private void initializeListAdapter() {
-    this.setListAdapter(new ContactListAdapter(getActivity(), Client.getInstance().contactList, masterSecret));
+    this.setListAdapter(new ContactListAdapter(getActivity(),
+            new ArrayList<Contact>(Client.getInstance().contacts.values()), masterSecret));
 //    getListView().setRecyclerListener((ContactListAdapter)getListAdapter());
 //    getLoaderManager().restartLoader(0, null, this);
   }

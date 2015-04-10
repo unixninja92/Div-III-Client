@@ -62,6 +62,11 @@ public class Contact {
 
     public ArrayList<Event> events;
 
+    public Contact(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public String subline() {
         if(revokedUs)
             return "has revoked";

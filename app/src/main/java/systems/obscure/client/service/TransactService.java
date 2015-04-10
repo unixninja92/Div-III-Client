@@ -62,7 +62,7 @@ public class TransactService extends Service implements Runnable, InjectableType
 //        ApplicationContext.getInstance(this).injectDependencies(this);
 
         System.out.println("Is this made?");
-        networkRequirement         = new NetworkRequirement(this);
+//        networkRequirement         = new NetworkRequirement(this);
 //        networkRequirementProvider = new NetworkRequirementProvider(this);
 //
 //        networkRequirementProvider.setListener(this);
