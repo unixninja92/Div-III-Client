@@ -127,6 +127,7 @@ public class Network {
             return;
         }
         TextSecurePreferences.setRegisteredOnServer(Globals.applicaiontContext, true);
+        System.out.println("Account create finished");
 
     }
 

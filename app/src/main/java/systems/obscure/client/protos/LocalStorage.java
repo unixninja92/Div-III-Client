@@ -3,6 +3,8 @@
 
 package systems.obscure.client.protos;
 
+//import systems.obscure.client.protos.Pond;
+
 public final class LocalStorage {
   private LocalStorage() {}
   public static void registerAllExtensions(
@@ -12125,7 +12127,7 @@ public final class LocalStorage {
     /**
      * <code>repeated .Message.Detachment detachments = 7;</code>
      */
-    public java.util.List<? extends Pond.Message.DetachmentOrBuilder> 
+    public java.util.List<? extends Pond.Message.DetachmentOrBuilder>
         getDetachmentsOrBuilderList() {
       return detachments_;
     }
@@ -13343,157 +13345,130 @@ public final class LocalStorage {
         getServerBytes();
 
     /**
-     * <code>required bytes group = 4;</code>
-     */
-    boolean hasGroup();
-    /**
-     * <code>required bytes group = 4;</code>
-     */
-    com.google.protobuf.ByteString getGroup();
-
-    /**
-     * <code>required bytes group_private = 5;</code>
-     */
-    boolean hasGroupPrivate();
-    /**
-     * <code>required bytes group_private = 5;</code>
-     */
-    com.google.protobuf.ByteString getGroupPrivate();
-
-    /**
-     * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-     */
-    java.util.List<LocalStorage.State.PreviousGroup> 
-        getPreviousGroupPrivateKeysList();
-    /**
-     * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-     */
-    LocalStorage.State.PreviousGroup getPreviousGroupPrivateKeys(int index);
-    /**
-     * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-     */
-    int getPreviousGroupPrivateKeysCount();
-    /**
-     * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-     */
-    java.util.List<? extends LocalStorage.State.PreviousGroupOrBuilder> 
-        getPreviousGroupPrivateKeysOrBuilderList();
-    /**
-     * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-     */
-    LocalStorage.State.PreviousGroupOrBuilder getPreviousGroupPrivateKeysOrBuilder(
-        int index);
-
-    /**
-     * <code>required uint32 generation = 6;</code>
-     */
-    boolean hasGeneration();
-    /**
-     * <code>required uint32 generation = 6;</code>
-     */
-    int getGeneration();
-
-    /**
-     * <code>optional int64 last_erasure_storage_time = 12;</code>
+     * <code>optional int64 last_erasure_storage_time = 8;</code>
+     *
+     * <pre>
+     *	required bytes group = 4;
+     *	required bytes group_private = 5;
+     *	message PreviousGroup {
+     *		required bytes group = 1;
+     *		required bytes group_private = 2;
+     *		required int64 expired = 3;
+     *	}
+     *	repeated PreviousGroup previous_group_private_keys = 11;
+     *	required uint32 generation = 6;
+     * </pre>
      */
     boolean hasLastErasureStorageTime();
     /**
-     * <code>optional int64 last_erasure_storage_time = 12;</code>
+     * <code>optional int64 last_erasure_storage_time = 8;</code>
+     *
+     * <pre>
+     *	required bytes group = 4;
+     *	required bytes group_private = 5;
+     *	message PreviousGroup {
+     *		required bytes group = 1;
+     *		required bytes group_private = 2;
+     *		required int64 expired = 3;
+     *	}
+     *	repeated PreviousGroup previous_group_private_keys = 11;
+     *	required uint32 generation = 6;
+     * </pre>
      */
     long getLastErasureStorageTime();
 
     /**
-     * <code>repeated .Contact contacts = 7;</code>
+     * <code>repeated .Contact contacts = 4;</code>
      */
     java.util.List<LocalStorage.Contact> 
         getContactsList();
     /**
-     * <code>repeated .Contact contacts = 7;</code>
+     * <code>repeated .Contact contacts = 4;</code>
      */
     LocalStorage.Contact getContacts(int index);
     /**
-     * <code>repeated .Contact contacts = 7;</code>
+     * <code>repeated .Contact contacts = 4;</code>
      */
     int getContactsCount();
     /**
-     * <code>repeated .Contact contacts = 7;</code>
+     * <code>repeated .Contact contacts = 4;</code>
      */
     java.util.List<? extends LocalStorage.ContactOrBuilder> 
         getContactsOrBuilderList();
     /**
-     * <code>repeated .Contact contacts = 7;</code>
+     * <code>repeated .Contact contacts = 4;</code>
      */
     LocalStorage.ContactOrBuilder getContactsOrBuilder(
         int index);
 
     /**
-     * <code>repeated .Inbox inbox = 8;</code>
+     * <code>repeated .Inbox inbox = 5;</code>
      */
     java.util.List<LocalStorage.Inbox> 
         getInboxList();
     /**
-     * <code>repeated .Inbox inbox = 8;</code>
+     * <code>repeated .Inbox inbox = 5;</code>
      */
     LocalStorage.Inbox getInbox(int index);
     /**
-     * <code>repeated .Inbox inbox = 8;</code>
+     * <code>repeated .Inbox inbox = 5;</code>
      */
     int getInboxCount();
     /**
-     * <code>repeated .Inbox inbox = 8;</code>
+     * <code>repeated .Inbox inbox = 5;</code>
      */
     java.util.List<? extends LocalStorage.InboxOrBuilder> 
         getInboxOrBuilderList();
     /**
-     * <code>repeated .Inbox inbox = 8;</code>
+     * <code>repeated .Inbox inbox = 5;</code>
      */
     LocalStorage.InboxOrBuilder getInboxOrBuilder(
         int index);
 
     /**
-     * <code>repeated .Outbox outbox = 9;</code>
+     * <code>repeated .Outbox outbox = 6;</code>
      */
     java.util.List<LocalStorage.Outbox> 
         getOutboxList();
     /**
-     * <code>repeated .Outbox outbox = 9;</code>
+     * <code>repeated .Outbox outbox = 6;</code>
      */
     LocalStorage.Outbox getOutbox(int index);
     /**
-     * <code>repeated .Outbox outbox = 9;</code>
+     * <code>repeated .Outbox outbox = 6;</code>
      */
     int getOutboxCount();
     /**
-     * <code>repeated .Outbox outbox = 9;</code>
+     * <code>repeated .Outbox outbox = 6;</code>
      */
     java.util.List<? extends LocalStorage.OutboxOrBuilder> 
         getOutboxOrBuilderList();
     /**
-     * <code>repeated .Outbox outbox = 9;</code>
+     * <code>repeated .Outbox outbox = 6;</code>
      */
     LocalStorage.OutboxOrBuilder getOutboxOrBuilder(
         int index);
 
     /**
-     * <code>repeated .Draft drafts = 10;</code>
+     * <code>repeated .Draft drafts = 7;</code>
      */
     java.util.List<LocalStorage.Draft> 
         getDraftsList();
     /**
-     * <code>repeated .Draft drafts = 10;</code>
+     * <code>repeated .Draft drafts = 7;</code>
      */
     LocalStorage.Draft getDrafts(int index);
     /**
-     * <code>repeated .Draft drafts = 10;</code>
+     * <code>repeated .Draft drafts = 7;</code>
      */
     int getDraftsCount();
     /**
-     * <code>repeated .Draft drafts = 10;</code>
+     * <code>repeated .Draft drafts = 7;</code>
      */
     java.util.List<? extends LocalStorage.DraftOrBuilder> 
         getDraftsOrBuilderList();
     /**
-     * <code>repeated .Draft drafts = 10;</code>
+     * <code>repeated .Draft drafts = 7;</code>
      */
     LocalStorage.DraftOrBuilder getDraftsOrBuilder(
         int index);
@@ -13567,62 +13542,39 @@ public final class LocalStorage {
               break;
             }
             case 34: {
-              bitField0_ |= 0x00000008;
-              group_ = input.readBytes();
-              break;
-            }
-            case 42: {
-              bitField0_ |= 0x00000010;
-              groupPrivate_ = input.readBytes();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000020;
-              generation_ = input.readUInt32();
-              break;
-            }
-            case 58: {
-              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 contacts_ = new java.util.ArrayList<LocalStorage.Contact>();
-                mutable_bitField0_ |= 0x00000100;
+                mutable_bitField0_ |= 0x00000010;
               }
               contacts_.add(input.readMessage(LocalStorage.Contact.PARSER, extensionRegistry));
               break;
             }
-            case 66: {
-              if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 inbox_ = new java.util.ArrayList<LocalStorage.Inbox>();
-                mutable_bitField0_ |= 0x00000200;
+                mutable_bitField0_ |= 0x00000020;
               }
               inbox_.add(input.readMessage(LocalStorage.Inbox.PARSER, extensionRegistry));
               break;
             }
-            case 74: {
-              if (!((mutable_bitField0_ & 0x00000400) == 0x00000400)) {
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                 outbox_ = new java.util.ArrayList<LocalStorage.Outbox>();
-                mutable_bitField0_ |= 0x00000400;
+                mutable_bitField0_ |= 0x00000040;
               }
               outbox_.add(input.readMessage(LocalStorage.Outbox.PARSER, extensionRegistry));
               break;
             }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
                 drafts_ = new java.util.ArrayList<LocalStorage.Draft>();
-                mutable_bitField0_ |= 0x00000800;
+                mutable_bitField0_ |= 0x00000080;
               }
               drafts_.add(input.readMessage(LocalStorage.Draft.PARSER, extensionRegistry));
               break;
             }
-            case 90: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                previousGroupPrivateKeys_ = new java.util.ArrayList<LocalStorage.State.PreviousGroup>();
-                mutable_bitField0_ |= 0x00000020;
-              }
-              previousGroupPrivateKeys_.add(input.readMessage(LocalStorage.State.PreviousGroup.PARSER, extensionRegistry));
-              break;
-            }
-            case 96: {
-              bitField0_ |= 0x00000040;
+            case 64: {
+              bitField0_ |= 0x00000008;
               lastErasureStorageTime_ = input.readInt64();
               break;
             }
@@ -13634,20 +13586,17 @@ public final class LocalStorage {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           contacts_ = java.util.Collections.unmodifiableList(contacts_);
         }
-        if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
           inbox_ = java.util.Collections.unmodifiableList(inbox_);
         }
-        if (((mutable_bitField0_ & 0x00000400) == 0x00000400)) {
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
           outbox_ = java.util.Collections.unmodifiableList(outbox_);
         }
-        if (((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
           drafts_ = java.util.Collections.unmodifiableList(drafts_);
-        }
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-          previousGroupPrivateKeys_ = java.util.Collections.unmodifiableList(previousGroupPrivateKeys_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -13678,589 +13627,6 @@ public final class LocalStorage {
     @java.lang.Override
     public com.google.protobuf.Parser<State> getParserForType() {
       return PARSER;
-    }
-
-    public interface PreviousGroupOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:State.PreviousGroup)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>required bytes group = 1;</code>
-       */
-      boolean hasGroup();
-      /**
-       * <code>required bytes group = 1;</code>
-       */
-      com.google.protobuf.ByteString getGroup();
-
-      /**
-       * <code>required bytes group_private = 2;</code>
-       */
-      boolean hasGroupPrivate();
-      /**
-       * <code>required bytes group_private = 2;</code>
-       */
-      com.google.protobuf.ByteString getGroupPrivate();
-
-      /**
-       * <code>required int64 expired = 3;</code>
-       */
-      boolean hasExpired();
-      /**
-       * <code>required int64 expired = 3;</code>
-       */
-      long getExpired();
-    }
-    /**
-     * Protobuf type {@code State.PreviousGroup}
-     */
-    public static final class PreviousGroup extends
-        com.google.protobuf.GeneratedMessage implements
-        // @@protoc_insertion_point(message_implements:State.PreviousGroup)
-        PreviousGroupOrBuilder {
-      // Use PreviousGroup.newBuilder() to construct.
-      private PreviousGroup(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-        super(builder);
-        this.unknownFields = builder.getUnknownFields();
-      }
-      private PreviousGroup(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final PreviousGroup defaultInstance;
-      public static PreviousGroup getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public PreviousGroup getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
-        return this.unknownFields;
-      }
-      private PreviousGroup(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 10: {
-                bitField0_ |= 0x00000001;
-                group_ = input.readBytes();
-                break;
-              }
-              case 18: {
-                bitField0_ |= 0x00000002;
-                groupPrivate_ = input.readBytes();
-                break;
-              }
-              case 24: {
-                bitField0_ |= 0x00000004;
-                expired_ = input.readInt64();
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return LocalStorage.internal_static_protos_State_PreviousGroup_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_State_PreviousGroup_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                LocalStorage.State.PreviousGroup.class, LocalStorage.State.PreviousGroup.Builder.class);
-      }
-
-      public static com.google.protobuf.Parser<PreviousGroup> PARSER =
-          new com.google.protobuf.AbstractParser<PreviousGroup>() {
-        public PreviousGroup parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PreviousGroup(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<PreviousGroup> getParserForType() {
-        return PARSER;
-      }
-
-      private int bitField0_;
-      public static final int GROUP_FIELD_NUMBER = 1;
-      private com.google.protobuf.ByteString group_;
-      /**
-       * <code>required bytes group = 1;</code>
-       */
-      public boolean hasGroup() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required bytes group = 1;</code>
-       */
-      public com.google.protobuf.ByteString getGroup() {
-        return group_;
-      }
-
-      public static final int GROUP_PRIVATE_FIELD_NUMBER = 2;
-      private com.google.protobuf.ByteString groupPrivate_;
-      /**
-       * <code>required bytes group_private = 2;</code>
-       */
-      public boolean hasGroupPrivate() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required bytes group_private = 2;</code>
-       */
-      public com.google.protobuf.ByteString getGroupPrivate() {
-        return groupPrivate_;
-      }
-
-      public static final int EXPIRED_FIELD_NUMBER = 3;
-      private long expired_;
-      /**
-       * <code>required int64 expired = 3;</code>
-       */
-      public boolean hasExpired() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>required int64 expired = 3;</code>
-       */
-      public long getExpired() {
-        return expired_;
-      }
-
-      private void initFields() {
-        group_ = com.google.protobuf.ByteString.EMPTY;
-        groupPrivate_ = com.google.protobuf.ByteString.EMPTY;
-        expired_ = 0L;
-      }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        if (!hasGroup()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasGroupPrivate()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasExpired()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeBytes(1, group_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeBytes(2, groupPrivate_);
-        }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          output.writeInt64(3, expired_);
-        }
-        getUnknownFields().writeTo(output);
-      }
-
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(1, group_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(2, groupPrivate_);
-        }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(3, expired_);
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
-      }
-
-      public static LocalStorage.State.PreviousGroup parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static LocalStorage.State.PreviousGroup parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static LocalStorage.State.PreviousGroup parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static LocalStorage.State.PreviousGroup parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static LocalStorage.State.PreviousGroup parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static LocalStorage.State.PreviousGroup parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-      public static LocalStorage.State.PreviousGroup parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
-      }
-      public static LocalStorage.State.PreviousGroup parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
-      }
-      public static LocalStorage.State.PreviousGroup parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static LocalStorage.State.PreviousGroup parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(LocalStorage.State.PreviousGroup prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code State.PreviousGroup}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:State.PreviousGroup)
-          LocalStorage.State.PreviousGroupOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return LocalStorage.internal_static_protos_State_PreviousGroup_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return LocalStorage.internal_static_protos_State_PreviousGroup_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  LocalStorage.State.PreviousGroup.class, LocalStorage.State.PreviousGroup.Builder.class);
-        }
-
-        // Construct using LocalStorage.State.PreviousGroup.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-
-        public Builder clear() {
-          super.clear();
-          group_ = com.google.protobuf.ByteString.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          groupPrivate_ = com.google.protobuf.ByteString.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000002);
-          expired_ = 0L;
-          bitField0_ = (bitField0_ & ~0x00000004);
-          return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return LocalStorage.internal_static_protos_State_PreviousGroup_descriptor;
-        }
-
-        public LocalStorage.State.PreviousGroup getDefaultInstanceForType() {
-          return LocalStorage.State.PreviousGroup.getDefaultInstance();
-        }
-
-        public LocalStorage.State.PreviousGroup build() {
-          LocalStorage.State.PreviousGroup result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public LocalStorage.State.PreviousGroup buildPartial() {
-          LocalStorage.State.PreviousGroup result = new LocalStorage.State.PreviousGroup(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.group_ = group_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          result.groupPrivate_ = groupPrivate_;
-          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-            to_bitField0_ |= 0x00000004;
-          }
-          result.expired_ = expired_;
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof LocalStorage.State.PreviousGroup) {
-            return mergeFrom((LocalStorage.State.PreviousGroup)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(LocalStorage.State.PreviousGroup other) {
-          if (other == LocalStorage.State.PreviousGroup.getDefaultInstance()) return this;
-          if (other.hasGroup()) {
-            setGroup(other.getGroup());
-          }
-          if (other.hasGroupPrivate()) {
-            setGroupPrivate(other.getGroupPrivate());
-          }
-          if (other.hasExpired()) {
-            setExpired(other.getExpired());
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          if (!hasGroup()) {
-            
-            return false;
-          }
-          if (!hasGroupPrivate()) {
-            
-            return false;
-          }
-          if (!hasExpired()) {
-            
-            return false;
-          }
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          LocalStorage.State.PreviousGroup parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (LocalStorage.State.PreviousGroup) e.getUnfinishedMessage();
-            throw e;
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-        private int bitField0_;
-
-        private com.google.protobuf.ByteString group_ = com.google.protobuf.ByteString.EMPTY;
-        /**
-         * <code>required bytes group = 1;</code>
-         */
-        public boolean hasGroup() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>required bytes group = 1;</code>
-         */
-        public com.google.protobuf.ByteString getGroup() {
-          return group_;
-        }
-        /**
-         * <code>required bytes group = 1;</code>
-         */
-        public Builder setGroup(com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-          group_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required bytes group = 1;</code>
-         */
-        public Builder clearGroup() {
-          bitField0_ = (bitField0_ & ~0x00000001);
-          group_ = getDefaultInstance().getGroup();
-          onChanged();
-          return this;
-        }
-
-        private com.google.protobuf.ByteString groupPrivate_ = com.google.protobuf.ByteString.EMPTY;
-        /**
-         * <code>required bytes group_private = 2;</code>
-         */
-        public boolean hasGroupPrivate() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>required bytes group_private = 2;</code>
-         */
-        public com.google.protobuf.ByteString getGroupPrivate() {
-          return groupPrivate_;
-        }
-        /**
-         * <code>required bytes group_private = 2;</code>
-         */
-        public Builder setGroupPrivate(com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-          groupPrivate_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required bytes group_private = 2;</code>
-         */
-        public Builder clearGroupPrivate() {
-          bitField0_ = (bitField0_ & ~0x00000002);
-          groupPrivate_ = getDefaultInstance().getGroupPrivate();
-          onChanged();
-          return this;
-        }
-
-        private long expired_ ;
-        /**
-         * <code>required int64 expired = 3;</code>
-         */
-        public boolean hasExpired() {
-          return ((bitField0_ & 0x00000004) == 0x00000004);
-        }
-        /**
-         * <code>required int64 expired = 3;</code>
-         */
-        public long getExpired() {
-          return expired_;
-        }
-        /**
-         * <code>required int64 expired = 3;</code>
-         */
-        public Builder setExpired(long value) {
-          bitField0_ |= 0x00000004;
-          expired_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required int64 expired = 3;</code>
-         */
-        public Builder clearExpired() {
-          bitField0_ = (bitField0_ & ~0x00000004);
-          expired_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        // @@protoc_insertion_point(builder_scope:State.PreviousGroup)
-      }
-
-      static {
-        defaultInstance = new PreviousGroup(true);
-        defaultInstance.initFields();
-      }
-
-      // @@protoc_insertion_point(class_scope:State.PreviousGroup)
     }
 
     private int bitField0_;
@@ -14351,235 +13717,179 @@ public final class LocalStorage {
       }
     }
 
-    public static final int GROUP_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString group_;
+    public static final int LAST_ERASURE_STORAGE_TIME_FIELD_NUMBER = 8;
+    private long lastErasureStorageTime_;
     /**
-     * <code>required bytes group = 4;</code>
+     * <code>optional int64 last_erasure_storage_time = 8;</code>
+     *
+     * <pre>
+     *	required bytes group = 4;
+     *	required bytes group_private = 5;
+     *	message PreviousGroup {
+     *		required bytes group = 1;
+     *		required bytes group_private = 2;
+     *		required int64 expired = 3;
+     *	}
+     *	repeated PreviousGroup previous_group_private_keys = 11;
+     *	required uint32 generation = 6;
+     * </pre>
      */
-    public boolean hasGroup() {
+    public boolean hasLastErasureStorageTime() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required bytes group = 4;</code>
-     */
-    public com.google.protobuf.ByteString getGroup() {
-      return group_;
-    }
-
-    public static final int GROUP_PRIVATE_FIELD_NUMBER = 5;
-    private com.google.protobuf.ByteString groupPrivate_;
-    /**
-     * <code>required bytes group_private = 5;</code>
-     */
-    public boolean hasGroupPrivate() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    /**
-     * <code>required bytes group_private = 5;</code>
-     */
-    public com.google.protobuf.ByteString getGroupPrivate() {
-      return groupPrivate_;
-    }
-
-    public static final int PREVIOUS_GROUP_PRIVATE_KEYS_FIELD_NUMBER = 11;
-    private java.util.List<LocalStorage.State.PreviousGroup> previousGroupPrivateKeys_;
-    /**
-     * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-     */
-    public java.util.List<LocalStorage.State.PreviousGroup> getPreviousGroupPrivateKeysList() {
-      return previousGroupPrivateKeys_;
-    }
-    /**
-     * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-     */
-    public java.util.List<? extends LocalStorage.State.PreviousGroupOrBuilder> 
-        getPreviousGroupPrivateKeysOrBuilderList() {
-      return previousGroupPrivateKeys_;
-    }
-    /**
-     * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-     */
-    public int getPreviousGroupPrivateKeysCount() {
-      return previousGroupPrivateKeys_.size();
-    }
-    /**
-     * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-     */
-    public LocalStorage.State.PreviousGroup getPreviousGroupPrivateKeys(int index) {
-      return previousGroupPrivateKeys_.get(index);
-    }
-    /**
-     * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-     */
-    public LocalStorage.State.PreviousGroupOrBuilder getPreviousGroupPrivateKeysOrBuilder(
-        int index) {
-      return previousGroupPrivateKeys_.get(index);
-    }
-
-    public static final int GENERATION_FIELD_NUMBER = 6;
-    private int generation_;
-    /**
-     * <code>required uint32 generation = 6;</code>
-     */
-    public boolean hasGeneration() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
-    }
-    /**
-     * <code>required uint32 generation = 6;</code>
-     */
-    public int getGeneration() {
-      return generation_;
-    }
-
-    public static final int LAST_ERASURE_STORAGE_TIME_FIELD_NUMBER = 12;
-    private long lastErasureStorageTime_;
-    /**
-     * <code>optional int64 last_erasure_storage_time = 12;</code>
-     */
-    public boolean hasLastErasureStorageTime() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
-    }
-    /**
-     * <code>optional int64 last_erasure_storage_time = 12;</code>
+     * <code>optional int64 last_erasure_storage_time = 8;</code>
+     *
+     * <pre>
+     *	required bytes group = 4;
+     *	required bytes group_private = 5;
+     *	message PreviousGroup {
+     *		required bytes group = 1;
+     *		required bytes group_private = 2;
+     *		required int64 expired = 3;
+     *	}
+     *	repeated PreviousGroup previous_group_private_keys = 11;
+     *	required uint32 generation = 6;
+     * </pre>
      */
     public long getLastErasureStorageTime() {
       return lastErasureStorageTime_;
     }
 
-    public static final int CONTACTS_FIELD_NUMBER = 7;
+    public static final int CONTACTS_FIELD_NUMBER = 4;
     private java.util.List<LocalStorage.Contact> contacts_;
     /**
-     * <code>repeated .Contact contacts = 7;</code>
+     * <code>repeated .Contact contacts = 4;</code>
      */
     public java.util.List<LocalStorage.Contact> getContactsList() {
       return contacts_;
     }
     /**
-     * <code>repeated .Contact contacts = 7;</code>
+     * <code>repeated .Contact contacts = 4;</code>
      */
     public java.util.List<? extends LocalStorage.ContactOrBuilder> 
         getContactsOrBuilderList() {
       return contacts_;
     }
     /**
-     * <code>repeated .Contact contacts = 7;</code>
+     * <code>repeated .Contact contacts = 4;</code>
      */
     public int getContactsCount() {
       return contacts_.size();
     }
     /**
-     * <code>repeated .Contact contacts = 7;</code>
+     * <code>repeated .Contact contacts = 4;</code>
      */
     public LocalStorage.Contact getContacts(int index) {
       return contacts_.get(index);
     }
     /**
-     * <code>repeated .Contact contacts = 7;</code>
+     * <code>repeated .Contact contacts = 4;</code>
      */
     public LocalStorage.ContactOrBuilder getContactsOrBuilder(
         int index) {
       return contacts_.get(index);
     }
 
-    public static final int INBOX_FIELD_NUMBER = 8;
+    public static final int INBOX_FIELD_NUMBER = 5;
     private java.util.List<LocalStorage.Inbox> inbox_;
     /**
-     * <code>repeated .Inbox inbox = 8;</code>
+     * <code>repeated .Inbox inbox = 5;</code>
      */
     public java.util.List<LocalStorage.Inbox> getInboxList() {
       return inbox_;
     }
     /**
-     * <code>repeated .Inbox inbox = 8;</code>
+     * <code>repeated .Inbox inbox = 5;</code>
      */
     public java.util.List<? extends LocalStorage.InboxOrBuilder> 
         getInboxOrBuilderList() {
       return inbox_;
     }
     /**
-     * <code>repeated .Inbox inbox = 8;</code>
+     * <code>repeated .Inbox inbox = 5;</code>
      */
     public int getInboxCount() {
       return inbox_.size();
     }
     /**
-     * <code>repeated .Inbox inbox = 8;</code>
+     * <code>repeated .Inbox inbox = 5;</code>
      */
     public LocalStorage.Inbox getInbox(int index) {
       return inbox_.get(index);
     }
     /**
-     * <code>repeated .Inbox inbox = 8;</code>
+     * <code>repeated .Inbox inbox = 5;</code>
      */
     public LocalStorage.InboxOrBuilder getInboxOrBuilder(
         int index) {
       return inbox_.get(index);
     }
 
-    public static final int OUTBOX_FIELD_NUMBER = 9;
+    public static final int OUTBOX_FIELD_NUMBER = 6;
     private java.util.List<LocalStorage.Outbox> outbox_;
     /**
-     * <code>repeated .Outbox outbox = 9;</code>
+     * <code>repeated .Outbox outbox = 6;</code>
      */
     public java.util.List<LocalStorage.Outbox> getOutboxList() {
       return outbox_;
     }
     /**
-     * <code>repeated .Outbox outbox = 9;</code>
+     * <code>repeated .Outbox outbox = 6;</code>
      */
     public java.util.List<? extends LocalStorage.OutboxOrBuilder> 
         getOutboxOrBuilderList() {
       return outbox_;
     }
     /**
-     * <code>repeated .Outbox outbox = 9;</code>
+     * <code>repeated .Outbox outbox = 6;</code>
      */
     public int getOutboxCount() {
       return outbox_.size();
     }
     /**
-     * <code>repeated .Outbox outbox = 9;</code>
+     * <code>repeated .Outbox outbox = 6;</code>
      */
     public LocalStorage.Outbox getOutbox(int index) {
       return outbox_.get(index);
     }
     /**
-     * <code>repeated .Outbox outbox = 9;</code>
+     * <code>repeated .Outbox outbox = 6;</code>
      */
     public LocalStorage.OutboxOrBuilder getOutboxOrBuilder(
         int index) {
       return outbox_.get(index);
     }
 
-    public static final int DRAFTS_FIELD_NUMBER = 10;
+    public static final int DRAFTS_FIELD_NUMBER = 7;
     private java.util.List<LocalStorage.Draft> drafts_;
     /**
-     * <code>repeated .Draft drafts = 10;</code>
+     * <code>repeated .Draft drafts = 7;</code>
      */
     public java.util.List<LocalStorage.Draft> getDraftsList() {
       return drafts_;
     }
     /**
-     * <code>repeated .Draft drafts = 10;</code>
+     * <code>repeated .Draft drafts = 7;</code>
      */
     public java.util.List<? extends LocalStorage.DraftOrBuilder> 
         getDraftsOrBuilderList() {
       return drafts_;
     }
     /**
-     * <code>repeated .Draft drafts = 10;</code>
+     * <code>repeated .Draft drafts = 7;</code>
      */
     public int getDraftsCount() {
       return drafts_.size();
     }
     /**
-     * <code>repeated .Draft drafts = 10;</code>
+     * <code>repeated .Draft drafts = 7;</code>
      */
     public LocalStorage.Draft getDrafts(int index) {
       return drafts_.get(index);
     }
     /**
-     * <code>repeated .Draft drafts = 10;</code>
+     * <code>repeated .Draft drafts = 7;</code>
      */
     public LocalStorage.DraftOrBuilder getDraftsOrBuilder(
         int index) {
@@ -14590,10 +13900,6 @@ public final class LocalStorage {
       identity_ = com.google.protobuf.ByteString.EMPTY;
       seed_ = com.google.protobuf.ByteString.EMPTY;
       server_ = "";
-      group_ = com.google.protobuf.ByteString.EMPTY;
-      groupPrivate_ = com.google.protobuf.ByteString.EMPTY;
-      previousGroupPrivateKeys_ = java.util.Collections.emptyList();
-      generation_ = 0;
       lastErasureStorageTime_ = 0L;
       contacts_ = java.util.Collections.emptyList();
       inbox_ = java.util.Collections.emptyList();
@@ -14617,24 +13923,6 @@ public final class LocalStorage {
       if (!hasServer()) {
         memoizedIsInitialized = 0;
         return false;
-      }
-      if (!hasGroup()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasGroupPrivate()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasGeneration()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      for (int i = 0; i < getPreviousGroupPrivateKeysCount(); i++) {
-        if (!getPreviousGroupPrivateKeys(i).isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
       }
       for (int i = 0; i < getContactsCount(); i++) {
         if (!getContacts(i).isInitialized()) {
@@ -14676,32 +13964,20 @@ public final class LocalStorage {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(3, getServerBytes());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, group_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(5, groupPrivate_);
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeUInt32(6, generation_);
-      }
       for (int i = 0; i < contacts_.size(); i++) {
-        output.writeMessage(7, contacts_.get(i));
+        output.writeMessage(4, contacts_.get(i));
       }
       for (int i = 0; i < inbox_.size(); i++) {
-        output.writeMessage(8, inbox_.get(i));
+        output.writeMessage(5, inbox_.get(i));
       }
       for (int i = 0; i < outbox_.size(); i++) {
-        output.writeMessage(9, outbox_.get(i));
+        output.writeMessage(6, outbox_.get(i));
       }
       for (int i = 0; i < drafts_.size(); i++) {
-        output.writeMessage(10, drafts_.get(i));
+        output.writeMessage(7, drafts_.get(i));
       }
-      for (int i = 0; i < previousGroupPrivateKeys_.size(); i++) {
-        output.writeMessage(11, previousGroupPrivateKeys_.get(i));
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeInt64(12, lastErasureStorageTime_);
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt64(8, lastErasureStorageTime_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -14724,41 +14000,25 @@ public final class LocalStorage {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, getServerBytes());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, group_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, groupPrivate_);
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(6, generation_);
-      }
       for (int i = 0; i < contacts_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, contacts_.get(i));
+          .computeMessageSize(4, contacts_.get(i));
       }
       for (int i = 0; i < inbox_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, inbox_.get(i));
+          .computeMessageSize(5, inbox_.get(i));
       }
       for (int i = 0; i < outbox_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, outbox_.get(i));
+          .computeMessageSize(6, outbox_.get(i));
       }
       for (int i = 0; i < drafts_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, drafts_.get(i));
+          .computeMessageSize(7, drafts_.get(i));
       }
-      for (int i = 0; i < previousGroupPrivateKeys_.size(); i++) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, previousGroupPrivateKeys_.get(i));
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(12, lastErasureStorageTime_);
+          .computeInt64Size(8, lastErasureStorageTime_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -14869,7 +14129,6 @@ public final class LocalStorage {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getPreviousGroupPrivateKeysFieldBuilder();
           getContactsFieldBuilder();
           getInboxFieldBuilder();
           getOutboxFieldBuilder();
@@ -14888,41 +14147,29 @@ public final class LocalStorage {
         bitField0_ = (bitField0_ & ~0x00000002);
         server_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        group_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        groupPrivate_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000010);
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          previousGroupPrivateKeys_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
-        } else {
-          previousGroupPrivateKeysBuilder_.clear();
-        }
-        generation_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000040);
         lastErasureStorageTime_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000008);
         if (contactsBuilder_ == null) {
           contacts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           contactsBuilder_.clear();
         }
         if (inboxBuilder_ == null) {
           inbox_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000200);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           inboxBuilder_.clear();
         }
         if (outboxBuilder_ == null) {
           outbox_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000400);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           outboxBuilder_.clear();
         }
         if (draftsBuilder_ == null) {
           drafts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000800);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           draftsBuilder_.clear();
         }
@@ -14969,59 +14216,38 @@ public final class LocalStorage {
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.group_ = group_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.groupPrivate_ = groupPrivate_;
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) == 0x00000020)) {
-            previousGroupPrivateKeys_ = java.util.Collections.unmodifiableList(previousGroupPrivateKeys_);
-            bitField0_ = (bitField0_ & ~0x00000020);
-          }
-          result.previousGroupPrivateKeys_ = previousGroupPrivateKeys_;
-        } else {
-          result.previousGroupPrivateKeys_ = previousGroupPrivateKeysBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        result.generation_ = generation_;
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-          to_bitField0_ |= 0x00000040;
-        }
         result.lastErasureStorageTime_ = lastErasureStorageTime_;
         if (contactsBuilder_ == null) {
-          if (((bitField0_ & 0x00000100) == 0x00000100)) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
             contacts_ = java.util.Collections.unmodifiableList(contacts_);
-            bitField0_ = (bitField0_ & ~0x00000100);
+            bitField0_ = (bitField0_ & ~0x00000010);
           }
           result.contacts_ = contacts_;
         } else {
           result.contacts_ = contactsBuilder_.build();
         }
         if (inboxBuilder_ == null) {
-          if (((bitField0_ & 0x00000200) == 0x00000200)) {
+          if (((bitField0_ & 0x00000020) == 0x00000020)) {
             inbox_ = java.util.Collections.unmodifiableList(inbox_);
-            bitField0_ = (bitField0_ & ~0x00000200);
+            bitField0_ = (bitField0_ & ~0x00000020);
           }
           result.inbox_ = inbox_;
         } else {
           result.inbox_ = inboxBuilder_.build();
         }
         if (outboxBuilder_ == null) {
-          if (((bitField0_ & 0x00000400) == 0x00000400)) {
+          if (((bitField0_ & 0x00000040) == 0x00000040)) {
             outbox_ = java.util.Collections.unmodifiableList(outbox_);
-            bitField0_ = (bitField0_ & ~0x00000400);
+            bitField0_ = (bitField0_ & ~0x00000040);
           }
           result.outbox_ = outbox_;
         } else {
           result.outbox_ = outboxBuilder_.build();
         }
         if (draftsBuilder_ == null) {
-          if (((bitField0_ & 0x00000800) == 0x00000800)) {
+          if (((bitField0_ & 0x00000080) == 0x00000080)) {
             drafts_ = java.util.Collections.unmodifiableList(drafts_);
-            bitField0_ = (bitField0_ & ~0x00000800);
+            bitField0_ = (bitField0_ & ~0x00000080);
           }
           result.drafts_ = drafts_;
         } else {
@@ -15054,41 +14280,6 @@ public final class LocalStorage {
           server_ = other.server_;
           onChanged();
         }
-        if (other.hasGroup()) {
-          setGroup(other.getGroup());
-        }
-        if (other.hasGroupPrivate()) {
-          setGroupPrivate(other.getGroupPrivate());
-        }
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          if (!other.previousGroupPrivateKeys_.isEmpty()) {
-            if (previousGroupPrivateKeys_.isEmpty()) {
-              previousGroupPrivateKeys_ = other.previousGroupPrivateKeys_;
-              bitField0_ = (bitField0_ & ~0x00000020);
-            } else {
-              ensurePreviousGroupPrivateKeysIsMutable();
-              previousGroupPrivateKeys_.addAll(other.previousGroupPrivateKeys_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.previousGroupPrivateKeys_.isEmpty()) {
-            if (previousGroupPrivateKeysBuilder_.isEmpty()) {
-              previousGroupPrivateKeysBuilder_.dispose();
-              previousGroupPrivateKeysBuilder_ = null;
-              previousGroupPrivateKeys_ = other.previousGroupPrivateKeys_;
-              bitField0_ = (bitField0_ & ~0x00000020);
-              previousGroupPrivateKeysBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getPreviousGroupPrivateKeysFieldBuilder() : null;
-            } else {
-              previousGroupPrivateKeysBuilder_.addAllMessages(other.previousGroupPrivateKeys_);
-            }
-          }
-        }
-        if (other.hasGeneration()) {
-          setGeneration(other.getGeneration());
-        }
         if (other.hasLastErasureStorageTime()) {
           setLastErasureStorageTime(other.getLastErasureStorageTime());
         }
@@ -15096,7 +14287,7 @@ public final class LocalStorage {
           if (!other.contacts_.isEmpty()) {
             if (contacts_.isEmpty()) {
               contacts_ = other.contacts_;
-              bitField0_ = (bitField0_ & ~0x00000100);
+              bitField0_ = (bitField0_ & ~0x00000010);
             } else {
               ensureContactsIsMutable();
               contacts_.addAll(other.contacts_);
@@ -15109,7 +14300,7 @@ public final class LocalStorage {
               contactsBuilder_.dispose();
               contactsBuilder_ = null;
               contacts_ = other.contacts_;
-              bitField0_ = (bitField0_ & ~0x00000100);
+              bitField0_ = (bitField0_ & ~0x00000010);
               contactsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getContactsFieldBuilder() : null;
@@ -15122,7 +14313,7 @@ public final class LocalStorage {
           if (!other.inbox_.isEmpty()) {
             if (inbox_.isEmpty()) {
               inbox_ = other.inbox_;
-              bitField0_ = (bitField0_ & ~0x00000200);
+              bitField0_ = (bitField0_ & ~0x00000020);
             } else {
               ensureInboxIsMutable();
               inbox_.addAll(other.inbox_);
@@ -15135,7 +14326,7 @@ public final class LocalStorage {
               inboxBuilder_.dispose();
               inboxBuilder_ = null;
               inbox_ = other.inbox_;
-              bitField0_ = (bitField0_ & ~0x00000200);
+              bitField0_ = (bitField0_ & ~0x00000020);
               inboxBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getInboxFieldBuilder() : null;
@@ -15148,7 +14339,7 @@ public final class LocalStorage {
           if (!other.outbox_.isEmpty()) {
             if (outbox_.isEmpty()) {
               outbox_ = other.outbox_;
-              bitField0_ = (bitField0_ & ~0x00000400);
+              bitField0_ = (bitField0_ & ~0x00000040);
             } else {
               ensureOutboxIsMutable();
               outbox_.addAll(other.outbox_);
@@ -15161,7 +14352,7 @@ public final class LocalStorage {
               outboxBuilder_.dispose();
               outboxBuilder_ = null;
               outbox_ = other.outbox_;
-              bitField0_ = (bitField0_ & ~0x00000400);
+              bitField0_ = (bitField0_ & ~0x00000040);
               outboxBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getOutboxFieldBuilder() : null;
@@ -15174,7 +14365,7 @@ public final class LocalStorage {
           if (!other.drafts_.isEmpty()) {
             if (drafts_.isEmpty()) {
               drafts_ = other.drafts_;
-              bitField0_ = (bitField0_ & ~0x00000800);
+              bitField0_ = (bitField0_ & ~0x00000080);
             } else {
               ensureDraftsIsMutable();
               drafts_.addAll(other.drafts_);
@@ -15187,7 +14378,7 @@ public final class LocalStorage {
               draftsBuilder_.dispose();
               draftsBuilder_ = null;
               drafts_ = other.drafts_;
-              bitField0_ = (bitField0_ & ~0x00000800);
+              bitField0_ = (bitField0_ & ~0x00000080);
               draftsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getDraftsFieldBuilder() : null;
@@ -15212,24 +14403,6 @@ public final class LocalStorage {
         if (!hasServer()) {
           
           return false;
-        }
-        if (!hasGroup()) {
-          
-          return false;
-        }
-        if (!hasGroupPrivate()) {
-          
-          return false;
-        }
-        if (!hasGeneration()) {
-          
-          return false;
-        }
-        for (int i = 0; i < getPreviousGroupPrivateKeysCount(); i++) {
-          if (!getPreviousGroupPrivateKeys(i).isInitialized()) {
-            
-            return false;
-          }
         }
         for (int i = 0; i < getContactsCount(); i++) {
           if (!getContacts(i).isInitialized()) {
@@ -15453,375 +14626,81 @@ public final class LocalStorage {
         return this;
       }
 
-      private com.google.protobuf.ByteString group_ = com.google.protobuf.ByteString.EMPTY;
+      private long lastErasureStorageTime_ ;
       /**
-       * <code>required bytes group = 4;</code>
+       * <code>optional int64 last_erasure_storage_time = 8;</code>
+       *
+       * <pre>
+       *	required bytes group = 4;
+       *	required bytes group_private = 5;
+       *	message PreviousGroup {
+       *		required bytes group = 1;
+       *		required bytes group_private = 2;
+       *		required int64 expired = 3;
+       *	}
+       *	repeated PreviousGroup previous_group_private_keys = 11;
+       *	required uint32 generation = 6;
+       * </pre>
        */
-      public boolean hasGroup() {
+      public boolean hasLastErasureStorageTime() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required bytes group = 4;</code>
-       */
-      public com.google.protobuf.ByteString getGroup() {
-        return group_;
-      }
-      /**
-       * <code>required bytes group = 4;</code>
-       */
-      public Builder setGroup(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        group_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required bytes group = 4;</code>
-       */
-      public Builder clearGroup() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        group_ = getDefaultInstance().getGroup();
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString groupPrivate_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>required bytes group_private = 5;</code>
-       */
-      public boolean hasGroupPrivate() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>required bytes group_private = 5;</code>
-       */
-      public com.google.protobuf.ByteString getGroupPrivate() {
-        return groupPrivate_;
-      }
-      /**
-       * <code>required bytes group_private = 5;</code>
-       */
-      public Builder setGroupPrivate(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
-        groupPrivate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required bytes group_private = 5;</code>
-       */
-      public Builder clearGroupPrivate() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        groupPrivate_ = getDefaultInstance().getGroupPrivate();
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<LocalStorage.State.PreviousGroup> previousGroupPrivateKeys_ =
-        java.util.Collections.emptyList();
-      private void ensurePreviousGroupPrivateKeysIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-          previousGroupPrivateKeys_ = new java.util.ArrayList<LocalStorage.State.PreviousGroup>(previousGroupPrivateKeys_);
-          bitField0_ |= 0x00000020;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.State.PreviousGroup, LocalStorage.State.PreviousGroup.Builder, LocalStorage.State.PreviousGroupOrBuilder> previousGroupPrivateKeysBuilder_;
-
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public java.util.List<LocalStorage.State.PreviousGroup> getPreviousGroupPrivateKeysList() {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(previousGroupPrivateKeys_);
-        } else {
-          return previousGroupPrivateKeysBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public int getPreviousGroupPrivateKeysCount() {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          return previousGroupPrivateKeys_.size();
-        } else {
-          return previousGroupPrivateKeysBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public LocalStorage.State.PreviousGroup getPreviousGroupPrivateKeys(int index) {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          return previousGroupPrivateKeys_.get(index);
-        } else {
-          return previousGroupPrivateKeysBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public Builder setPreviousGroupPrivateKeys(
-          int index, LocalStorage.State.PreviousGroup value) {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePreviousGroupPrivateKeysIsMutable();
-          previousGroupPrivateKeys_.set(index, value);
-          onChanged();
-        } else {
-          previousGroupPrivateKeysBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public Builder setPreviousGroupPrivateKeys(
-          int index, LocalStorage.State.PreviousGroup.Builder builderForValue) {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          ensurePreviousGroupPrivateKeysIsMutable();
-          previousGroupPrivateKeys_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          previousGroupPrivateKeysBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public Builder addPreviousGroupPrivateKeys(LocalStorage.State.PreviousGroup value) {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePreviousGroupPrivateKeysIsMutable();
-          previousGroupPrivateKeys_.add(value);
-          onChanged();
-        } else {
-          previousGroupPrivateKeysBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public Builder addPreviousGroupPrivateKeys(
-          int index, LocalStorage.State.PreviousGroup value) {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePreviousGroupPrivateKeysIsMutable();
-          previousGroupPrivateKeys_.add(index, value);
-          onChanged();
-        } else {
-          previousGroupPrivateKeysBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public Builder addPreviousGroupPrivateKeys(
-          LocalStorage.State.PreviousGroup.Builder builderForValue) {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          ensurePreviousGroupPrivateKeysIsMutable();
-          previousGroupPrivateKeys_.add(builderForValue.build());
-          onChanged();
-        } else {
-          previousGroupPrivateKeysBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public Builder addPreviousGroupPrivateKeys(
-          int index, LocalStorage.State.PreviousGroup.Builder builderForValue) {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          ensurePreviousGroupPrivateKeysIsMutable();
-          previousGroupPrivateKeys_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          previousGroupPrivateKeysBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public Builder addAllPreviousGroupPrivateKeys(
-          java.lang.Iterable<? extends LocalStorage.State.PreviousGroup> values) {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          ensurePreviousGroupPrivateKeysIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, previousGroupPrivateKeys_);
-          onChanged();
-        } else {
-          previousGroupPrivateKeysBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public Builder clearPreviousGroupPrivateKeys() {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          previousGroupPrivateKeys_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
-          onChanged();
-        } else {
-          previousGroupPrivateKeysBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public Builder removePreviousGroupPrivateKeys(int index) {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          ensurePreviousGroupPrivateKeysIsMutable();
-          previousGroupPrivateKeys_.remove(index);
-          onChanged();
-        } else {
-          previousGroupPrivateKeysBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public LocalStorage.State.PreviousGroup.Builder getPreviousGroupPrivateKeysBuilder(
-          int index) {
-        return getPreviousGroupPrivateKeysFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public LocalStorage.State.PreviousGroupOrBuilder getPreviousGroupPrivateKeysOrBuilder(
-          int index) {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          return previousGroupPrivateKeys_.get(index);  } else {
-          return previousGroupPrivateKeysBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public java.util.List<? extends LocalStorage.State.PreviousGroupOrBuilder> 
-           getPreviousGroupPrivateKeysOrBuilderList() {
-        if (previousGroupPrivateKeysBuilder_ != null) {
-          return previousGroupPrivateKeysBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(previousGroupPrivateKeys_);
-        }
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public LocalStorage.State.PreviousGroup.Builder addPreviousGroupPrivateKeysBuilder() {
-        return getPreviousGroupPrivateKeysFieldBuilder().addBuilder(
-            LocalStorage.State.PreviousGroup.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public LocalStorage.State.PreviousGroup.Builder addPreviousGroupPrivateKeysBuilder(
-          int index) {
-        return getPreviousGroupPrivateKeysFieldBuilder().addBuilder(
-            index, LocalStorage.State.PreviousGroup.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .State.PreviousGroup previous_group_private_keys = 11;</code>
-       */
-      public java.util.List<LocalStorage.State.PreviousGroup.Builder> 
-           getPreviousGroupPrivateKeysBuilderList() {
-        return getPreviousGroupPrivateKeysFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.State.PreviousGroup, LocalStorage.State.PreviousGroup.Builder, LocalStorage.State.PreviousGroupOrBuilder> 
-          getPreviousGroupPrivateKeysFieldBuilder() {
-        if (previousGroupPrivateKeysBuilder_ == null) {
-          previousGroupPrivateKeysBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              LocalStorage.State.PreviousGroup, LocalStorage.State.PreviousGroup.Builder, LocalStorage.State.PreviousGroupOrBuilder>(
-                  previousGroupPrivateKeys_,
-                  ((bitField0_ & 0x00000020) == 0x00000020),
-                  getParentForChildren(),
-                  isClean());
-          previousGroupPrivateKeys_ = null;
-        }
-        return previousGroupPrivateKeysBuilder_;
-      }
-
-      private int generation_ ;
-      /**
-       * <code>required uint32 generation = 6;</code>
-       */
-      public boolean hasGeneration() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
-      }
-      /**
-       * <code>required uint32 generation = 6;</code>
-       */
-      public int getGeneration() {
-        return generation_;
-      }
-      /**
-       * <code>required uint32 generation = 6;</code>
-       */
-      public Builder setGeneration(int value) {
-        bitField0_ |= 0x00000040;
-        generation_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required uint32 generation = 6;</code>
-       */
-      public Builder clearGeneration() {
-        bitField0_ = (bitField0_ & ~0x00000040);
-        generation_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private long lastErasureStorageTime_ ;
-      /**
-       * <code>optional int64 last_erasure_storage_time = 12;</code>
-       */
-      public boolean hasLastErasureStorageTime() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
-      }
-      /**
-       * <code>optional int64 last_erasure_storage_time = 12;</code>
+       * <code>optional int64 last_erasure_storage_time = 8;</code>
+       *
+       * <pre>
+       *	required bytes group = 4;
+       *	required bytes group_private = 5;
+       *	message PreviousGroup {
+       *		required bytes group = 1;
+       *		required bytes group_private = 2;
+       *		required int64 expired = 3;
+       *	}
+       *	repeated PreviousGroup previous_group_private_keys = 11;
+       *	required uint32 generation = 6;
+       * </pre>
        */
       public long getLastErasureStorageTime() {
         return lastErasureStorageTime_;
       }
       /**
-       * <code>optional int64 last_erasure_storage_time = 12;</code>
+       * <code>optional int64 last_erasure_storage_time = 8;</code>
+       *
+       * <pre>
+       *	required bytes group = 4;
+       *	required bytes group_private = 5;
+       *	message PreviousGroup {
+       *		required bytes group = 1;
+       *		required bytes group_private = 2;
+       *		required int64 expired = 3;
+       *	}
+       *	repeated PreviousGroup previous_group_private_keys = 11;
+       *	required uint32 generation = 6;
+       * </pre>
        */
       public Builder setLastErasureStorageTime(long value) {
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000008;
         lastErasureStorageTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int64 last_erasure_storage_time = 12;</code>
+       * <code>optional int64 last_erasure_storage_time = 8;</code>
+       *
+       * <pre>
+       *	required bytes group = 4;
+       *	required bytes group_private = 5;
+       *	message PreviousGroup {
+       *		required bytes group = 1;
+       *		required bytes group_private = 2;
+       *		required int64 expired = 3;
+       *	}
+       *	repeated PreviousGroup previous_group_private_keys = 11;
+       *	required uint32 generation = 6;
+       * </pre>
        */
       public Builder clearLastErasureStorageTime() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000008);
         lastErasureStorageTime_ = 0L;
         onChanged();
         return this;
@@ -15830,9 +14709,9 @@ public final class LocalStorage {
       private java.util.List<LocalStorage.Contact> contacts_ =
         java.util.Collections.emptyList();
       private void ensureContactsIsMutable() {
-        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
           contacts_ = new java.util.ArrayList<LocalStorage.Contact>(contacts_);
-          bitField0_ |= 0x00000100;
+          bitField0_ |= 0x00000010;
          }
       }
 
@@ -15840,7 +14719,7 @@ public final class LocalStorage {
           LocalStorage.Contact, LocalStorage.Contact.Builder, LocalStorage.ContactOrBuilder> contactsBuilder_;
 
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public java.util.List<LocalStorage.Contact> getContactsList() {
         if (contactsBuilder_ == null) {
@@ -15850,7 +14729,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public int getContactsCount() {
         if (contactsBuilder_ == null) {
@@ -15860,7 +14739,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public LocalStorage.Contact getContacts(int index) {
         if (contactsBuilder_ == null) {
@@ -15870,7 +14749,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder setContacts(
           int index, LocalStorage.Contact value) {
@@ -15887,7 +14766,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder setContacts(
           int index, LocalStorage.Contact.Builder builderForValue) {
@@ -15901,7 +14780,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder addContacts(LocalStorage.Contact value) {
         if (contactsBuilder_ == null) {
@@ -15917,7 +14796,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder addContacts(
           int index, LocalStorage.Contact value) {
@@ -15934,7 +14813,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder addContacts(
           LocalStorage.Contact.Builder builderForValue) {
@@ -15948,7 +14827,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder addContacts(
           int index, LocalStorage.Contact.Builder builderForValue) {
@@ -15962,7 +14841,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder addAllContacts(
           java.lang.Iterable<? extends LocalStorage.Contact> values) {
@@ -15977,12 +14856,12 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder clearContacts() {
         if (contactsBuilder_ == null) {
           contacts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00000010);
           onChanged();
         } else {
           contactsBuilder_.clear();
@@ -15990,7 +14869,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder removeContacts(int index) {
         if (contactsBuilder_ == null) {
@@ -16003,14 +14882,14 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public LocalStorage.Contact.Builder getContactsBuilder(
           int index) {
         return getContactsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public LocalStorage.ContactOrBuilder getContactsOrBuilder(
           int index) {
@@ -16020,7 +14899,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public java.util.List<? extends LocalStorage.ContactOrBuilder> 
            getContactsOrBuilderList() {
@@ -16031,14 +14910,14 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public LocalStorage.Contact.Builder addContactsBuilder() {
         return getContactsFieldBuilder().addBuilder(
             LocalStorage.Contact.getDefaultInstance());
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public LocalStorage.Contact.Builder addContactsBuilder(
           int index) {
@@ -16046,7 +14925,7 @@ public final class LocalStorage {
             index, LocalStorage.Contact.getDefaultInstance());
       }
       /**
-       * <code>repeated .Contact contacts = 7;</code>
+       * <code>repeated .Contact contacts = 4;</code>
        */
       public java.util.List<LocalStorage.Contact.Builder> 
            getContactsBuilderList() {
@@ -16059,7 +14938,7 @@ public final class LocalStorage {
           contactsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               LocalStorage.Contact, LocalStorage.Contact.Builder, LocalStorage.ContactOrBuilder>(
                   contacts_,
-                  ((bitField0_ & 0x00000100) == 0x00000100),
+                  ((bitField0_ & 0x00000010) == 0x00000010),
                   getParentForChildren(),
                   isClean());
           contacts_ = null;
@@ -16070,9 +14949,9 @@ public final class LocalStorage {
       private java.util.List<LocalStorage.Inbox> inbox_ =
         java.util.Collections.emptyList();
       private void ensureInboxIsMutable() {
-        if (!((bitField0_ & 0x00000200) == 0x00000200)) {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
           inbox_ = new java.util.ArrayList<LocalStorage.Inbox>(inbox_);
-          bitField0_ |= 0x00000200;
+          bitField0_ |= 0x00000020;
          }
       }
 
@@ -16080,7 +14959,7 @@ public final class LocalStorage {
           LocalStorage.Inbox, LocalStorage.Inbox.Builder, LocalStorage.InboxOrBuilder> inboxBuilder_;
 
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public java.util.List<LocalStorage.Inbox> getInboxList() {
         if (inboxBuilder_ == null) {
@@ -16090,7 +14969,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public int getInboxCount() {
         if (inboxBuilder_ == null) {
@@ -16100,7 +14979,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public LocalStorage.Inbox getInbox(int index) {
         if (inboxBuilder_ == null) {
@@ -16110,7 +14989,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder setInbox(
           int index, LocalStorage.Inbox value) {
@@ -16127,7 +15006,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder setInbox(
           int index, LocalStorage.Inbox.Builder builderForValue) {
@@ -16141,7 +15020,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder addInbox(LocalStorage.Inbox value) {
         if (inboxBuilder_ == null) {
@@ -16157,7 +15036,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder addInbox(
           int index, LocalStorage.Inbox value) {
@@ -16174,7 +15053,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder addInbox(
           LocalStorage.Inbox.Builder builderForValue) {
@@ -16188,7 +15067,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder addInbox(
           int index, LocalStorage.Inbox.Builder builderForValue) {
@@ -16202,7 +15081,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder addAllInbox(
           java.lang.Iterable<? extends LocalStorage.Inbox> values) {
@@ -16217,12 +15096,12 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder clearInbox() {
         if (inboxBuilder_ == null) {
           inbox_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000200);
+          bitField0_ = (bitField0_ & ~0x00000020);
           onChanged();
         } else {
           inboxBuilder_.clear();
@@ -16230,7 +15109,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder removeInbox(int index) {
         if (inboxBuilder_ == null) {
@@ -16243,14 +15122,14 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public LocalStorage.Inbox.Builder getInboxBuilder(
           int index) {
         return getInboxFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public LocalStorage.InboxOrBuilder getInboxOrBuilder(
           int index) {
@@ -16260,7 +15139,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public java.util.List<? extends LocalStorage.InboxOrBuilder> 
            getInboxOrBuilderList() {
@@ -16271,14 +15150,14 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public LocalStorage.Inbox.Builder addInboxBuilder() {
         return getInboxFieldBuilder().addBuilder(
             LocalStorage.Inbox.getDefaultInstance());
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public LocalStorage.Inbox.Builder addInboxBuilder(
           int index) {
@@ -16286,7 +15165,7 @@ public final class LocalStorage {
             index, LocalStorage.Inbox.getDefaultInstance());
       }
       /**
-       * <code>repeated .Inbox inbox = 8;</code>
+       * <code>repeated .Inbox inbox = 5;</code>
        */
       public java.util.List<LocalStorage.Inbox.Builder> 
            getInboxBuilderList() {
@@ -16299,7 +15178,7 @@ public final class LocalStorage {
           inboxBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               LocalStorage.Inbox, LocalStorage.Inbox.Builder, LocalStorage.InboxOrBuilder>(
                   inbox_,
-                  ((bitField0_ & 0x00000200) == 0x00000200),
+                  ((bitField0_ & 0x00000020) == 0x00000020),
                   getParentForChildren(),
                   isClean());
           inbox_ = null;
@@ -16310,9 +15189,9 @@ public final class LocalStorage {
       private java.util.List<LocalStorage.Outbox> outbox_ =
         java.util.Collections.emptyList();
       private void ensureOutboxIsMutable() {
-        if (!((bitField0_ & 0x00000400) == 0x00000400)) {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
           outbox_ = new java.util.ArrayList<LocalStorage.Outbox>(outbox_);
-          bitField0_ |= 0x00000400;
+          bitField0_ |= 0x00000040;
          }
       }
 
@@ -16320,7 +15199,7 @@ public final class LocalStorage {
           LocalStorage.Outbox, LocalStorage.Outbox.Builder, LocalStorage.OutboxOrBuilder> outboxBuilder_;
 
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public java.util.List<LocalStorage.Outbox> getOutboxList() {
         if (outboxBuilder_ == null) {
@@ -16330,7 +15209,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public int getOutboxCount() {
         if (outboxBuilder_ == null) {
@@ -16340,7 +15219,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public LocalStorage.Outbox getOutbox(int index) {
         if (outboxBuilder_ == null) {
@@ -16350,7 +15229,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder setOutbox(
           int index, LocalStorage.Outbox value) {
@@ -16367,7 +15246,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder setOutbox(
           int index, LocalStorage.Outbox.Builder builderForValue) {
@@ -16381,7 +15260,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder addOutbox(LocalStorage.Outbox value) {
         if (outboxBuilder_ == null) {
@@ -16397,7 +15276,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder addOutbox(
           int index, LocalStorage.Outbox value) {
@@ -16414,7 +15293,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder addOutbox(
           LocalStorage.Outbox.Builder builderForValue) {
@@ -16428,7 +15307,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder addOutbox(
           int index, LocalStorage.Outbox.Builder builderForValue) {
@@ -16442,7 +15321,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder addAllOutbox(
           java.lang.Iterable<? extends LocalStorage.Outbox> values) {
@@ -16457,12 +15336,12 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder clearOutbox() {
         if (outboxBuilder_ == null) {
           outbox_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000400);
+          bitField0_ = (bitField0_ & ~0x00000040);
           onChanged();
         } else {
           outboxBuilder_.clear();
@@ -16470,7 +15349,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder removeOutbox(int index) {
         if (outboxBuilder_ == null) {
@@ -16483,14 +15362,14 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public LocalStorage.Outbox.Builder getOutboxBuilder(
           int index) {
         return getOutboxFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public LocalStorage.OutboxOrBuilder getOutboxOrBuilder(
           int index) {
@@ -16500,7 +15379,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public java.util.List<? extends LocalStorage.OutboxOrBuilder> 
            getOutboxOrBuilderList() {
@@ -16511,14 +15390,14 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public LocalStorage.Outbox.Builder addOutboxBuilder() {
         return getOutboxFieldBuilder().addBuilder(
             LocalStorage.Outbox.getDefaultInstance());
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public LocalStorage.Outbox.Builder addOutboxBuilder(
           int index) {
@@ -16526,7 +15405,7 @@ public final class LocalStorage {
             index, LocalStorage.Outbox.getDefaultInstance());
       }
       /**
-       * <code>repeated .Outbox outbox = 9;</code>
+       * <code>repeated .Outbox outbox = 6;</code>
        */
       public java.util.List<LocalStorage.Outbox.Builder> 
            getOutboxBuilderList() {
@@ -16539,7 +15418,7 @@ public final class LocalStorage {
           outboxBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               LocalStorage.Outbox, LocalStorage.Outbox.Builder, LocalStorage.OutboxOrBuilder>(
                   outbox_,
-                  ((bitField0_ & 0x00000400) == 0x00000400),
+                  ((bitField0_ & 0x00000040) == 0x00000040),
                   getParentForChildren(),
                   isClean());
           outbox_ = null;
@@ -16550,9 +15429,9 @@ public final class LocalStorage {
       private java.util.List<LocalStorage.Draft> drafts_ =
         java.util.Collections.emptyList();
       private void ensureDraftsIsMutable() {
-        if (!((bitField0_ & 0x00000800) == 0x00000800)) {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
           drafts_ = new java.util.ArrayList<LocalStorage.Draft>(drafts_);
-          bitField0_ |= 0x00000800;
+          bitField0_ |= 0x00000080;
          }
       }
 
@@ -16560,7 +15439,7 @@ public final class LocalStorage {
           LocalStorage.Draft, LocalStorage.Draft.Builder, LocalStorage.DraftOrBuilder> draftsBuilder_;
 
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public java.util.List<LocalStorage.Draft> getDraftsList() {
         if (draftsBuilder_ == null) {
@@ -16570,7 +15449,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public int getDraftsCount() {
         if (draftsBuilder_ == null) {
@@ -16580,7 +15459,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public LocalStorage.Draft getDrafts(int index) {
         if (draftsBuilder_ == null) {
@@ -16590,7 +15469,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder setDrafts(
           int index, LocalStorage.Draft value) {
@@ -16607,7 +15486,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder setDrafts(
           int index, LocalStorage.Draft.Builder builderForValue) {
@@ -16621,7 +15500,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder addDrafts(LocalStorage.Draft value) {
         if (draftsBuilder_ == null) {
@@ -16637,7 +15516,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder addDrafts(
           int index, LocalStorage.Draft value) {
@@ -16654,7 +15533,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder addDrafts(
           LocalStorage.Draft.Builder builderForValue) {
@@ -16668,7 +15547,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder addDrafts(
           int index, LocalStorage.Draft.Builder builderForValue) {
@@ -16682,7 +15561,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder addAllDrafts(
           java.lang.Iterable<? extends LocalStorage.Draft> values) {
@@ -16697,12 +15576,12 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder clearDrafts() {
         if (draftsBuilder_ == null) {
           drafts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000800);
+          bitField0_ = (bitField0_ & ~0x00000080);
           onChanged();
         } else {
           draftsBuilder_.clear();
@@ -16710,7 +15589,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder removeDrafts(int index) {
         if (draftsBuilder_ == null) {
@@ -16723,14 +15602,14 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public LocalStorage.Draft.Builder getDraftsBuilder(
           int index) {
         return getDraftsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public LocalStorage.DraftOrBuilder getDraftsOrBuilder(
           int index) {
@@ -16740,7 +15619,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public java.util.List<? extends LocalStorage.DraftOrBuilder> 
            getDraftsOrBuilderList() {
@@ -16751,14 +15630,14 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public LocalStorage.Draft.Builder addDraftsBuilder() {
         return getDraftsFieldBuilder().addBuilder(
             LocalStorage.Draft.getDefaultInstance());
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public LocalStorage.Draft.Builder addDraftsBuilder(
           int index) {
@@ -16766,7 +15645,7 @@ public final class LocalStorage {
             index, LocalStorage.Draft.getDefaultInstance());
       }
       /**
-       * <code>repeated .Draft drafts = 10;</code>
+       * <code>repeated .Draft drafts = 7;</code>
        */
       public java.util.List<LocalStorage.Draft.Builder> 
            getDraftsBuilderList() {
@@ -16779,7 +15658,7 @@ public final class LocalStorage {
           draftsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               LocalStorage.Draft, LocalStorage.Draft.Builder, LocalStorage.DraftOrBuilder>(
                   drafts_,
-                  ((bitField0_ & 0x00000800) == 0x00000800),
+                  ((bitField0_ & 0x00000080) == 0x00000080),
                   getParentForChildren(),
                   isClean());
           drafts_ = null;
@@ -16863,11 +15742,6 @@ public final class LocalStorage {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_protos_State_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_State_PreviousGroup_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_State_PreviousGroup_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -16927,18 +15801,13 @@ public final class LocalStorage {
       "(\003\022\n\n\002to\030\003 \001(\006\022\014\n\004body\030\004 \002(\t\022\023\n\013in_reply" +
       "_to\030\005 \001(\006\022/\n\013attachments\030\006 \003(\0132\032." +
       "Message.Attachment\022/\n\013detachments\030\007 \003(\0132",
-      "\032.Message.Detachment\"\236\003\n\005State\022\020\n" +
+      "\032.Message.Detachment\"\332\001\n\005State\022\020\n" +
       "\010identity\030\001 \002(\014\022\014\n\004seed\030\002 \002(\014\022\016\n\006server\030" +
-      "\003 \002(\t\022\r\n\005group\030\004 \002(\014\022\025\n\rgroup_private\030\005 " +
-      "\002(\014\022@\n\033previous_group_private_keys\030\013 \003(\013" +
-      "2\033.State.PreviousGroup\022\022\n\ngenerat" +
-      "ion\030\006 \002(\r\022!\n\031last_erasure_storage_time\030\014" +
-      " \001(\003\022!\n\010contacts\030\007 \003(\0132\017.Contact\022" +
-      "\034\n\005inbox\030\010 \003(\0132\r.Inbox\022\036\n\006outbox\030" +
-      "\t \003(\0132\016.Outbox\022\035\n\006drafts\030\n \003(\0132\r." +
-      "Draft\032F\n\rPreviousGroup\022\r\n\005group\030\001",
-      " \002(\014\022\025\n\rgroup_private\030\002 \002(\014\022\017\n\007expired\030\003" +
-      " \002(\003"
+      "\003 \002(\t\022!\n\031last_erasure_storage_time\030\010 \001(\003" +
+      "\022!\n\010contacts\030\004 \003(\0132\017.Contact\022\034\n\005i" +
+      "nbox\030\005 \003(\0132\r.Inbox\022\036\n\006outbox\030\006 \003(" +
+      "\0132\016.Outbox\022\035\n\006drafts\030\007 \003(\0132\r.prot" +
+      "os.Draft"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -17030,13 +15899,7 @@ public final class LocalStorage {
     internal_static_protos_State_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_protos_State_descriptor,
-        new java.lang.String[] { "Identity", "Seed", "Server", "Group", "GroupPrivate", "PreviousGroupPrivateKeys", "Generation", "LastErasureStorageTime", "Contacts", "Inbox", "Outbox", "Drafts", });
-    internal_static_protos_State_PreviousGroup_descriptor =
-      internal_static_protos_State_descriptor.getNestedTypes().get(0);
-    internal_static_protos_State_PreviousGroup_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_State_PreviousGroup_descriptor,
-        new java.lang.String[] { "Group", "GroupPrivate", "Expired", });
+        new java.lang.String[] { "Identity", "Seed", "Server", "LastErasureStorageTime", "Contacts", "Inbox", "Outbox", "Drafts", });
     Pond.getDescriptor();
   }
 

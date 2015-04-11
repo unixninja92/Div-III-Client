@@ -27,6 +27,10 @@ public class StateFile{
     public static final int kdfKeyLen = 32;
     public static final int erasureKeyLen = 32;
 
+    private static final int Default_Header_SCrypt_N = 32768;
+    private static final int Default_Header_SCrypt_R = 16;
+    private static final int Default_Header_SCrypt_P = 1;
+
     String path;
     SecureRandom rand;
 
@@ -58,9 +62,18 @@ public class StateFile{
 
 
     private void deriveKey(String pw) throws KeyException {
-        if(pw.length() == 0 && header.hasScrypt())
+        if(pw.length() == 0 && header.getScrypt() == null)
             throw new KeyException("bad password");
-        LocalStorage.Header.SCrypt prams = header.getScrypt();
+        LocalStorage.Header.SCrypt prams;
+//        if(header == null) {
+//            LocalStorage.Header.SCrypt.Builder scrypt = LocalStorage.Header.SCrypt.newBuilder();
+//            scrypt.setN(Default_Header_SCrypt_N);
+//            scrypt.setP(Default_Header_SCrypt_P);
+//            scrypt.setR(Default_Header_SCrypt_R);
+//            prams = scrypt.build();
+//        }
+//        else
+             prams = header.getScrypt();
         key = SCrypt.generate(pw.getBytes(), header.getKdfSalt().toByteArray(), prams.getN(),
                 prams.getR(), prams.getP(), kdfKeyLen);
     }
@@ -69,10 +82,17 @@ public class StateFile{
         byte[] salt = new byte[kdfSaltLen];
         rand.nextBytes(salt);
         LocalStorage.Header.Builder hBuilder = LocalStorage.Header.newBuilder();
+        LocalStorage.Header.SCrypt.Builder scrypt = LocalStorage.Header.SCrypt.newBuilder();
+        scrypt.setN(Default_Header_SCrypt_N);
+        scrypt.setP(Default_Header_SCrypt_P);
+        scrypt.setR(Default_Header_SCrypt_R);
+        hBuilder.setScrypt(scrypt.build());
+
         if(pw.length() > 0) {
             hBuilder.setKdfSalt(ByteString.copyFrom(salt));
+            header = hBuilder.build();
             deriveKey(pw);
-            hBuilder.setScrypt(LocalStorage.Header.SCrypt.newBuilder());
+//            hBuilder.setScrypt(LocalStorage.Header.SCrypt.newBuilder());
         }
         hBuilder.setNoErasureStorage(true);
         header = hBuilder.build();
@@ -229,6 +249,13 @@ public class StateFile{
             byte[] nonceSmear = new byte[smearCopies*24];
             rand.nextBytes(nonceSmear);
 
+            byte[] nonce = new byte[24];
+            for(int i = 0; i < smearCopies; i++) {
+                for(int j = 0; j < 24; j++) {
+                    nonce[j] ^= nonceSmear[24*i+j];
+                }
+            }
+
 //            if(erasureStorage != null && newState.RotateErasureStorage){
 //
 //            }
@@ -238,10 +265,10 @@ public class StateFile{
                 effectiveKey[i] = (byte)(mask[i] ^ key[i]);
 
             SecretBox secretBox = new SecretBox(effectiveKey);
-            byte[] ciphertext = secretBox.encrypt(nonceSmear, plaintext);
-
+            byte[] ciphertext = secretBox.encrypt(nonce, plaintext);
+            System.out.println("Encrypted the state!!!");
             try {
-                File temp = File.createTempFile("state", null, new File(path));
+                File temp = new File(path+".tmp");
                 FileOutputStream tempOut = new FileOutputStream(temp);
                 tempOut.write(headerMagic);
                 tempOut.write((byte) header.toByteArray().length);
@@ -257,16 +284,18 @@ public class StateFile{
                     oldTemp.delete();
 
                 lock.writeLock().lock();
-                File oldState = new File(path);
-                oldState.renameTo(new File(path+"~"));
+                File state = new File(path);
+                File tempOldState = new File(path+"~");
+                state.renameTo(tempOldState);
 
-                temp.renameTo(new File(path));
+                temp.renameTo(state);
 
-                oldState.delete();
+                System.out.println("Here be that new state files path: " + state.getPath());
+
+                tempOldState.delete();
 
                 lock.writeLock().unlock();
             } catch (IOException e) {
-                lock.writeLock().unlock();
                 e.printStackTrace();
             }
         }

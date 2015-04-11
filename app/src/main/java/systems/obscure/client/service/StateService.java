@@ -5,13 +5,12 @@ import android.content.Intent;
 import android.os.IBinder;
 
 import org.jcsp.lang.AltingChannelInput;
-import org.jcsp.lang.Any2OneChannel;
-import org.jcsp.lang.Channel;
 import org.jcsp.lang.ChannelOutput;
 import org.thoughtcrime.securesms.jobs.requirements.MasterSecretRequirement;
 import org.thoughtcrime.securesms.jobs.requirements.MasterSecretRequirementProvider;
 import org.whispersystems.jobqueue.requirements.RequirementListener;
 
+import systems.obscure.client.Globals;
 import systems.obscure.client.client.Client;
 import systems.obscure.client.disk.NewState;
 import systems.obscure.client.disk.StateFile;
@@ -43,12 +42,21 @@ public class StateService extends Service implements Runnable, RequirementListen
 
         masterSecretRequirementProvider.setListener(this);
 
-        Any2OneChannel chan = Channel.any2one();
-        in = chan.in();
-        out = chan.out();
+//        Any2OneChannel chan = Channel.any2one();
+//        in = Globals.stateIn;
+//        out = Globals.stateDone;
 
         new Thread(this, "StateService").start();
     }
+
+//    @Override
+//    public int onStartCommand(Intent intent, int flags, int startId) {
+//        if (intent == null) return START_NOT_STICKY;
+//
+//        intent.getExtra
+//
+//        return START_NOT_STICKY;
+//    }
 
     @Override
     public void run() {
@@ -56,7 +64,9 @@ public class StateService extends Service implements Runnable, RequirementListen
 
         client = Client.getInstance();
 
-//        stateFile =;
+        in = Globals.stateIn;
+        out = Globals.stateDone;
+        stateFile = client.stateFile;
 
         stateFile.StartWrtie(in, out);
     }

@@ -13,6 +13,8 @@ import org.jcsp.lang.Channel;
 import org.jcsp.lang.Guard;
 import org.jcsp.lang.One2OneChannel;
 import org.thoughtcrime.securesms.dependencies.InjectableType;
+import org.thoughtcrime.securesms.jobs.requirements.MasterSecretRequirement;
+import org.thoughtcrime.securesms.jobs.requirements.MasterSecretRequirementProvider;
 import org.whispersystems.jobqueue.requirements.NetworkRequirement;
 import org.whispersystems.jobqueue.requirements.RequirementListener;
 
@@ -38,6 +40,9 @@ public class TransactService extends Service implements Runnable, InjectableType
     public static final  String ACTION_ACTIVITY_STARTED  = "ACTIVITY_STARTED";
     public static final  String ACTION_ACTIVITY_FINISHED = "ACTIVITY_FINISHED";
 
+    private MasterSecretRequirement masterSecretRequirement;
+    private MasterSecretRequirementProvider masterSecretRequirementProvider;
+
     private NetworkRequirement networkRequirement;
 //    private NetworkRequirementProvider networkRequirementProvider;
 
@@ -62,6 +67,10 @@ public class TransactService extends Service implements Runnable, InjectableType
 //        ApplicationContext.getInstance(this).injectDependencies(this);
 
         System.out.println("Is this made?");
+        masterSecretRequirement = new MasterSecretRequirement(this);
+        masterSecretRequirementProvider = new MasterSecretRequirementProvider(this);
+
+        masterSecretRequirementProvider.setListener(this);
 //        networkRequirement         = new NetworkRequirement(this);
 //        networkRequirementProvider = new NetworkRequirementProvider(this);
 //
@@ -97,6 +106,7 @@ public class TransactService extends Service implements Runnable, InjectableType
     @Override
     public void run() {
         waitForNetwork();
+        waitForMasterSecret();
 
         client = Client.getInstance();
         Network.client = client;
@@ -291,6 +301,14 @@ public class TransactService extends Service implements Runnable, InjectableType
     private synchronized void waitForNetwork() {
         try {
             while (!canTransact()) wait();
+        } catch (InterruptedException e) {
+            throw new AssertionError(e);
+        }
+    }
+
+    private synchronized void waitForMasterSecret() {
+        try {
+            while (!masterSecretRequirement.isPresent()) wait();
         } catch (InterruptedException e) {
             throw new AssertionError(e);
         }

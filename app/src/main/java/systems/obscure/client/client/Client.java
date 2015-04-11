@@ -17,7 +17,9 @@ import org.jcsp.lang.One2OneChannel;
 import org.jcsp.lang.SharedChannelInput;
 import org.jcsp.lang.SharedChannelOutput;
 import org.thoughtcrime.securesms.service.KeyCachingService;
+import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.KeyException;
@@ -35,6 +37,7 @@ import systems.obscure.client.disk.NewState;
 import systems.obscure.client.disk.StateFile;
 import systems.obscure.client.protos.LocalStorage;
 import systems.obscure.client.protos.Pond;
+import systems.obscure.client.service.StateService;
 import systems.obscure.client.service.TransactService;
 
 /**
@@ -132,12 +135,10 @@ public class Client {
     private static Client ourInstance;// = new Client();
 
     public static Client getInstance() {
-        synchronized (ourInstance) {
             if (ourInstance == null) {
                 ourInstance = new Client(Globals.applicaiontContext);
                 ourInstance.start(Globals.applicaiontContext);
             }
-        }
         return ourInstance;
     }
 
@@ -163,6 +164,7 @@ public class Client {
         fetchNowChan = Channel.any2one();
 //        Pond.KeyExchange.
 
+
     }
 
     public synchronized void start(Context context) {
@@ -173,7 +175,9 @@ public class Client {
             stateLock = stateFile.getLock();
 
 
-            boolean newAccount = true;//TextSecurePreferences.isRegisteredOnServer(context);
+            stateLock.readLock().lock();
+            boolean newAccount = !(new File(stateFilename).isFile());
+            stateLock.readLock().unlock();
 
             if(newAccount) {
                 MessageDigest digest = MessageDigest.getInstance("SHA256");
@@ -183,8 +187,10 @@ public class Client {
                 identity = new KeyPair();
                 rand.nextBytes(hmacKey);
 
-                stateFile.Create(KeyCachingService.getMasterSecret(context).toString());
+                System.out.println("Create StateFile instance");
+                stateFile.Create(KeyCachingService.getMasterSecret(context).getEncryptionKey().toString());
 
+                System.out.println("Do the network thing :)");
                 new AsyncTask<Void, Void, Void>() {
                     @Override
                     protected Void doInBackground(Void... params) {
@@ -192,10 +198,13 @@ public class Client {
                         return null;
                     }
                 }.execute();
+                TextSecurePreferences.setRegisteredOnServer(context, true);
             }
             else {
-                LocalStorage.State state = stateFile.Read(KeyCachingService
-                        .getMasterSecret(context).toString());
+                System.out.println("load dat State file");
+                stateLock.readLock().lock();
+                loadState();
+                stateLock.readLock().unlock();
             }
 
             Any2OneChannel<NewState> stateChan = Channel.any2one(5);
@@ -204,21 +213,31 @@ public class Client {
             One2AnyChannel doneChan = Channel.one2any(5);
             writerDone = doneChan.in();
 
-            stateFile.StartWrtie(stateChan.in(), doneChan.out());//TODO put on seperate thread
+            System.out.println("start state service");
+            Intent stateIntent = new Intent(context, StateService.class);
+            Globals.stateIn = stateChan.in();
+            Globals.stateDone = doneChan.out();
+            context.startService(stateIntent);
 
-            Intent intent = new Intent(context, TransactService.class);
-            context.startService(intent);
+            System.out.println("start transact service");
+            Intent transactIntent = new Intent(context, TransactService.class);
+            context.startService(transactIntent);
 
 
 
             if(newAccount){
-                //TODO save
+                new AsyncTask<Void, Void, Void>() {
+                    @Override
+                    protected Void doInBackground(Void... params) {
+                        save();
+                        return null;
+                    }
+                }.execute();
             }
 
 
-            Contact temp = new Contact(1L, "Bob");
-            contacts.put(1L, temp);
-//            contactList.add(temp);
+//            Contact temp = new Contact(1L, "Bob");
+//            contacts.put(1L, temp);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (KeyException e) {
@@ -614,6 +633,7 @@ public class Client {
     }
 
     public void save() {
+        System.out.println("start save");
 
         //rotate erasureStorageKey
 
@@ -714,7 +734,9 @@ public class Client {
         state.addAllOutbox(outbox);
         state.addAllDrafts(drafts);
 
+        System.out.println("building state thingy");
         writerChan.write(new NewState(state.build().toByteArray(), false, false));
+        System.out.println("finished building state thingy");
     }
 
 }

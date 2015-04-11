@@ -144,20 +144,20 @@ message State {
 //	required bytes public = 2;
 //	required bytes private = 3;
 	required string server = 3;
-	required bytes group = 4;
-	required bytes group_private = 5;
-	message PreviousGroup {
-		required bytes group = 1;
-		required bytes group_private = 2;
-		required int64 expired = 3;
-	}
-	repeated PreviousGroup previous_group_private_keys = 11;
+//	required bytes group = 4;
+//	required bytes group_private = 5;
+//	message PreviousGroup {
+//		required bytes group = 1;
+//		required bytes group_private = 2;
+//		required int64 expired = 3;
+//	}
+//	repeated PreviousGroup previous_group_private_keys = 11;
+//
+//	required uint32 generation = 6;
+	optional int64 last_erasure_storage_time = 8;
 
-	required uint32 generation = 6;
-	optional int64 last_erasure_storage_time = 12;
-
-	repeated Contact contacts = 7;
-	repeated Inbox inbox = 8;
-	repeated Outbox outbox = 9;
-	repeated Draft drafts = 10;
+	repeated Contact contacts = 4;
+	repeated Inbox inbox = 5;
+	repeated Outbox outbox = 6;
+	repeated Draft drafts = 7;
 }

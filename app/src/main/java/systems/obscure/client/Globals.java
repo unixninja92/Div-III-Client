@@ -3,6 +3,11 @@ package systems.obscure.client;
 import android.content.Context;
 import android.graphics.Bitmap;
 
+import org.jcsp.lang.AltingChannelInput;
+import org.jcsp.lang.ChannelOutput;
+
+import systems.obscure.client.disk.NewState;
+
 /**
  * Created by charles on 2/5/15.
  */
@@ -10,6 +15,10 @@ public class Globals {
     public static Bitmap lastImageTaken;
 
     public static Context applicaiontContext;
+
+    public static AltingChannelInput<NewState> stateIn;
+
+    public static ChannelOutput stateDone;
 
     //The number of bytes of overhead when boxing a message with SecretBox.
     public static final int SECRETBOX_OVERHEAD = 16;

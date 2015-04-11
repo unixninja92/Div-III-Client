@@ -115,14 +115,15 @@
             android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize" />
 
         <service android:name=".service.TransactService" /> <!-- android:enabled="true" -->
-        <activity
-            android:name=".ContactListActivity"
-            android:label="@string/title_activity_contact_list"
-            android:parentActivityName=".CameraActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="systems.obscure.client.CameraActivity" />
-        </activity>
+        <service android:name=".service.StateService" />
+        <!--<activity-->
+            <!--android:name=".ContactsListActivity"-->
+            <!--android:label=".ContactsListActivity"-->
+            <!--android:parentActivityName=".CameraActivity" >-->
+            <!--<meta-data-->
+                <!--android:name="android.support.PARENT_ACTIVITY"-->
+                <!--android:value="systems.obscure.client.CameraActivity" />-->
+        <!--</activity>-->
     </application>
 
 </manifest>
