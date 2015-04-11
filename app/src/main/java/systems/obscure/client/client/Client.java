@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 
+import com.google.protobuf.ByteString;
+
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.PublicKey;
 import org.abstractj.kalium.keys.SigningKey;
@@ -609,6 +611,110 @@ public class Client {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void save() {
+
+        //rotate erasureStorageKey
+
+        ArrayList<LocalStorage.Contact> conts = new ArrayList<>();
+
+        for(Contact contact: contacts.values()){
+            LocalStorage.Contact.Builder cont = LocalStorage.Contact.newBuilder();
+            cont.setId(contact.id);
+            cont.setName(contact.name);
+            cont.setIsPending(contact.isPending);
+            cont.setKeyExchangeBytes(ByteString.copyFrom(contact.kxsBytes));
+            cont.setSupportedVersion(contact.supportedVersion);
+            cont.setRevokedUs(contact.revokedUs);
+
+            if(!contact.isPending) {
+                cont.setTheirPub(ByteString.copyFrom(contact.theirPub.toBytes()));
+                cont.setTheirIdentityPublic(ByteString.copyFrom(contact.theirIdentityPublic.toBytes()));
+                cont.setTheirServer(contact.theirServer);
+            }
+
+            for(int i = 0; i < contact.events.size(); i++) {
+                if(System.nanoTime()-contact.events.get(i).time > Globals.MESSAGE_LIFETIME)
+                    continue;
+                LocalStorage.Contact.Event.Builder event = LocalStorage.Contact.Event.newBuilder();
+                event.setTime(contact.events.get(i).time);
+                event.setMessage(contact.events.get(i).msg);
+                cont.setEvents(i, event);
+            }
+
+            conts.add(cont.build());
+        }
+
+        ArrayList<LocalStorage.Inbox> inbox = new ArrayList<>();
+        for(InboxMessage inMsg: this.inbox.values()){
+            if(System.nanoTime()-inMsg.receivedTime > Globals.MESSAGE_LIFETIME && !inMsg.retained)
+                continue;
+
+            LocalStorage.Inbox.Builder msg = LocalStorage.Inbox.newBuilder();
+            msg.setId(inMsg.id);
+            msg.setFrom(inMsg.from);
+            msg.setReceivedTime(inMsg.receivedTime);
+            msg.setAcked(inMsg.acked);
+            msg.setRead(inMsg.read);
+            msg.setSealed(ByteString.copyFrom(inMsg.sealed));
+            msg.setRetained(inMsg.retained);
+
+            if(inMsg.message != null)
+                msg.setMessage(inMsg.message.toByteString());
+
+            inbox.add(msg.build());
+        }
+
+        ArrayList<LocalStorage.Outbox> outbox = new ArrayList<>();
+        for(QueuedMessage outMsg: this.outbox.values()){
+            if(System.nanoTime()-outMsg.created > Globals.MESSAGE_LIFETIME)
+                continue;
+
+            LocalStorage.Outbox.Builder msg = LocalStorage.Outbox.newBuilder();
+            msg.setId(outMsg.id);
+            msg.setTo(outMsg.to);
+            msg.setServer(outMsg.server);
+            msg.setCreated(outMsg.created);
+            msg.setRevocation(outMsg.revocation);
+
+            if(outMsg.message != null)
+                msg.setMessage(outMsg.message.build().toByteString());
+            if(outMsg.sent != 0L)
+                msg.setSent(outMsg.sent);
+            if(outMsg.acked != 0L)
+                msg.setAcked(outMsg.acked);
+            if(outMsg.request != null)
+                msg.setRequest(outMsg.request.build().toByteString());
+
+            outbox.add(msg.build());
+        }
+
+        ArrayList<LocalStorage.Draft> drafts = new ArrayList<>();
+        for(Draft drMsg: this.drafts.values()){
+            LocalStorage.Draft.Builder draft = LocalStorage.Draft.newBuilder();
+            draft.setId(drMsg.id);
+            draft.setBody(drMsg.body);
+            draft.addAllAttachments(drMsg.attachments);
+            draft.addAllDetachments(drMsg.detachments);
+            draft.setCreated(drMsg.created);
+            if(drMsg.to != 0L)
+                draft.setTo(drMsg.to);
+            if(drMsg.inReplyTo != 0L)
+                draft.setTo(drMsg.inReplyTo);
+            drafts.add(draft.build());
+        }
+
+        LocalStorage.State.Builder state = LocalStorage.State.newBuilder();
+        state.setSeed(ByteString.copyFrom(signingKey.toBytes()));
+        state.setIdentity(ByteString.copyFrom(identity.getPrivateKey().toBytes()));
+        state.setServer(server);
+        state.addAllContacts(conts);
+        state.addAllInbox(inbox);
+        state.addAllOutbox(outbox);
+        state.addAllDrafts(drafts);
+
+        writerChan.write(new NewState(state.build().toByteArray(), false, false));
     }
 
 }
