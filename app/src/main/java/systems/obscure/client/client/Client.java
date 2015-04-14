@@ -174,10 +174,16 @@ public class Client {
             stateFile = new StateFile(rand, stateFilename);
             stateLock = stateFile.getLock();
 
-
-            stateLock.readLock().lock();
-            boolean newAccount = !(new File(stateFilename).isFile());
-            stateLock.readLock().unlock();
+            boolean newAccount;
+//            boolean test = true;
+            boolean test = false;
+            if(!test) {
+                stateLock.readLock().lock();
+                newAccount = !(new File(stateFilename).isFile());
+                stateLock.readLock().unlock();
+            }
+            else
+                newAccount = true;
 
             if(newAccount) {
                 MessageDigest digest = MessageDigest.getInstance("SHA256");

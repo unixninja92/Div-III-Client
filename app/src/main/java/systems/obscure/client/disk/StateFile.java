@@ -108,8 +108,16 @@ public class StateFile{
             if(b.capacity() < headerMagic.length+4)
                 throw new IOException("state file is too small to be valid");
 
+            for(int i = 0; i < headerMagic.length; i++)
+                if(b.get() != headerMagic[i])
+                    throw new IOException("Header magic does not match");
+
+//            printBytes(b.array(), 0, 30);
+
             b.position(headerMagic.length);
-            int headerLen = b.getInt();
+            int headerLen = (int) b.get();
+
+            System.out.println("header len: "+headerLen);
 
             if(headerLen > 1<<16)
                 throw new IOException("state file corrupt");
@@ -271,6 +279,7 @@ public class StateFile{
                 File temp = new File(path+".tmp");
                 FileOutputStream tempOut = new FileOutputStream(temp);
                 tempOut.write(headerMagic);
+                System.out.println("header len: "+ header.toByteArray().length);
                 tempOut.write((byte) header.toByteArray().length);
                 tempOut.write(header.toByteArray());
                 tempOut.write(nonceSmear);
@@ -303,6 +312,12 @@ public class StateFile{
 
     public ReentrantReadWriteLock getLock() {
         return lock;
+    }
+
+    private void printBytes(byte[] b, int offset, int len) {
+        for(int i = offset; i < len; i++)
+            System.out.print((b[i])+",");
+        System.out.println();
     }
 
 
