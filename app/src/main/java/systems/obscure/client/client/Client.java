@@ -518,9 +518,12 @@ public class Client {
         LocalStorage.State state = stateFile.Read(KeyCachingService
                 .getMasterSecret(Globals.applicaiontContext).getEncryptionKey().getEncoded());
 
+        System.out.println(state.hasServer());System.out.println(state.hasIdentity());System.out.println(state.hasSeed());
         server = state.getServer();
+        System.out.println(state.getServer());
 
-        if(state.getIdentity().size() != identity.getPrivateKey().toBytes().length)
+        System.out.println(state.getIdentity().size());
+        if(state.getIdentity().size() != 32)
             throw new IOException("client: identity is wrong length in State");
 
         identity = new KeyPair(state.getIdentity().toByteArray());
@@ -637,6 +640,8 @@ public class Client {
                 e.printStackTrace();
             }
         }
+
+        System.out.println("StateFile loaded!");
     }
 
     public void save() {
@@ -741,6 +746,7 @@ public class Client {
         state.addAllOutbox(outbox);
         state.addAllDrafts(drafts);
 
+        System.out.println(state.build().getServer());
         System.out.println("building state thingy");
         writerChan.write(new NewState(state.build().toByteArray(), false, false));
         System.out.println("finished building state thingy");

@@ -167,6 +167,8 @@ public class StateFile{
             byte[] plain = new byte[length];
             plaintext.get(plain);
 
+            System.out.println("Statefile read!");
+
             return LocalStorage.State.parseFrom(plain);
         } catch (KeyException e) {
             e.printStackTrace();
@@ -242,17 +244,22 @@ public class StateFile{
             }
 
             byte[] plaintext = new byte[length];
-            for(int i = 4; i < s.length; i++){
-                plaintext[i] = s[i-4];
-            }
-            plaintext = ByteBuffer.wrap(plaintext).putInt(s.length).array();
+            rand.nextBytes(plaintext);
+            ByteBuffer plainbuffer = ByteBuffer.wrap(plaintext);
+            plainbuffer.putInt(s.length);
+            plainbuffer.put(s);
 
-            int l = s.length+4;
-            byte[] randPlain = new byte[length - l];
-            rand.nextBytes(randPlain);
-            for(int i = l; i< length; i++) {
-                plaintext[i] = randPlain[i-l];
-            }
+//            for(int i = 4; i < s.length; i++){
+//                plaintext[i] = s[i-4];
+//            }
+//            plaintext = ByteBuffer.wrap(plaintext).putInt(s.length).array();
+//
+//            int l = s.length+4;
+//            byte[] randPlain = new byte[length - l];
+//            rand.nextBytes(randPlain);
+//            for(int i = l; i< length; i++) {
+//                plaintext[i] = randPlain[i-l];
+//            }
 
             int smearCopies = header.getNonceSmearCopies();
 
@@ -275,7 +282,7 @@ public class StateFile{
                 effectiveKey[i] = (byte)(mask[i] ^ key[i]);
 
             SecretBox secretBox = new SecretBox(effectiveKey);
-            byte[] ciphertext = secretBox.encrypt(nonce, plaintext);
+            byte[] ciphertext = secretBox.encrypt(nonce, plainbuffer.array());
             System.out.println("Encrypted the state!!!");
             try {
                 File temp = new File(path+".tmp");
