@@ -211,6 +211,14 @@ message HMACStrike {
     repeated fixed64 hmacs = 1 [packed = true];
 }
 
+// HMACPair contains on pair of Hmac values to be shared between clients
+message HMACPair {
+
+    required bytes private_key = 1;
+
+    required fixed64 hmac_of_public_key = 5;
+}
+
 // KeyExchange is a message sent between clients to establish a relation. It's
 // always found inside a SignedKeyExchange.
 message KeyExchange {
@@ -220,21 +228,21 @@ message KeyExchange {
     // deliver a message to.)
     // Note: in the most up-to-date revision of the Pond ratchet, this
     // should be equal to |public_key|, modulo isomorphism.
-    // required bytes identity_public = 2;
+    required bytes identity_public = 2;
     // The URL of this user's home server.
-    required string server = 2;
+    required string server = 3;
     // A Curve25519, initial Diffie-Hellman value.
-    required bytes dh = 3;
+    required bytes dh = 4;
     // dh1 contains the second, curve25519, public key if the new-form
     // ratchet is being used.
-    optional bytes dh1 = 4;
+    required bytes dh1 = 5;
     // A serialised bbssig.Group.
     // required bytes group = 5;
     // A bbssig.PrivateKey to authorise message delivery.
     // required bytes group_key = 6;
     // hmac_of_public_key contains a 63-bit HMAC of public key using the
     // HMAC key known to server and recipient.
-    required fixed64 hmac_of_public_key = 5;
+    repeated HMACPair hmac_pairs = 6;
     // The generation number of |group|.
     // required uint32 generation = 6;
 }
@@ -272,6 +280,8 @@ message Message {
     // also_ack contains message ids for other messages that are also
     // acknowledged by this message.
     repeated uint64 also_ack = 10;
+
+    repeated HMACPair new_hmac_pairs = 11;
 
     message Attachment {
         required string filename = 1;

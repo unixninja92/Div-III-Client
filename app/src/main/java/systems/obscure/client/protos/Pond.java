@@ -10866,6 +10866,508 @@ public final class Pond {
     // @@protoc_insertion_point(class_scope:HMACStrike)
   }
 
+  public interface HMACPairOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:HMACPair)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required bytes private_key = 1;</code>
+     */
+    boolean hasPrivateKey();
+    /**
+     * <code>required bytes private_key = 1;</code>
+     */
+    com.google.protobuf.ByteString getPrivateKey();
+
+    /**
+     * <code>required fixed64 hmac_of_public_key = 5;</code>
+     */
+    boolean hasHmacOfPublicKey();
+    /**
+     * <code>required fixed64 hmac_of_public_key = 5;</code>
+     */
+    long getHmacOfPublicKey();
+  }
+  /**
+   * Protobuf type {@code HMACPair}
+   *
+   * <pre>
+   * HMACPair contains on pair of Hmac values to be shared between clients
+   * </pre>
+   */
+  public static final class HMACPair extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:HMACPair)
+      HMACPairOrBuilder {
+    // Use HMACPair.newBuilder() to construct.
+    private HMACPair(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private HMACPair(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final HMACPair defaultInstance;
+    public static HMACPair getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public HMACPair getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private HMACPair(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              privateKey_ = input.readBytes();
+              break;
+            }
+            case 41: {
+              bitField0_ |= 0x00000002;
+              hmacOfPublicKey_ = input.readFixed64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Pond.internal_static_protos_HMACPair_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Pond.internal_static_protos_HMACPair_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Pond.HMACPair.class, Pond.HMACPair.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<HMACPair> PARSER =
+        new com.google.protobuf.AbstractParser<HMACPair>() {
+      public HMACPair parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new HMACPair(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HMACPair> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int PRIVATE_KEY_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString privateKey_;
+    /**
+     * <code>required bytes private_key = 1;</code>
+     */
+    public boolean hasPrivateKey() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required bytes private_key = 1;</code>
+     */
+    public com.google.protobuf.ByteString getPrivateKey() {
+      return privateKey_;
+    }
+
+    public static final int HMAC_OF_PUBLIC_KEY_FIELD_NUMBER = 5;
+    private long hmacOfPublicKey_;
+    /**
+     * <code>required fixed64 hmac_of_public_key = 5;</code>
+     */
+    public boolean hasHmacOfPublicKey() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required fixed64 hmac_of_public_key = 5;</code>
+     */
+    public long getHmacOfPublicKey() {
+      return hmacOfPublicKey_;
+    }
+
+    private void initFields() {
+      privateKey_ = com.google.protobuf.ByteString.EMPTY;
+      hmacOfPublicKey_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasPrivateKey()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasHmacOfPublicKey()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, privateKey_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeFixed64(5, hmacOfPublicKey_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, privateKey_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(5, hmacOfPublicKey_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static Pond.HMACPair parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Pond.HMACPair parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Pond.HMACPair parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Pond.HMACPair parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Pond.HMACPair parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Pond.HMACPair parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static Pond.HMACPair parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static Pond.HMACPair parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static Pond.HMACPair parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Pond.HMACPair parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(Pond.HMACPair prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code HMACPair}
+     *
+     * <pre>
+     * HMACPair contains on pair of Hmac values to be shared between clients
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:HMACPair)
+        Pond.HMACPairOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Pond.internal_static_protos_HMACPair_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Pond.internal_static_protos_HMACPair_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Pond.HMACPair.class, Pond.HMACPair.Builder.class);
+      }
+
+      // Construct using Pond.HMACPair.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        privateKey_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        hmacOfPublicKey_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Pond.internal_static_protos_HMACPair_descriptor;
+      }
+
+      public Pond.HMACPair getDefaultInstanceForType() {
+        return Pond.HMACPair.getDefaultInstance();
+      }
+
+      public Pond.HMACPair build() {
+        Pond.HMACPair result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public Pond.HMACPair buildPartial() {
+        Pond.HMACPair result = new Pond.HMACPair(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.privateKey_ = privateKey_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.hmacOfPublicKey_ = hmacOfPublicKey_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Pond.HMACPair) {
+          return mergeFrom((Pond.HMACPair)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Pond.HMACPair other) {
+        if (other == Pond.HMACPair.getDefaultInstance()) return this;
+        if (other.hasPrivateKey()) {
+          setPrivateKey(other.getPrivateKey());
+        }
+        if (other.hasHmacOfPublicKey()) {
+          setHmacOfPublicKey(other.getHmacOfPublicKey());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasPrivateKey()) {
+          
+          return false;
+        }
+        if (!hasHmacOfPublicKey()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Pond.HMACPair parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Pond.HMACPair) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.ByteString privateKey_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>required bytes private_key = 1;</code>
+       */
+      public boolean hasPrivateKey() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required bytes private_key = 1;</code>
+       */
+      public com.google.protobuf.ByteString getPrivateKey() {
+        return privateKey_;
+      }
+      /**
+       * <code>required bytes private_key = 1;</code>
+       */
+      public Builder setPrivateKey(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        privateKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bytes private_key = 1;</code>
+       */
+      public Builder clearPrivateKey() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        privateKey_ = getDefaultInstance().getPrivateKey();
+        onChanged();
+        return this;
+      }
+
+      private long hmacOfPublicKey_ ;
+      /**
+       * <code>required fixed64 hmac_of_public_key = 5;</code>
+       */
+      public boolean hasHmacOfPublicKey() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required fixed64 hmac_of_public_key = 5;</code>
+       */
+      public long getHmacOfPublicKey() {
+        return hmacOfPublicKey_;
+      }
+      /**
+       * <code>required fixed64 hmac_of_public_key = 5;</code>
+       */
+      public Builder setHmacOfPublicKey(long value) {
+        bitField0_ |= 0x00000002;
+        hmacOfPublicKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required fixed64 hmac_of_public_key = 5;</code>
+       */
+      public Builder clearHmacOfPublicKey() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        hmacOfPublicKey_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:HMACPair)
+    }
+
+    static {
+      defaultInstance = new HMACPair(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:HMACPair)
+  }
+
   public interface KeyExchangeOrBuilder extends
       // @@protoc_insertion_point(interface_extends:KeyExchange)
       com.google.protobuf.MessageOrBuilder {
@@ -10888,40 +11390,48 @@ public final class Pond {
     com.google.protobuf.ByteString getPublicKey();
 
     /**
-     * <code>required string server = 2;</code>
+     * <code>required bytes identity_public = 2;</code>
      *
      * <pre>
      * Curve25519 public key. (Used to tell the server which account to
      * deliver a message to.)
      * Note: in the most up-to-date revision of the Pond ratchet, this
      * should be equal to |public_key|, modulo isomorphism.
-     * required bytes identity_public = 2;
+     * </pre>
+     */
+    boolean hasIdentityPublic();
+    /**
+     * <code>required bytes identity_public = 2;</code>
+     *
+     * <pre>
+     * Curve25519 public key. (Used to tell the server which account to
+     * deliver a message to.)
+     * Note: in the most up-to-date revision of the Pond ratchet, this
+     * should be equal to |public_key|, modulo isomorphism.
+     * </pre>
+     */
+    com.google.protobuf.ByteString getIdentityPublic();
+
+    /**
+     * <code>required string server = 3;</code>
+     *
+     * <pre>
      * The URL of this user's home server.
      * </pre>
      */
     boolean hasServer();
     /**
-     * <code>required string server = 2;</code>
+     * <code>required string server = 3;</code>
      *
      * <pre>
-     * Curve25519 public key. (Used to tell the server which account to
-     * deliver a message to.)
-     * Note: in the most up-to-date revision of the Pond ratchet, this
-     * should be equal to |public_key|, modulo isomorphism.
-     * required bytes identity_public = 2;
      * The URL of this user's home server.
      * </pre>
      */
     java.lang.String getServer();
     /**
-     * <code>required string server = 2;</code>
+     * <code>required string server = 3;</code>
      *
      * <pre>
-     * Curve25519 public key. (Used to tell the server which account to
-     * deliver a message to.)
-     * Note: in the most up-to-date revision of the Pond ratchet, this
-     * should be equal to |public_key|, modulo isomorphism.
-     * required bytes identity_public = 2;
      * The URL of this user's home server.
      * </pre>
      */
@@ -10929,7 +11439,7 @@ public final class Pond {
         getServerBytes();
 
     /**
-     * <code>required bytes dh = 3;</code>
+     * <code>required bytes dh = 4;</code>
      *
      * <pre>
      * A Curve25519, initial Diffie-Hellman value.
@@ -10937,7 +11447,7 @@ public final class Pond {
      */
     boolean hasDh();
     /**
-     * <code>required bytes dh = 3;</code>
+     * <code>required bytes dh = 4;</code>
      *
      * <pre>
      * A Curve25519, initial Diffie-Hellman value.
@@ -10946,7 +11456,7 @@ public final class Pond {
     com.google.protobuf.ByteString getDh();
 
     /**
-     * <code>optional bytes dh1 = 4;</code>
+     * <code>required bytes dh1 = 5;</code>
      *
      * <pre>
      * dh1 contains the second, curve25519, public key if the new-form
@@ -10955,7 +11465,7 @@ public final class Pond {
      */
     boolean hasDh1();
     /**
-     * <code>optional bytes dh1 = 4;</code>
+     * <code>required bytes dh1 = 5;</code>
      *
      * <pre>
      * dh1 contains the second, curve25519, public key if the new-form
@@ -10965,7 +11475,7 @@ public final class Pond {
     com.google.protobuf.ByteString getDh1();
 
     /**
-     * <code>required fixed64 hmac_of_public_key = 5;</code>
+     * <code>repeated .HMACPair hmac_pairs = 6;</code>
      *
      * <pre>
      * A serialised bbssig.Group.
@@ -10976,9 +11486,10 @@ public final class Pond {
      * HMAC key known to server and recipient.
      * </pre>
      */
-    boolean hasHmacOfPublicKey();
+    java.util.List<Pond.HMACPair> 
+        getHmacPairsList();
     /**
-     * <code>required fixed64 hmac_of_public_key = 5;</code>
+     * <code>repeated .HMACPair hmac_pairs = 6;</code>
      *
      * <pre>
      * A serialised bbssig.Group.
@@ -10989,7 +11500,48 @@ public final class Pond {
      * HMAC key known to server and recipient.
      * </pre>
      */
-    long getHmacOfPublicKey();
+    Pond.HMACPair getHmacPairs(int index);
+    /**
+     * <code>repeated .HMACPair hmac_pairs = 6;</code>
+     *
+     * <pre>
+     * A serialised bbssig.Group.
+     * required bytes group = 5;
+     * A bbssig.PrivateKey to authorise message delivery.
+     * required bytes group_key = 6;
+     * hmac_of_public_key contains a 63-bit HMAC of public key using the
+     * HMAC key known to server and recipient.
+     * </pre>
+     */
+    int getHmacPairsCount();
+    /**
+     * <code>repeated .HMACPair hmac_pairs = 6;</code>
+     *
+     * <pre>
+     * A serialised bbssig.Group.
+     * required bytes group = 5;
+     * A bbssig.PrivateKey to authorise message delivery.
+     * required bytes group_key = 6;
+     * hmac_of_public_key contains a 63-bit HMAC of public key using the
+     * HMAC key known to server and recipient.
+     * </pre>
+     */
+    java.util.List<? extends Pond.HMACPairOrBuilder> 
+        getHmacPairsOrBuilderList();
+    /**
+     * <code>repeated .HMACPair hmac_pairs = 6;</code>
+     *
+     * <pre>
+     * A serialised bbssig.Group.
+     * required bytes group = 5;
+     * A bbssig.PrivateKey to authorise message delivery.
+     * required bytes group_key = 6;
+     * hmac_of_public_key contains a 63-bit HMAC of public key using the
+     * HMAC key known to server and recipient.
+     * </pre>
+     */
+    Pond.HMACPairOrBuilder getHmacPairsOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code KeyExchange}
@@ -11054,24 +11606,32 @@ public final class Pond {
               break;
             }
             case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              server_ = bs;
+              identityPublic_ = input.readBytes();
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              dh_ = input.readBytes();
+              server_ = bs;
               break;
             }
             case 34: {
               bitField0_ |= 0x00000008;
+              dh_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              bitField0_ |= 0x00000010;
               dh1_ = input.readBytes();
               break;
             }
-            case 41: {
-              bitField0_ |= 0x00000010;
-              hmacOfPublicKey_ = input.readFixed64();
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                hmacPairs_ = new java.util.ArrayList<Pond.HMACPair>();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              hmacPairs_.add(input.readMessage(Pond.HMACPair.PARSER, extensionRegistry));
               break;
             }
           }
@@ -11082,6 +11642,9 @@ public final class Pond {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+          hmacPairs_ = java.util.Collections.unmodifiableList(hmacPairs_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -11137,32 +11700,51 @@ public final class Pond {
       return publicKey_;
     }
 
-    public static final int SERVER_FIELD_NUMBER = 2;
-    private java.lang.Object server_;
+    public static final int IDENTITY_PUBLIC_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString identityPublic_;
     /**
-     * <code>required string server = 2;</code>
+     * <code>required bytes identity_public = 2;</code>
      *
      * <pre>
      * Curve25519 public key. (Used to tell the server which account to
      * deliver a message to.)
      * Note: in the most up-to-date revision of the Pond ratchet, this
      * should be equal to |public_key|, modulo isomorphism.
-     * required bytes identity_public = 2;
+     * </pre>
+     */
+    public boolean hasIdentityPublic() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required bytes identity_public = 2;</code>
+     *
+     * <pre>
+     * Curve25519 public key. (Used to tell the server which account to
+     * deliver a message to.)
+     * Note: in the most up-to-date revision of the Pond ratchet, this
+     * should be equal to |public_key|, modulo isomorphism.
+     * </pre>
+     */
+    public com.google.protobuf.ByteString getIdentityPublic() {
+      return identityPublic_;
+    }
+
+    public static final int SERVER_FIELD_NUMBER = 3;
+    private java.lang.Object server_;
+    /**
+     * <code>required string server = 3;</code>
+     *
+     * <pre>
      * The URL of this user's home server.
      * </pre>
      */
     public boolean hasServer() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required string server = 2;</code>
+     * <code>required string server = 3;</code>
      *
      * <pre>
-     * Curve25519 public key. (Used to tell the server which account to
-     * deliver a message to.)
-     * Note: in the most up-to-date revision of the Pond ratchet, this
-     * should be equal to |public_key|, modulo isomorphism.
-     * required bytes identity_public = 2;
      * The URL of this user's home server.
      * </pre>
      */
@@ -11181,14 +11763,9 @@ public final class Pond {
       }
     }
     /**
-     * <code>required string server = 2;</code>
+     * <code>required string server = 3;</code>
      *
      * <pre>
-     * Curve25519 public key. (Used to tell the server which account to
-     * deliver a message to.)
-     * Note: in the most up-to-date revision of the Pond ratchet, this
-     * should be equal to |public_key|, modulo isomorphism.
-     * required bytes identity_public = 2;
      * The URL of this user's home server.
      * </pre>
      */
@@ -11206,20 +11783,20 @@ public final class Pond {
       }
     }
 
-    public static final int DH_FIELD_NUMBER = 3;
+    public static final int DH_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString dh_;
     /**
-     * <code>required bytes dh = 3;</code>
+     * <code>required bytes dh = 4;</code>
      *
      * <pre>
      * A Curve25519, initial Diffie-Hellman value.
      * </pre>
      */
     public boolean hasDh() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required bytes dh = 3;</code>
+     * <code>required bytes dh = 4;</code>
      *
      * <pre>
      * A Curve25519, initial Diffie-Hellman value.
@@ -11229,10 +11806,10 @@ public final class Pond {
       return dh_;
     }
 
-    public static final int DH1_FIELD_NUMBER = 4;
+    public static final int DH1_FIELD_NUMBER = 5;
     private com.google.protobuf.ByteString dh1_;
     /**
-     * <code>optional bytes dh1 = 4;</code>
+     * <code>required bytes dh1 = 5;</code>
      *
      * <pre>
      * dh1 contains the second, curve25519, public key if the new-form
@@ -11240,10 +11817,10 @@ public final class Pond {
      * </pre>
      */
     public boolean hasDh1() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional bytes dh1 = 4;</code>
+     * <code>required bytes dh1 = 5;</code>
      *
      * <pre>
      * dh1 contains the second, curve25519, public key if the new-form
@@ -11254,10 +11831,10 @@ public final class Pond {
       return dh1_;
     }
 
-    public static final int HMAC_OF_PUBLIC_KEY_FIELD_NUMBER = 5;
-    private long hmacOfPublicKey_;
+    public static final int HMAC_PAIRS_FIELD_NUMBER = 6;
+    private java.util.List<Pond.HMACPair> hmacPairs_;
     /**
-     * <code>required fixed64 hmac_of_public_key = 5;</code>
+     * <code>repeated .HMACPair hmac_pairs = 6;</code>
      *
      * <pre>
      * A serialised bbssig.Group.
@@ -11268,11 +11845,11 @@ public final class Pond {
      * HMAC key known to server and recipient.
      * </pre>
      */
-    public boolean hasHmacOfPublicKey() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+    public java.util.List<Pond.HMACPair> getHmacPairsList() {
+      return hmacPairs_;
     }
     /**
-     * <code>required fixed64 hmac_of_public_key = 5;</code>
+     * <code>repeated .HMACPair hmac_pairs = 6;</code>
      *
      * <pre>
      * A serialised bbssig.Group.
@@ -11283,16 +11860,64 @@ public final class Pond {
      * HMAC key known to server and recipient.
      * </pre>
      */
-    public long getHmacOfPublicKey() {
-      return hmacOfPublicKey_;
+    public java.util.List<? extends Pond.HMACPairOrBuilder> 
+        getHmacPairsOrBuilderList() {
+      return hmacPairs_;
+    }
+    /**
+     * <code>repeated .HMACPair hmac_pairs = 6;</code>
+     *
+     * <pre>
+     * A serialised bbssig.Group.
+     * required bytes group = 5;
+     * A bbssig.PrivateKey to authorise message delivery.
+     * required bytes group_key = 6;
+     * hmac_of_public_key contains a 63-bit HMAC of public key using the
+     * HMAC key known to server and recipient.
+     * </pre>
+     */
+    public int getHmacPairsCount() {
+      return hmacPairs_.size();
+    }
+    /**
+     * <code>repeated .HMACPair hmac_pairs = 6;</code>
+     *
+     * <pre>
+     * A serialised bbssig.Group.
+     * required bytes group = 5;
+     * A bbssig.PrivateKey to authorise message delivery.
+     * required bytes group_key = 6;
+     * hmac_of_public_key contains a 63-bit HMAC of public key using the
+     * HMAC key known to server and recipient.
+     * </pre>
+     */
+    public Pond.HMACPair getHmacPairs(int index) {
+      return hmacPairs_.get(index);
+    }
+    /**
+     * <code>repeated .HMACPair hmac_pairs = 6;</code>
+     *
+     * <pre>
+     * A serialised bbssig.Group.
+     * required bytes group = 5;
+     * A bbssig.PrivateKey to authorise message delivery.
+     * required bytes group_key = 6;
+     * hmac_of_public_key contains a 63-bit HMAC of public key using the
+     * HMAC key known to server and recipient.
+     * </pre>
+     */
+    public Pond.HMACPairOrBuilder getHmacPairsOrBuilder(
+        int index) {
+      return hmacPairs_.get(index);
     }
 
     private void initFields() {
       publicKey_ = com.google.protobuf.ByteString.EMPTY;
+      identityPublic_ = com.google.protobuf.ByteString.EMPTY;
       server_ = "";
       dh_ = com.google.protobuf.ByteString.EMPTY;
       dh1_ = com.google.protobuf.ByteString.EMPTY;
-      hmacOfPublicKey_ = 0L;
+      hmacPairs_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -11304,6 +11929,10 @@ public final class Pond {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasIdentityPublic()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       if (!hasServer()) {
         memoizedIsInitialized = 0;
         return false;
@@ -11312,9 +11941,15 @@ public final class Pond {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasHmacOfPublicKey()) {
+      if (!hasDh1()) {
         memoizedIsInitialized = 0;
         return false;
+      }
+      for (int i = 0; i < getHmacPairsCount(); i++) {
+        if (!getHmacPairs(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
       memoizedIsInitialized = 1;
       return true;
@@ -11327,16 +11962,19 @@ public final class Pond {
         output.writeBytes(1, publicKey_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getServerBytes());
+        output.writeBytes(2, identityPublic_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, dh_);
+        output.writeBytes(3, getServerBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, dh1_);
+        output.writeBytes(4, dh_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeFixed64(5, hmacOfPublicKey_);
+        output.writeBytes(5, dh1_);
+      }
+      for (int i = 0; i < hmacPairs_.size(); i++) {
+        output.writeMessage(6, hmacPairs_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -11353,19 +11991,23 @@ public final class Pond {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getServerBytes());
+          .computeBytesSize(2, identityPublic_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, dh_);
+          .computeBytesSize(3, getServerBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, dh1_);
+          .computeBytesSize(4, dh_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFixed64Size(5, hmacOfPublicKey_);
+          .computeBytesSize(5, dh1_);
+      }
+      for (int i = 0; i < hmacPairs_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, hmacPairs_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -11481,6 +12123,7 @@ public final class Pond {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getHmacPairsFieldBuilder();
         }
       }
       private static Builder create() {
@@ -11491,14 +12134,20 @@ public final class Pond {
         super.clear();
         publicKey_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        server_ = "";
+        identityPublic_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
-        dh_ = com.google.protobuf.ByteString.EMPTY;
+        server_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        dh1_ = com.google.protobuf.ByteString.EMPTY;
+        dh_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000008);
-        hmacOfPublicKey_ = 0L;
+        dh1_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000010);
+        if (hmacPairsBuilder_ == null) {
+          hmacPairs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        } else {
+          hmacPairsBuilder_.clear();
+        }
         return this;
       }
 
@@ -11534,19 +12183,28 @@ public final class Pond {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.server_ = server_;
+        result.identityPublic_ = identityPublic_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.dh_ = dh_;
+        result.server_ = server_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.dh1_ = dh1_;
+        result.dh_ = dh_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.hmacOfPublicKey_ = hmacOfPublicKey_;
+        result.dh1_ = dh1_;
+        if (hmacPairsBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020)) {
+            hmacPairs_ = java.util.Collections.unmodifiableList(hmacPairs_);
+            bitField0_ = (bitField0_ & ~0x00000020);
+          }
+          result.hmacPairs_ = hmacPairs_;
+        } else {
+          result.hmacPairs_ = hmacPairsBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -11566,8 +12224,11 @@ public final class Pond {
         if (other.hasPublicKey()) {
           setPublicKey(other.getPublicKey());
         }
+        if (other.hasIdentityPublic()) {
+          setIdentityPublic(other.getIdentityPublic());
+        }
         if (other.hasServer()) {
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
           server_ = other.server_;
           onChanged();
         }
@@ -11577,8 +12238,31 @@ public final class Pond {
         if (other.hasDh1()) {
           setDh1(other.getDh1());
         }
-        if (other.hasHmacOfPublicKey()) {
-          setHmacOfPublicKey(other.getHmacOfPublicKey());
+        if (hmacPairsBuilder_ == null) {
+          if (!other.hmacPairs_.isEmpty()) {
+            if (hmacPairs_.isEmpty()) {
+              hmacPairs_ = other.hmacPairs_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+            } else {
+              ensureHmacPairsIsMutable();
+              hmacPairs_.addAll(other.hmacPairs_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.hmacPairs_.isEmpty()) {
+            if (hmacPairsBuilder_.isEmpty()) {
+              hmacPairsBuilder_.dispose();
+              hmacPairsBuilder_ = null;
+              hmacPairs_ = other.hmacPairs_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+              hmacPairsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getHmacPairsFieldBuilder() : null;
+            } else {
+              hmacPairsBuilder_.addAllMessages(other.hmacPairs_);
+            }
+          }
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -11586,6 +12270,10 @@ public final class Pond {
 
       public final boolean isInitialized() {
         if (!hasPublicKey()) {
+          
+          return false;
+        }
+        if (!hasIdentityPublic()) {
           
           return false;
         }
@@ -11597,9 +12285,15 @@ public final class Pond {
           
           return false;
         }
-        if (!hasHmacOfPublicKey()) {
+        if (!hasDh1()) {
           
           return false;
+        }
+        for (int i = 0; i < getHmacPairsCount(); i++) {
+          if (!getHmacPairs(i).isInitialized()) {
+            
+            return false;
+          }
         }
         return true;
       }
@@ -11674,31 +12368,84 @@ public final class Pond {
         return this;
       }
 
-      private java.lang.Object server_ = "";
+      private com.google.protobuf.ByteString identityPublic_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required string server = 2;</code>
+       * <code>required bytes identity_public = 2;</code>
        *
        * <pre>
        * Curve25519 public key. (Used to tell the server which account to
        * deliver a message to.)
        * Note: in the most up-to-date revision of the Pond ratchet, this
        * should be equal to |public_key|, modulo isomorphism.
-       * required bytes identity_public = 2;
+       * </pre>
+       */
+      public boolean hasIdentityPublic() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required bytes identity_public = 2;</code>
+       *
+       * <pre>
+       * Curve25519 public key. (Used to tell the server which account to
+       * deliver a message to.)
+       * Note: in the most up-to-date revision of the Pond ratchet, this
+       * should be equal to |public_key|, modulo isomorphism.
+       * </pre>
+       */
+      public com.google.protobuf.ByteString getIdentityPublic() {
+        return identityPublic_;
+      }
+      /**
+       * <code>required bytes identity_public = 2;</code>
+       *
+       * <pre>
+       * Curve25519 public key. (Used to tell the server which account to
+       * deliver a message to.)
+       * Note: in the most up-to-date revision of the Pond ratchet, this
+       * should be equal to |public_key|, modulo isomorphism.
+       * </pre>
+       */
+      public Builder setIdentityPublic(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        identityPublic_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bytes identity_public = 2;</code>
+       *
+       * <pre>
+       * Curve25519 public key. (Used to tell the server which account to
+       * deliver a message to.)
+       * Note: in the most up-to-date revision of the Pond ratchet, this
+       * should be equal to |public_key|, modulo isomorphism.
+       * </pre>
+       */
+      public Builder clearIdentityPublic() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        identityPublic_ = getDefaultInstance().getIdentityPublic();
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object server_ = "";
+      /**
+       * <code>required string server = 3;</code>
+       *
+       * <pre>
        * The URL of this user's home server.
        * </pre>
        */
       public boolean hasServer() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required string server = 2;</code>
+       * <code>required string server = 3;</code>
        *
        * <pre>
-       * Curve25519 public key. (Used to tell the server which account to
-       * deliver a message to.)
-       * Note: in the most up-to-date revision of the Pond ratchet, this
-       * should be equal to |public_key|, modulo isomorphism.
-       * required bytes identity_public = 2;
        * The URL of this user's home server.
        * </pre>
        */
@@ -11717,14 +12464,9 @@ public final class Pond {
         }
       }
       /**
-       * <code>required string server = 2;</code>
+       * <code>required string server = 3;</code>
        *
        * <pre>
-       * Curve25519 public key. (Used to tell the server which account to
-       * deliver a message to.)
-       * Note: in the most up-to-date revision of the Pond ratchet, this
-       * should be equal to |public_key|, modulo isomorphism.
-       * required bytes identity_public = 2;
        * The URL of this user's home server.
        * </pre>
        */
@@ -11742,14 +12484,9 @@ public final class Pond {
         }
       }
       /**
-       * <code>required string server = 2;</code>
+       * <code>required string server = 3;</code>
        *
        * <pre>
-       * Curve25519 public key. (Used to tell the server which account to
-       * deliver a message to.)
-       * Note: in the most up-to-date revision of the Pond ratchet, this
-       * should be equal to |public_key|, modulo isomorphism.
-       * required bytes identity_public = 2;
        * The URL of this user's home server.
        * </pre>
        */
@@ -11758,38 +12495,28 @@ public final class Pond {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         server_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string server = 2;</code>
+       * <code>required string server = 3;</code>
        *
        * <pre>
-       * Curve25519 public key. (Used to tell the server which account to
-       * deliver a message to.)
-       * Note: in the most up-to-date revision of the Pond ratchet, this
-       * should be equal to |public_key|, modulo isomorphism.
-       * required bytes identity_public = 2;
        * The URL of this user's home server.
        * </pre>
        */
       public Builder clearServer() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         server_ = getDefaultInstance().getServer();
         onChanged();
         return this;
       }
       /**
-       * <code>required string server = 2;</code>
+       * <code>required string server = 3;</code>
        *
        * <pre>
-       * Curve25519 public key. (Used to tell the server which account to
-       * deliver a message to.)
-       * Note: in the most up-to-date revision of the Pond ratchet, this
-       * should be equal to |public_key|, modulo isomorphism.
-       * required bytes identity_public = 2;
        * The URL of this user's home server.
        * </pre>
        */
@@ -11798,7 +12525,7 @@ public final class Pond {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         server_ = value;
         onChanged();
         return this;
@@ -11806,17 +12533,17 @@ public final class Pond {
 
       private com.google.protobuf.ByteString dh_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required bytes dh = 3;</code>
+       * <code>required bytes dh = 4;</code>
        *
        * <pre>
        * A Curve25519, initial Diffie-Hellman value.
        * </pre>
        */
       public boolean hasDh() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required bytes dh = 3;</code>
+       * <code>required bytes dh = 4;</code>
        *
        * <pre>
        * A Curve25519, initial Diffie-Hellman value.
@@ -11826,7 +12553,7 @@ public final class Pond {
         return dh_;
       }
       /**
-       * <code>required bytes dh = 3;</code>
+       * <code>required bytes dh = 4;</code>
        *
        * <pre>
        * A Curve25519, initial Diffie-Hellman value.
@@ -11836,20 +12563,20 @@ public final class Pond {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         dh_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required bytes dh = 3;</code>
+       * <code>required bytes dh = 4;</code>
        *
        * <pre>
        * A Curve25519, initial Diffie-Hellman value.
        * </pre>
        */
       public Builder clearDh() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         dh_ = getDefaultInstance().getDh();
         onChanged();
         return this;
@@ -11857,7 +12584,7 @@ public final class Pond {
 
       private com.google.protobuf.ByteString dh1_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>optional bytes dh1 = 4;</code>
+       * <code>required bytes dh1 = 5;</code>
        *
        * <pre>
        * dh1 contains the second, curve25519, public key if the new-form
@@ -11865,10 +12592,10 @@ public final class Pond {
        * </pre>
        */
       public boolean hasDh1() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional bytes dh1 = 4;</code>
+       * <code>required bytes dh1 = 5;</code>
        *
        * <pre>
        * dh1 contains the second, curve25519, public key if the new-form
@@ -11879,7 +12606,7 @@ public final class Pond {
         return dh1_;
       }
       /**
-       * <code>optional bytes dh1 = 4;</code>
+       * <code>required bytes dh1 = 5;</code>
        *
        * <pre>
        * dh1 contains the second, curve25519, public key if the new-form
@@ -11890,13 +12617,13 @@ public final class Pond {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         dh1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bytes dh1 = 4;</code>
+       * <code>required bytes dh1 = 5;</code>
        *
        * <pre>
        * dh1 contains the second, curve25519, public key if the new-form
@@ -11904,15 +12631,26 @@ public final class Pond {
        * </pre>
        */
       public Builder clearDh1() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         dh1_ = getDefaultInstance().getDh1();
         onChanged();
         return this;
       }
 
-      private long hmacOfPublicKey_ ;
+      private java.util.List<Pond.HMACPair> hmacPairs_ =
+        java.util.Collections.emptyList();
+      private void ensureHmacPairsIsMutable() {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+          hmacPairs_ = new java.util.ArrayList<Pond.HMACPair>(hmacPairs_);
+          bitField0_ |= 0x00000020;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> hmacPairsBuilder_;
+
       /**
-       * <code>required fixed64 hmac_of_public_key = 5;</code>
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
        *
        * <pre>
        * A serialised bbssig.Group.
@@ -11923,11 +12661,15 @@ public final class Pond {
        * HMAC key known to server and recipient.
        * </pre>
        */
-      public boolean hasHmacOfPublicKey() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+      public java.util.List<Pond.HMACPair> getHmacPairsList() {
+        if (hmacPairsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(hmacPairs_);
+        } else {
+          return hmacPairsBuilder_.getMessageList();
+        }
       }
       /**
-       * <code>required fixed64 hmac_of_public_key = 5;</code>
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
        *
        * <pre>
        * A serialised bbssig.Group.
@@ -11938,11 +12680,15 @@ public final class Pond {
        * HMAC key known to server and recipient.
        * </pre>
        */
-      public long getHmacOfPublicKey() {
-        return hmacOfPublicKey_;
+      public int getHmacPairsCount() {
+        if (hmacPairsBuilder_ == null) {
+          return hmacPairs_.size();
+        } else {
+          return hmacPairsBuilder_.getCount();
+        }
       }
       /**
-       * <code>required fixed64 hmac_of_public_key = 5;</code>
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
        *
        * <pre>
        * A serialised bbssig.Group.
@@ -11953,14 +12699,41 @@ public final class Pond {
        * HMAC key known to server and recipient.
        * </pre>
        */
-      public Builder setHmacOfPublicKey(long value) {
-        bitField0_ |= 0x00000010;
-        hmacOfPublicKey_ = value;
-        onChanged();
+      public Pond.HMACPair getHmacPairs(int index) {
+        if (hmacPairsBuilder_ == null) {
+          return hmacPairs_.get(index);
+        } else {
+          return hmacPairsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public Builder setHmacPairs(
+          int index, Pond.HMACPair value) {
+        if (hmacPairsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHmacPairsIsMutable();
+          hmacPairs_.set(index, value);
+          onChanged();
+        } else {
+          hmacPairsBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>required fixed64 hmac_of_public_key = 5;</code>
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
        *
        * <pre>
        * A serialised bbssig.Group.
@@ -11971,11 +12744,299 @@ public final class Pond {
        * HMAC key known to server and recipient.
        * </pre>
        */
-      public Builder clearHmacOfPublicKey() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        hmacOfPublicKey_ = 0L;
-        onChanged();
+      public Builder setHmacPairs(
+          int index, Pond.HMACPair.Builder builderForValue) {
+        if (hmacPairsBuilder_ == null) {
+          ensureHmacPairsIsMutable();
+          hmacPairs_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          hmacPairsBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public Builder addHmacPairs(Pond.HMACPair value) {
+        if (hmacPairsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHmacPairsIsMutable();
+          hmacPairs_.add(value);
+          onChanged();
+        } else {
+          hmacPairsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public Builder addHmacPairs(
+          int index, Pond.HMACPair value) {
+        if (hmacPairsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHmacPairsIsMutable();
+          hmacPairs_.add(index, value);
+          onChanged();
+        } else {
+          hmacPairsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public Builder addHmacPairs(
+          Pond.HMACPair.Builder builderForValue) {
+        if (hmacPairsBuilder_ == null) {
+          ensureHmacPairsIsMutable();
+          hmacPairs_.add(builderForValue.build());
+          onChanged();
+        } else {
+          hmacPairsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public Builder addHmacPairs(
+          int index, Pond.HMACPair.Builder builderForValue) {
+        if (hmacPairsBuilder_ == null) {
+          ensureHmacPairsIsMutable();
+          hmacPairs_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          hmacPairsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public Builder addAllHmacPairs(
+          java.lang.Iterable<? extends Pond.HMACPair> values) {
+        if (hmacPairsBuilder_ == null) {
+          ensureHmacPairsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, hmacPairs_);
+          onChanged();
+        } else {
+          hmacPairsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public Builder clearHmacPairs() {
+        if (hmacPairsBuilder_ == null) {
+          hmacPairs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+          onChanged();
+        } else {
+          hmacPairsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public Builder removeHmacPairs(int index) {
+        if (hmacPairsBuilder_ == null) {
+          ensureHmacPairsIsMutable();
+          hmacPairs_.remove(index);
+          onChanged();
+        } else {
+          hmacPairsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public Pond.HMACPair.Builder getHmacPairsBuilder(
+          int index) {
+        return getHmacPairsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public Pond.HMACPairOrBuilder getHmacPairsOrBuilder(
+          int index) {
+        if (hmacPairsBuilder_ == null) {
+          return hmacPairs_.get(index);  } else {
+          return hmacPairsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public java.util.List<? extends Pond.HMACPairOrBuilder> 
+           getHmacPairsOrBuilderList() {
+        if (hmacPairsBuilder_ != null) {
+          return hmacPairsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(hmacPairs_);
+        }
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public Pond.HMACPair.Builder addHmacPairsBuilder() {
+        return getHmacPairsFieldBuilder().addBuilder(
+            Pond.HMACPair.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public Pond.HMACPair.Builder addHmacPairsBuilder(
+          int index) {
+        return getHmacPairsFieldBuilder().addBuilder(
+            index, Pond.HMACPair.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .HMACPair hmac_pairs = 6;</code>
+       *
+       * <pre>
+       * A serialised bbssig.Group.
+       * required bytes group = 5;
+       * A bbssig.PrivateKey to authorise message delivery.
+       * required bytes group_key = 6;
+       * hmac_of_public_key contains a 63-bit HMAC of public key using the
+       * HMAC key known to server and recipient.
+       * </pre>
+       */
+      public java.util.List<Pond.HMACPair.Builder> 
+           getHmacPairsBuilderList() {
+        return getHmacPairsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> 
+          getHmacPairsFieldBuilder() {
+        if (hmacPairsBuilder_ == null) {
+          hmacPairsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder>(
+                  hmacPairs_,
+                  ((bitField0_ & 0x00000020) == 0x00000020),
+                  getParentForChildren(),
+                  isClean());
+          hmacPairs_ = null;
+        }
+        return hmacPairsBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:KeyExchange)
@@ -12699,6 +13760,30 @@ public final class Pond {
     long getAlsoAck(int index);
 
     /**
+     * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+     */
+    java.util.List<Pond.HMACPair> 
+        getNewHmacPairsList();
+    /**
+     * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+     */
+    Pond.HMACPair getNewHmacPairs(int index);
+    /**
+     * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+     */
+    int getNewHmacPairsCount();
+    /**
+     * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+     */
+    java.util.List<? extends Pond.HMACPairOrBuilder> 
+        getNewHmacPairsOrBuilderList();
+    /**
+     * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+     */
+    Pond.HMACPairOrBuilder getNewHmacPairsOrBuilder(
+        int index);
+
+    /**
      * <code>repeated .Message.Attachment files = 7;</code>
      */
     java.util.List<Pond.Message.Attachment> 
@@ -12859,17 +13944,17 @@ public final class Pond {
               break;
             }
             case 58: {
-              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
                 files_ = new java.util.ArrayList<Pond.Message.Attachment>();
-                mutable_bitField0_ |= 0x00000080;
+                mutable_bitField0_ |= 0x00000100;
               }
               files_.add(input.readMessage(Pond.Message.Attachment.PARSER, extensionRegistry));
               break;
             }
             case 66: {
-              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+              if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
                 detachedFiles_ = new java.util.ArrayList<Pond.Message.Detachment>();
-                mutable_bitField0_ |= 0x00000100;
+                mutable_bitField0_ |= 0x00000200;
               }
               detachedFiles_.add(input.readMessage(Pond.Message.Detachment.PARSER, extensionRegistry));
               break;
@@ -12900,6 +13985,14 @@ public final class Pond {
               input.popLimit(limit);
               break;
             }
+            case 90: {
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                newHmacPairs_ = new java.util.ArrayList<Pond.HMACPair>();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              newHmacPairs_.add(input.readMessage(Pond.HMACPair.PARSER, extensionRegistry));
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -12908,14 +14001,17 @@ public final class Pond {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
           files_ = java.util.Collections.unmodifiableList(files_);
         }
-        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+        if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
           detachedFiles_ = java.util.Collections.unmodifiableList(detachedFiles_);
         }
         if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
           alsoAck_ = java.util.Collections.unmodifiableList(alsoAck_);
+        }
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+          newHmacPairs_ = java.util.Collections.unmodifiableList(newHmacPairs_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -14763,6 +15859,41 @@ public final class Pond {
       return alsoAck_.get(index);
     }
 
+    public static final int NEW_HMAC_PAIRS_FIELD_NUMBER = 11;
+    private java.util.List<Pond.HMACPair> newHmacPairs_;
+    /**
+     * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+     */
+    public java.util.List<Pond.HMACPair> getNewHmacPairsList() {
+      return newHmacPairs_;
+    }
+    /**
+     * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+     */
+    public java.util.List<? extends Pond.HMACPairOrBuilder> 
+        getNewHmacPairsOrBuilderList() {
+      return newHmacPairs_;
+    }
+    /**
+     * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+     */
+    public int getNewHmacPairsCount() {
+      return newHmacPairs_.size();
+    }
+    /**
+     * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+     */
+    public Pond.HMACPair getNewHmacPairs(int index) {
+      return newHmacPairs_.get(index);
+    }
+    /**
+     * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+     */
+    public Pond.HMACPairOrBuilder getNewHmacPairsOrBuilder(
+        int index) {
+      return newHmacPairs_.get(index);
+    }
+
     public static final int FILES_FIELD_NUMBER = 7;
     private java.util.List<Pond.Message.Attachment> files_;
     /**
@@ -14866,6 +15997,7 @@ public final class Pond {
       myNextDh_ = com.google.protobuf.ByteString.EMPTY;
       inReplyTo_ = 0L;
       alsoAck_ = java.util.Collections.emptyList();
+      newHmacPairs_ = java.util.Collections.emptyList();
       files_ = java.util.Collections.emptyList();
       detachedFiles_ = java.util.Collections.emptyList();
       supportedVersion_ = 0;
@@ -14887,6 +16019,12 @@ public final class Pond {
       if (!hasBody()) {
         memoizedIsInitialized = 0;
         return false;
+      }
+      for (int i = 0; i < getNewHmacPairsCount(); i++) {
+        if (!getNewHmacPairs(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
       for (int i = 0; i < getFilesCount(); i++) {
         if (!getFiles(i).isInitialized()) {
@@ -14936,6 +16074,9 @@ public final class Pond {
       }
       for (int i = 0; i < alsoAck_.size(); i++) {
         output.writeUInt64(10, alsoAck_.get(i));
+      }
+      for (int i = 0; i < newHmacPairs_.size(); i++) {
+        output.writeMessage(11, newHmacPairs_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -14990,6 +16131,10 @@ public final class Pond {
         }
         size += dataSize;
         size += 1 * getAlsoAckList().size();
+      }
+      for (int i = 0; i < newHmacPairs_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, newHmacPairs_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -15105,6 +16250,7 @@ public final class Pond {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getNewHmacPairsFieldBuilder();
           getFilesFieldBuilder();
           getDetachedFilesFieldBuilder();
         }
@@ -15129,20 +16275,26 @@ public final class Pond {
         bitField0_ = (bitField0_ & ~0x00000020);
         alsoAck_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000040);
+        if (newHmacPairsBuilder_ == null) {
+          newHmacPairs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000080);
+        } else {
+          newHmacPairsBuilder_.clear();
+        }
         if (filesBuilder_ == null) {
           files_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00000100);
         } else {
           filesBuilder_.clear();
         }
         if (detachedFilesBuilder_ == null) {
           detachedFiles_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00000200);
         } else {
           detachedFilesBuilder_.clear();
         }
         supportedVersion_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
 
@@ -15200,25 +16352,34 @@ public final class Pond {
           bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.alsoAck_ = alsoAck_;
-        if (filesBuilder_ == null) {
+        if (newHmacPairsBuilder_ == null) {
           if (((bitField0_ & 0x00000080) == 0x00000080)) {
-            files_ = java.util.Collections.unmodifiableList(files_);
+            newHmacPairs_ = java.util.Collections.unmodifiableList(newHmacPairs_);
             bitField0_ = (bitField0_ & ~0x00000080);
+          }
+          result.newHmacPairs_ = newHmacPairs_;
+        } else {
+          result.newHmacPairs_ = newHmacPairsBuilder_.build();
+        }
+        if (filesBuilder_ == null) {
+          if (((bitField0_ & 0x00000100) == 0x00000100)) {
+            files_ = java.util.Collections.unmodifiableList(files_);
+            bitField0_ = (bitField0_ & ~0x00000100);
           }
           result.files_ = files_;
         } else {
           result.files_ = filesBuilder_.build();
         }
         if (detachedFilesBuilder_ == null) {
-          if (((bitField0_ & 0x00000100) == 0x00000100)) {
+          if (((bitField0_ & 0x00000200) == 0x00000200)) {
             detachedFiles_ = java.util.Collections.unmodifiableList(detachedFiles_);
-            bitField0_ = (bitField0_ & ~0x00000100);
+            bitField0_ = (bitField0_ & ~0x00000200);
           }
           result.detachedFiles_ = detachedFiles_;
         } else {
           result.detachedFiles_ = detachedFilesBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000040;
         }
         result.supportedVersion_ = supportedVersion_;
@@ -15266,11 +16427,37 @@ public final class Pond {
           }
           onChanged();
         }
+        if (newHmacPairsBuilder_ == null) {
+          if (!other.newHmacPairs_.isEmpty()) {
+            if (newHmacPairs_.isEmpty()) {
+              newHmacPairs_ = other.newHmacPairs_;
+              bitField0_ = (bitField0_ & ~0x00000080);
+            } else {
+              ensureNewHmacPairsIsMutable();
+              newHmacPairs_.addAll(other.newHmacPairs_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.newHmacPairs_.isEmpty()) {
+            if (newHmacPairsBuilder_.isEmpty()) {
+              newHmacPairsBuilder_.dispose();
+              newHmacPairsBuilder_ = null;
+              newHmacPairs_ = other.newHmacPairs_;
+              bitField0_ = (bitField0_ & ~0x00000080);
+              newHmacPairsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getNewHmacPairsFieldBuilder() : null;
+            } else {
+              newHmacPairsBuilder_.addAllMessages(other.newHmacPairs_);
+            }
+          }
+        }
         if (filesBuilder_ == null) {
           if (!other.files_.isEmpty()) {
             if (files_.isEmpty()) {
               files_ = other.files_;
-              bitField0_ = (bitField0_ & ~0x00000080);
+              bitField0_ = (bitField0_ & ~0x00000100);
             } else {
               ensureFilesIsMutable();
               files_.addAll(other.files_);
@@ -15283,7 +16470,7 @@ public final class Pond {
               filesBuilder_.dispose();
               filesBuilder_ = null;
               files_ = other.files_;
-              bitField0_ = (bitField0_ & ~0x00000080);
+              bitField0_ = (bitField0_ & ~0x00000100);
               filesBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getFilesFieldBuilder() : null;
@@ -15296,7 +16483,7 @@ public final class Pond {
           if (!other.detachedFiles_.isEmpty()) {
             if (detachedFiles_.isEmpty()) {
               detachedFiles_ = other.detachedFiles_;
-              bitField0_ = (bitField0_ & ~0x00000100);
+              bitField0_ = (bitField0_ & ~0x00000200);
             } else {
               ensureDetachedFilesIsMutable();
               detachedFiles_.addAll(other.detachedFiles_);
@@ -15309,7 +16496,7 @@ public final class Pond {
               detachedFilesBuilder_.dispose();
               detachedFilesBuilder_ = null;
               detachedFiles_ = other.detachedFiles_;
-              bitField0_ = (bitField0_ & ~0x00000100);
+              bitField0_ = (bitField0_ & ~0x00000200);
               detachedFilesBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getDetachedFilesFieldBuilder() : null;
@@ -15337,6 +16524,12 @@ public final class Pond {
         if (!hasBody()) {
           
           return false;
+        }
+        for (int i = 0; i < getNewHmacPairsCount(); i++) {
+          if (!getNewHmacPairs(i).isInitialized()) {
+            
+            return false;
+          }
         }
         for (int i = 0; i < getFilesCount(); i++) {
           if (!getFiles(i).isInitialized()) {
@@ -15762,12 +16955,252 @@ public final class Pond {
         return this;
       }
 
+      private java.util.List<Pond.HMACPair> newHmacPairs_ =
+        java.util.Collections.emptyList();
+      private void ensureNewHmacPairsIsMutable() {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+          newHmacPairs_ = new java.util.ArrayList<Pond.HMACPair>(newHmacPairs_);
+          bitField0_ |= 0x00000080;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> newHmacPairsBuilder_;
+
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public java.util.List<Pond.HMACPair> getNewHmacPairsList() {
+        if (newHmacPairsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(newHmacPairs_);
+        } else {
+          return newHmacPairsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public int getNewHmacPairsCount() {
+        if (newHmacPairsBuilder_ == null) {
+          return newHmacPairs_.size();
+        } else {
+          return newHmacPairsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Pond.HMACPair getNewHmacPairs(int index) {
+        if (newHmacPairsBuilder_ == null) {
+          return newHmacPairs_.get(index);
+        } else {
+          return newHmacPairsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Builder setNewHmacPairs(
+          int index, Pond.HMACPair value) {
+        if (newHmacPairsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNewHmacPairsIsMutable();
+          newHmacPairs_.set(index, value);
+          onChanged();
+        } else {
+          newHmacPairsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Builder setNewHmacPairs(
+          int index, Pond.HMACPair.Builder builderForValue) {
+        if (newHmacPairsBuilder_ == null) {
+          ensureNewHmacPairsIsMutable();
+          newHmacPairs_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          newHmacPairsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Builder addNewHmacPairs(Pond.HMACPair value) {
+        if (newHmacPairsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNewHmacPairsIsMutable();
+          newHmacPairs_.add(value);
+          onChanged();
+        } else {
+          newHmacPairsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Builder addNewHmacPairs(
+          int index, Pond.HMACPair value) {
+        if (newHmacPairsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNewHmacPairsIsMutable();
+          newHmacPairs_.add(index, value);
+          onChanged();
+        } else {
+          newHmacPairsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Builder addNewHmacPairs(
+          Pond.HMACPair.Builder builderForValue) {
+        if (newHmacPairsBuilder_ == null) {
+          ensureNewHmacPairsIsMutable();
+          newHmacPairs_.add(builderForValue.build());
+          onChanged();
+        } else {
+          newHmacPairsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Builder addNewHmacPairs(
+          int index, Pond.HMACPair.Builder builderForValue) {
+        if (newHmacPairsBuilder_ == null) {
+          ensureNewHmacPairsIsMutable();
+          newHmacPairs_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          newHmacPairsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Builder addAllNewHmacPairs(
+          java.lang.Iterable<? extends Pond.HMACPair> values) {
+        if (newHmacPairsBuilder_ == null) {
+          ensureNewHmacPairsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, newHmacPairs_);
+          onChanged();
+        } else {
+          newHmacPairsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Builder clearNewHmacPairs() {
+        if (newHmacPairsBuilder_ == null) {
+          newHmacPairs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000080);
+          onChanged();
+        } else {
+          newHmacPairsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Builder removeNewHmacPairs(int index) {
+        if (newHmacPairsBuilder_ == null) {
+          ensureNewHmacPairsIsMutable();
+          newHmacPairs_.remove(index);
+          onChanged();
+        } else {
+          newHmacPairsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Pond.HMACPair.Builder getNewHmacPairsBuilder(
+          int index) {
+        return getNewHmacPairsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Pond.HMACPairOrBuilder getNewHmacPairsOrBuilder(
+          int index) {
+        if (newHmacPairsBuilder_ == null) {
+          return newHmacPairs_.get(index);  } else {
+          return newHmacPairsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public java.util.List<? extends Pond.HMACPairOrBuilder> 
+           getNewHmacPairsOrBuilderList() {
+        if (newHmacPairsBuilder_ != null) {
+          return newHmacPairsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(newHmacPairs_);
+        }
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Pond.HMACPair.Builder addNewHmacPairsBuilder() {
+        return getNewHmacPairsFieldBuilder().addBuilder(
+            Pond.HMACPair.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public Pond.HMACPair.Builder addNewHmacPairsBuilder(
+          int index) {
+        return getNewHmacPairsFieldBuilder().addBuilder(
+            index, Pond.HMACPair.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
+       */
+      public java.util.List<Pond.HMACPair.Builder> 
+           getNewHmacPairsBuilderList() {
+        return getNewHmacPairsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> 
+          getNewHmacPairsFieldBuilder() {
+        if (newHmacPairsBuilder_ == null) {
+          newHmacPairsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder>(
+                  newHmacPairs_,
+                  ((bitField0_ & 0x00000080) == 0x00000080),
+                  getParentForChildren(),
+                  isClean());
+          newHmacPairs_ = null;
+        }
+        return newHmacPairsBuilder_;
+      }
+
       private java.util.List<Pond.Message.Attachment> files_ =
         java.util.Collections.emptyList();
       private void ensureFilesIsMutable() {
-        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
           files_ = new java.util.ArrayList<Pond.Message.Attachment>(files_);
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000100;
          }
       }
 
@@ -15917,7 +17350,7 @@ public final class Pond {
       public Builder clearFiles() {
         if (filesBuilder_ == null) {
           files_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00000100);
           onChanged();
         } else {
           filesBuilder_.clear();
@@ -15994,7 +17427,7 @@ public final class Pond {
           filesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               Pond.Message.Attachment, Pond.Message.Attachment.Builder, Pond.Message.AttachmentOrBuilder>(
                   files_,
-                  ((bitField0_ & 0x00000080) == 0x00000080),
+                  ((bitField0_ & 0x00000100) == 0x00000100),
                   getParentForChildren(),
                   isClean());
           files_ = null;
@@ -16005,9 +17438,9 @@ public final class Pond {
       private java.util.List<Pond.Message.Detachment> detachedFiles_ =
         java.util.Collections.emptyList();
       private void ensureDetachedFilesIsMutable() {
-        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
+        if (!((bitField0_ & 0x00000200) == 0x00000200)) {
           detachedFiles_ = new java.util.ArrayList<Pond.Message.Detachment>(detachedFiles_);
-          bitField0_ |= 0x00000100;
+          bitField0_ |= 0x00000200;
          }
       }
 
@@ -16157,7 +17590,7 @@ public final class Pond {
       public Builder clearDetachedFiles() {
         if (detachedFilesBuilder_ == null) {
           detachedFiles_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00000200);
           onChanged();
         } else {
           detachedFilesBuilder_.clear();
@@ -16234,7 +17667,7 @@ public final class Pond {
           detachedFilesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               Pond.Message.Detachment, Pond.Message.Detachment.Builder, Pond.Message.DetachmentOrBuilder>(
                   detachedFiles_,
-                  ((bitField0_ & 0x00000100) == 0x00000100),
+                  ((bitField0_ & 0x00000200) == 0x00000200),
                   getParentForChildren(),
                   isClean());
           detachedFiles_ = null;
@@ -16252,7 +17685,7 @@ public final class Pond {
        * </pre>
        */
       public boolean hasSupportedVersion() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
        * <code>optional int32 supported_version = 9;</code>
@@ -16274,7 +17707,7 @@ public final class Pond {
        * </pre>
        */
       public Builder setSupportedVersion(int value) {
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         supportedVersion_ = value;
         onChanged();
         return this;
@@ -16288,7 +17721,7 @@ public final class Pond {
        * </pre>
        */
       public Builder clearSupportedVersion() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         supportedVersion_ = 0;
         onChanged();
         return this;
@@ -16381,6 +17814,11 @@ public final class Pond {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_protos_HMACStrike_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_HMACPair_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_protos_HMACPair_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_KeyExchange_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -16456,23 +17894,27 @@ public final class Pond {
       "\n\010Download\022\014\n\004from\030\001 \002(\014\022\n\n\002id\030\002 \002(\006\022\016\n\006",
       "resume\030\003 \001(\003\"\035\n\rDownloadReply\022\014\n\004size\030\001 " +
       "\002(\003\"\035\n\tHMACSetup\022\020\n\010hmac_key\030\001 \002(\014\"\037\n\nHM" +
-      "ACStrike\022\021\n\005hmacs\030\001 \003(\006B\002\020\001\"f\n\013KeyExchan" +
-      "ge\022\022\n\npublic_key\030\001 \002(\014\022\016\n\006server\030\002 \002(\t\022\n" +
-      "\n\002dh\030\003 \002(\014\022\013\n\003dh1\030\004 \001(\014\022\032\n\022hmac_of_publi" +
-      "c_key\030\005 \002(\006\"6\n\021SignedKeyExchange\022\016\n\006sign" +
-      "ed\030\001 \002(\014\022\021\n\tsignature\030\002 \002(\014\"\331\003\n\007Message\022" +
-      "\n\n\002id\030\001 \002(\006\022\014\n\004time\030\002 \002(\003\022\014\n\004body\030\003 \002(\014\022" +
-      "/\n\rbody_encoding\030\004 \001(\0162\030.Message." +
-      "Encoding\022\022\n\nmy_next_dh\030\005 \001(\014\022\023\n\013in_reply",
-      "_to\030\006 \001(\004\022\020\n\010also_ack\030\n \003(\004\022)\n\005files\030\007 \003" +
-      "(\0132\032.Message.Attachment\0222\n\016detach" +
-      "ed_files\030\010 \003(\0132\032.Message.Detachme" +
-      "nt\022\031\n\021supported_version\030\t \001(\005\0320\n\nAttachm" +
-      "ent\022\020\n\010filename\030\001 \002(\t\022\020\n\010contents\030\002 \002(\014\032" +
-      "o\n\nDetachment\022\020\n\010filename\030\001 \002(\t\022\014\n\004size\030" +
-      "\002 \002(\004\022\023\n\013padded_size\030\003 \002(\004\022\022\n\nchunk_size" +
-      "\030\004 \002(\r\022\013\n\003key\030\005 \002(\014\022\013\n\003url\030\006 \001(\t\"\035\n\010Enco" +
-      "ding\022\007\n\003RAW\020\000\022\010\n\004GZIP\020\001"
+      "ACStrike\022\021\n\005hmacs\030\001 \003(\006B\002\020\001\";\n\010HMACPair\022" +
+      "\023\n\013private_key\030\001 \002(\014\022\032\n\022hmac_of_public_k" +
+      "ey\030\005 \002(\006\"\211\001\n\013KeyExchange\022\022\n\npublic_key\030\001" +
+      " \002(\014\022\027\n\017identity_public\030\002 \002(\014\022\016\n\006server\030" +
+      "\003 \002(\t\022\n\n\002dh\030\004 \002(\014\022\013\n\003dh1\030\005 \002(\014\022$\n\nhmac_p" +
+      "airs\030\006 \003(\0132\020.HMACPair\"6\n\021SignedKe" +
+      "yExchange\022\016\n\006signed\030\001 \002(\014\022\021\n\tsignature\030\002" +
+      " \002(\014\"\203\004\n\007Message\022\n\n\002id\030\001 \002(\006\022\014\n\004time\030\002 \002",
+      "(\003\022\014\n\004body\030\003 \002(\014\022/\n\rbody_encoding\030\004 \001(\0162" +
+      "\030.Message.Encoding\022\022\n\nmy_next_dh\030" +
+      "\005 \001(\014\022\023\n\013in_reply_to\030\006 \001(\004\022\020\n\010also_ack\030\n" +
+      " \003(\004\022(\n\016new_hmac_pairs\030\013 \003(\0132\020.HM" +
+      "ACPair\022)\n\005files\030\007 \003(\0132\032.Message.A" +
+      "ttachment\0222\n\016detached_files\030\010 \003(\0132\032.prot" +
+      "os.Message.Detachment\022\031\n\021supported_versi" +
+      "on\030\t \001(\005\0320\n\nAttachment\022\020\n\010filename\030\001 \002(\t" +
+      "\022\020\n\010contents\030\002 \002(\014\032o\n\nDetachment\022\020\n\010file" +
+      "name\030\001 \002(\t\022\014\n\004size\030\002 \002(\004\022\023\n\013padded_size\030",
+      "\003 \002(\004\022\022\n\nchunk_size\030\004 \002(\r\022\013\n\003key\030\005 \002(\014\022\013" +
+      "\n\003url\030\006 \001(\t\"\035\n\010Encoding\022\007\n\003RAW\020\000\022\010\n\004GZIP" +
+      "\020\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -16576,24 +18018,30 @@ public final class Pond {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_protos_HMACStrike_descriptor,
         new java.lang.String[] { "Hmacs", });
-    internal_static_protos_KeyExchange_descriptor =
+    internal_static_protos_HMACPair_descriptor =
       getDescriptor().getMessageTypes().get(15);
+    internal_static_protos_HMACPair_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_protos_HMACPair_descriptor,
+        new java.lang.String[] { "PrivateKey", "HmacOfPublicKey", });
+    internal_static_protos_KeyExchange_descriptor =
+      getDescriptor().getMessageTypes().get(16);
     internal_static_protos_KeyExchange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_protos_KeyExchange_descriptor,
-        new java.lang.String[] { "PublicKey", "Server", "Dh", "Dh1", "HmacOfPublicKey", });
+        new java.lang.String[] { "PublicKey", "IdentityPublic", "Server", "Dh", "Dh1", "HmacPairs", });
     internal_static_protos_SignedKeyExchange_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_protos_SignedKeyExchange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_protos_SignedKeyExchange_descriptor,
         new java.lang.String[] { "Signed", "Signature", });
     internal_static_protos_Message_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_protos_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_protos_Message_descriptor,
-        new java.lang.String[] { "Id", "Time", "Body", "BodyEncoding", "MyNextDh", "InReplyTo", "AlsoAck", "Files", "DetachedFiles", "SupportedVersion", });
+        new java.lang.String[] { "Id", "Time", "Body", "BodyEncoding", "MyNextDh", "InReplyTo", "AlsoAck", "NewHmacPairs", "Files", "DetachedFiles", "SupportedVersion", });
     internal_static_protos_Message_Attachment_descriptor =
       internal_static_protos_Message_descriptor.getNestedTypes().get(0);
     internal_static_protos_Message_Attachment_fieldAccessorTable = new

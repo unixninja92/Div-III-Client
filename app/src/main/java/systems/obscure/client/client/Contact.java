@@ -5,6 +5,8 @@ import org.abstractj.kalium.keys.VerifyKey;
 
 import java.util.ArrayList;
 
+import systems.obscure.client.protos.Pond;
+
 /**
  * @author unixninja92
  */
@@ -50,7 +52,9 @@ public class Contact {
     // revokedUs is true if this contact has revoked us.
     public boolean revokedUs = false;
 
+    public ArrayList<Pond.HMACPair> theirHMACPairs = new ArrayList<>();
 
+    public ArrayList<Long> myHMACs = new ArrayList<>();
 
 //    // pandaKeyExchange contains the serialised PANDA state if a key
 //    // exchange is ongoing.
