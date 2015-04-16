@@ -61,8 +61,8 @@ public class StateFile{
 
 
 
-    private void deriveKey(String pw) throws KeyException {
-        if(pw.length() == 0 && header.getScrypt() == null)
+    private void deriveKey(byte[] pw) throws KeyException {
+        if(pw.length == 0 && header.getScrypt() == null)
             throw new KeyException("bad password");
         LocalStorage.Header.SCrypt prams;
 //        if(header == null) {
@@ -74,11 +74,11 @@ public class StateFile{
 //        }
 //        else
              prams = header.getScrypt();
-        key = SCrypt.generate(pw.getBytes(), header.getKdfSalt().toByteArray(), prams.getN(),
+        key = SCrypt.generate(pw, header.getKdfSalt().toByteArray(), prams.getN(),
                 prams.getR(), prams.getP(), kdfKeyLen);
     }
 
-    public void Create(String pw) throws KeyException {
+    public void Create(byte[] pw) throws KeyException {
         byte[] salt = new byte[kdfSaltLen];
         rand.nextBytes(salt);
         LocalStorage.Header.Builder hBuilder = LocalStorage.Header.newBuilder();
@@ -88,7 +88,7 @@ public class StateFile{
         scrypt.setR(Default_Header_SCrypt_R);
         hBuilder.setScrypt(scrypt.build());
 
-        if(pw.length() > 0) {
+        if(pw.length > 0) {
             hBuilder.setKdfSalt(ByteString.copyFrom(salt));
             header = hBuilder.build();
             deriveKey(pw);
@@ -99,7 +99,7 @@ public class StateFile{
         valid = true;
     }
 
-    public LocalStorage.State Read(String pw) throws IOException {
+    public LocalStorage.State Read(byte[] pw) throws IOException {
         try {
             lock.readLock().lock();
             File stateFile = new File(path);
@@ -112,9 +112,6 @@ public class StateFile{
                 if(b.get() != headerMagic[i])
                     throw new IOException("Header magic does not match");
 
-//            printBytes(b.array(), 0, 30);
-
-            b.position(headerMagic.length);
             int headerLen = (int) b.get();
 
             System.out.println("header len: "+headerLen);
@@ -128,7 +125,7 @@ public class StateFile{
 
             header = LocalStorage.Header.parseFrom(headerBytes);
 
-            if(pw.length() > 0)
+            if(pw.length > 0)
                 deriveKey(pw);
 
 //            if(!header.getNoErasureStorage()){
@@ -143,9 +140,9 @@ public class StateFile{
             byte[] nonce = new byte[24];
             for(int i = 0; i < smearedCopies; i++)
                 for(int j = 0; j < 24; j++)
-                    nonce[j] ^= b.get(24*i+j);
+                    nonce[j] ^= b.get(b.position()+(24*i+j));
 
-            b.position(b.position()+24*smearedCopies);
+            b.position(b.position() + (24 * smearedCopies));
 
             byte[] effectiveKey = new byte[kdfKeyLen];
 
@@ -153,15 +150,18 @@ public class StateFile{
                 effectiveKey[i] = (byte)(mask[i] ^ key[i]);
             }
 
+            byte[] ciphertext = new byte[b.remaining()];
+            b.get(ciphertext);
+
             SecretBox secretBox = new SecretBox(effectiveKey);
-            ByteBuffer plaintext = ByteBuffer.wrap(secretBox.decrypt(nonce, b.slice().array()));
+            ByteBuffer plaintext = ByteBuffer.wrap(secretBox.decrypt(nonce, ciphertext));
             if(plaintext.capacity() < 4)
                 throw new IOException("state file corrupt");
 
             lock.readLock().unlock();
 
             int length = plaintext.getInt();
-            if(length > 1<<31 || length > plaintext.remaining())
+            if(length < 0 || length > plaintext.remaining())
                 throw new IOException("state file corrupt");
 
             byte[] plain = new byte[length];
@@ -245,6 +245,7 @@ public class StateFile{
             for(int i = 4; i < s.length; i++){
                 plaintext[i] = s[i-4];
             }
+            plaintext = ByteBuffer.wrap(plaintext).putInt(s.length).array();
 
             int l = s.length+4;
             byte[] randPlain = new byte[length - l];
@@ -254,6 +255,7 @@ public class StateFile{
             }
 
             int smearCopies = header.getNonceSmearCopies();
+
             byte[] nonceSmear = new byte[smearCopies*24];
             rand.nextBytes(nonceSmear);
 
@@ -279,7 +281,6 @@ public class StateFile{
                 File temp = new File(path+".tmp");
                 FileOutputStream tempOut = new FileOutputStream(temp);
                 tempOut.write(headerMagic);
-                System.out.println("header len: "+ header.toByteArray().length);
                 tempOut.write((byte) header.toByteArray().length);
                 tempOut.write(header.toByteArray());
                 tempOut.write(nonceSmear);
@@ -319,6 +320,5 @@ public class StateFile{
             System.out.print((b[i])+",");
         System.out.println();
     }
-
 
 }

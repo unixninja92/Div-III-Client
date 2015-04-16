@@ -25,7 +25,7 @@ public class PassphraseRequiredMixin {
   }
 
   public <T extends Activity & PassphraseRequiredActivity> void onResume(T activity) {
-    initializeScreenshotSecurity(activity);
+//    initializeScreenshotSecurity(activity); FIXME re-enable screenshot security
     initializeNewKeyReceiver(activity);
     initializeFromMasterSecret(activity);
     KeyCachingService.registerPassphraseActivityStarted(activity);

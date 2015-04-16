@@ -194,7 +194,8 @@ public class Client {
                 rand.nextBytes(hmacKey);
 
                 System.out.println("Create StateFile instance");
-                stateFile.Create(KeyCachingService.getMasterSecret(context).getEncryptionKey().toString());
+                stateFile.Create(KeyCachingService
+                        .getMasterSecret(context).getEncryptionKey().getEncoded());
 
                 System.out.println("Do the network thing :)");
                 new AsyncTask<Void, Void, Void>() {
@@ -515,7 +516,7 @@ public class Client {
 
     public void loadState() throws IOException {
         LocalStorage.State state = stateFile.Read(KeyCachingService
-                .getMasterSecret(Globals.applicaiontContext).toString());
+                .getMasterSecret(Globals.applicaiontContext).getEncryptionKey().getEncoded());
 
         server = state.getServer();
 
