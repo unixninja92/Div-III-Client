@@ -242,9 +242,6 @@ public class Client {
                 }.execute();
             }
 
-
-//            Contact temp = new Contact(1L, "Bob");
-//            contacts.put(1L, temp);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (KeyException e) {
@@ -253,61 +250,6 @@ public class Client {
             e.printStackTrace();
         }
     }
-//        stateFilename = filename;
-////        context = con;
-//
-//        try {
-//            rand = SecureRandom.getInstance("SHA1PRNG");
-//
-//            StateFile stateFile = new StateFile(rand, stateFilename);
-//            stateLock = stateFile.getLock();
-////            stateLock.
-//
-//
-//            boolean newAccount = TextSecurePreferences.isRegisteredOnServer(context);
-//
-//            if(newAccount) {
-////                try {
-//                    MessageDigest digest = MessageDigest.getInstance("SHA256");
-//                    byte[] seed = new byte[32];
-//                    rand.nextBytes(seed);
-//                    signingKey = new SigningKey(digest.digest(seed));
-//                    identity = new KeyPair();
-//                    rand.nextBytes(hmacKey);
-////
-////                    byte[] pub = BaseEncoding.base32().decode(server);
-////                    PublicKey serverKey = new PublicKey(pub);
-////                    transport = new Transport(identity, serverKey);
-////                    transport.handshake();
-////                    doCreateAccount();
-//
-////                } catch (IOException e) {
-////                    e.printStackTrace();
-////                }
-//            }
-//
-//            Any2OneChannel<NewState> stateChan = Channel.any2one(5);
-//            writerChan = stateChan.out();
-//
-//            One2AnyChannel doneChan = Channel.one2any(5);
-//            writerDone = doneChan.in();
-//
-////            stateFile.StartWrtie(stateChan.in(), doneChan.out());
-//
-//            TransactService ts = new TransactService();
-//            ts.registerActivityStarted(context);
-//            ts.onCreate();
-////            ApplicationContext.getInstance(context);
-//
-//            if(newAccount){
-//
-//            }
-//
-//
-//        } catch (NoSuchAlgorithmException e) {
-//                e.printStackTrace();
-//        }
-//    }
 
     public Draft outboxToDraft(QueuedMessage msg) {
         Draft draft = new Draft();

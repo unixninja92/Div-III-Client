@@ -90,7 +90,7 @@ public class ContactsListFragment extends ListFragment
     fab.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-          Intent intent = new Intent(getActivity(), CameraActivity.class);
+          Intent intent = new Intent(getActivity(), NewContactActivity.class);
           intent.putExtra("master_secret", masterSecret);
           startActivity(intent);
 //        Intent intent = new Intent(getActivity(), NewConversationActivity.class);

@@ -180,13 +180,13 @@ public class ContactsListActivity extends PassphraseRequiredActionBarActivity
 //  }
 
   private void createConversation(long threadId, Contact recipients, int distributionType) {
-//    Intent intent = new Intent(this, ConversationActivity.class);
+    Intent intent = new Intent(this, NewContactActivity.class);
 //    intent.putExtra(ConversationActivity.RECIPIENTS_EXTRA, recipients.getIds());
 //    intent.putExtra(ConversationActivity.THREAD_ID_EXTRA, threadId);
-//    intent.putExtra(ConversationActivity.MASTER_SECRET_EXTRA, masterSecret);
+//    intent.putExtra(NewContactActivity.MASTER_SECRET_EXTRA, masterSecret);
 //    intent.putExtra(ConversationActivity.DISTRIBUTION_TYPE_EXTRA, distributionType);
 //
-//    startActivity(intent);
+    startActivity(intent);
   }
 
 //  private void handleDisplaySettings() {

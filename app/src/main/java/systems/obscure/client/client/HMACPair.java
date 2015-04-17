@@ -13,8 +13,8 @@ public class HMACPair {
     byte[] key;
     byte[] hmacOfKey;
 
-    public HMACPair(byte[] key, SecretKey hmacKey) {
-        this.key = key;
+    public HMACPair(byte[] publickey, SecretKey hmacKey) {
+        this.key = publickey;
         try {
             Mac hmac = Mac.getInstance("HmacSHA256");
             hmac.init(hmacKey);
@@ -24,6 +24,11 @@ public class HMACPair {
         } catch (InvalidKeyException e) {
             e.printStackTrace();
         }
+    }
+
+    public HMACPair(byte[] privatekey, byte[] hmacOfPublicKey) {
+        this.key = privatekey;
+        this.hmacOfKey = hmacOfPublicKey;
     }
 
 }

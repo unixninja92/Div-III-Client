@@ -249,18 +249,6 @@ public class StateFile{
             plainbuffer.putInt(s.length);
             plainbuffer.put(s);
 
-//            for(int i = 4; i < s.length; i++){
-//                plaintext[i] = s[i-4];
-//            }
-//            plaintext = ByteBuffer.wrap(plaintext).putInt(s.length).array();
-//
-//            int l = s.length+4;
-//            byte[] randPlain = new byte[length - l];
-//            rand.nextBytes(randPlain);
-//            for(int i = l; i< length; i++) {
-//                plaintext[i] = randPlain[i-l];
-//            }
-
             int smearCopies = header.getNonceSmearCopies();
 
             byte[] nonceSmear = new byte[smearCopies*24];
