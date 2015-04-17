@@ -8,7 +8,6 @@ import com.google.protobuf.ByteString;
 
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.PublicKey;
-import org.abstractj.kalium.keys.SigningKey;
 import org.abstractj.kalium.keys.VerifyKey;
 import org.jcsp.lang.Any2OneChannel;
 import org.jcsp.lang.Channel;
@@ -36,6 +35,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 import systems.obscure.client.Globals;
+import systems.obscure.client.crypto.SigningKey;
 import systems.obscure.client.disk.NewState;
 import systems.obscure.client.disk.StateFile;
 import systems.obscure.client.protos.LocalStorage;
@@ -326,7 +326,19 @@ public class Client {
 
     //TODO newRatchet func
 
-    //TODO newKeyExchange func
+    public Pond.KeyExchange newKeyExchange(Contact contact) {
+        Pond.KeyExchange.Builder kx = Pond.KeyExchange.newBuilder();
+        kx.setPublicKey(ByteString.copyFrom(signingKey.getVerifyKey().toBytes()));
+        kx.setIdentityPublic(ByteString.copyFrom(identity.getPublicKey().toBytes()));
+        kx.setServer(server);
+        byte[] dh = new byte[32];
+        kx.setDh(ByteString.copyFrom(dh));
+        kx.setDh1(ByteString.copyFrom(dh));
+        kx.addAllHmacPairs(contact.generateHMACPairs(4));
+
+        contact.kxsBytes = kx.build().toByteArray();
+        return kx.build();
+    }
 
     public Contact contactByName(String name) {
         for(Map.Entry entry: contacts.entrySet()) {

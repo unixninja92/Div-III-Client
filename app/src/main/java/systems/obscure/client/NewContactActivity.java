@@ -17,6 +17,7 @@ import org.thoughtcrime.securesms.util.DynamicTheme;
 
 import java.io.IOException;
 
+import systems.obscure.client.client.Client;
 import systems.obscure.client.client.Contact;
 import systems.obscure.client.protos.Pond;
 
@@ -27,6 +28,7 @@ public class NewContactActivity extends PassphraseRequiredActionBarActivity {
     private final DynamicLanguage dynamicLanguage = new DynamicLanguage();
 
     private Contact contact;
+    private Client client = Client.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         dynamicTheme.onCreate(this);
@@ -38,6 +40,15 @@ public class NewContactActivity extends PassphraseRequiredActionBarActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_ab_back);
 
         getSupportActionBar().setTitle("New Contact");
+
+        contact = new Contact();
+        contact.id = client.randId();
+        try {
+            client.registerId(contact.id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        client.newKeyExchange(contact);
     }
 
     @Override
@@ -89,5 +100,6 @@ public class NewContactActivity extends PassphraseRequiredActionBarActivity {
 
     public void createContact(View view) {
 //        contact.name =
+        client.contacts.put(contact.id, contact);
     }
 }
