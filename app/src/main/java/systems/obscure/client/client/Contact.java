@@ -22,7 +22,7 @@ public class Contact {
 
     // kxsBytes is the serialised key exchange message that we generated
     // for this contact. (Only valid if |isPending| is true.)
-    byte[] kxsBytes;
+    public byte[] kxsBytes;
 
 
 

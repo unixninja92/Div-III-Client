@@ -1,17 +1,28 @@
 package systems.obscure.client;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.view.View;
+import android.widget.Toast;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import org.thoughtcrime.securesms.PassphraseRequiredActionBarActivity;
+import org.thoughtcrime.securesms.util.Base64;
 import org.thoughtcrime.securesms.util.DynamicLanguage;
 import org.thoughtcrime.securesms.util.DynamicTheme;
+
+import systems.obscure.client.client.Contact;
 
 
 public class NewContactActivity extends PassphraseRequiredActionBarActivity {
 
     private final DynamicTheme dynamicTheme    = new DynamicTheme();
     private final DynamicLanguage dynamicLanguage = new DynamicLanguage();
+
+    private Contact contact;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         dynamicTheme.onCreate(this);
@@ -32,25 +43,44 @@ public class NewContactActivity extends PassphraseRequiredActionBarActivity {
         dynamicLanguage.onResume(this);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_new_contact, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+
+        if ((scanResult != null) && (scanResult.getContents() != null)) {
+            String data = scanResult.getContents();
+
+//            if (data.equals(Base64.encodeBytes(getIdentityKeyToCompare().serialize()))) {
+//                Dialogs.showInfoDialog(this, getVerifiedTitle(), getVerifiedMessage());
+//            } else {
+//                Dialogs.showAlertDialog(this, getNotVerifiedTitle(), getNotVerifiedMessage());
+//            }
+        } else {
+            Toast.makeText(this, R.string.KeyScanningActivity_no_scanned_key_found_exclamation,
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private IntentIntegrator getIntentIntegrator() {
+        IntentIntegrator intentIntegrator = new IntentIntegrator(this);
+        intentIntegrator.setButtonYesByID(R.string.yes);
+        intentIntegrator.setButtonNoByID(R.string.no);
+        intentIntegrator.setTitleByID(R.string.KeyScanningActivity_install_barcode_Scanner);
+        intentIntegrator.setMessageByID(R.string.KeyScanningActivity_this_application_requires_barcode_scanner_would_you_like_to_install_it);
+        return intentIntegrator;
+    }
+
+    public void initiateScan(View view) {
+        IntentIntegrator intentIntegrator = getIntentIntegrator();
+        intentIntegrator.initiateScan();
+    }
+
+    public void initiateDisplay(View view) {
+        IntentIntegrator intentIntegrator = getIntentIntegrator();
+        intentIntegrator.shareText(Base64.encodeBytes(contact.kxsBytes));
+    }
+
+    public void createContact(View view) {
+//        contact.name =
+    }
 }

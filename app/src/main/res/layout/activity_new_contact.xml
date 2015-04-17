@@ -19,9 +19,9 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="textCapWords|textPersonName"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/newContactName"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textView"
         android:layout_alignParentRight="true"
@@ -34,7 +34,8 @@
         android:id="@+id/button9"
         android:layout_above="@+id/button10"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="49dp" />
+        android:layout_marginBottom="49dp"
+        android:onClick="initiateScan" />
 
     <Button
         android:layout_width="wrap_content"
@@ -42,7 +43,8 @@
         android:text="Get Scanned"
         android:id="@+id/button10"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="initiateDisplay" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,5 +63,6 @@
         android:id="@+id/button11"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="createContact" />
 </RelativeLayout>
