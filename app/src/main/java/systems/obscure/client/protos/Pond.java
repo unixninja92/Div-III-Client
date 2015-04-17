@@ -10872,19 +10872,44 @@ public final class Pond {
 
     /**
      * <code>required bytes private_key = 1;</code>
+     *
+     * <pre>
+     *Ed25519 signing key
+     * </pre>
      */
     boolean hasPrivateKey();
     /**
      * <code>required bytes private_key = 1;</code>
+     *
+     * <pre>
+     *Ed25519 signing key
+     * </pre>
      */
     com.google.protobuf.ByteString getPrivateKey();
 
     /**
-     * <code>required fixed64 hmac_of_public_key = 5;</code>
+     * <code>required bytes pulbic_key = 2;</code>
+     *
+     * <pre>
+     *verify key for ed25519 signing key
+     * </pre>
+     */
+    boolean hasPulbicKey();
+    /**
+     * <code>required bytes pulbic_key = 2;</code>
+     *
+     * <pre>
+     *verify key for ed25519 signing key
+     * </pre>
+     */
+    com.google.protobuf.ByteString getPulbicKey();
+
+    /**
+     * <code>required fixed64 hmac_of_public_key = 3;</code>
      */
     boolean hasHmacOfPublicKey();
     /**
-     * <code>required fixed64 hmac_of_public_key = 5;</code>
+     * <code>required fixed64 hmac_of_public_key = 3;</code>
      */
     long getHmacOfPublicKey();
   }
@@ -10892,7 +10917,7 @@ public final class Pond {
    * Protobuf type {@code HMACPair}
    *
    * <pre>
-   * HMACPair contains on pair of Hmac values to be shared between clients
+   * HMACPair contains a pair of Hmac values to be shared between clients
    * </pre>
    */
   public static final class HMACPair extends
@@ -10949,8 +10974,13 @@ public final class Pond {
               privateKey_ = input.readBytes();
               break;
             }
-            case 41: {
+            case 18: {
               bitField0_ |= 0x00000002;
+              pulbicKey_ = input.readBytes();
+              break;
+            }
+            case 25: {
+              bitField0_ |= 0x00000004;
               hmacOfPublicKey_ = input.readFixed64();
               break;
             }
@@ -10998,27 +11028,58 @@ public final class Pond {
     private com.google.protobuf.ByteString privateKey_;
     /**
      * <code>required bytes private_key = 1;</code>
+     *
+     * <pre>
+     *Ed25519 signing key
+     * </pre>
      */
     public boolean hasPrivateKey() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required bytes private_key = 1;</code>
+     *
+     * <pre>
+     *Ed25519 signing key
+     * </pre>
      */
     public com.google.protobuf.ByteString getPrivateKey() {
       return privateKey_;
     }
 
-    public static final int HMAC_OF_PUBLIC_KEY_FIELD_NUMBER = 5;
-    private long hmacOfPublicKey_;
+    public static final int PULBIC_KEY_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString pulbicKey_;
     /**
-     * <code>required fixed64 hmac_of_public_key = 5;</code>
+     * <code>required bytes pulbic_key = 2;</code>
+     *
+     * <pre>
+     *verify key for ed25519 signing key
+     * </pre>
      */
-    public boolean hasHmacOfPublicKey() {
+    public boolean hasPulbicKey() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required fixed64 hmac_of_public_key = 5;</code>
+     * <code>required bytes pulbic_key = 2;</code>
+     *
+     * <pre>
+     *verify key for ed25519 signing key
+     * </pre>
+     */
+    public com.google.protobuf.ByteString getPulbicKey() {
+      return pulbicKey_;
+    }
+
+    public static final int HMAC_OF_PUBLIC_KEY_FIELD_NUMBER = 3;
+    private long hmacOfPublicKey_;
+    /**
+     * <code>required fixed64 hmac_of_public_key = 3;</code>
+     */
+    public boolean hasHmacOfPublicKey() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required fixed64 hmac_of_public_key = 3;</code>
      */
     public long getHmacOfPublicKey() {
       return hmacOfPublicKey_;
@@ -11026,6 +11087,7 @@ public final class Pond {
 
     private void initFields() {
       privateKey_ = com.google.protobuf.ByteString.EMPTY;
+      pulbicKey_ = com.google.protobuf.ByteString.EMPTY;
       hmacOfPublicKey_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
@@ -11035,6 +11097,10 @@ public final class Pond {
       if (isInitialized == 0) return false;
 
       if (!hasPrivateKey()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPulbicKey()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -11053,7 +11119,10 @@ public final class Pond {
         output.writeBytes(1, privateKey_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeFixed64(5, hmacOfPublicKey_);
+        output.writeBytes(2, pulbicKey_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeFixed64(3, hmacOfPublicKey_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -11070,7 +11139,11 @@ public final class Pond {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFixed64Size(5, hmacOfPublicKey_);
+          .computeBytesSize(2, pulbicKey_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(3, hmacOfPublicKey_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -11154,7 +11227,7 @@ public final class Pond {
      * Protobuf type {@code HMACPair}
      *
      * <pre>
-     * HMACPair contains on pair of Hmac values to be shared between clients
+     * HMACPair contains a pair of Hmac values to be shared between clients
      * </pre>
      */
     public static final class Builder extends
@@ -11195,8 +11268,10 @@ public final class Pond {
         super.clear();
         privateKey_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        hmacOfPublicKey_ = 0L;
+        pulbicKey_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
+        hmacOfPublicKey_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -11232,6 +11307,10 @@ public final class Pond {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
+        result.pulbicKey_ = pulbicKey_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.hmacOfPublicKey_ = hmacOfPublicKey_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -11252,6 +11331,9 @@ public final class Pond {
         if (other.hasPrivateKey()) {
           setPrivateKey(other.getPrivateKey());
         }
+        if (other.hasPulbicKey()) {
+          setPulbicKey(other.getPulbicKey());
+        }
         if (other.hasHmacOfPublicKey()) {
           setHmacOfPublicKey(other.getHmacOfPublicKey());
         }
@@ -11261,6 +11343,10 @@ public final class Pond {
 
       public final boolean isInitialized() {
         if (!hasPrivateKey()) {
+          
+          return false;
+        }
+        if (!hasPulbicKey()) {
           
           return false;
         }
@@ -11293,18 +11379,30 @@ public final class Pond {
       private com.google.protobuf.ByteString privateKey_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>required bytes private_key = 1;</code>
+       *
+       * <pre>
+       *Ed25519 signing key
+       * </pre>
        */
       public boolean hasPrivateKey() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required bytes private_key = 1;</code>
+       *
+       * <pre>
+       *Ed25519 signing key
+       * </pre>
        */
       public com.google.protobuf.ByteString getPrivateKey() {
         return privateKey_;
       }
       /**
        * <code>required bytes private_key = 1;</code>
+       *
+       * <pre>
+       *Ed25519 signing key
+       * </pre>
        */
       public Builder setPrivateKey(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -11317,6 +11415,10 @@ public final class Pond {
       }
       /**
        * <code>required bytes private_key = 1;</code>
+       *
+       * <pre>
+       *Ed25519 signing key
+       * </pre>
        */
       public Builder clearPrivateKey() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -11325,33 +11427,84 @@ public final class Pond {
         return this;
       }
 
-      private long hmacOfPublicKey_ ;
+      private com.google.protobuf.ByteString pulbicKey_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required fixed64 hmac_of_public_key = 5;</code>
+       * <code>required bytes pulbic_key = 2;</code>
+       *
+       * <pre>
+       *verify key for ed25519 signing key
+       * </pre>
        */
-      public boolean hasHmacOfPublicKey() {
+      public boolean hasPulbicKey() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required fixed64 hmac_of_public_key = 5;</code>
+       * <code>required bytes pulbic_key = 2;</code>
+       *
+       * <pre>
+       *verify key for ed25519 signing key
+       * </pre>
+       */
+      public com.google.protobuf.ByteString getPulbicKey() {
+        return pulbicKey_;
+      }
+      /**
+       * <code>required bytes pulbic_key = 2;</code>
+       *
+       * <pre>
+       *verify key for ed25519 signing key
+       * </pre>
+       */
+      public Builder setPulbicKey(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        pulbicKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bytes pulbic_key = 2;</code>
+       *
+       * <pre>
+       *verify key for ed25519 signing key
+       * </pre>
+       */
+      public Builder clearPulbicKey() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        pulbicKey_ = getDefaultInstance().getPulbicKey();
+        onChanged();
+        return this;
+      }
+
+      private long hmacOfPublicKey_ ;
+      /**
+       * <code>required fixed64 hmac_of_public_key = 3;</code>
+       */
+      public boolean hasHmacOfPublicKey() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required fixed64 hmac_of_public_key = 3;</code>
        */
       public long getHmacOfPublicKey() {
         return hmacOfPublicKey_;
       }
       /**
-       * <code>required fixed64 hmac_of_public_key = 5;</code>
+       * <code>required fixed64 hmac_of_public_key = 3;</code>
        */
       public Builder setHmacOfPublicKey(long value) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         hmacOfPublicKey_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required fixed64 hmac_of_public_key = 5;</code>
+       * <code>required fixed64 hmac_of_public_key = 3;</code>
        */
       public Builder clearHmacOfPublicKey() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         hmacOfPublicKey_ = 0L;
         onChanged();
         return this;
@@ -17894,27 +18047,27 @@ public final class Pond {
       "\n\010Download\022\014\n\004from\030\001 \002(\014\022\n\n\002id\030\002 \002(\006\022\016\n\006",
       "resume\030\003 \001(\003\"\035\n\rDownloadReply\022\014\n\004size\030\001 " +
       "\002(\003\"\035\n\tHMACSetup\022\020\n\010hmac_key\030\001 \002(\014\"\037\n\nHM" +
-      "ACStrike\022\021\n\005hmacs\030\001 \003(\006B\002\020\001\";\n\010HMACPair\022" +
-      "\023\n\013private_key\030\001 \002(\014\022\032\n\022hmac_of_public_k" +
-      "ey\030\005 \002(\006\"\211\001\n\013KeyExchange\022\022\n\npublic_key\030\001" +
-      " \002(\014\022\027\n\017identity_public\030\002 \002(\014\022\016\n\006server\030" +
-      "\003 \002(\t\022\n\n\002dh\030\004 \002(\014\022\013\n\003dh1\030\005 \002(\014\022$\n\nhmac_p" +
-      "airs\030\006 \003(\0132\020.HMACPair\"6\n\021SignedKe" +
-      "yExchange\022\016\n\006signed\030\001 \002(\014\022\021\n\tsignature\030\002" +
-      " \002(\014\"\203\004\n\007Message\022\n\n\002id\030\001 \002(\006\022\014\n\004time\030\002 \002",
-      "(\003\022\014\n\004body\030\003 \002(\014\022/\n\rbody_encoding\030\004 \001(\0162" +
-      "\030.Message.Encoding\022\022\n\nmy_next_dh\030" +
-      "\005 \001(\014\022\023\n\013in_reply_to\030\006 \001(\004\022\020\n\010also_ack\030\n" +
-      " \003(\004\022(\n\016new_hmac_pairs\030\013 \003(\0132\020.HM" +
-      "ACPair\022)\n\005files\030\007 \003(\0132\032.Message.A" +
-      "ttachment\0222\n\016detached_files\030\010 \003(\0132\032.prot" +
-      "os.Message.Detachment\022\031\n\021supported_versi" +
-      "on\030\t \001(\005\0320\n\nAttachment\022\020\n\010filename\030\001 \002(\t" +
-      "\022\020\n\010contents\030\002 \002(\014\032o\n\nDetachment\022\020\n\010file" +
-      "name\030\001 \002(\t\022\014\n\004size\030\002 \002(\004\022\023\n\013padded_size\030",
-      "\003 \002(\004\022\022\n\nchunk_size\030\004 \002(\r\022\013\n\003key\030\005 \002(\014\022\013" +
-      "\n\003url\030\006 \001(\t\"\035\n\010Encoding\022\007\n\003RAW\020\000\022\010\n\004GZIP" +
-      "\020\001"
+      "ACStrike\022\021\n\005hmacs\030\001 \003(\006B\002\020\001\"O\n\010HMACPair\022" +
+      "\023\n\013private_key\030\001 \002(\014\022\022\n\npulbic_key\030\002 \002(\014" +
+      "\022\032\n\022hmac_of_public_key\030\003 \002(\006\"\211\001\n\013KeyExch" +
+      "ange\022\022\n\npublic_key\030\001 \002(\014\022\027\n\017identity_pub" +
+      "lic\030\002 \002(\014\022\016\n\006server\030\003 \002(\t\022\n\n\002dh\030\004 \002(\014\022\013\n" +
+      "\003dh1\030\005 \002(\014\022$\n\nhmac_pairs\030\006 \003(\0132\020." +
+      "HMACPair\"6\n\021SignedKeyExchange\022\016\n\006signed\030" +
+      "\001 \002(\014\022\021\n\tsignature\030\002 \002(\014\"\203\004\n\007Message\022\n\n\002",
+      "id\030\001 \002(\006\022\014\n\004time\030\002 \002(\003\022\014\n\004body\030\003 \002(\014\022/\n\r" +
+      "body_encoding\030\004 \001(\0162\030.Message.Enc" +
+      "oding\022\022\n\nmy_next_dh\030\005 \001(\014\022\023\n\013in_reply_to" +
+      "\030\006 \001(\004\022\020\n\010also_ack\030\n \003(\004\022(\n\016new_hmac_pai" +
+      "rs\030\013 \003(\0132\020.HMACPair\022)\n\005files\030\007 \003(" +
+      "\0132\032.Message.Attachment\0222\n\016detache" +
+      "d_files\030\010 \003(\0132\032.Message.Detachmen" +
+      "t\022\031\n\021supported_version\030\t \001(\005\0320\n\nAttachme" +
+      "nt\022\020\n\010filename\030\001 \002(\t\022\020\n\010contents\030\002 \002(\014\032o" +
+      "\n\nDetachment\022\020\n\010filename\030\001 \002(\t\022\014\n\004size\030\002",
+      " \002(\004\022\023\n\013padded_size\030\003 \002(\004\022\022\n\nchunk_size\030" +
+      "\004 \002(\r\022\013\n\003key\030\005 \002(\014\022\013\n\003url\030\006 \001(\t\"\035\n\010Encod" +
+      "ing\022\007\n\003RAW\020\000\022\010\n\004GZIP\020\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -18023,7 +18176,7 @@ public final class Pond {
     internal_static_protos_HMACPair_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_protos_HMACPair_descriptor,
-        new java.lang.String[] { "PrivateKey", "HmacOfPublicKey", });
+        new java.lang.String[] { "PrivateKey", "PulbicKey", "HmacOfPublicKey", });
     internal_static_protos_KeyExchange_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_protos_KeyExchange_fieldAccessorTable = new

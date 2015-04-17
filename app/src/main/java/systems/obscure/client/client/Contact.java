@@ -1,9 +1,19 @@
 package systems.obscure.client.client;
 
+import com.google.protobuf.ByteString;
+
 import org.abstractj.kalium.keys.PublicKey;
 import org.abstractj.kalium.keys.VerifyKey;
 
+import java.nio.ByteBuffer;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+
+import javax.crypto.Mac;
+
+import systems.obscure.client.crypto.SigningKey;
+import systems.obscure.client.protos.Pond;
 
 /**
  * @author unixninja92
@@ -50,7 +60,7 @@ public class Contact {
     // revokedUs is true if this contact has revoked us.
     public boolean revokedUs = false;
 
-    public ArrayList<HMACPair> theirHMACPairs = new ArrayList<>();
+    public ArrayList<Pond.HMACPair> theirHMACPairs = new ArrayList<>();
 
     public ArrayList<HMACPair> myHMACs = new ArrayList<>();
 
@@ -63,6 +73,8 @@ public class Contact {
 //    String pandaResult;
 
     public ArrayList<Event> events;
+
+    public Contact() {}
 
     public Contact(long id, String name) {
         this.id = id;
@@ -88,4 +100,34 @@ public class Contact {
     //TODO indicator func
 
     //TODO processKeyExchange func
+
+    public void processKeyExchange(Pond.KeyExchange keyExchange) {
+
+    }
+
+    public ArrayList<Pond.HMACPair> generateHMACPairs(int num) {
+        ArrayList<Pond.HMACPair> pairs = new ArrayList<Pond.HMACPair>();
+        for (int i = 0; i < num; i++) {
+            try {
+                Mac hmac = Mac.getInstance("HmacSHA256");
+                hmac.init(Client.getInstance().hmacKey);
+                SigningKey newSKey = new SigningKey();
+                byte[] hmacBytes = hmac.doFinal(newSKey.getVerifyKey().toBytes());
+
+                myHMACs.add(new HMACPair(newSKey.getVerifyKey().toBytes(), hmacBytes));
+
+                Pond.HMACPair.Builder hmacBuilder = Pond.HMACPair.newBuilder();
+                hmacBuilder.setPulbicKey(ByteString.copyFrom(newSKey.getVerifyKey().toBytes()));
+                hmacBuilder.setPrivateKey(ByteString.copyFrom(newSKey.toBytes()));
+                hmacBuilder.setHmacOfPublicKey(ByteBuffer.wrap(hmacBytes).getLong());
+
+                pairs.add(hmacBuilder.build());
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            } catch (InvalidKeyException e) {
+                e.printStackTrace();
+            }
+        }
+        return pairs;
+    }
 }

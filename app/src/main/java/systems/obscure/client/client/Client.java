@@ -32,6 +32,9 @@ import java.util.Map;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+
 import systems.obscure.client.Globals;
 import systems.obscure.client.disk.NewState;
 import systems.obscure.client.disk.StateFile;
@@ -89,7 +92,7 @@ public class Client {
 
     // hmacKey is shared with clients home server so that the home server knows
     // what messages to send to the client
-    byte[] hmacKey = new byte[32];
+    SecretKey hmacKey;
 //
 //    // generation is the generation number of the group private key and is
 //    // incremented when a member of the group is revoked.
@@ -191,7 +194,9 @@ public class Client {
                 rand.nextBytes(seed);
                 signingKey = new SigningKey(digest.digest(seed));
                 identity = new KeyPair();
-                rand.nextBytes(hmacKey);
+                byte[] hmac = new byte[32];
+                rand.nextBytes(hmac);
+                hmacKey = new SecretKeySpec(hmac, "HmacSHA256");
 
                 System.out.println("Create StateFile instance");
                 stateFile.Create(KeyCachingService
