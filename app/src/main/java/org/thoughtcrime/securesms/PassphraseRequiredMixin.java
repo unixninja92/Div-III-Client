@@ -30,6 +30,8 @@ public class PassphraseRequiredMixin {
     initializeFromMasterSecret(activity);
     KeyCachingService.registerPassphraseActivityStarted(activity);
       TransactService.registerActivityStarted(activity);
+
+//    Client.getInstance();
 //    MessageRetrievalService.registerActivityStarted(activity);
   }
 

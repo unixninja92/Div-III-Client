@@ -28,7 +28,7 @@ android {
         exclude 'META-INF/LICENSE'
     }
     dexOptions {
-        incremental true
+//        incremental true
         javaMaxHeapSize "1100m"
     }
     lintOptions {

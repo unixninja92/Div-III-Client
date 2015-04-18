@@ -8,6 +8,9 @@ import org.thoughtcrime.securesms.crypto.MasterSecret;
 import org.thoughtcrime.securesms.crypto.MasterSecretUtil;
 
 import systems.obscure.client.CameraActivity;
+import systems.obscure.client.ClientCreateActivity;
+import systems.obscure.client.Globals;
+import systems.obscure.client.client.Client;
 
 //import info.guardianproject.onionkit.ui.OrbotHelper;
 
@@ -16,8 +19,8 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
 
   private static final int STATE_CREATE_PASSPHRASE        = 1;
   private static final int STATE_PROMPT_PASSPHRASE        = 2;
-
-  private static final int STATE_CONVERSATION_OR_LIST     = 3;
+  private static final int STATE_CREATE_CLIENT            = 3;
+  private static final int STATE_CONVERSATION_OR_LIST     = 4;
 
   private MasterSecret masterSecret   = null;
 //  private Client client;
@@ -34,15 +37,18 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
 
   @Override
   public void onResume() {
-    if (this.canceledResult && !this.newIntent) {
-      finish();
-    }
 //    if(this.getFilesDir() !=null)
 //        this.client         = Client.getInstance(getApplicationContext());
     this.newIntent      = false;
     this.canceledResult = false;
     this.isVisible      = true;
     super.onResume();
+
+    if(Globals.applicaiontContext == null)
+      Globals.applicaiontContext = getApplicationContext();
+    if (this.canceledResult && !this.newIntent) {
+      finish();
+    }
   }
 
   @Override
@@ -82,6 +88,7 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
     switch (state) {
     case STATE_CREATE_PASSPHRASE:        handleCreatePassphrase();          break;
     case STATE_PROMPT_PASSPHRASE:        handlePromptPassphrase();          break;
+    case STATE_CREATE_CLIENT:            handleCreateClient();              break;
     case STATE_CONVERSATION_OR_LIST:     handleDisplayConversationOrList(); break;
     }
   }
@@ -94,6 +101,11 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
   private void handlePromptPassphrase() {
     Intent intent = new Intent(this, PassphrasePromptActivity.class);
     startActivityForResult(intent, 2);
+  }
+
+  private void handleCreateClient() {
+    Intent intent = new Intent(this, ClientCreateActivity.class);
+    startActivityForResult(intent, 3);
   }
 
   private void handleDisplayConversationOrList() {
@@ -151,6 +163,9 @@ public class RoutingActivity extends PassphraseRequiredActionBarActivity {
 
     if (masterSecret == null)
       return STATE_PROMPT_PASSPHRASE;
+
+    if (Client.isNull())
+      return STATE_CREATE_CLIENT;
 
     return STATE_CONVERSATION_OR_LIST;
   }

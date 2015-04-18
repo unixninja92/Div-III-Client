@@ -20,7 +20,6 @@ import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.security.KeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -93,9 +92,9 @@ public class Client {
     // hmacKey is shared with clients home server so that the home server knows
     // what messages to send to the client
     SecretKey hmacKey;
-//
-//    // generation is the generation number of the group private key and is
-//    // incremented when a member of the group is revoked.
+
+    // generation is the generation number of the group private key and is
+    // incremented when a member of the group is revoked.
 //    public Integer generation;
 
     // siging Ed25519 keypair.
@@ -109,8 +108,6 @@ public class Client {
     public HashMap<Long, Contact> contacts;
     public HashMap<Long, InboxMessage> inbox;
 
-
-//    public ArrayList<Contact> contactList;
 
     // queue is a queue of messages for transmission that's shared with the
     // network goroutine and protected by queueMutex.
@@ -207,14 +204,14 @@ public class Client {
                         .getMasterSecret(context).getEncryptionKey().getEncoded());
 
                 System.out.println("Do the network thing :)");
-                new AsyncTask<Void, Void, Void>() {
-                    @Override
-                    protected Void doInBackground(Void... params) {
+//                new AsyncTask<Void, Void, Void>() {
+//                    @Override
+//                    protected Void doInBackground(Void... params) {
                         Network.doCreateAccount();
-                        return null;
-                    }
-                }.execute();
-                TextSecurePreferences.setRegisteredOnServer(context, true);
+                        TextSecurePreferences.setRegisteredOnServer(context, true);
+//                        return null;
+//                    }
+//                }.execute();
             }
             else {
                 System.out.println("load dat State file");
@@ -307,10 +304,8 @@ public class Client {
     }
 
     public Long randId() {
-        byte[] idBytes = new byte[8];
         while(true) {
-            rand.nextBytes(idBytes);
-            Long n = ByteBuffer.wrap(idBytes).getLong();
+            Long n = rand.nextLong();
             if(n == 0)
                 continue;
             if(usedIds.containsKey(n))
@@ -355,15 +350,6 @@ public class Client {
 
     public void deleteInboxMsg(Long id) {
         inbox.remove(id);
-//        InboxMessage[] newInbox = new InboxMessage[inbox.length];
-//        int pos = 0;
-//        for(int i = 0; i < inbox.length; i++){
-//            InboxMessage inboxMsg = inbox[i];
-//            if(inboxMsg.id.equals(id))
-//                continue;
-//            newInbox[pos++] = inboxMsg;
-//        }
-//        inbox = newInbox;
     }
 
     // dropSealedAndAckMessagesFrom removes all sealed or pure-ack messages from
@@ -374,40 +360,12 @@ public class Client {
                     inboxMsg.message != null && inboxMsg.message.getBody().size() == 0)
                 inbox.remove(inboxMsg.id);
         }
-//        InboxMessage[] newInbox = new InboxMessage[inbox.length];
-//        int pos = 0;
-//        for(int i = 0; i < inbox.length; i++){
-//            InboxMessage inboxMsg = inbox[i];
-//            if(inboxMsg.from.equals(contact.id) && inboxMsg.sealed.length > 0 ||
-//                    inboxMsg.message != null && inboxMsg.message.getBody().size() == 0)
-//                continue;
-//            newInbox[pos++] = inboxMsg;
-//        }
-//        inbox = newInbox;
     }
 
     public void deleteOutboxMsg(Long id) {
         outbox.remove(id);
-//        QueuedMessage[] newOutbox = new QueuedMessage[outbox.length];
-//        int pos = 0;
-//        for(int i = 0; i < outbox.length; i++){
-//            QueuedMessage outboxMsg = outbox[i];
-//            if(outboxMsg.id.equals(id))
-//                continue;
-//            newOutbox[pos++] = outboxMsg;
-//        }
-//        outbox = newOutbox;
     }
 
-//    public int indexOfQueuedMessage(QueuedMessage msg) {
-//        // c.queueMutex must be held before calling this function.
-//        for(int i = 0; i < queue.length; i++) {
-//            queue.
-//            if(queue[i] == msg)
-//                return i;
-//        }
-//        return -1;
-//    }
 
     public void removeQueuedMessage(QueuedMessage msg) {
         // c.queueMutex must be held before calling this function.
@@ -491,6 +449,8 @@ public class Client {
 
         signingKey = new SigningKey(state.getSeed().toByteArray());
 
+        hmacKey = new SecretKeySpec(state.getHmacKey().toByteArray(), "HmacSHA256");
+
 
         for (LocalStorage.Contact cont: state.getContactsList()){
             Contact contact = new Contact(cont.getId(), cont.getName());
@@ -498,28 +458,35 @@ public class Client {
             contact.revokedUs = cont.getRevokedUs();
             try {
                 registerId(contact.id);
-                contacts.put(contact.id, contact);
-
-                if(cont.hasIsPending() && cont.getIsPending()) {
-                    contact.isPending = true;
-                    continue;
-                }
-
-                contact.theirServer = cont.getTheirServer();
-
-                contact.theirPub = new VerifyKey(cont.getTheirPub().toByteArray());
-
-                contact.theirIdentityPublic = new PublicKey(cont.getTheirIdentityPublic().toByteArray());
-
-                if(cont.hasSupportedVersion())
-                    contact.supportedVersion = cont.getSupportedVersion();
-
-                contact.events = new ArrayList<>();
-                for(LocalStorage.Contact.Event evt: cont.getEventsList()){
-                    contact.events.add(new Event(evt.getTime(), evt.getMessage()));
-                }
             } catch (Exception e) {
                 e.printStackTrace();
+            }
+            contacts.put(contact.id, contact);
+
+            if(cont.hasIsPending() && cont.getIsPending()) {
+                contact.isPending = true;
+                continue;
+            }
+
+            contact.theirServer = cont.getTheirServer();
+
+            contact.theirPub = new VerifyKey(cont.getTheirPub().toByteArray());
+
+            contact.theirIdentityPublic = new PublicKey(cont.getTheirIdentityPublic().toByteArray());
+
+            if(cont.hasSupportedVersion())
+                contact.supportedVersion = cont.getSupportedVersion();
+
+            contact.theirHMACPairs = (ArrayList<Pond.HMACPair>) cont.getTheirPairsList();
+
+            for(LocalStorage.Contact.MyHMACPair pair: cont.getMyPairsList()){
+                contact.myHMACs.add(new HMACPair(pair.getPublicKey().toByteArray(),
+                        pair.getHmac().toByteArray()));
+            }
+
+            contact.events = new ArrayList<>();
+            for(LocalStorage.Contact.Event evt: cont.getEventsList()){
+                contact.events.add(new Event(evt.getTime(), evt.getMessage()));
             }
         }
 
@@ -536,15 +503,15 @@ public class Client {
 
             try {
                 registerId(mesg.id);
-
-                if(in.getMessage().size() > 0){
-                    mesg.message = Pond.Message.parseFrom(in.getMessage());
-                }
-
-                inbox.put(mesg.id, mesg);
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+            if(in.getMessage().size() > 0){
+                mesg.message = Pond.Message.parseFrom(in.getMessage());
+            }
+
+            inbox.put(mesg.id, mesg);
         }
 
         for(LocalStorage.Outbox out: state.getOutboxList()){
@@ -556,29 +523,29 @@ public class Client {
 
             try {
                 registerId(msg.id);
-
-                if(out.getMessage().size() > 0){
-                    msg.message = Pond.Message.parseFrom(out.getMessage()).toBuilder();
-                }
-
-                if(out.hasSent())
-                    msg.sent = out.getSent();
-                if(out.hasAcked())
-                    msg.acked = out.getAcked();
-
-                if(out.getRequest().size() > 0){
-                    msg.request = Pond.Request.parseFrom(out.getRequest()).toBuilder();
-                }
-                msg.revocation = out.getRevocation();
-                msg.server = out.getServer();
-
-                outbox.put(msg.id, msg);
-
-                if(msg.sent == 0L && (msg.to == 0L || !contacts.get(msg.to).revokedUs))
-                    enqueue(msg);
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+            if(out.getMessage().size() > 0){
+                msg.message = Pond.Message.parseFrom(out.getMessage()).toBuilder();
+            }
+
+            if(out.hasSent())
+                msg.sent = out.getSent();
+            if(out.hasAcked())
+                msg.acked = out.getAcked();
+
+            if(out.getRequest().size() > 0){
+                msg.request = Pond.Request.parseFrom(out.getRequest()).toBuilder();
+            }
+            msg.revocation = out.getRevocation();
+            msg.server = out.getServer();
+
+            outbox.put(msg.id, msg);
+
+            if(msg.sent == 0L && (msg.to == 0L || !contacts.get(msg.to).revokedUs))
+                enqueue(msg);
         }
 
         for(LocalStorage.Draft d: state.getDraftsList()){
@@ -591,15 +558,15 @@ public class Client {
 
             try {
                 registerId(draft.id);
-                if(d.hasTo())
-                    draft.to = d.getTo();
-                if(d.hasInReplyTo())
-                    draft.inReplyTo = d.getInReplyTo();
-
-                drafts.put(draft.id, draft);
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            if(d.hasTo())
+                draft.to = d.getTo();
+            if(d.hasInReplyTo())
+                draft.inReplyTo = d.getInReplyTo();
+
+            drafts.put(draft.id, draft);
         }
 
         System.out.println("StateFile loaded!");
@@ -620,7 +587,13 @@ public class Client {
             cont.setKeyExchangeBytes(ByteString.copyFrom(contact.kxsBytes));
             cont.setSupportedVersion(contact.supportedVersion);
             cont.setRevokedUs(contact.revokedUs);
-            cont.addAllPairs(contact.theirHMACPairs);
+            cont.addAllTheirPairs(contact.theirHMACPairs);
+            for(HMACPair pair : contact.myHMACs){
+                cont.addMyPairs(LocalStorage.Contact.MyHMACPair.newBuilder()
+                        .setPublicKey(ByteString.copyFrom(pair.publicKey))
+                        .setHmac(ByteString.copyFrom(pair.hmacOfKey))
+                        .build());
+            }
 
             if(!contact.isPending) {
                 cont.setTheirPub(ByteString.copyFrom(contact.theirPub.toBytes()));
@@ -702,6 +675,7 @@ public class Client {
         LocalStorage.State.Builder state = LocalStorage.State.newBuilder();
         state.setSeed(ByteString.copyFrom(signingKey.toBytes()));
         state.setIdentity(ByteString.copyFrom(identity.getPrivateKey().toBytes()));
+        state.setHmacKey(ByteString.copyFrom(hmacKey.getEncoded()));
         state.setServer(server);
         state.addAllContacts(conts);
         state.addAllInbox(inbox);

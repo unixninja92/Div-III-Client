@@ -2237,35 +2237,59 @@ public final class LocalStorage {
         int index);
 
     /**
-     * <code>repeated .HMACPair pairs = 16;</code>
+     * <code>repeated .HMACPair theirPairs = 16;</code>
      */
     java.util.List<Pond.HMACPair> 
-        getPairsList();
+        getTheirPairsList();
     /**
-     * <code>repeated .HMACPair pairs = 16;</code>
+     * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    Pond.HMACPair getPairs(int index);
+    Pond.HMACPair getTheirPairs(int index);
     /**
-     * <code>repeated .HMACPair pairs = 16;</code>
+     * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    int getPairsCount();
+    int getTheirPairsCount();
     /**
-     * <code>repeated .HMACPair pairs = 16;</code>
+     * <code>repeated .HMACPair theirPairs = 16;</code>
      */
     java.util.List<? extends Pond.HMACPairOrBuilder> 
-        getPairsOrBuilderList();
+        getTheirPairsOrBuilderList();
     /**
-     * <code>repeated .HMACPair pairs = 16;</code>
+     * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    Pond.HMACPairOrBuilder getPairsOrBuilder(
+    Pond.HMACPairOrBuilder getTheirPairsOrBuilder(
         int index);
 
     /**
-     * <code>optional bool is_pending = 17 [default = false];</code>
+     * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+     */
+    java.util.List<LocalStorage.Contact.MyHMACPair> 
+        getMyPairsList();
+    /**
+     * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+     */
+    LocalStorage.Contact.MyHMACPair getMyPairs(int index);
+    /**
+     * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+     */
+    int getMyPairsCount();
+    /**
+     * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+     */
+    java.util.List<? extends LocalStorage.Contact.MyHMACPairOrBuilder> 
+        getMyPairsOrBuilderList();
+    /**
+     * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+     */
+    LocalStorage.Contact.MyHMACPairOrBuilder getMyPairsOrBuilder(
+        int index);
+
+    /**
+     * <code>optional bool is_pending = 18 [default = false];</code>
      */
     boolean hasIsPending();
     /**
-     * <code>optional bool is_pending = 17 [default = false];</code>
+     * <code>optional bool is_pending = 18 [default = false];</code>
      */
     boolean getIsPending();
   }
@@ -2411,13 +2435,21 @@ public final class LocalStorage {
             }
             case 130: {
               if (!((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
-                pairs_ = new java.util.ArrayList<Pond.HMACPair>();
+                theirPairs_ = new java.util.ArrayList<Pond.HMACPair>();
                 mutable_bitField0_ |= 0x00008000;
               }
-              pairs_.add(input.readMessage(Pond.HMACPair.PARSER, extensionRegistry));
+              theirPairs_.add(input.readMessage(Pond.HMACPair.PARSER, extensionRegistry));
               break;
             }
-            case 136: {
+            case 138: {
+              if (!((mutable_bitField0_ & 0x00010000) == 0x00010000)) {
+                myPairs_ = new java.util.ArrayList<LocalStorage.Contact.MyHMACPair>();
+                mutable_bitField0_ |= 0x00010000;
+              }
+              myPairs_.add(input.readMessage(LocalStorage.Contact.MyHMACPair.PARSER, extensionRegistry));
+              break;
+            }
+            case 144: {
               bitField0_ |= 0x00004000;
               isPending_ = input.readBool();
               break;
@@ -2434,7 +2466,10 @@ public final class LocalStorage {
           events_ = java.util.Collections.unmodifiableList(events_);
         }
         if (((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
-          pairs_ = java.util.Collections.unmodifiableList(pairs_);
+          theirPairs_ = java.util.Collections.unmodifiableList(theirPairs_);
+        }
+        if (((mutable_bitField0_ & 0x00010000) == 0x00010000)) {
+          myPairs_ = java.util.Collections.unmodifiableList(myPairs_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -3037,6 +3072,503 @@ public final class LocalStorage {
       // @@protoc_insertion_point(class_scope:Contact.Event)
     }
 
+    public interface MyHMACPairOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:Contact.MyHMACPair)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>required bytes publicKey = 1;</code>
+       */
+      boolean hasPublicKey();
+      /**
+       * <code>required bytes publicKey = 1;</code>
+       */
+      com.google.protobuf.ByteString getPublicKey();
+
+      /**
+       * <code>required bytes hmac = 2;</code>
+       */
+      boolean hasHmac();
+      /**
+       * <code>required bytes hmac = 2;</code>
+       */
+      com.google.protobuf.ByteString getHmac();
+    }
+    /**
+     * Protobuf type {@code Contact.MyHMACPair}
+     */
+    public static final class MyHMACPair extends
+        com.google.protobuf.GeneratedMessage implements
+        // @@protoc_insertion_point(message_implements:Contact.MyHMACPair)
+        MyHMACPairOrBuilder {
+      // Use MyHMACPair.newBuilder() to construct.
+      private MyHMACPair(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+        super(builder);
+        this.unknownFields = builder.getUnknownFields();
+      }
+      private MyHMACPair(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+      private static final MyHMACPair defaultInstance;
+      public static MyHMACPair getDefaultInstance() {
+        return defaultInstance;
+      }
+
+      public MyHMACPair getDefaultInstanceForType() {
+        return defaultInstance;
+      }
+
+      private final com.google.protobuf.UnknownFieldSet unknownFields;
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+          getUnknownFields() {
+        return this.unknownFields;
+      }
+      private MyHMACPair(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        initFields();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 10: {
+                bitField0_ |= 0x00000001;
+                publicKey_ = input.readBytes();
+                break;
+              }
+              case 18: {
+                bitField0_ |= 0x00000002;
+                hmac_ = input.readBytes();
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e.getMessage()).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return LocalStorage.internal_static_protos_Contact_MyHMACPair_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return LocalStorage.internal_static_protos_Contact_MyHMACPair_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                LocalStorage.Contact.MyHMACPair.class, LocalStorage.Contact.MyHMACPair.Builder.class);
+      }
+
+      public static com.google.protobuf.Parser<MyHMACPair> PARSER =
+          new com.google.protobuf.AbstractParser<MyHMACPair>() {
+        public MyHMACPair parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new MyHMACPair(input, extensionRegistry);
+        }
+      };
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<MyHMACPair> getParserForType() {
+        return PARSER;
+      }
+
+      private int bitField0_;
+      public static final int PUBLICKEY_FIELD_NUMBER = 1;
+      private com.google.protobuf.ByteString publicKey_;
+      /**
+       * <code>required bytes publicKey = 1;</code>
+       */
+      public boolean hasPublicKey() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required bytes publicKey = 1;</code>
+       */
+      public com.google.protobuf.ByteString getPublicKey() {
+        return publicKey_;
+      }
+
+      public static final int HMAC_FIELD_NUMBER = 2;
+      private com.google.protobuf.ByteString hmac_;
+      /**
+       * <code>required bytes hmac = 2;</code>
+       */
+      public boolean hasHmac() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required bytes hmac = 2;</code>
+       */
+      public com.google.protobuf.ByteString getHmac() {
+        return hmac_;
+      }
+
+      private void initFields() {
+        publicKey_ = com.google.protobuf.ByteString.EMPTY;
+        hmac_ = com.google.protobuf.ByteString.EMPTY;
+      }
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        if (!hasPublicKey()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasHmac()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        getSerializedSize();
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          output.writeBytes(1, publicKey_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          output.writeBytes(2, hmac_);
+        }
+        getUnknownFields().writeTo(output);
+      }
+
+      private int memoizedSerializedSize = -1;
+      public int getSerializedSize() {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(1, publicKey_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(2, hmac_);
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSerializedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      protected java.lang.Object writeReplace()
+          throws java.io.ObjectStreamException {
+        return super.writeReplace();
+      }
+
+      public static LocalStorage.Contact.MyHMACPair parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static LocalStorage.Contact.MyHMACPair parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static LocalStorage.Contact.MyHMACPair parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static LocalStorage.Contact.MyHMACPair parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static LocalStorage.Contact.MyHMACPair parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static LocalStorage.Contact.MyHMACPair parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+      public static LocalStorage.Contact.MyHMACPair parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input);
+      }
+      public static LocalStorage.Contact.MyHMACPair parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      }
+      public static LocalStorage.Contact.MyHMACPair parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static LocalStorage.Contact.MyHMACPair parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() { return Builder.create(); }
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder(LocalStorage.Contact.MyHMACPair prototype) {
+        return newBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() { return newBuilder(this); }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code Contact.MyHMACPair}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:Contact.MyHMACPair)
+          LocalStorage.Contact.MyHMACPairOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return LocalStorage.internal_static_protos_Contact_MyHMACPair_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return LocalStorage.internal_static_protos_Contact_MyHMACPair_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  LocalStorage.Contact.MyHMACPair.class, LocalStorage.Contact.MyHMACPair.Builder.class);
+        }
+
+        // Construct using LocalStorage.Contact.MyHMACPair.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          }
+        }
+        private static Builder create() {
+          return new Builder();
+        }
+
+        public Builder clear() {
+          super.clear();
+          publicKey_ = com.google.protobuf.ByteString.EMPTY;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          hmac_ = com.google.protobuf.ByteString.EMPTY;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          return this;
+        }
+
+        public Builder clone() {
+          return create().mergeFrom(buildPartial());
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return LocalStorage.internal_static_protos_Contact_MyHMACPair_descriptor;
+        }
+
+        public LocalStorage.Contact.MyHMACPair getDefaultInstanceForType() {
+          return LocalStorage.Contact.MyHMACPair.getDefaultInstance();
+        }
+
+        public LocalStorage.Contact.MyHMACPair build() {
+          LocalStorage.Contact.MyHMACPair result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public LocalStorage.Contact.MyHMACPair buildPartial() {
+          LocalStorage.Contact.MyHMACPair result = new LocalStorage.Contact.MyHMACPair(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
+          result.publicKey_ = publicKey_;
+          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+            to_bitField0_ |= 0x00000002;
+          }
+          result.hmac_ = hmac_;
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof LocalStorage.Contact.MyHMACPair) {
+            return mergeFrom((LocalStorage.Contact.MyHMACPair)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(LocalStorage.Contact.MyHMACPair other) {
+          if (other == LocalStorage.Contact.MyHMACPair.getDefaultInstance()) return this;
+          if (other.hasPublicKey()) {
+            setPublicKey(other.getPublicKey());
+          }
+          if (other.hasHmac()) {
+            setHmac(other.getHmac());
+          }
+          this.mergeUnknownFields(other.getUnknownFields());
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          if (!hasPublicKey()) {
+            
+            return false;
+          }
+          if (!hasHmac()) {
+            
+            return false;
+          }
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          LocalStorage.Contact.MyHMACPair parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (LocalStorage.Contact.MyHMACPair) e.getUnfinishedMessage();
+            throw e;
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        private int bitField0_;
+
+        private com.google.protobuf.ByteString publicKey_ = com.google.protobuf.ByteString.EMPTY;
+        /**
+         * <code>required bytes publicKey = 1;</code>
+         */
+        public boolean hasPublicKey() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <code>required bytes publicKey = 1;</code>
+         */
+        public com.google.protobuf.ByteString getPublicKey() {
+          return publicKey_;
+        }
+        /**
+         * <code>required bytes publicKey = 1;</code>
+         */
+        public Builder setPublicKey(com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+          publicKey_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required bytes publicKey = 1;</code>
+         */
+        public Builder clearPublicKey() {
+          bitField0_ = (bitField0_ & ~0x00000001);
+          publicKey_ = getDefaultInstance().getPublicKey();
+          onChanged();
+          return this;
+        }
+
+        private com.google.protobuf.ByteString hmac_ = com.google.protobuf.ByteString.EMPTY;
+        /**
+         * <code>required bytes hmac = 2;</code>
+         */
+        public boolean hasHmac() {
+          return ((bitField0_ & 0x00000002) == 0x00000002);
+        }
+        /**
+         * <code>required bytes hmac = 2;</code>
+         */
+        public com.google.protobuf.ByteString getHmac() {
+          return hmac_;
+        }
+        /**
+         * <code>required bytes hmac = 2;</code>
+         */
+        public Builder setHmac(com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+          hmac_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required bytes hmac = 2;</code>
+         */
+        public Builder clearHmac() {
+          bitField0_ = (bitField0_ & ~0x00000002);
+          hmac_ = getDefaultInstance().getHmac();
+          onChanged();
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:Contact.MyHMACPair)
+      }
+
+      static {
+        defaultInstance = new MyHMACPair(true);
+        defaultInstance.initFields();
+      }
+
+      // @@protoc_insertion_point(class_scope:Contact.MyHMACPair)
+    }
+
     private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private long id_;
@@ -3343,51 +3875,86 @@ public final class LocalStorage {
       return events_.get(index);
     }
 
-    public static final int PAIRS_FIELD_NUMBER = 16;
-    private java.util.List<Pond.HMACPair> pairs_;
+    public static final int THEIRPAIRS_FIELD_NUMBER = 16;
+    private java.util.List<Pond.HMACPair> theirPairs_;
     /**
-     * <code>repeated .HMACPair pairs = 16;</code>
+     * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    public java.util.List<Pond.HMACPair> getPairsList() {
-      return pairs_;
+    public java.util.List<Pond.HMACPair> getTheirPairsList() {
+      return theirPairs_;
     }
     /**
-     * <code>repeated .HMACPair pairs = 16;</code>
+     * <code>repeated .HMACPair theirPairs = 16;</code>
      */
     public java.util.List<? extends Pond.HMACPairOrBuilder> 
-        getPairsOrBuilderList() {
-      return pairs_;
+        getTheirPairsOrBuilderList() {
+      return theirPairs_;
     }
     /**
-     * <code>repeated .HMACPair pairs = 16;</code>
+     * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    public int getPairsCount() {
-      return pairs_.size();
+    public int getTheirPairsCount() {
+      return theirPairs_.size();
     }
     /**
-     * <code>repeated .HMACPair pairs = 16;</code>
+     * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    public Pond.HMACPair getPairs(int index) {
-      return pairs_.get(index);
+    public Pond.HMACPair getTheirPairs(int index) {
+      return theirPairs_.get(index);
     }
     /**
-     * <code>repeated .HMACPair pairs = 16;</code>
+     * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    public Pond.HMACPairOrBuilder getPairsOrBuilder(
+    public Pond.HMACPairOrBuilder getTheirPairsOrBuilder(
         int index) {
-      return pairs_.get(index);
+      return theirPairs_.get(index);
     }
 
-    public static final int IS_PENDING_FIELD_NUMBER = 17;
+    public static final int MYPAIRS_FIELD_NUMBER = 17;
+    private java.util.List<LocalStorage.Contact.MyHMACPair> myPairs_;
+    /**
+     * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+     */
+    public java.util.List<LocalStorage.Contact.MyHMACPair> getMyPairsList() {
+      return myPairs_;
+    }
+    /**
+     * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+     */
+    public java.util.List<? extends LocalStorage.Contact.MyHMACPairOrBuilder> 
+        getMyPairsOrBuilderList() {
+      return myPairs_;
+    }
+    /**
+     * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+     */
+    public int getMyPairsCount() {
+      return myPairs_.size();
+    }
+    /**
+     * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+     */
+    public LocalStorage.Contact.MyHMACPair getMyPairs(int index) {
+      return myPairs_.get(index);
+    }
+    /**
+     * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+     */
+    public LocalStorage.Contact.MyHMACPairOrBuilder getMyPairsOrBuilder(
+        int index) {
+      return myPairs_.get(index);
+    }
+
+    public static final int IS_PENDING_FIELD_NUMBER = 18;
     private boolean isPending_;
     /**
-     * <code>optional bool is_pending = 17 [default = false];</code>
+     * <code>optional bool is_pending = 18 [default = false];</code>
      */
     public boolean hasIsPending() {
       return ((bitField0_ & 0x00004000) == 0x00004000);
     }
     /**
-     * <code>optional bool is_pending = 17 [default = false];</code>
+     * <code>optional bool is_pending = 18 [default = false];</code>
      */
     public boolean getIsPending() {
       return isPending_;
@@ -3409,7 +3976,8 @@ public final class LocalStorage {
       theirCurrentPublic_ = com.google.protobuf.ByteString.EMPTY;
       ratchet_ = LocalStorage.RatchetState.getDefaultInstance();
       events_ = java.util.Collections.emptyList();
-      pairs_ = java.util.Collections.emptyList();
+      theirPairs_ = java.util.Collections.emptyList();
+      myPairs_ = java.util.Collections.emptyList();
       isPending_ = false;
     }
     private byte memoizedIsInitialized = -1;
@@ -3438,8 +4006,14 @@ public final class LocalStorage {
           return false;
         }
       }
-      for (int i = 0; i < getPairsCount(); i++) {
-        if (!getPairs(i).isInitialized()) {
+      for (int i = 0; i < getTheirPairsCount(); i++) {
+        if (!getTheirPairs(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      for (int i = 0; i < getMyPairsCount(); i++) {
+        if (!getMyPairs(i).isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
@@ -3496,11 +4070,14 @@ public final class LocalStorage {
       for (int i = 0; i < events_.size(); i++) {
         output.writeMessage(15, events_.get(i));
       }
-      for (int i = 0; i < pairs_.size(); i++) {
-        output.writeMessage(16, pairs_.get(i));
+      for (int i = 0; i < theirPairs_.size(); i++) {
+        output.writeMessage(16, theirPairs_.get(i));
+      }
+      for (int i = 0; i < myPairs_.size(); i++) {
+        output.writeMessage(17, myPairs_.get(i));
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        output.writeBool(17, isPending_);
+        output.writeBool(18, isPending_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -3571,13 +4148,17 @@ public final class LocalStorage {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(15, events_.get(i));
       }
-      for (int i = 0; i < pairs_.size(); i++) {
+      for (int i = 0; i < theirPairs_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(16, pairs_.get(i));
+          .computeMessageSize(16, theirPairs_.get(i));
+      }
+      for (int i = 0; i < myPairs_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(17, myPairs_.get(i));
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(17, isPending_);
+          .computeBoolSize(18, isPending_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3690,7 +4271,8 @@ public final class LocalStorage {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getRatchetFieldBuilder();
           getEventsFieldBuilder();
-          getPairsFieldBuilder();
+          getTheirPairsFieldBuilder();
+          getMyPairsFieldBuilder();
         }
       }
       private static Builder create() {
@@ -3737,14 +4319,20 @@ public final class LocalStorage {
         } else {
           eventsBuilder_.clear();
         }
-        if (pairsBuilder_ == null) {
-          pairs_ = java.util.Collections.emptyList();
+        if (theirPairsBuilder_ == null) {
+          theirPairs_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00008000);
         } else {
-          pairsBuilder_.clear();
+          theirPairsBuilder_.clear();
+        }
+        if (myPairsBuilder_ == null) {
+          myPairs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00010000);
+        } else {
+          myPairsBuilder_.clear();
         }
         isPending_ = false;
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00020000);
         return this;
       }
 
@@ -3842,16 +4430,25 @@ public final class LocalStorage {
         } else {
           result.events_ = eventsBuilder_.build();
         }
-        if (pairsBuilder_ == null) {
+        if (theirPairsBuilder_ == null) {
           if (((bitField0_ & 0x00008000) == 0x00008000)) {
-            pairs_ = java.util.Collections.unmodifiableList(pairs_);
+            theirPairs_ = java.util.Collections.unmodifiableList(theirPairs_);
             bitField0_ = (bitField0_ & ~0x00008000);
           }
-          result.pairs_ = pairs_;
+          result.theirPairs_ = theirPairs_;
         } else {
-          result.pairs_ = pairsBuilder_.build();
+          result.theirPairs_ = theirPairsBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
+        if (myPairsBuilder_ == null) {
+          if (((bitField0_ & 0x00010000) == 0x00010000)) {
+            myPairs_ = java.util.Collections.unmodifiableList(myPairs_);
+            bitField0_ = (bitField0_ & ~0x00010000);
+          }
+          result.myPairs_ = myPairs_;
+        } else {
+          result.myPairs_ = myPairsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
           to_bitField0_ |= 0x00004000;
         }
         result.isPending_ = isPending_;
@@ -3943,29 +4540,55 @@ public final class LocalStorage {
             }
           }
         }
-        if (pairsBuilder_ == null) {
-          if (!other.pairs_.isEmpty()) {
-            if (pairs_.isEmpty()) {
-              pairs_ = other.pairs_;
+        if (theirPairsBuilder_ == null) {
+          if (!other.theirPairs_.isEmpty()) {
+            if (theirPairs_.isEmpty()) {
+              theirPairs_ = other.theirPairs_;
               bitField0_ = (bitField0_ & ~0x00008000);
             } else {
-              ensurePairsIsMutable();
-              pairs_.addAll(other.pairs_);
+              ensureTheirPairsIsMutable();
+              theirPairs_.addAll(other.theirPairs_);
             }
             onChanged();
           }
         } else {
-          if (!other.pairs_.isEmpty()) {
-            if (pairsBuilder_.isEmpty()) {
-              pairsBuilder_.dispose();
-              pairsBuilder_ = null;
-              pairs_ = other.pairs_;
+          if (!other.theirPairs_.isEmpty()) {
+            if (theirPairsBuilder_.isEmpty()) {
+              theirPairsBuilder_.dispose();
+              theirPairsBuilder_ = null;
+              theirPairs_ = other.theirPairs_;
               bitField0_ = (bitField0_ & ~0x00008000);
-              pairsBuilder_ = 
+              theirPairsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getPairsFieldBuilder() : null;
+                   getTheirPairsFieldBuilder() : null;
             } else {
-              pairsBuilder_.addAllMessages(other.pairs_);
+              theirPairsBuilder_.addAllMessages(other.theirPairs_);
+            }
+          }
+        }
+        if (myPairsBuilder_ == null) {
+          if (!other.myPairs_.isEmpty()) {
+            if (myPairs_.isEmpty()) {
+              myPairs_ = other.myPairs_;
+              bitField0_ = (bitField0_ & ~0x00010000);
+            } else {
+              ensureMyPairsIsMutable();
+              myPairs_.addAll(other.myPairs_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.myPairs_.isEmpty()) {
+            if (myPairsBuilder_.isEmpty()) {
+              myPairsBuilder_.dispose();
+              myPairsBuilder_ = null;
+              myPairs_ = other.myPairs_;
+              bitField0_ = (bitField0_ & ~0x00010000);
+              myPairsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getMyPairsFieldBuilder() : null;
+            } else {
+              myPairsBuilder_.addAllMessages(other.myPairs_);
             }
           }
         }
@@ -3997,8 +4620,14 @@ public final class LocalStorage {
             return false;
           }
         }
-        for (int i = 0; i < getPairsCount(); i++) {
-          if (!getPairs(i).isInitialized()) {
+        for (int i = 0; i < getTheirPairsCount(); i++) {
+          if (!getTheirPairs(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        for (int i = 0; i < getMyPairsCount(); i++) {
+          if (!getMyPairs(i).isInitialized()) {
             
             return false;
           }
@@ -4906,273 +5535,513 @@ public final class LocalStorage {
         return eventsBuilder_;
       }
 
-      private java.util.List<Pond.HMACPair> pairs_ =
+      private java.util.List<Pond.HMACPair> theirPairs_ =
         java.util.Collections.emptyList();
-      private void ensurePairsIsMutable() {
+      private void ensureTheirPairsIsMutable() {
         if (!((bitField0_ & 0x00008000) == 0x00008000)) {
-          pairs_ = new java.util.ArrayList<Pond.HMACPair>(pairs_);
+          theirPairs_ = new java.util.ArrayList<Pond.HMACPair>(theirPairs_);
           bitField0_ |= 0x00008000;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> pairsBuilder_;
+          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> theirPairsBuilder_;
 
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public java.util.List<Pond.HMACPair> getPairsList() {
-        if (pairsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(pairs_);
+      public java.util.List<Pond.HMACPair> getTheirPairsList() {
+        if (theirPairsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(theirPairs_);
         } else {
-          return pairsBuilder_.getMessageList();
+          return theirPairsBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public int getPairsCount() {
-        if (pairsBuilder_ == null) {
-          return pairs_.size();
+      public int getTheirPairsCount() {
+        if (theirPairsBuilder_ == null) {
+          return theirPairs_.size();
         } else {
-          return pairsBuilder_.getCount();
+          return theirPairsBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Pond.HMACPair getPairs(int index) {
-        if (pairsBuilder_ == null) {
-          return pairs_.get(index);
+      public Pond.HMACPair getTheirPairs(int index) {
+        if (theirPairsBuilder_ == null) {
+          return theirPairs_.get(index);
         } else {
-          return pairsBuilder_.getMessage(index);
+          return theirPairsBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Builder setPairs(
+      public Builder setTheirPairs(
           int index, Pond.HMACPair value) {
-        if (pairsBuilder_ == null) {
+        if (theirPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensurePairsIsMutable();
-          pairs_.set(index, value);
+          ensureTheirPairsIsMutable();
+          theirPairs_.set(index, value);
           onChanged();
         } else {
-          pairsBuilder_.setMessage(index, value);
+          theirPairsBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Builder setPairs(
+      public Builder setTheirPairs(
           int index, Pond.HMACPair.Builder builderForValue) {
-        if (pairsBuilder_ == null) {
-          ensurePairsIsMutable();
-          pairs_.set(index, builderForValue.build());
+        if (theirPairsBuilder_ == null) {
+          ensureTheirPairsIsMutable();
+          theirPairs_.set(index, builderForValue.build());
           onChanged();
         } else {
-          pairsBuilder_.setMessage(index, builderForValue.build());
+          theirPairsBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Builder addPairs(Pond.HMACPair value) {
-        if (pairsBuilder_ == null) {
+      public Builder addTheirPairs(Pond.HMACPair value) {
+        if (theirPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensurePairsIsMutable();
-          pairs_.add(value);
+          ensureTheirPairsIsMutable();
+          theirPairs_.add(value);
           onChanged();
         } else {
-          pairsBuilder_.addMessage(value);
+          theirPairsBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Builder addPairs(
+      public Builder addTheirPairs(
           int index, Pond.HMACPair value) {
-        if (pairsBuilder_ == null) {
+        if (theirPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensurePairsIsMutable();
-          pairs_.add(index, value);
+          ensureTheirPairsIsMutable();
+          theirPairs_.add(index, value);
           onChanged();
         } else {
-          pairsBuilder_.addMessage(index, value);
+          theirPairsBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Builder addPairs(
+      public Builder addTheirPairs(
           Pond.HMACPair.Builder builderForValue) {
-        if (pairsBuilder_ == null) {
-          ensurePairsIsMutable();
-          pairs_.add(builderForValue.build());
+        if (theirPairsBuilder_ == null) {
+          ensureTheirPairsIsMutable();
+          theirPairs_.add(builderForValue.build());
           onChanged();
         } else {
-          pairsBuilder_.addMessage(builderForValue.build());
+          theirPairsBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Builder addPairs(
+      public Builder addTheirPairs(
           int index, Pond.HMACPair.Builder builderForValue) {
-        if (pairsBuilder_ == null) {
-          ensurePairsIsMutable();
-          pairs_.add(index, builderForValue.build());
+        if (theirPairsBuilder_ == null) {
+          ensureTheirPairsIsMutable();
+          theirPairs_.add(index, builderForValue.build());
           onChanged();
         } else {
-          pairsBuilder_.addMessage(index, builderForValue.build());
+          theirPairsBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Builder addAllPairs(
+      public Builder addAllTheirPairs(
           java.lang.Iterable<? extends Pond.HMACPair> values) {
-        if (pairsBuilder_ == null) {
-          ensurePairsIsMutable();
+        if (theirPairsBuilder_ == null) {
+          ensureTheirPairsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, pairs_);
+              values, theirPairs_);
           onChanged();
         } else {
-          pairsBuilder_.addAllMessages(values);
+          theirPairsBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Builder clearPairs() {
-        if (pairsBuilder_ == null) {
-          pairs_ = java.util.Collections.emptyList();
+      public Builder clearTheirPairs() {
+        if (theirPairsBuilder_ == null) {
+          theirPairs_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00008000);
           onChanged();
         } else {
-          pairsBuilder_.clear();
+          theirPairsBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Builder removePairs(int index) {
-        if (pairsBuilder_ == null) {
-          ensurePairsIsMutable();
-          pairs_.remove(index);
+      public Builder removeTheirPairs(int index) {
+        if (theirPairsBuilder_ == null) {
+          ensureTheirPairsIsMutable();
+          theirPairs_.remove(index);
           onChanged();
         } else {
-          pairsBuilder_.remove(index);
+          theirPairsBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Pond.HMACPair.Builder getPairsBuilder(
+      public Pond.HMACPair.Builder getTheirPairsBuilder(
           int index) {
-        return getPairsFieldBuilder().getBuilder(index);
+        return getTheirPairsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Pond.HMACPairOrBuilder getPairsOrBuilder(
+      public Pond.HMACPairOrBuilder getTheirPairsOrBuilder(
           int index) {
-        if (pairsBuilder_ == null) {
-          return pairs_.get(index);  } else {
-          return pairsBuilder_.getMessageOrBuilder(index);
+        if (theirPairsBuilder_ == null) {
+          return theirPairs_.get(index);  } else {
+          return theirPairsBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
       public java.util.List<? extends Pond.HMACPairOrBuilder> 
-           getPairsOrBuilderList() {
-        if (pairsBuilder_ != null) {
-          return pairsBuilder_.getMessageOrBuilderList();
+           getTheirPairsOrBuilderList() {
+        if (theirPairsBuilder_ != null) {
+          return theirPairsBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(pairs_);
+          return java.util.Collections.unmodifiableList(theirPairs_);
         }
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Pond.HMACPair.Builder addPairsBuilder() {
-        return getPairsFieldBuilder().addBuilder(
+      public Pond.HMACPair.Builder addTheirPairsBuilder() {
+        return getTheirPairsFieldBuilder().addBuilder(
             Pond.HMACPair.getDefaultInstance());
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Pond.HMACPair.Builder addPairsBuilder(
+      public Pond.HMACPair.Builder addTheirPairsBuilder(
           int index) {
-        return getPairsFieldBuilder().addBuilder(
+        return getTheirPairsFieldBuilder().addBuilder(
             index, Pond.HMACPair.getDefaultInstance());
       }
       /**
-       * <code>repeated .HMACPair pairs = 16;</code>
+       * <code>repeated .HMACPair theirPairs = 16;</code>
        */
       public java.util.List<Pond.HMACPair.Builder> 
-           getPairsBuilderList() {
-        return getPairsFieldBuilder().getBuilderList();
+           getTheirPairsBuilderList() {
+        return getTheirPairsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
           Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> 
-          getPairsFieldBuilder() {
-        if (pairsBuilder_ == null) {
-          pairsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          getTheirPairsFieldBuilder() {
+        if (theirPairsBuilder_ == null) {
+          theirPairsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder>(
-                  pairs_,
+                  theirPairs_,
                   ((bitField0_ & 0x00008000) == 0x00008000),
                   getParentForChildren(),
                   isClean());
-          pairs_ = null;
+          theirPairs_ = null;
         }
-        return pairsBuilder_;
+        return theirPairsBuilder_;
+      }
+
+      private java.util.List<LocalStorage.Contact.MyHMACPair> myPairs_ =
+        java.util.Collections.emptyList();
+      private void ensureMyPairsIsMutable() {
+        if (!((bitField0_ & 0x00010000) == 0x00010000)) {
+          myPairs_ = new java.util.ArrayList<LocalStorage.Contact.MyHMACPair>(myPairs_);
+          bitField0_ |= 0x00010000;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          LocalStorage.Contact.MyHMACPair, LocalStorage.Contact.MyHMACPair.Builder, LocalStorage.Contact.MyHMACPairOrBuilder> myPairsBuilder_;
+
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public java.util.List<LocalStorage.Contact.MyHMACPair> getMyPairsList() {
+        if (myPairsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(myPairs_);
+        } else {
+          return myPairsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public int getMyPairsCount() {
+        if (myPairsBuilder_ == null) {
+          return myPairs_.size();
+        } else {
+          return myPairsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public LocalStorage.Contact.MyHMACPair getMyPairs(int index) {
+        if (myPairsBuilder_ == null) {
+          return myPairs_.get(index);
+        } else {
+          return myPairsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public Builder setMyPairs(
+          int index, LocalStorage.Contact.MyHMACPair value) {
+        if (myPairsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMyPairsIsMutable();
+          myPairs_.set(index, value);
+          onChanged();
+        } else {
+          myPairsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public Builder setMyPairs(
+          int index, LocalStorage.Contact.MyHMACPair.Builder builderForValue) {
+        if (myPairsBuilder_ == null) {
+          ensureMyPairsIsMutable();
+          myPairs_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          myPairsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public Builder addMyPairs(LocalStorage.Contact.MyHMACPair value) {
+        if (myPairsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMyPairsIsMutable();
+          myPairs_.add(value);
+          onChanged();
+        } else {
+          myPairsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public Builder addMyPairs(
+          int index, LocalStorage.Contact.MyHMACPair value) {
+        if (myPairsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMyPairsIsMutable();
+          myPairs_.add(index, value);
+          onChanged();
+        } else {
+          myPairsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public Builder addMyPairs(
+          LocalStorage.Contact.MyHMACPair.Builder builderForValue) {
+        if (myPairsBuilder_ == null) {
+          ensureMyPairsIsMutable();
+          myPairs_.add(builderForValue.build());
+          onChanged();
+        } else {
+          myPairsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public Builder addMyPairs(
+          int index, LocalStorage.Contact.MyHMACPair.Builder builderForValue) {
+        if (myPairsBuilder_ == null) {
+          ensureMyPairsIsMutable();
+          myPairs_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          myPairsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public Builder addAllMyPairs(
+          java.lang.Iterable<? extends LocalStorage.Contact.MyHMACPair> values) {
+        if (myPairsBuilder_ == null) {
+          ensureMyPairsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, myPairs_);
+          onChanged();
+        } else {
+          myPairsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public Builder clearMyPairs() {
+        if (myPairsBuilder_ == null) {
+          myPairs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00010000);
+          onChanged();
+        } else {
+          myPairsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public Builder removeMyPairs(int index) {
+        if (myPairsBuilder_ == null) {
+          ensureMyPairsIsMutable();
+          myPairs_.remove(index);
+          onChanged();
+        } else {
+          myPairsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public LocalStorage.Contact.MyHMACPair.Builder getMyPairsBuilder(
+          int index) {
+        return getMyPairsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public LocalStorage.Contact.MyHMACPairOrBuilder getMyPairsOrBuilder(
+          int index) {
+        if (myPairsBuilder_ == null) {
+          return myPairs_.get(index);  } else {
+          return myPairsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public java.util.List<? extends LocalStorage.Contact.MyHMACPairOrBuilder> 
+           getMyPairsOrBuilderList() {
+        if (myPairsBuilder_ != null) {
+          return myPairsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(myPairs_);
+        }
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public LocalStorage.Contact.MyHMACPair.Builder addMyPairsBuilder() {
+        return getMyPairsFieldBuilder().addBuilder(
+            LocalStorage.Contact.MyHMACPair.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public LocalStorage.Contact.MyHMACPair.Builder addMyPairsBuilder(
+          int index) {
+        return getMyPairsFieldBuilder().addBuilder(
+            index, LocalStorage.Contact.MyHMACPair.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
+       */
+      public java.util.List<LocalStorage.Contact.MyHMACPair.Builder> 
+           getMyPairsBuilderList() {
+        return getMyPairsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          LocalStorage.Contact.MyHMACPair, LocalStorage.Contact.MyHMACPair.Builder, LocalStorage.Contact.MyHMACPairOrBuilder> 
+          getMyPairsFieldBuilder() {
+        if (myPairsBuilder_ == null) {
+          myPairsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              LocalStorage.Contact.MyHMACPair, LocalStorage.Contact.MyHMACPair.Builder, LocalStorage.Contact.MyHMACPairOrBuilder>(
+                  myPairs_,
+                  ((bitField0_ & 0x00010000) == 0x00010000),
+                  getParentForChildren(),
+                  isClean());
+          myPairs_ = null;
+        }
+        return myPairsBuilder_;
       }
 
       private boolean isPending_ ;
       /**
-       * <code>optional bool is_pending = 17 [default = false];</code>
+       * <code>optional bool is_pending = 18 [default = false];</code>
        */
       public boolean hasIsPending() {
-        return ((bitField0_ & 0x00010000) == 0x00010000);
+        return ((bitField0_ & 0x00020000) == 0x00020000);
       }
       /**
-       * <code>optional bool is_pending = 17 [default = false];</code>
+       * <code>optional bool is_pending = 18 [default = false];</code>
        */
       public boolean getIsPending() {
         return isPending_;
       }
       /**
-       * <code>optional bool is_pending = 17 [default = false];</code>
+       * <code>optional bool is_pending = 18 [default = false];</code>
        */
       public Builder setIsPending(boolean value) {
-        bitField0_ |= 0x00010000;
+        bitField0_ |= 0x00020000;
         isPending_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool is_pending = 17 [default = false];</code>
+       * <code>optional bool is_pending = 18 [default = false];</code>
        */
       public Builder clearIsPending() {
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00020000);
         isPending_ = false;
         onChanged();
         return this;
@@ -12331,6 +13200,15 @@ public final class LocalStorage {
     com.google.protobuf.ByteString getSeed();
 
     /**
+     * <code>required bytes hmacKey = 9;</code>
+     */
+    boolean hasHmacKey();
+    /**
+     * <code>required bytes hmacKey = 9;</code>
+     */
+    com.google.protobuf.ByteString getHmacKey();
+
+    /**
      * <code>required string server = 3;</code>
      *
      * <pre>
@@ -12552,45 +13430,50 @@ public final class LocalStorage {
             }
             case 26: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000008;
               server_ = bs;
               break;
             }
             case 34: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 contacts_ = new java.util.ArrayList<LocalStorage.Contact>();
-                mutable_bitField0_ |= 0x00000010;
+                mutable_bitField0_ |= 0x00000020;
               }
               contacts_.add(input.readMessage(LocalStorage.Contact.PARSER, extensionRegistry));
               break;
             }
             case 42: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                 inbox_ = new java.util.ArrayList<LocalStorage.Inbox>();
-                mutable_bitField0_ |= 0x00000020;
+                mutable_bitField0_ |= 0x00000040;
               }
               inbox_.add(input.readMessage(LocalStorage.Inbox.PARSER, extensionRegistry));
               break;
             }
             case 50: {
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
                 outbox_ = new java.util.ArrayList<LocalStorage.Outbox>();
-                mutable_bitField0_ |= 0x00000040;
+                mutable_bitField0_ |= 0x00000080;
               }
               outbox_.add(input.readMessage(LocalStorage.Outbox.PARSER, extensionRegistry));
               break;
             }
             case 58: {
-              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
                 drafts_ = new java.util.ArrayList<LocalStorage.Draft>();
-                mutable_bitField0_ |= 0x00000080;
+                mutable_bitField0_ |= 0x00000100;
               }
               drafts_.add(input.readMessage(LocalStorage.Draft.PARSER, extensionRegistry));
               break;
             }
             case 64: {
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000010;
               lastErasureStorageTime_ = input.readInt64();
+              break;
+            }
+            case 74: {
+              bitField0_ |= 0x00000004;
+              hmacKey_ = input.readBytes();
               break;
             }
           }
@@ -12601,16 +13484,16 @@ public final class LocalStorage {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
           contacts_ = java.util.Collections.unmodifiableList(contacts_);
         }
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
           inbox_ = java.util.Collections.unmodifiableList(inbox_);
         }
-        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
           outbox_ = java.util.Collections.unmodifiableList(outbox_);
         }
-        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
           drafts_ = java.util.Collections.unmodifiableList(drafts_);
         }
         this.unknownFields = unknownFields.build();
@@ -12675,6 +13558,21 @@ public final class LocalStorage {
       return seed_;
     }
 
+    public static final int HMACKEY_FIELD_NUMBER = 9;
+    private com.google.protobuf.ByteString hmacKey_;
+    /**
+     * <code>required bytes hmacKey = 9;</code>
+     */
+    public boolean hasHmacKey() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required bytes hmacKey = 9;</code>
+     */
+    public com.google.protobuf.ByteString getHmacKey() {
+      return hmacKey_;
+    }
+
     public static final int SERVER_FIELD_NUMBER = 3;
     private java.lang.Object server_;
     /**
@@ -12686,7 +13584,7 @@ public final class LocalStorage {
      * </pre>
      */
     public boolean hasServer() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <code>required string server = 3;</code>
@@ -12750,7 +13648,7 @@ public final class LocalStorage {
      * </pre>
      */
     public boolean hasLastErasureStorageTime() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>optional int64 last_erasure_storage_time = 8;</code>
@@ -12914,6 +13812,7 @@ public final class LocalStorage {
     private void initFields() {
       identity_ = com.google.protobuf.ByteString.EMPTY;
       seed_ = com.google.protobuf.ByteString.EMPTY;
+      hmacKey_ = com.google.protobuf.ByteString.EMPTY;
       server_ = "";
       lastErasureStorageTime_ = 0L;
       contacts_ = java.util.Collections.emptyList();
@@ -12932,6 +13831,10 @@ public final class LocalStorage {
         return false;
       }
       if (!hasSeed()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasHmacKey()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -12976,7 +13879,7 @@ public final class LocalStorage {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(2, seed_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeBytes(3, getServerBytes());
       }
       for (int i = 0; i < contacts_.size(); i++) {
@@ -12991,8 +13894,11 @@ public final class LocalStorage {
       for (int i = 0; i < drafts_.size(); i++) {
         output.writeMessage(7, drafts_.get(i));
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt64(8, lastErasureStorageTime_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(9, hmacKey_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -13011,7 +13917,7 @@ public final class LocalStorage {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, seed_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, getServerBytes());
       }
@@ -13031,9 +13937,13 @@ public final class LocalStorage {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, drafts_.get(i));
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(8, lastErasureStorageTime_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(9, hmacKey_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -13160,31 +14070,33 @@ public final class LocalStorage {
         bitField0_ = (bitField0_ & ~0x00000001);
         seed_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
-        server_ = "";
+        hmacKey_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
-        lastErasureStorageTime_ = 0L;
+        server_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
+        lastErasureStorageTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000010);
         if (contactsBuilder_ == null) {
           contacts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           contactsBuilder_.clear();
         }
         if (inboxBuilder_ == null) {
           inbox_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           inboxBuilder_.clear();
         }
         if (outboxBuilder_ == null) {
           outbox_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           outboxBuilder_.clear();
         }
         if (draftsBuilder_ == null) {
           drafts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00000100);
         } else {
           draftsBuilder_.clear();
         }
@@ -13227,42 +14139,46 @@ public final class LocalStorage {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.server_ = server_;
+        result.hmacKey_ = hmacKey_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
+        result.server_ = server_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
         result.lastErasureStorageTime_ = lastErasureStorageTime_;
         if (contactsBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          if (((bitField0_ & 0x00000020) == 0x00000020)) {
             contacts_ = java.util.Collections.unmodifiableList(contacts_);
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
           }
           result.contacts_ = contacts_;
         } else {
           result.contacts_ = contactsBuilder_.build();
         }
         if (inboxBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          if (((bitField0_ & 0x00000040) == 0x00000040)) {
             inbox_ = java.util.Collections.unmodifiableList(inbox_);
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000040);
           }
           result.inbox_ = inbox_;
         } else {
           result.inbox_ = inboxBuilder_.build();
         }
         if (outboxBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) == 0x00000040)) {
+          if (((bitField0_ & 0x00000080) == 0x00000080)) {
             outbox_ = java.util.Collections.unmodifiableList(outbox_);
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000080);
           }
           result.outbox_ = outbox_;
         } else {
           result.outbox_ = outboxBuilder_.build();
         }
         if (draftsBuilder_ == null) {
-          if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          if (((bitField0_ & 0x00000100) == 0x00000100)) {
             drafts_ = java.util.Collections.unmodifiableList(drafts_);
-            bitField0_ = (bitField0_ & ~0x00000080);
+            bitField0_ = (bitField0_ & ~0x00000100);
           }
           result.drafts_ = drafts_;
         } else {
@@ -13290,8 +14206,11 @@ public final class LocalStorage {
         if (other.hasSeed()) {
           setSeed(other.getSeed());
         }
+        if (other.hasHmacKey()) {
+          setHmacKey(other.getHmacKey());
+        }
         if (other.hasServer()) {
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
           server_ = other.server_;
           onChanged();
         }
@@ -13302,7 +14221,7 @@ public final class LocalStorage {
           if (!other.contacts_.isEmpty()) {
             if (contacts_.isEmpty()) {
               contacts_ = other.contacts_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000020);
             } else {
               ensureContactsIsMutable();
               contacts_.addAll(other.contacts_);
@@ -13315,7 +14234,7 @@ public final class LocalStorage {
               contactsBuilder_.dispose();
               contactsBuilder_ = null;
               contacts_ = other.contacts_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000020);
               contactsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getContactsFieldBuilder() : null;
@@ -13328,7 +14247,7 @@ public final class LocalStorage {
           if (!other.inbox_.isEmpty()) {
             if (inbox_.isEmpty()) {
               inbox_ = other.inbox_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000040);
             } else {
               ensureInboxIsMutable();
               inbox_.addAll(other.inbox_);
@@ -13341,7 +14260,7 @@ public final class LocalStorage {
               inboxBuilder_.dispose();
               inboxBuilder_ = null;
               inbox_ = other.inbox_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000040);
               inboxBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getInboxFieldBuilder() : null;
@@ -13354,7 +14273,7 @@ public final class LocalStorage {
           if (!other.outbox_.isEmpty()) {
             if (outbox_.isEmpty()) {
               outbox_ = other.outbox_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000080);
             } else {
               ensureOutboxIsMutable();
               outbox_.addAll(other.outbox_);
@@ -13367,7 +14286,7 @@ public final class LocalStorage {
               outboxBuilder_.dispose();
               outboxBuilder_ = null;
               outbox_ = other.outbox_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000080);
               outboxBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getOutboxFieldBuilder() : null;
@@ -13380,7 +14299,7 @@ public final class LocalStorage {
           if (!other.drafts_.isEmpty()) {
             if (drafts_.isEmpty()) {
               drafts_ = other.drafts_;
-              bitField0_ = (bitField0_ & ~0x00000080);
+              bitField0_ = (bitField0_ & ~0x00000100);
             } else {
               ensureDraftsIsMutable();
               drafts_.addAll(other.drafts_);
@@ -13393,7 +14312,7 @@ public final class LocalStorage {
               draftsBuilder_.dispose();
               draftsBuilder_ = null;
               drafts_ = other.drafts_;
-              bitField0_ = (bitField0_ & ~0x00000080);
+              bitField0_ = (bitField0_ & ~0x00000100);
               draftsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getDraftsFieldBuilder() : null;
@@ -13412,6 +14331,10 @@ public final class LocalStorage {
           return false;
         }
         if (!hasSeed()) {
+          
+          return false;
+        }
+        if (!hasHmacKey()) {
           
           return false;
         }
@@ -13535,6 +14458,41 @@ public final class LocalStorage {
         return this;
       }
 
+      private com.google.protobuf.ByteString hmacKey_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>required bytes hmacKey = 9;</code>
+       */
+      public boolean hasHmacKey() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required bytes hmacKey = 9;</code>
+       */
+      public com.google.protobuf.ByteString getHmacKey() {
+        return hmacKey_;
+      }
+      /**
+       * <code>required bytes hmacKey = 9;</code>
+       */
+      public Builder setHmacKey(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        hmacKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bytes hmacKey = 9;</code>
+       */
+      public Builder clearHmacKey() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        hmacKey_ = getDefaultInstance().getHmacKey();
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object server_ = "";
       /**
        * <code>required string server = 3;</code>
@@ -13545,7 +14503,7 @@ public final class LocalStorage {
        * </pre>
        */
       public boolean hasServer() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <code>required string server = 3;</code>
@@ -13603,7 +14561,7 @@ public final class LocalStorage {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         server_ = value;
         onChanged();
         return this;
@@ -13617,7 +14575,7 @@ public final class LocalStorage {
        * </pre>
        */
       public Builder clearServer() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         server_ = getDefaultInstance().getServer();
         onChanged();
         return this;
@@ -13635,7 +14593,7 @@ public final class LocalStorage {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         server_ = value;
         onChanged();
         return this;
@@ -13658,7 +14616,7 @@ public final class LocalStorage {
        * </pre>
        */
       public boolean hasLastErasureStorageTime() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>optional int64 last_erasure_storage_time = 8;</code>
@@ -13694,7 +14652,7 @@ public final class LocalStorage {
        * </pre>
        */
       public Builder setLastErasureStorageTime(long value) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         lastErasureStorageTime_ = value;
         onChanged();
         return this;
@@ -13715,7 +14673,7 @@ public final class LocalStorage {
        * </pre>
        */
       public Builder clearLastErasureStorageTime() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         lastErasureStorageTime_ = 0L;
         onChanged();
         return this;
@@ -13724,9 +14682,9 @@ public final class LocalStorage {
       private java.util.List<LocalStorage.Contact> contacts_ =
         java.util.Collections.emptyList();
       private void ensureContactsIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
           contacts_ = new java.util.ArrayList<LocalStorage.Contact>(contacts_);
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000020;
          }
       }
 
@@ -13876,7 +14834,7 @@ public final class LocalStorage {
       public Builder clearContacts() {
         if (contactsBuilder_ == null) {
           contacts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000020);
           onChanged();
         } else {
           contactsBuilder_.clear();
@@ -13953,7 +14911,7 @@ public final class LocalStorage {
           contactsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               LocalStorage.Contact, LocalStorage.Contact.Builder, LocalStorage.ContactOrBuilder>(
                   contacts_,
-                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  ((bitField0_ & 0x00000020) == 0x00000020),
                   getParentForChildren(),
                   isClean());
           contacts_ = null;
@@ -13964,9 +14922,9 @@ public final class LocalStorage {
       private java.util.List<LocalStorage.Inbox> inbox_ =
         java.util.Collections.emptyList();
       private void ensureInboxIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
           inbox_ = new java.util.ArrayList<LocalStorage.Inbox>(inbox_);
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000040;
          }
       }
 
@@ -14116,7 +15074,7 @@ public final class LocalStorage {
       public Builder clearInbox() {
         if (inboxBuilder_ == null) {
           inbox_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000040);
           onChanged();
         } else {
           inboxBuilder_.clear();
@@ -14193,7 +15151,7 @@ public final class LocalStorage {
           inboxBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               LocalStorage.Inbox, LocalStorage.Inbox.Builder, LocalStorage.InboxOrBuilder>(
                   inbox_,
-                  ((bitField0_ & 0x00000020) == 0x00000020),
+                  ((bitField0_ & 0x00000040) == 0x00000040),
                   getParentForChildren(),
                   isClean());
           inbox_ = null;
@@ -14204,9 +15162,9 @@ public final class LocalStorage {
       private java.util.List<LocalStorage.Outbox> outbox_ =
         java.util.Collections.emptyList();
       private void ensureOutboxIsMutable() {
-        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
           outbox_ = new java.util.ArrayList<LocalStorage.Outbox>(outbox_);
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000080;
          }
       }
 
@@ -14356,7 +15314,7 @@ public final class LocalStorage {
       public Builder clearOutbox() {
         if (outboxBuilder_ == null) {
           outbox_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000080);
           onChanged();
         } else {
           outboxBuilder_.clear();
@@ -14433,7 +15391,7 @@ public final class LocalStorage {
           outboxBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               LocalStorage.Outbox, LocalStorage.Outbox.Builder, LocalStorage.OutboxOrBuilder>(
                   outbox_,
-                  ((bitField0_ & 0x00000040) == 0x00000040),
+                  ((bitField0_ & 0x00000080) == 0x00000080),
                   getParentForChildren(),
                   isClean());
           outbox_ = null;
@@ -14444,9 +15402,9 @@ public final class LocalStorage {
       private java.util.List<LocalStorage.Draft> drafts_ =
         java.util.Collections.emptyList();
       private void ensureDraftsIsMutable() {
-        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
           drafts_ = new java.util.ArrayList<LocalStorage.Draft>(drafts_);
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000100;
          }
       }
 
@@ -14596,7 +15554,7 @@ public final class LocalStorage {
       public Builder clearDrafts() {
         if (draftsBuilder_ == null) {
           drafts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00000100);
           onChanged();
         } else {
           draftsBuilder_.clear();
@@ -14673,7 +15631,7 @@ public final class LocalStorage {
           draftsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               LocalStorage.Draft, LocalStorage.Draft.Builder, LocalStorage.DraftOrBuilder>(
                   drafts_,
-                  ((bitField0_ & 0x00000080) == 0x00000080),
+                  ((bitField0_ & 0x00000100) == 0x00000100),
                   getParentForChildren(),
                   isClean());
           drafts_ = null;
@@ -14717,6 +15675,11 @@ public final class LocalStorage {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_protos_Contact_Event_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_Contact_MyHMACPair_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_protos_Contact_MyHMACPair_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_RatchetState_descriptor;
   private static
@@ -14768,7 +15731,7 @@ public final class LocalStorage {
       "\0132\022.Header.TPM\022\032\n\022no_erasure_stor" +
       "age\030\005 \001(\010\0327\n\006SCrypt\022\020\n\001N\030\002 \001(\005:\00532768\022\r\n" +
       "\001r\030\003 \001(\005:\00216\022\014\n\001p\030\004 \001(\005:\0011\032\024\n\003TPM\022\r\n\005ind" +
-      "ex\030\001 \002(\r\"\344\003\n\007Contact\022\n\n\002id\030\001 \002(\006\022\014\n\004name" +
+      "ex\030\001 \002(\r\"\305\004\n\007Contact\022\n\n\002id\030\001 \002(\006\022\014\n\004name" +
       "\030\002 \002(\t\022\031\n\021supported_version\030\003 \001(\005\022\032\n\022key" +
       "_exchange_bytes\030\004 \001(\014\022\022\n\ngeneration\030\005 \001(",
       "\r\022\024\n\014their_server\030\006 \001(\t\022\021\n\ttheir_pub\030\007 \001" +
@@ -14777,42 +15740,45 @@ public final class LocalStorage {
       "urrent_private\030\013 \001(\014\022\031\n\021their_last_publi" +
       "c\030\014 \001(\014\022\034\n\024their_current_public\030\r \001(\014\022%\n" +
       "\007ratchet\030\016 \001(\0132\024.RatchetState\022%\n\006" +
-      "events\030\017 \003(\0132\025.Contact.Event\022\037\n\005p" +
-      "airs\030\020 \003(\0132\020.HMACPair\022\031\n\nis_pendi" +
-      "ng\030\021 \001(\010:\005false\032&\n\005Event\022\014\n\004time\030\001 \002(\003\022\017" +
-      "\n\007message\030\002 \002(\t\"\321\004\n\014RatchetState\022\020\n\010root",
-      "_key\030\001 \002(\014\022\027\n\017send_header_key\030\002 \002(\014\022\027\n\017r" +
-      "ecv_header_key\030\003 \002(\014\022\034\n\024next_send_header" +
-      "_key\030\004 \002(\014\022\034\n\024next_recv_header_key\030\005 \002(\014" +
-      "\022\026\n\016send_chain_key\030\006 \002(\014\022\026\n\016recv_chain_k" +
-      "ey\030\007 \002(\014\022\034\n\024send_ratchet_private\030\010 \002(\014\022\033" +
-      "\n\023recv_ratchet_public\030\t \002(\014\022\022\n\nsend_coun" +
-      "t\030\n \002(\r\022\022\n\nrecv_count\030\013 \002(\r\022\027\n\017prev_send" +
-      "_count\030\014 \002(\r\022\017\n\007ratchet\030\r \002(\010\022\n\n\002v2\030\021 \001(" +
-      "\010\022\020\n\010private0\030\016 \001(\014\022\020\n\010private1\030\017 \001(\014\0222\n" +
-      "\nsaved_keys\030\020 \003(\0132\036.RatchetState.",
-      "SavedKeys\032\237\001\n\tSavedKeys\022\022\n\nheader_key\030\001 " +
-      "\002(\014\022?\n\014message_keys\030\002 \003(\0132).Ratch" +
-      "etState.SavedKeys.MessageKey\032=\n\nMessageK" +
-      "ey\022\013\n\003num\030\001 \002(\r\022\013\n\003key\030\002 \002(\014\022\025\n\rcreation" +
-      "_time\030\003 \002(\003\"\217\001\n\005Inbox\022\n\n\002id\030\001 \002(\006\022\014\n\004fro" +
-      "m\030\002 \002(\006\022\025\n\rreceived_time\030\003 \002(\003\022\r\n\005acked\030" +
-      "\004 \002(\010\022\017\n\007message\030\005 \001(\014\022\014\n\004read\030\006 \002(\010\022\016\n\006" +
-      "sealed\030\007 \001(\014\022\027\n\010retained\030\010 \001(\010:\005false\"\224\001" +
-      "\n\006Outbox\022\n\n\002id\030\001 \002(\006\022\n\n\002to\030\002 \002(\006\022\016\n\006serv" +
-      "er\030\003 \002(\t\022\017\n\007created\030\004 \002(\003\022\014\n\004sent\030\005 \001(\003\022",
-      "\017\n\007message\030\006 \001(\014\022\017\n\007request\030\007 \001(\014\022\r\n\005ack" +
-      "ed\030\010 \001(\003\022\022\n\nrevocation\030\t \001(\010\"\265\001\n\005Draft\022\n" +
-      "\n\002id\030\001 \002(\006\022\017\n\007created\030\002 \002(\003\022\n\n\002to\030\003 \001(\006\022" +
-      "\014\n\004body\030\004 \002(\t\022\023\n\013in_reply_to\030\005 \001(\006\022/\n\013at" +
-      "tachments\030\006 \003(\0132\032.Message.Attachm" +
-      "ent\022/\n\013detachments\030\007 \003(\0132\032.Messag" +
-      "e.Detachment\"\332\001\n\005State\022\020\n\010identity\030\001 \002(\014" +
-      "\022\014\n\004seed\030\002 \002(\014\022\016\n\006server\030\003 \002(\t\022!\n\031last_e" +
-      "rasure_storage_time\030\010 \001(\003\022!\n\010contacts\030\004 " +
-      "\003(\0132\017.Contact\022\034\n\005inbox\030\005 \003(\0132\r.pr",
-      "otos.Inbox\022\036\n\006outbox\030\006 \003(\0132\016.Outb" +
-      "ox\022\035\n\006drafts\030\007 \003(\0132\r.Draft"
+      "events\030\017 \003(\0132\025.Contact.Event\022$\n\nt" +
+      "heirPairs\030\020 \003(\0132\020.HMACPair\022+\n\007myP" +
+      "airs\030\021 \003(\0132\032.Contact.MyHMACPair\022\031" +
+      "\n\nis_pending\030\022 \001(\010:\005false\032&\n\005Event\022\014\n\004ti",
+      "me\030\001 \002(\003\022\017\n\007message\030\002 \002(\t\032-\n\nMyHMACPair\022" +
+      "\021\n\tpublicKey\030\001 \002(\014\022\014\n\004hmac\030\002 \002(\014\"\321\004\n\014Rat" +
+      "chetState\022\020\n\010root_key\030\001 \002(\014\022\027\n\017send_head" +
+      "er_key\030\002 \002(\014\022\027\n\017recv_header_key\030\003 \002(\014\022\034\n" +
+      "\024next_send_header_key\030\004 \002(\014\022\034\n\024next_recv" +
+      "_header_key\030\005 \002(\014\022\026\n\016send_chain_key\030\006 \002(" +
+      "\014\022\026\n\016recv_chain_key\030\007 \002(\014\022\034\n\024send_ratche" +
+      "t_private\030\010 \002(\014\022\033\n\023recv_ratchet_public\030\t" +
+      " \002(\014\022\022\n\nsend_count\030\n \002(\r\022\022\n\nrecv_count\030\013" +
+      " \002(\r\022\027\n\017prev_send_count\030\014 \002(\r\022\017\n\007ratchet",
+      "\030\r \002(\010\022\n\n\002v2\030\021 \001(\010\022\020\n\010private0\030\016 \001(\014\022\020\n\010" +
+      "private1\030\017 \001(\014\0222\n\nsaved_keys\030\020 \003(\0132\036.pro" +
+      "tos.RatchetState.SavedKeys\032\237\001\n\tSavedKeys" +
+      "\022\022\n\nheader_key\030\001 \002(\014\022?\n\014message_keys\030\002 \003" +
+      "(\0132).RatchetState.SavedKeys.Messa" +
+      "geKey\032=\n\nMessageKey\022\013\n\003num\030\001 \002(\r\022\013\n\003key\030" +
+      "\002 \002(\014\022\025\n\rcreation_time\030\003 \002(\003\"\217\001\n\005Inbox\022\n" +
+      "\n\002id\030\001 \002(\006\022\014\n\004from\030\002 \002(\006\022\025\n\rreceived_tim" +
+      "e\030\003 \002(\003\022\r\n\005acked\030\004 \002(\010\022\017\n\007message\030\005 \001(\014\022" +
+      "\014\n\004read\030\006 \002(\010\022\016\n\006sealed\030\007 \001(\014\022\027\n\010retaine",
+      "d\030\010 \001(\010:\005false\"\224\001\n\006Outbox\022\n\n\002id\030\001 \002(\006\022\n\n" +
+      "\002to\030\002 \002(\006\022\016\n\006server\030\003 \002(\t\022\017\n\007created\030\004 \002" +
+      "(\003\022\014\n\004sent\030\005 \001(\003\022\017\n\007message\030\006 \001(\014\022\017\n\007req" +
+      "uest\030\007 \001(\014\022\r\n\005acked\030\010 \001(\003\022\022\n\nrevocation\030" +
+      "\t \001(\010\"\265\001\n\005Draft\022\n\n\002id\030\001 \002(\006\022\017\n\007created\030\002" +
+      " \002(\003\022\n\n\002to\030\003 \001(\006\022\014\n\004body\030\004 \002(\t\022\023\n\013in_rep" +
+      "ly_to\030\005 \001(\006\022/\n\013attachments\030\006 \003(\0132\032.proto" +
+      "s.Message.Attachment\022/\n\013detachments\030\007 \003(" +
+      "\0132\032.Message.Detachment\"\353\001\n\005State\022" +
+      "\020\n\010identity\030\001 \002(\014\022\014\n\004seed\030\002 \002(\014\022\017\n\007hmacK",
+      "ey\030\t \002(\014\022\016\n\006server\030\003 \002(\t\022!\n\031last_erasure" +
+      "_storage_time\030\010 \001(\003\022!\n\010contacts\030\004 \003(\0132\017." +
+      "Contact\022\034\n\005inbox\030\005 \003(\0132\r.I" +
+      "nbox\022\036\n\006outbox\030\006 \003(\0132\016.Outbox\022\035\n\006" +
+      "drafts\030\007 \003(\0132\r.Draft"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -14850,13 +15816,19 @@ public final class LocalStorage {
     internal_static_protos_Contact_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_protos_Contact_descriptor,
-        new java.lang.String[] { "Id", "Name", "SupportedVersion", "KeyExchangeBytes", "Generation", "TheirServer", "TheirPub", "TheirIdentityPublic", "RevokedUs", "LastPrivate", "CurrentPrivate", "TheirLastPublic", "TheirCurrentPublic", "Ratchet", "Events", "Pairs", "IsPending", });
+        new java.lang.String[] { "Id", "Name", "SupportedVersion", "KeyExchangeBytes", "Generation", "TheirServer", "TheirPub", "TheirIdentityPublic", "RevokedUs", "LastPrivate", "CurrentPrivate", "TheirLastPublic", "TheirCurrentPublic", "Ratchet", "Events", "TheirPairs", "MyPairs", "IsPending", });
     internal_static_protos_Contact_Event_descriptor =
       internal_static_protos_Contact_descriptor.getNestedTypes().get(0);
     internal_static_protos_Contact_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_protos_Contact_Event_descriptor,
         new java.lang.String[] { "Time", "Message", });
+    internal_static_protos_Contact_MyHMACPair_descriptor =
+      internal_static_protos_Contact_descriptor.getNestedTypes().get(1);
+    internal_static_protos_Contact_MyHMACPair_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_protos_Contact_MyHMACPair_descriptor,
+        new java.lang.String[] { "PublicKey", "Hmac", });
     internal_static_protos_RatchetState_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_protos_RatchetState_fieldAccessorTable = new
@@ -14898,7 +15870,7 @@ public final class LocalStorage {
     internal_static_protos_State_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_protos_State_descriptor,
-        new java.lang.String[] { "Identity", "Seed", "Server", "LastErasureStorageTime", "Contacts", "Inbox", "Outbox", "Drafts", });
+        new java.lang.String[] { "Identity", "Seed", "HmacKey", "Server", "LastErasureStorageTime", "Contacts", "Inbox", "Outbox", "Drafts", });
     Pond.getDescriptor();
   }
 

@@ -10,15 +10,15 @@ import javax.crypto.SecretKey;
  * @author unixninja92
  */
 public class HMACPair {
-    byte[] key;
+    byte[] publicKey;
     byte[] hmacOfKey;
 
     public HMACPair(byte[] publickey, SecretKey hmacKey) {
-        this.key = publickey;
+        this.publicKey = publickey;
         try {
             Mac hmac = Mac.getInstance("HmacSHA256");
             hmac.init(hmacKey);
-            hmacOfKey = hmac.doFinal(key);
+            hmacOfKey = hmac.doFinal(this.publicKey);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (InvalidKeyException e) {
@@ -26,9 +26,9 @@ public class HMACPair {
         }
     }
 
-    public HMACPair(byte[] privatekey, byte[] hmacOfPublicKey) {
-        this.key = privatekey;
-        this.hmacOfKey = hmacOfPublicKey;
+    public HMACPair(byte[] publickey,byte[] hmacOfKey) {
+        this.publicKey = publickey;
+        this.hmacOfKey = hmacOfKey;
     }
 
 }

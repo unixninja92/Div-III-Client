@@ -5,6 +5,7 @@ import android.os.Bundle;
 import org.thoughtcrime.securesms.crypto.MasterSecret;
 
 import info.guardianproject.onionkit.ui.OrbotHelper;
+import systems.obscure.client.Globals;
 
 public class PassphraseRequiredNoActionBarActivity extends BaseActivity implements PassphraseRequiredActivity {
 
@@ -13,6 +14,8 @@ public class PassphraseRequiredNoActionBarActivity extends BaseActivity implemen
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    if(Globals.applicaiontContext == null)
+      Globals.applicaiontContext = getApplicationContext();
     delegate.onCreate(this);
   }
 

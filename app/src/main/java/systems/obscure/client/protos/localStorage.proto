@@ -60,9 +60,15 @@ message Contact {
 	}
 	repeated Event events = 15;
 
-	repeated protos.HMACPair pairs = 16;
+	repeated protos.HMACPair theirPairs = 16;
 
-	optional bool is_pending = 17 [ default = false ];
+	message MyHMACPair {
+		required bytes publicKey = 1;
+		required bytes hmac = 2;
+	}
+	repeated MyHMACPair myPairs = 17;
+
+	optional bool is_pending = 18 [ default = false ];
 }
 
 message RatchetState {
@@ -132,6 +138,7 @@ message Draft {
 message State {
 	required bytes identity = 1;
 	required bytes seed = 2;
+	required bytes hmacKey = 9;
 //	required bytes public = 2;
 //	required bytes private = 3;
 	required string server = 3;

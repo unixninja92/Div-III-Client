@@ -294,7 +294,7 @@ public class TransactService extends Service implements Runnable, InjectableType
     }
 
     private synchronized boolean canTransact() {
-        return orbotHelper.isOrbotRunning(); //&& networkRequirement.isPresent()
+        return orbotHelper.isOrbotRunning() ;//&& !Client.isNull(); //&& networkRequirement.isPresent()
                 //&& activeActivities > 0;
     }
 

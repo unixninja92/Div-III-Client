@@ -99,10 +99,11 @@ public class Contact {
 
     //TODO indicator func
 
-    //TODO processKeyExchange func
-
     public void processKeyExchange(Pond.KeyExchange keyExchange) {
-
+        theirServer = keyExchange.getServer();
+        theirIdentityPublic = new PublicKey(keyExchange.getIdentityPublic().toByteArray());
+        theirPub = new VerifyKey(keyExchange.getPublicKey().toByteArray());
+        theirHMACPairs = (ArrayList<Pond.HMACPair>) keyExchange.getHmacPairsList();
     }
 
     public ArrayList<Pond.HMACPair> generateHMACPairs(int num) {
