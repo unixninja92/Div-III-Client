@@ -145,6 +145,10 @@ public class Client {
         return ourInstance;
     }
 
+    public static boolean isNull() {
+        return ourInstance == null;
+    }
+
     private Client(Context context) {
         torAddress = "127.0.0.1:9050";
         server = "RX4SBLINCG6TUCR7FJYMNNSA33QAPVJAEYA5ROT6QG4IPX7FXE7Q";
@@ -616,6 +620,7 @@ public class Client {
             cont.setKeyExchangeBytes(ByteString.copyFrom(contact.kxsBytes));
             cont.setSupportedVersion(contact.supportedVersion);
             cont.setRevokedUs(contact.revokedUs);
+            cont.addAllPairs(contact.theirHMACPairs);
 
             if(!contact.isPending) {
                 cont.setTheirPub(ByteString.copyFrom(contact.theirPub.toBytes()));

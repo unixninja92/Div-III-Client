@@ -39,39 +39,30 @@ message Header {
 message Contact {
 	required fixed64 id = 1;
 	required string name = 2;
-	required bytes group_key = 3;
-	optional int32 supported_version = 16;
+	optional int32 supported_version = 3;
 	optional bytes key_exchange_bytes = 4;
-	optional bytes panda_key_exchange = 18;
-	optional string panda_error = 19;
-	optional bytes their_group = 5;
-	optional bytes my_group_key = 6;
-	optional uint32 generation = 7;
-	optional string their_server = 8;
-	optional bytes their_pub = 9;
-	optional bytes their_identity_public = 10;
-	optional bool revoked_us = 21;
+	optional uint32 generation = 5;
+	optional string their_server = 6;
+	optional bytes their_pub = 7;
+	optional bytes their_identity_public = 8;
+	optional bool revoked_us = 9;
 
-	optional bytes last_private = 11;
-	optional bytes current_private = 12;
-	optional bytes their_last_public = 13;
-	optional bytes their_current_public = 14;
+	optional bytes last_private = 10;
+	optional bytes current_private = 11;
+	optional bytes their_last_public = 12;
+	optional bytes their_current_public = 13;
 
-	optional RatchetState ratchet = 20;
-
-	message PreviousTag {
-		required bytes tag = 1;
-		required int64 expired = 2;
-	}
-	repeated PreviousTag previous_tags = 17;
+	optional RatchetState ratchet = 14;
 
 	message Event {
 		required int64 time = 1;
 		required string message = 2;
 	}
-	repeated Event events = 22;
+	repeated Event events = 15;
 
-	optional bool is_pending = 15 [ default = false ];
+	repeated protos.HMACPair pairs = 16;
+
+	optional bool is_pending = 17 [ default = false ];
 }
 
 message RatchetState {

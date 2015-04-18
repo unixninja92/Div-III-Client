@@ -72,7 +72,7 @@ public class Contact {
 //    // exchange failed.
 //    String pandaResult;
 
-    public ArrayList<Event> events;
+    public ArrayList<Event> events = new ArrayList<>();
 
     public Contact() {}
 

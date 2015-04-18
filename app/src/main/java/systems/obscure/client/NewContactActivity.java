@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import org.thoughtcrime.securesms.PassphraseRequiredActionBarActivity;
+import org.thoughtcrime.securesms.crypto.MasterSecret;
 import org.thoughtcrime.securesms.util.Base64;
 import org.thoughtcrime.securesms.util.Dialogs;
 import org.thoughtcrime.securesms.util.DynamicLanguage;
@@ -27,8 +29,12 @@ public class NewContactActivity extends PassphraseRequiredActionBarActivity {
     private final DynamicTheme dynamicTheme    = new DynamicTheme();
     private final DynamicLanguage dynamicLanguage = new DynamicLanguage();
 
+    MasterSecret masterSecret;
+
     private Contact contact;
     private Client client = Client.getInstance();
+    private boolean scannedMine = false;
+    private boolean scannedTheirs = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         dynamicTheme.onCreate(this);
@@ -40,6 +46,9 @@ public class NewContactActivity extends PassphraseRequiredActionBarActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_ab_back);
 
         getSupportActionBar().setTitle("New Contact");
+
+        Intent intent = getIntent();
+        masterSecret = intent.getParcelableExtra("master_secret");
 
         contact = new Contact();
         contact.id = client.randId();
@@ -69,6 +78,7 @@ public class NewContactActivity extends PassphraseRequiredActionBarActivity {
                 Pond.KeyExchange receivedKeyExchange = Pond.KeyExchange.parseFrom(Base64.decode(data));
                 contact.processKeyExchange(receivedKeyExchange);
                 Dialogs.showInfoDialog(this, "Contact Scanned", "Contacts key exchange successfully scanned.");
+                scannedTheirs = true;
             } catch (IOException e) {
                 Dialogs.showAlertDialog(this, "Contact Scan Failed", "An error occurred while scanning your contact.");
                 e.printStackTrace();
@@ -96,10 +106,18 @@ public class NewContactActivity extends PassphraseRequiredActionBarActivity {
     public void initiateDisplay(View view) {
         IntentIntegrator intentIntegrator = getIntentIntegrator();
         intentIntegrator.shareText(Base64.encodeBytes(contact.kxsBytes));
+        scannedMine = true;
     }
 
     public void createContact(View view) {
-//        contact.name =
-        client.contacts.put(contact.id, contact);
+        TextView name = (TextView)findViewById(R.id.newContactName);
+        if(name.getText().length() != 0 ){//&& scannedMine && scannedTheirs) {
+            contact.name = name.getText().toString();
+            client.contacts.put(contact.id, contact);
+            client.save();
+            Intent contactListIntent = new Intent(this, ContactsListActivity.class);
+            contactListIntent.putExtra("master_secret", masterSecret);
+            startActivity(contactListIntent);
+        }
     }
 }

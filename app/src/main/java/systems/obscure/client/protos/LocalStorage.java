@@ -3,8 +3,6 @@
 
 package systems.obscure.client.protos;
 
-//import systems.obscure.client.protos.Pond;
-
 public final class LocalStorage {
   private LocalStorage() {}
   public static void registerAllExtensions(
@@ -2098,20 +2096,11 @@ public final class LocalStorage {
         getNameBytes();
 
     /**
-     * <code>required bytes group_key = 3;</code>
-     */
-    boolean hasGroupKey();
-    /**
-     * <code>required bytes group_key = 3;</code>
-     */
-    com.google.protobuf.ByteString getGroupKey();
-
-    /**
-     * <code>optional int32 supported_version = 16;</code>
+     * <code>optional int32 supported_version = 3;</code>
      */
     boolean hasSupportedVersion();
     /**
-     * <code>optional int32 supported_version = 16;</code>
+     * <code>optional int32 supported_version = 3;</code>
      */
     int getSupportedVersion();
 
@@ -2125,199 +2114,158 @@ public final class LocalStorage {
     com.google.protobuf.ByteString getKeyExchangeBytes();
 
     /**
-     * <code>optional bytes panda_key_exchange = 18;</code>
-     */
-    boolean hasPandaKeyExchange();
-    /**
-     * <code>optional bytes panda_key_exchange = 18;</code>
-     */
-    com.google.protobuf.ByteString getPandaKeyExchange();
-
-    /**
-     * <code>optional string panda_error = 19;</code>
-     */
-    boolean hasPandaError();
-    /**
-     * <code>optional string panda_error = 19;</code>
-     */
-    java.lang.String getPandaError();
-    /**
-     * <code>optional string panda_error = 19;</code>
-     */
-    com.google.protobuf.ByteString
-        getPandaErrorBytes();
-
-    /**
-     * <code>optional bytes their_group = 5;</code>
-     */
-    boolean hasTheirGroup();
-    /**
-     * <code>optional bytes their_group = 5;</code>
-     */
-    com.google.protobuf.ByteString getTheirGroup();
-
-    /**
-     * <code>optional bytes my_group_key = 6;</code>
-     */
-    boolean hasMyGroupKey();
-    /**
-     * <code>optional bytes my_group_key = 6;</code>
-     */
-    com.google.protobuf.ByteString getMyGroupKey();
-
-    /**
-     * <code>optional uint32 generation = 7;</code>
+     * <code>optional uint32 generation = 5;</code>
      */
     boolean hasGeneration();
     /**
-     * <code>optional uint32 generation = 7;</code>
+     * <code>optional uint32 generation = 5;</code>
      */
     int getGeneration();
 
     /**
-     * <code>optional string their_server = 8;</code>
+     * <code>optional string their_server = 6;</code>
      */
     boolean hasTheirServer();
     /**
-     * <code>optional string their_server = 8;</code>
+     * <code>optional string their_server = 6;</code>
      */
     java.lang.String getTheirServer();
     /**
-     * <code>optional string their_server = 8;</code>
+     * <code>optional string their_server = 6;</code>
      */
     com.google.protobuf.ByteString
         getTheirServerBytes();
 
     /**
-     * <code>optional bytes their_pub = 9;</code>
+     * <code>optional bytes their_pub = 7;</code>
      */
     boolean hasTheirPub();
     /**
-     * <code>optional bytes their_pub = 9;</code>
+     * <code>optional bytes their_pub = 7;</code>
      */
     com.google.protobuf.ByteString getTheirPub();
 
     /**
-     * <code>optional bytes their_identity_public = 10;</code>
+     * <code>optional bytes their_identity_public = 8;</code>
      */
     boolean hasTheirIdentityPublic();
     /**
-     * <code>optional bytes their_identity_public = 10;</code>
+     * <code>optional bytes their_identity_public = 8;</code>
      */
     com.google.protobuf.ByteString getTheirIdentityPublic();
 
     /**
-     * <code>optional bool revoked_us = 21;</code>
+     * <code>optional bool revoked_us = 9;</code>
      */
     boolean hasRevokedUs();
     /**
-     * <code>optional bool revoked_us = 21;</code>
+     * <code>optional bool revoked_us = 9;</code>
      */
     boolean getRevokedUs();
 
     /**
-     * <code>optional bytes last_private = 11;</code>
+     * <code>optional bytes last_private = 10;</code>
      */
     boolean hasLastPrivate();
     /**
-     * <code>optional bytes last_private = 11;</code>
+     * <code>optional bytes last_private = 10;</code>
      */
     com.google.protobuf.ByteString getLastPrivate();
 
     /**
-     * <code>optional bytes current_private = 12;</code>
+     * <code>optional bytes current_private = 11;</code>
      */
     boolean hasCurrentPrivate();
     /**
-     * <code>optional bytes current_private = 12;</code>
+     * <code>optional bytes current_private = 11;</code>
      */
     com.google.protobuf.ByteString getCurrentPrivate();
 
     /**
-     * <code>optional bytes their_last_public = 13;</code>
+     * <code>optional bytes their_last_public = 12;</code>
      */
     boolean hasTheirLastPublic();
     /**
-     * <code>optional bytes their_last_public = 13;</code>
+     * <code>optional bytes their_last_public = 12;</code>
      */
     com.google.protobuf.ByteString getTheirLastPublic();
 
     /**
-     * <code>optional bytes their_current_public = 14;</code>
+     * <code>optional bytes their_current_public = 13;</code>
      */
     boolean hasTheirCurrentPublic();
     /**
-     * <code>optional bytes their_current_public = 14;</code>
+     * <code>optional bytes their_current_public = 13;</code>
      */
     com.google.protobuf.ByteString getTheirCurrentPublic();
 
     /**
-     * <code>optional .RatchetState ratchet = 20;</code>
+     * <code>optional .RatchetState ratchet = 14;</code>
      */
     boolean hasRatchet();
     /**
-     * <code>optional .RatchetState ratchet = 20;</code>
+     * <code>optional .RatchetState ratchet = 14;</code>
      */
     LocalStorage.RatchetState getRatchet();
     /**
-     * <code>optional .RatchetState ratchet = 20;</code>
+     * <code>optional .RatchetState ratchet = 14;</code>
      */
     LocalStorage.RatchetStateOrBuilder getRatchetOrBuilder();
 
     /**
-     * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-     */
-    java.util.List<LocalStorage.Contact.PreviousTag> 
-        getPreviousTagsList();
-    /**
-     * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-     */
-    LocalStorage.Contact.PreviousTag getPreviousTags(int index);
-    /**
-     * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-     */
-    int getPreviousTagsCount();
-    /**
-     * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-     */
-    java.util.List<? extends LocalStorage.Contact.PreviousTagOrBuilder> 
-        getPreviousTagsOrBuilderList();
-    /**
-     * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-     */
-    LocalStorage.Contact.PreviousTagOrBuilder getPreviousTagsOrBuilder(
-        int index);
-
-    /**
-     * <code>repeated .Contact.Event events = 22;</code>
+     * <code>repeated .Contact.Event events = 15;</code>
      */
     java.util.List<LocalStorage.Contact.Event> 
         getEventsList();
     /**
-     * <code>repeated .Contact.Event events = 22;</code>
+     * <code>repeated .Contact.Event events = 15;</code>
      */
     LocalStorage.Contact.Event getEvents(int index);
     /**
-     * <code>repeated .Contact.Event events = 22;</code>
+     * <code>repeated .Contact.Event events = 15;</code>
      */
     int getEventsCount();
     /**
-     * <code>repeated .Contact.Event events = 22;</code>
+     * <code>repeated .Contact.Event events = 15;</code>
      */
     java.util.List<? extends LocalStorage.Contact.EventOrBuilder> 
         getEventsOrBuilderList();
     /**
-     * <code>repeated .Contact.Event events = 22;</code>
+     * <code>repeated .Contact.Event events = 15;</code>
      */
     LocalStorage.Contact.EventOrBuilder getEventsOrBuilder(
         int index);
 
     /**
-     * <code>optional bool is_pending = 15 [default = false];</code>
+     * <code>repeated .HMACPair pairs = 16;</code>
+     */
+    java.util.List<Pond.HMACPair> 
+        getPairsList();
+    /**
+     * <code>repeated .HMACPair pairs = 16;</code>
+     */
+    Pond.HMACPair getPairs(int index);
+    /**
+     * <code>repeated .HMACPair pairs = 16;</code>
+     */
+    int getPairsCount();
+    /**
+     * <code>repeated .HMACPair pairs = 16;</code>
+     */
+    java.util.List<? extends Pond.HMACPairOrBuilder> 
+        getPairsOrBuilderList();
+    /**
+     * <code>repeated .HMACPair pairs = 16;</code>
+     */
+    Pond.HMACPairOrBuilder getPairsOrBuilder(
+        int index);
+
+    /**
+     * <code>optional bool is_pending = 17 [default = false];</code>
      */
     boolean hasIsPending();
     /**
-     * <code>optional bool is_pending = 15 [default = false];</code>
+     * <code>optional bool is_pending = 17 [default = false];</code>
      */
     boolean getIsPending();
   }
@@ -2384,99 +2332,65 @@ public final class LocalStorage {
               name_ = bs;
               break;
             }
-            case 26: {
+            case 24: {
               bitField0_ |= 0x00000004;
-              groupKey_ = input.readBytes();
-              break;
-            }
-            case 34: {
-              bitField0_ |= 0x00000010;
-              keyExchangeBytes_ = input.readBytes();
-              break;
-            }
-            case 42: {
-              bitField0_ |= 0x00000080;
-              theirGroup_ = input.readBytes();
-              break;
-            }
-            case 50: {
-              bitField0_ |= 0x00000100;
-              myGroupKey_ = input.readBytes();
-              break;
-            }
-            case 56: {
-              bitField0_ |= 0x00000200;
-              generation_ = input.readUInt32();
-              break;
-            }
-            case 66: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000400;
-              theirServer_ = bs;
-              break;
-            }
-            case 74: {
-              bitField0_ |= 0x00000800;
-              theirPub_ = input.readBytes();
-              break;
-            }
-            case 82: {
-              bitField0_ |= 0x00001000;
-              theirIdentityPublic_ = input.readBytes();
-              break;
-            }
-            case 90: {
-              bitField0_ |= 0x00004000;
-              lastPrivate_ = input.readBytes();
-              break;
-            }
-            case 98: {
-              bitField0_ |= 0x00008000;
-              currentPrivate_ = input.readBytes();
-              break;
-            }
-            case 106: {
-              bitField0_ |= 0x00010000;
-              theirLastPublic_ = input.readBytes();
-              break;
-            }
-            case 114: {
-              bitField0_ |= 0x00020000;
-              theirCurrentPublic_ = input.readBytes();
-              break;
-            }
-            case 120: {
-              bitField0_ |= 0x00080000;
-              isPending_ = input.readBool();
-              break;
-            }
-            case 128: {
-              bitField0_ |= 0x00000008;
               supportedVersion_ = input.readInt32();
               break;
             }
-            case 138: {
-              if (!((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
-                previousTags_ = new java.util.ArrayList<LocalStorage.Contact.PreviousTag>();
-                mutable_bitField0_ |= 0x00080000;
-              }
-              previousTags_.add(input.readMessage(LocalStorage.Contact.PreviousTag.PARSER, extensionRegistry));
+            case 34: {
+              bitField0_ |= 0x00000008;
+              keyExchangeBytes_ = input.readBytes();
               break;
             }
-            case 146: {
-              bitField0_ |= 0x00000020;
-              pandaKeyExchange_ = input.readBytes();
+            case 40: {
+              bitField0_ |= 0x00000010;
+              generation_ = input.readUInt32();
               break;
             }
-            case 154: {
+            case 50: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000040;
-              pandaError_ = bs;
+              bitField0_ |= 0x00000020;
+              theirServer_ = bs;
               break;
             }
-            case 162: {
+            case 58: {
+              bitField0_ |= 0x00000040;
+              theirPub_ = input.readBytes();
+              break;
+            }
+            case 66: {
+              bitField0_ |= 0x00000080;
+              theirIdentityPublic_ = input.readBytes();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              revokedUs_ = input.readBool();
+              break;
+            }
+            case 82: {
+              bitField0_ |= 0x00000200;
+              lastPrivate_ = input.readBytes();
+              break;
+            }
+            case 90: {
+              bitField0_ |= 0x00000400;
+              currentPrivate_ = input.readBytes();
+              break;
+            }
+            case 98: {
+              bitField0_ |= 0x00000800;
+              theirLastPublic_ = input.readBytes();
+              break;
+            }
+            case 106: {
+              bitField0_ |= 0x00001000;
+              theirCurrentPublic_ = input.readBytes();
+              break;
+            }
+            case 114: {
               LocalStorage.RatchetState.Builder subBuilder = null;
-              if (((bitField0_ & 0x00040000) == 0x00040000)) {
+              if (((bitField0_ & 0x00002000) == 0x00002000)) {
                 subBuilder = ratchet_.toBuilder();
               }
               ratchet_ = input.readMessage(LocalStorage.RatchetState.PARSER, extensionRegistry);
@@ -2484,20 +2398,28 @@ public final class LocalStorage {
                 subBuilder.mergeFrom(ratchet_);
                 ratchet_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00040000;
-              break;
-            }
-            case 168: {
               bitField0_ |= 0x00002000;
-              revokedUs_ = input.readBool();
               break;
             }
-            case 178: {
-              if (!((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
+            case 122: {
+              if (!((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
                 events_ = new java.util.ArrayList<LocalStorage.Contact.Event>();
-                mutable_bitField0_ |= 0x00100000;
+                mutable_bitField0_ |= 0x00004000;
               }
               events_.add(input.readMessage(LocalStorage.Contact.Event.PARSER, extensionRegistry));
+              break;
+            }
+            case 130: {
+              if (!((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+                pairs_ = new java.util.ArrayList<Pond.HMACPair>();
+                mutable_bitField0_ |= 0x00008000;
+              }
+              pairs_.add(input.readMessage(Pond.HMACPair.PARSER, extensionRegistry));
+              break;
+            }
+            case 136: {
+              bitField0_ |= 0x00004000;
+              isPending_ = input.readBool();
               break;
             }
           }
@@ -2508,11 +2430,11 @@ public final class LocalStorage {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
-          previousTags_ = java.util.Collections.unmodifiableList(previousTags_);
-        }
-        if (((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
+        if (((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
           events_ = java.util.Collections.unmodifiableList(events_);
+        }
+        if (((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+          pairs_ = java.util.Collections.unmodifiableList(pairs_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2543,500 +2465,6 @@ public final class LocalStorage {
     @java.lang.Override
     public com.google.protobuf.Parser<Contact> getParserForType() {
       return PARSER;
-    }
-
-    public interface PreviousTagOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:Contact.PreviousTag)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>required bytes tag = 1;</code>
-       */
-      boolean hasTag();
-      /**
-       * <code>required bytes tag = 1;</code>
-       */
-      com.google.protobuf.ByteString getTag();
-
-      /**
-       * <code>required int64 expired = 2;</code>
-       */
-      boolean hasExpired();
-      /**
-       * <code>required int64 expired = 2;</code>
-       */
-      long getExpired();
-    }
-    /**
-     * Protobuf type {@code Contact.PreviousTag}
-     */
-    public static final class PreviousTag extends
-        com.google.protobuf.GeneratedMessage implements
-        // @@protoc_insertion_point(message_implements:Contact.PreviousTag)
-        PreviousTagOrBuilder {
-      // Use PreviousTag.newBuilder() to construct.
-      private PreviousTag(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-        super(builder);
-        this.unknownFields = builder.getUnknownFields();
-      }
-      private PreviousTag(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final PreviousTag defaultInstance;
-      public static PreviousTag getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public PreviousTag getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
-        return this.unknownFields;
-      }
-      private PreviousTag(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 10: {
-                bitField0_ |= 0x00000001;
-                tag_ = input.readBytes();
-                break;
-              }
-              case 16: {
-                bitField0_ |= 0x00000002;
-                expired_ = input.readInt64();
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return LocalStorage.internal_static_protos_Contact_PreviousTag_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_Contact_PreviousTag_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                LocalStorage.Contact.PreviousTag.class, LocalStorage.Contact.PreviousTag.Builder.class);
-      }
-
-      public static com.google.protobuf.Parser<PreviousTag> PARSER =
-          new com.google.protobuf.AbstractParser<PreviousTag>() {
-        public PreviousTag parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PreviousTag(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<PreviousTag> getParserForType() {
-        return PARSER;
-      }
-
-      private int bitField0_;
-      public static final int TAG_FIELD_NUMBER = 1;
-      private com.google.protobuf.ByteString tag_;
-      /**
-       * <code>required bytes tag = 1;</code>
-       */
-      public boolean hasTag() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required bytes tag = 1;</code>
-       */
-      public com.google.protobuf.ByteString getTag() {
-        return tag_;
-      }
-
-      public static final int EXPIRED_FIELD_NUMBER = 2;
-      private long expired_;
-      /**
-       * <code>required int64 expired = 2;</code>
-       */
-      public boolean hasExpired() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required int64 expired = 2;</code>
-       */
-      public long getExpired() {
-        return expired_;
-      }
-
-      private void initFields() {
-        tag_ = com.google.protobuf.ByteString.EMPTY;
-        expired_ = 0L;
-      }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        if (!hasTag()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasExpired()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeBytes(1, tag_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeInt64(2, expired_);
-        }
-        getUnknownFields().writeTo(output);
-      }
-
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(1, tag_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(2, expired_);
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
-      }
-
-      public static LocalStorage.Contact.PreviousTag parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static LocalStorage.Contact.PreviousTag parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static LocalStorage.Contact.PreviousTag parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static LocalStorage.Contact.PreviousTag parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static LocalStorage.Contact.PreviousTag parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static LocalStorage.Contact.PreviousTag parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-      public static LocalStorage.Contact.PreviousTag parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
-      }
-      public static LocalStorage.Contact.PreviousTag parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
-      }
-      public static LocalStorage.Contact.PreviousTag parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static LocalStorage.Contact.PreviousTag parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(LocalStorage.Contact.PreviousTag prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code Contact.PreviousTag}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:Contact.PreviousTag)
-          LocalStorage.Contact.PreviousTagOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return LocalStorage.internal_static_protos_Contact_PreviousTag_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return LocalStorage.internal_static_protos_Contact_PreviousTag_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  LocalStorage.Contact.PreviousTag.class, LocalStorage.Contact.PreviousTag.Builder.class);
-        }
-
-        // Construct using LocalStorage.Contact.PreviousTag.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-
-        public Builder clear() {
-          super.clear();
-          tag_ = com.google.protobuf.ByteString.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          expired_ = 0L;
-          bitField0_ = (bitField0_ & ~0x00000002);
-          return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return LocalStorage.internal_static_protos_Contact_PreviousTag_descriptor;
-        }
-
-        public LocalStorage.Contact.PreviousTag getDefaultInstanceForType() {
-          return LocalStorage.Contact.PreviousTag.getDefaultInstance();
-        }
-
-        public LocalStorage.Contact.PreviousTag build() {
-          LocalStorage.Contact.PreviousTag result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public LocalStorage.Contact.PreviousTag buildPartial() {
-          LocalStorage.Contact.PreviousTag result = new LocalStorage.Contact.PreviousTag(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.tag_ = tag_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          result.expired_ = expired_;
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof LocalStorage.Contact.PreviousTag) {
-            return mergeFrom((LocalStorage.Contact.PreviousTag)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(LocalStorage.Contact.PreviousTag other) {
-          if (other == LocalStorage.Contact.PreviousTag.getDefaultInstance()) return this;
-          if (other.hasTag()) {
-            setTag(other.getTag());
-          }
-          if (other.hasExpired()) {
-            setExpired(other.getExpired());
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          if (!hasTag()) {
-            
-            return false;
-          }
-          if (!hasExpired()) {
-            
-            return false;
-          }
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          LocalStorage.Contact.PreviousTag parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (LocalStorage.Contact.PreviousTag) e.getUnfinishedMessage();
-            throw e;
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-        private int bitField0_;
-
-        private com.google.protobuf.ByteString tag_ = com.google.protobuf.ByteString.EMPTY;
-        /**
-         * <code>required bytes tag = 1;</code>
-         */
-        public boolean hasTag() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>required bytes tag = 1;</code>
-         */
-        public com.google.protobuf.ByteString getTag() {
-          return tag_;
-        }
-        /**
-         * <code>required bytes tag = 1;</code>
-         */
-        public Builder setTag(com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-          tag_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required bytes tag = 1;</code>
-         */
-        public Builder clearTag() {
-          bitField0_ = (bitField0_ & ~0x00000001);
-          tag_ = getDefaultInstance().getTag();
-          onChanged();
-          return this;
-        }
-
-        private long expired_ ;
-        /**
-         * <code>required int64 expired = 2;</code>
-         */
-        public boolean hasExpired() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>required int64 expired = 2;</code>
-         */
-        public long getExpired() {
-          return expired_;
-        }
-        /**
-         * <code>required int64 expired = 2;</code>
-         */
-        public Builder setExpired(long value) {
-          bitField0_ |= 0x00000002;
-          expired_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>required int64 expired = 2;</code>
-         */
-        public Builder clearExpired() {
-          bitField0_ = (bitField0_ & ~0x00000002);
-          expired_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        // @@protoc_insertion_point(builder_scope:Contact.PreviousTag)
-      }
-
-      static {
-        defaultInstance = new PreviousTag(true);
-        defaultInstance.initFields();
-      }
-
-      // @@protoc_insertion_point(class_scope:Contact.PreviousTag)
     }
 
     public interface EventOrBuilder extends
@@ -3667,31 +3095,16 @@ public final class LocalStorage {
       }
     }
 
-    public static final int GROUP_KEY_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString groupKey_;
+    public static final int SUPPORTED_VERSION_FIELD_NUMBER = 3;
+    private int supportedVersion_;
     /**
-     * <code>required bytes group_key = 3;</code>
+     * <code>optional int32 supported_version = 3;</code>
      */
-    public boolean hasGroupKey() {
+    public boolean hasSupportedVersion() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required bytes group_key = 3;</code>
-     */
-    public com.google.protobuf.ByteString getGroupKey() {
-      return groupKey_;
-    }
-
-    public static final int SUPPORTED_VERSION_FIELD_NUMBER = 16;
-    private int supportedVersion_;
-    /**
-     * <code>optional int32 supported_version = 16;</code>
-     */
-    public boolean hasSupportedVersion() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>optional int32 supported_version = 16;</code>
+     * <code>optional int32 supported_version = 3;</code>
      */
     public int getSupportedVersion() {
       return supportedVersion_;
@@ -3703,7 +3116,7 @@ public final class LocalStorage {
      * <code>optional bytes key_exchange_bytes = 4;</code>
      */
     public boolean hasKeyExchangeBytes() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <code>optional bytes key_exchange_bytes = 4;</code>
@@ -3712,118 +3125,31 @@ public final class LocalStorage {
       return keyExchangeBytes_;
     }
 
-    public static final int PANDA_KEY_EXCHANGE_FIELD_NUMBER = 18;
-    private com.google.protobuf.ByteString pandaKeyExchange_;
-    /**
-     * <code>optional bytes panda_key_exchange = 18;</code>
-     */
-    public boolean hasPandaKeyExchange() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
-    }
-    /**
-     * <code>optional bytes panda_key_exchange = 18;</code>
-     */
-    public com.google.protobuf.ByteString getPandaKeyExchange() {
-      return pandaKeyExchange_;
-    }
-
-    public static final int PANDA_ERROR_FIELD_NUMBER = 19;
-    private java.lang.Object pandaError_;
-    /**
-     * <code>optional string panda_error = 19;</code>
-     */
-    public boolean hasPandaError() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
-    }
-    /**
-     * <code>optional string panda_error = 19;</code>
-     */
-    public java.lang.String getPandaError() {
-      java.lang.Object ref = pandaError_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          pandaError_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string panda_error = 19;</code>
-     */
-    public com.google.protobuf.ByteString
-        getPandaErrorBytes() {
-      java.lang.Object ref = pandaError_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        pandaError_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int THEIR_GROUP_FIELD_NUMBER = 5;
-    private com.google.protobuf.ByteString theirGroup_;
-    /**
-     * <code>optional bytes their_group = 5;</code>
-     */
-    public boolean hasTheirGroup() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
-    }
-    /**
-     * <code>optional bytes their_group = 5;</code>
-     */
-    public com.google.protobuf.ByteString getTheirGroup() {
-      return theirGroup_;
-    }
-
-    public static final int MY_GROUP_KEY_FIELD_NUMBER = 6;
-    private com.google.protobuf.ByteString myGroupKey_;
-    /**
-     * <code>optional bytes my_group_key = 6;</code>
-     */
-    public boolean hasMyGroupKey() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
-    }
-    /**
-     * <code>optional bytes my_group_key = 6;</code>
-     */
-    public com.google.protobuf.ByteString getMyGroupKey() {
-      return myGroupKey_;
-    }
-
-    public static final int GENERATION_FIELD_NUMBER = 7;
+    public static final int GENERATION_FIELD_NUMBER = 5;
     private int generation_;
     /**
-     * <code>optional uint32 generation = 7;</code>
+     * <code>optional uint32 generation = 5;</code>
      */
     public boolean hasGeneration() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional uint32 generation = 7;</code>
+     * <code>optional uint32 generation = 5;</code>
      */
     public int getGeneration() {
       return generation_;
     }
 
-    public static final int THEIR_SERVER_FIELD_NUMBER = 8;
+    public static final int THEIR_SERVER_FIELD_NUMBER = 6;
     private java.lang.Object theirServer_;
     /**
-     * <code>optional string their_server = 8;</code>
+     * <code>optional string their_server = 6;</code>
      */
     public boolean hasTheirServer() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional string their_server = 8;</code>
+     * <code>optional string their_server = 6;</code>
      */
     public java.lang.String getTheirServer() {
       java.lang.Object ref = theirServer_;
@@ -3840,7 +3166,7 @@ public final class LocalStorage {
       }
     }
     /**
-     * <code>optional string their_server = 8;</code>
+     * <code>optional string their_server = 6;</code>
      */
     public com.google.protobuf.ByteString
         getTheirServerBytes() {
@@ -3856,212 +3182,212 @@ public final class LocalStorage {
       }
     }
 
-    public static final int THEIR_PUB_FIELD_NUMBER = 9;
+    public static final int THEIR_PUB_FIELD_NUMBER = 7;
     private com.google.protobuf.ByteString theirPub_;
     /**
-     * <code>optional bytes their_pub = 9;</code>
+     * <code>optional bytes their_pub = 7;</code>
      */
     public boolean hasTheirPub() {
-      return ((bitField0_ & 0x00000800) == 0x00000800);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional bytes their_pub = 9;</code>
+     * <code>optional bytes their_pub = 7;</code>
      */
     public com.google.protobuf.ByteString getTheirPub() {
       return theirPub_;
     }
 
-    public static final int THEIR_IDENTITY_PUBLIC_FIELD_NUMBER = 10;
+    public static final int THEIR_IDENTITY_PUBLIC_FIELD_NUMBER = 8;
     private com.google.protobuf.ByteString theirIdentityPublic_;
     /**
-     * <code>optional bytes their_identity_public = 10;</code>
+     * <code>optional bytes their_identity_public = 8;</code>
      */
     public boolean hasTheirIdentityPublic() {
-      return ((bitField0_ & 0x00001000) == 0x00001000);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>optional bytes their_identity_public = 10;</code>
+     * <code>optional bytes their_identity_public = 8;</code>
      */
     public com.google.protobuf.ByteString getTheirIdentityPublic() {
       return theirIdentityPublic_;
     }
 
-    public static final int REVOKED_US_FIELD_NUMBER = 21;
+    public static final int REVOKED_US_FIELD_NUMBER = 9;
     private boolean revokedUs_;
     /**
-     * <code>optional bool revoked_us = 21;</code>
+     * <code>optional bool revoked_us = 9;</code>
      */
     public boolean hasRevokedUs() {
-      return ((bitField0_ & 0x00002000) == 0x00002000);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional bool revoked_us = 21;</code>
+     * <code>optional bool revoked_us = 9;</code>
      */
     public boolean getRevokedUs() {
       return revokedUs_;
     }
 
-    public static final int LAST_PRIVATE_FIELD_NUMBER = 11;
+    public static final int LAST_PRIVATE_FIELD_NUMBER = 10;
     private com.google.protobuf.ByteString lastPrivate_;
     /**
-     * <code>optional bytes last_private = 11;</code>
+     * <code>optional bytes last_private = 10;</code>
      */
     public boolean hasLastPrivate() {
-      return ((bitField0_ & 0x00004000) == 0x00004000);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional bytes last_private = 11;</code>
+     * <code>optional bytes last_private = 10;</code>
      */
     public com.google.protobuf.ByteString getLastPrivate() {
       return lastPrivate_;
     }
 
-    public static final int CURRENT_PRIVATE_FIELD_NUMBER = 12;
+    public static final int CURRENT_PRIVATE_FIELD_NUMBER = 11;
     private com.google.protobuf.ByteString currentPrivate_;
     /**
-     * <code>optional bytes current_private = 12;</code>
+     * <code>optional bytes current_private = 11;</code>
      */
     public boolean hasCurrentPrivate() {
-      return ((bitField0_ & 0x00008000) == 0x00008000);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional bytes current_private = 12;</code>
+     * <code>optional bytes current_private = 11;</code>
      */
     public com.google.protobuf.ByteString getCurrentPrivate() {
       return currentPrivate_;
     }
 
-    public static final int THEIR_LAST_PUBLIC_FIELD_NUMBER = 13;
+    public static final int THEIR_LAST_PUBLIC_FIELD_NUMBER = 12;
     private com.google.protobuf.ByteString theirLastPublic_;
     /**
-     * <code>optional bytes their_last_public = 13;</code>
+     * <code>optional bytes their_last_public = 12;</code>
      */
     public boolean hasTheirLastPublic() {
-      return ((bitField0_ & 0x00010000) == 0x00010000);
+      return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>optional bytes their_last_public = 13;</code>
+     * <code>optional bytes their_last_public = 12;</code>
      */
     public com.google.protobuf.ByteString getTheirLastPublic() {
       return theirLastPublic_;
     }
 
-    public static final int THEIR_CURRENT_PUBLIC_FIELD_NUMBER = 14;
+    public static final int THEIR_CURRENT_PUBLIC_FIELD_NUMBER = 13;
     private com.google.protobuf.ByteString theirCurrentPublic_;
     /**
-     * <code>optional bytes their_current_public = 14;</code>
+     * <code>optional bytes their_current_public = 13;</code>
      */
     public boolean hasTheirCurrentPublic() {
-      return ((bitField0_ & 0x00020000) == 0x00020000);
+      return ((bitField0_ & 0x00001000) == 0x00001000);
     }
     /**
-     * <code>optional bytes their_current_public = 14;</code>
+     * <code>optional bytes their_current_public = 13;</code>
      */
     public com.google.protobuf.ByteString getTheirCurrentPublic() {
       return theirCurrentPublic_;
     }
 
-    public static final int RATCHET_FIELD_NUMBER = 20;
+    public static final int RATCHET_FIELD_NUMBER = 14;
     private LocalStorage.RatchetState ratchet_;
     /**
-     * <code>optional .RatchetState ratchet = 20;</code>
+     * <code>optional .RatchetState ratchet = 14;</code>
      */
     public boolean hasRatchet() {
-      return ((bitField0_ & 0x00040000) == 0x00040000);
+      return ((bitField0_ & 0x00002000) == 0x00002000);
     }
     /**
-     * <code>optional .RatchetState ratchet = 20;</code>
+     * <code>optional .RatchetState ratchet = 14;</code>
      */
     public LocalStorage.RatchetState getRatchet() {
       return ratchet_;
     }
     /**
-     * <code>optional .RatchetState ratchet = 20;</code>
+     * <code>optional .RatchetState ratchet = 14;</code>
      */
     public LocalStorage.RatchetStateOrBuilder getRatchetOrBuilder() {
       return ratchet_;
     }
 
-    public static final int PREVIOUS_TAGS_FIELD_NUMBER = 17;
-    private java.util.List<LocalStorage.Contact.PreviousTag> previousTags_;
-    /**
-     * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-     */
-    public java.util.List<LocalStorage.Contact.PreviousTag> getPreviousTagsList() {
-      return previousTags_;
-    }
-    /**
-     * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-     */
-    public java.util.List<? extends LocalStorage.Contact.PreviousTagOrBuilder> 
-        getPreviousTagsOrBuilderList() {
-      return previousTags_;
-    }
-    /**
-     * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-     */
-    public int getPreviousTagsCount() {
-      return previousTags_.size();
-    }
-    /**
-     * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-     */
-    public LocalStorage.Contact.PreviousTag getPreviousTags(int index) {
-      return previousTags_.get(index);
-    }
-    /**
-     * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-     */
-    public LocalStorage.Contact.PreviousTagOrBuilder getPreviousTagsOrBuilder(
-        int index) {
-      return previousTags_.get(index);
-    }
-
-    public static final int EVENTS_FIELD_NUMBER = 22;
+    public static final int EVENTS_FIELD_NUMBER = 15;
     private java.util.List<LocalStorage.Contact.Event> events_;
     /**
-     * <code>repeated .Contact.Event events = 22;</code>
+     * <code>repeated .Contact.Event events = 15;</code>
      */
     public java.util.List<LocalStorage.Contact.Event> getEventsList() {
       return events_;
     }
     /**
-     * <code>repeated .Contact.Event events = 22;</code>
+     * <code>repeated .Contact.Event events = 15;</code>
      */
     public java.util.List<? extends LocalStorage.Contact.EventOrBuilder> 
         getEventsOrBuilderList() {
       return events_;
     }
     /**
-     * <code>repeated .Contact.Event events = 22;</code>
+     * <code>repeated .Contact.Event events = 15;</code>
      */
     public int getEventsCount() {
       return events_.size();
     }
     /**
-     * <code>repeated .Contact.Event events = 22;</code>
+     * <code>repeated .Contact.Event events = 15;</code>
      */
     public LocalStorage.Contact.Event getEvents(int index) {
       return events_.get(index);
     }
     /**
-     * <code>repeated .Contact.Event events = 22;</code>
+     * <code>repeated .Contact.Event events = 15;</code>
      */
     public LocalStorage.Contact.EventOrBuilder getEventsOrBuilder(
         int index) {
       return events_.get(index);
     }
 
-    public static final int IS_PENDING_FIELD_NUMBER = 15;
-    private boolean isPending_;
+    public static final int PAIRS_FIELD_NUMBER = 16;
+    private java.util.List<Pond.HMACPair> pairs_;
     /**
-     * <code>optional bool is_pending = 15 [default = false];</code>
+     * <code>repeated .HMACPair pairs = 16;</code>
      */
-    public boolean hasIsPending() {
-      return ((bitField0_ & 0x00080000) == 0x00080000);
+    public java.util.List<Pond.HMACPair> getPairsList() {
+      return pairs_;
     }
     /**
-     * <code>optional bool is_pending = 15 [default = false];</code>
+     * <code>repeated .HMACPair pairs = 16;</code>
+     */
+    public java.util.List<? extends Pond.HMACPairOrBuilder> 
+        getPairsOrBuilderList() {
+      return pairs_;
+    }
+    /**
+     * <code>repeated .HMACPair pairs = 16;</code>
+     */
+    public int getPairsCount() {
+      return pairs_.size();
+    }
+    /**
+     * <code>repeated .HMACPair pairs = 16;</code>
+     */
+    public Pond.HMACPair getPairs(int index) {
+      return pairs_.get(index);
+    }
+    /**
+     * <code>repeated .HMACPair pairs = 16;</code>
+     */
+    public Pond.HMACPairOrBuilder getPairsOrBuilder(
+        int index) {
+      return pairs_.get(index);
+    }
+
+    public static final int IS_PENDING_FIELD_NUMBER = 17;
+    private boolean isPending_;
+    /**
+     * <code>optional bool is_pending = 17 [default = false];</code>
+     */
+    public boolean hasIsPending() {
+      return ((bitField0_ & 0x00004000) == 0x00004000);
+    }
+    /**
+     * <code>optional bool is_pending = 17 [default = false];</code>
      */
     public boolean getIsPending() {
       return isPending_;
@@ -4070,13 +3396,8 @@ public final class LocalStorage {
     private void initFields() {
       id_ = 0L;
       name_ = "";
-      groupKey_ = com.google.protobuf.ByteString.EMPTY;
       supportedVersion_ = 0;
       keyExchangeBytes_ = com.google.protobuf.ByteString.EMPTY;
-      pandaKeyExchange_ = com.google.protobuf.ByteString.EMPTY;
-      pandaError_ = "";
-      theirGroup_ = com.google.protobuf.ByteString.EMPTY;
-      myGroupKey_ = com.google.protobuf.ByteString.EMPTY;
       generation_ = 0;
       theirServer_ = "";
       theirPub_ = com.google.protobuf.ByteString.EMPTY;
@@ -4087,8 +3408,8 @@ public final class LocalStorage {
       theirLastPublic_ = com.google.protobuf.ByteString.EMPTY;
       theirCurrentPublic_ = com.google.protobuf.ByteString.EMPTY;
       ratchet_ = LocalStorage.RatchetState.getDefaultInstance();
-      previousTags_ = java.util.Collections.emptyList();
       events_ = java.util.Collections.emptyList();
+      pairs_ = java.util.Collections.emptyList();
       isPending_ = false;
     }
     private byte memoizedIsInitialized = -1;
@@ -4105,24 +3426,20 @@ public final class LocalStorage {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasGroupKey()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       if (hasRatchet()) {
         if (!getRatchet().isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
       }
-      for (int i = 0; i < getPreviousTagsCount(); i++) {
-        if (!getPreviousTags(i).isInitialized()) {
+      for (int i = 0; i < getEventsCount(); i++) {
+        if (!getEvents(i).isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
       }
-      for (int i = 0; i < getEventsCount(); i++) {
-        if (!getEvents(i).isInitialized()) {
+      for (int i = 0; i < getPairsCount(); i++) {
+        if (!getPairs(i).isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
@@ -4141,64 +3458,49 @@ public final class LocalStorage {
         output.writeBytes(2, getNameBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, groupKey_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(4, keyExchangeBytes_);
-      }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeBytes(5, theirGroup_);
-      }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeBytes(6, myGroupKey_);
-      }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeUInt32(7, generation_);
-      }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeBytes(8, getTheirServerBytes());
-      }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeBytes(9, theirPub_);
-      }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        output.writeBytes(10, theirIdentityPublic_);
-      }
-      if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        output.writeBytes(11, lastPrivate_);
-      }
-      if (((bitField0_ & 0x00008000) == 0x00008000)) {
-        output.writeBytes(12, currentPrivate_);
-      }
-      if (((bitField0_ & 0x00010000) == 0x00010000)) {
-        output.writeBytes(13, theirLastPublic_);
-      }
-      if (((bitField0_ & 0x00020000) == 0x00020000)) {
-        output.writeBytes(14, theirCurrentPublic_);
-      }
-      if (((bitField0_ & 0x00080000) == 0x00080000)) {
-        output.writeBool(15, isPending_);
+        output.writeInt32(3, supportedVersion_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt32(16, supportedVersion_);
+        output.writeBytes(4, keyExchangeBytes_);
       }
-      for (int i = 0; i < previousTags_.size(); i++) {
-        output.writeMessage(17, previousTags_.get(i));
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeUInt32(5, generation_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(18, pandaKeyExchange_);
+        output.writeBytes(6, getTheirServerBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(19, getPandaErrorBytes());
+        output.writeBytes(7, theirPub_);
       }
-      if (((bitField0_ & 0x00040000) == 0x00040000)) {
-        output.writeMessage(20, ratchet_);
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeBytes(8, theirIdentityPublic_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeBool(9, revokedUs_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        output.writeBytes(10, lastPrivate_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        output.writeBytes(11, currentPrivate_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeBytes(12, theirLastPublic_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        output.writeBytes(13, theirCurrentPublic_);
       }
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        output.writeBool(21, revokedUs_);
+        output.writeMessage(14, ratchet_);
       }
       for (int i = 0; i < events_.size(); i++) {
-        output.writeMessage(22, events_.get(i));
+        output.writeMessage(15, events_.get(i));
+      }
+      for (int i = 0; i < pairs_.size(); i++) {
+        output.writeMessage(16, pairs_.get(i));
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        output.writeBool(17, isPending_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -4219,83 +3521,63 @@ public final class LocalStorage {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, groupKey_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, keyExchangeBytes_);
-      }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, theirGroup_);
-      }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, myGroupKey_);
-      }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(7, generation_);
-      }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(8, getTheirServerBytes());
-      }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(9, theirPub_);
-      }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(10, theirIdentityPublic_);
-      }
-      if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(11, lastPrivate_);
-      }
-      if (((bitField0_ & 0x00008000) == 0x00008000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(12, currentPrivate_);
-      }
-      if (((bitField0_ & 0x00010000) == 0x00010000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(13, theirLastPublic_);
-      }
-      if (((bitField0_ & 0x00020000) == 0x00020000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(14, theirCurrentPublic_);
-      }
-      if (((bitField0_ & 0x00080000) == 0x00080000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(15, isPending_);
+          .computeInt32Size(3, supportedVersion_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(16, supportedVersion_);
+          .computeBytesSize(4, keyExchangeBytes_);
       }
-      for (int i = 0; i < previousTags_.size(); i++) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(17, previousTags_.get(i));
+          .computeUInt32Size(5, generation_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(18, pandaKeyExchange_);
+          .computeBytesSize(6, getTheirServerBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(19, getPandaErrorBytes());
+          .computeBytesSize(7, theirPub_);
       }
-      if (((bitField0_ & 0x00040000) == 0x00040000)) {
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(20, ratchet_);
+          .computeBytesSize(8, theirIdentityPublic_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(9, revokedUs_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(10, lastPrivate_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(11, currentPrivate_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(12, theirLastPublic_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(13, theirCurrentPublic_);
       }
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(21, revokedUs_);
+          .computeMessageSize(14, ratchet_);
       }
       for (int i = 0; i < events_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(22, events_.get(i));
+          .computeMessageSize(15, events_.get(i));
+      }
+      for (int i = 0; i < pairs_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(16, pairs_.get(i));
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(17, isPending_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -4407,8 +3689,8 @@ public final class LocalStorage {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getRatchetFieldBuilder();
-          getPreviousTagsFieldBuilder();
           getEventsFieldBuilder();
+          getPairsFieldBuilder();
         }
       }
       private static Builder create() {
@@ -4421,58 +3703,48 @@ public final class LocalStorage {
         bitField0_ = (bitField0_ & ~0x00000001);
         name_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        groupKey_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
         supportedVersion_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         keyExchangeBytes_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000010);
-        pandaKeyExchange_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000020);
-        pandaError_ = "";
-        bitField0_ = (bitField0_ & ~0x00000040);
-        theirGroup_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000080);
-        myGroupKey_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000008);
         generation_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000010);
         theirServer_ = "";
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000020);
         theirPub_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00000040);
         theirIdentityPublic_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00001000);
+        bitField0_ = (bitField0_ & ~0x00000080);
         revokedUs_ = false;
-        bitField0_ = (bitField0_ & ~0x00002000);
+        bitField0_ = (bitField0_ & ~0x00000100);
         lastPrivate_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00004000);
+        bitField0_ = (bitField0_ & ~0x00000200);
         currentPrivate_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00000400);
         theirLastPublic_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00000800);
         theirCurrentPublic_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00020000);
+        bitField0_ = (bitField0_ & ~0x00001000);
         if (ratchetBuilder_ == null) {
           ratchet_ = LocalStorage.RatchetState.getDefaultInstance();
         } else {
           ratchetBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00040000);
-        if (previousTagsBuilder_ == null) {
-          previousTags_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00080000);
-        } else {
-          previousTagsBuilder_.clear();
-        }
+        bitField0_ = (bitField0_ & ~0x00002000);
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00100000);
+          bitField0_ = (bitField0_ & ~0x00004000);
         } else {
           eventsBuilder_.clear();
         }
+        if (pairsBuilder_ == null) {
+          pairs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00008000);
+        } else {
+          pairsBuilder_.clear();
+        }
         isPending_ = false;
-        bitField0_ = (bitField0_ & ~0x00200000);
+        bitField0_ = (bitField0_ & ~0x00010000);
         return this;
       }
 
@@ -4512,95 +3784,75 @@ public final class LocalStorage {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.groupKey_ = groupKey_;
+        result.supportedVersion_ = supportedVersion_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.supportedVersion_ = supportedVersion_;
+        result.keyExchangeBytes_ = keyExchangeBytes_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.keyExchangeBytes_ = keyExchangeBytes_;
+        result.generation_ = generation_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.pandaKeyExchange_ = pandaKeyExchange_;
+        result.theirServer_ = theirServer_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.pandaError_ = pandaError_;
+        result.theirPub_ = theirPub_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.theirGroup_ = theirGroup_;
+        result.theirIdentityPublic_ = theirIdentityPublic_;
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.myGroupKey_ = myGroupKey_;
+        result.revokedUs_ = revokedUs_;
         if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000200;
         }
-        result.generation_ = generation_;
+        result.lastPrivate_ = lastPrivate_;
         if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000400;
         }
-        result.theirServer_ = theirServer_;
+        result.currentPrivate_ = currentPrivate_;
         if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
           to_bitField0_ |= 0x00000800;
         }
-        result.theirPub_ = theirPub_;
+        result.theirLastPublic_ = theirLastPublic_;
         if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
           to_bitField0_ |= 0x00001000;
         }
-        result.theirIdentityPublic_ = theirIdentityPublic_;
+        result.theirCurrentPublic_ = theirCurrentPublic_;
         if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
           to_bitField0_ |= 0x00002000;
-        }
-        result.revokedUs_ = revokedUs_;
-        if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
-          to_bitField0_ |= 0x00004000;
-        }
-        result.lastPrivate_ = lastPrivate_;
-        if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
-          to_bitField0_ |= 0x00008000;
-        }
-        result.currentPrivate_ = currentPrivate_;
-        if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
-          to_bitField0_ |= 0x00010000;
-        }
-        result.theirLastPublic_ = theirLastPublic_;
-        if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
-          to_bitField0_ |= 0x00020000;
-        }
-        result.theirCurrentPublic_ = theirCurrentPublic_;
-        if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
-          to_bitField0_ |= 0x00040000;
         }
         if (ratchetBuilder_ == null) {
           result.ratchet_ = ratchet_;
         } else {
           result.ratchet_ = ratchetBuilder_.build();
         }
-        if (previousTagsBuilder_ == null) {
-          if (((bitField0_ & 0x00080000) == 0x00080000)) {
-            previousTags_ = java.util.Collections.unmodifiableList(previousTags_);
-            bitField0_ = (bitField0_ & ~0x00080000);
-          }
-          result.previousTags_ = previousTags_;
-        } else {
-          result.previousTags_ = previousTagsBuilder_.build();
-        }
         if (eventsBuilder_ == null) {
-          if (((bitField0_ & 0x00100000) == 0x00100000)) {
+          if (((bitField0_ & 0x00004000) == 0x00004000)) {
             events_ = java.util.Collections.unmodifiableList(events_);
-            bitField0_ = (bitField0_ & ~0x00100000);
+            bitField0_ = (bitField0_ & ~0x00004000);
           }
           result.events_ = events_;
         } else {
           result.events_ = eventsBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00200000) == 0x00200000)) {
-          to_bitField0_ |= 0x00080000;
+        if (pairsBuilder_ == null) {
+          if (((bitField0_ & 0x00008000) == 0x00008000)) {
+            pairs_ = java.util.Collections.unmodifiableList(pairs_);
+            bitField0_ = (bitField0_ & ~0x00008000);
+          }
+          result.pairs_ = pairs_;
+        } else {
+          result.pairs_ = pairsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
+          to_bitField0_ |= 0x00004000;
         }
         result.isPending_ = isPending_;
         result.bitField0_ = to_bitField0_;
@@ -4627,34 +3879,17 @@ public final class LocalStorage {
           name_ = other.name_;
           onChanged();
         }
-        if (other.hasGroupKey()) {
-          setGroupKey(other.getGroupKey());
-        }
         if (other.hasSupportedVersion()) {
           setSupportedVersion(other.getSupportedVersion());
         }
         if (other.hasKeyExchangeBytes()) {
           setKeyExchangeBytes(other.getKeyExchangeBytes());
         }
-        if (other.hasPandaKeyExchange()) {
-          setPandaKeyExchange(other.getPandaKeyExchange());
-        }
-        if (other.hasPandaError()) {
-          bitField0_ |= 0x00000040;
-          pandaError_ = other.pandaError_;
-          onChanged();
-        }
-        if (other.hasTheirGroup()) {
-          setTheirGroup(other.getTheirGroup());
-        }
-        if (other.hasMyGroupKey()) {
-          setMyGroupKey(other.getMyGroupKey());
-        }
         if (other.hasGeneration()) {
           setGeneration(other.getGeneration());
         }
         if (other.hasTheirServer()) {
-          bitField0_ |= 0x00000400;
+          bitField0_ |= 0x00000020;
           theirServer_ = other.theirServer_;
           onChanged();
         }
@@ -4682,37 +3917,11 @@ public final class LocalStorage {
         if (other.hasRatchet()) {
           mergeRatchet(other.getRatchet());
         }
-        if (previousTagsBuilder_ == null) {
-          if (!other.previousTags_.isEmpty()) {
-            if (previousTags_.isEmpty()) {
-              previousTags_ = other.previousTags_;
-              bitField0_ = (bitField0_ & ~0x00080000);
-            } else {
-              ensurePreviousTagsIsMutable();
-              previousTags_.addAll(other.previousTags_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.previousTags_.isEmpty()) {
-            if (previousTagsBuilder_.isEmpty()) {
-              previousTagsBuilder_.dispose();
-              previousTagsBuilder_ = null;
-              previousTags_ = other.previousTags_;
-              bitField0_ = (bitField0_ & ~0x00080000);
-              previousTagsBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getPreviousTagsFieldBuilder() : null;
-            } else {
-              previousTagsBuilder_.addAllMessages(other.previousTags_);
-            }
-          }
-        }
         if (eventsBuilder_ == null) {
           if (!other.events_.isEmpty()) {
             if (events_.isEmpty()) {
               events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00100000);
+              bitField0_ = (bitField0_ & ~0x00004000);
             } else {
               ensureEventsIsMutable();
               events_.addAll(other.events_);
@@ -4725,12 +3934,38 @@ public final class LocalStorage {
               eventsBuilder_.dispose();
               eventsBuilder_ = null;
               events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00100000);
+              bitField0_ = (bitField0_ & ~0x00004000);
               eventsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getEventsFieldBuilder() : null;
             } else {
               eventsBuilder_.addAllMessages(other.events_);
+            }
+          }
+        }
+        if (pairsBuilder_ == null) {
+          if (!other.pairs_.isEmpty()) {
+            if (pairs_.isEmpty()) {
+              pairs_ = other.pairs_;
+              bitField0_ = (bitField0_ & ~0x00008000);
+            } else {
+              ensurePairsIsMutable();
+              pairs_.addAll(other.pairs_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.pairs_.isEmpty()) {
+            if (pairsBuilder_.isEmpty()) {
+              pairsBuilder_.dispose();
+              pairsBuilder_ = null;
+              pairs_ = other.pairs_;
+              bitField0_ = (bitField0_ & ~0x00008000);
+              pairsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getPairsFieldBuilder() : null;
+            } else {
+              pairsBuilder_.addAllMessages(other.pairs_);
             }
           }
         }
@@ -4750,24 +3985,20 @@ public final class LocalStorage {
           
           return false;
         }
-        if (!hasGroupKey()) {
-          
-          return false;
-        }
         if (hasRatchet()) {
           if (!getRatchet().isInitialized()) {
             
             return false;
           }
         }
-        for (int i = 0; i < getPreviousTagsCount(); i++) {
-          if (!getPreviousTags(i).isInitialized()) {
+        for (int i = 0; i < getEventsCount(); i++) {
+          if (!getEvents(i).isInitialized()) {
             
             return false;
           }
         }
-        for (int i = 0; i < getEventsCount(); i++) {
-          if (!getEvents(i).isInitialized()) {
+        for (int i = 0; i < getPairsCount(); i++) {
+          if (!getPairs(i).isInitialized()) {
             
             return false;
           }
@@ -4902,68 +4133,33 @@ public final class LocalStorage {
         return this;
       }
 
-      private com.google.protobuf.ByteString groupKey_ = com.google.protobuf.ByteString.EMPTY;
+      private int supportedVersion_ ;
       /**
-       * <code>required bytes group_key = 3;</code>
+       * <code>optional int32 supported_version = 3;</code>
        */
-      public boolean hasGroupKey() {
+      public boolean hasSupportedVersion() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required bytes group_key = 3;</code>
-       */
-      public com.google.protobuf.ByteString getGroupKey() {
-        return groupKey_;
-      }
-      /**
-       * <code>required bytes group_key = 3;</code>
-       */
-      public Builder setGroupKey(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        groupKey_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required bytes group_key = 3;</code>
-       */
-      public Builder clearGroupKey() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        groupKey_ = getDefaultInstance().getGroupKey();
-        onChanged();
-        return this;
-      }
-
-      private int supportedVersion_ ;
-      /**
-       * <code>optional int32 supported_version = 16;</code>
-       */
-      public boolean hasSupportedVersion() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <code>optional int32 supported_version = 16;</code>
+       * <code>optional int32 supported_version = 3;</code>
        */
       public int getSupportedVersion() {
         return supportedVersion_;
       }
       /**
-       * <code>optional int32 supported_version = 16;</code>
+       * <code>optional int32 supported_version = 3;</code>
        */
       public Builder setSupportedVersion(int value) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         supportedVersion_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 supported_version = 16;</code>
+       * <code>optional int32 supported_version = 3;</code>
        */
       public Builder clearSupportedVersion() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         supportedVersion_ = 0;
         onChanged();
         return this;
@@ -4974,7 +4170,7 @@ public final class LocalStorage {
        * <code>optional bytes key_exchange_bytes = 4;</code>
        */
       public boolean hasKeyExchangeBytes() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <code>optional bytes key_exchange_bytes = 4;</code>
@@ -4989,7 +4185,7 @@ public final class LocalStorage {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
+  bitField0_ |= 0x00000008;
         keyExchangeBytes_ = value;
         onChanged();
         return this;
@@ -4998,220 +4194,39 @@ public final class LocalStorage {
        * <code>optional bytes key_exchange_bytes = 4;</code>
        */
       public Builder clearKeyExchangeBytes() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000008);
         keyExchangeBytes_ = getDefaultInstance().getKeyExchangeBytes();
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString pandaKeyExchange_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes panda_key_exchange = 18;</code>
-       */
-      public boolean hasPandaKeyExchange() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
-      }
-      /**
-       * <code>optional bytes panda_key_exchange = 18;</code>
-       */
-      public com.google.protobuf.ByteString getPandaKeyExchange() {
-        return pandaKeyExchange_;
-      }
-      /**
-       * <code>optional bytes panda_key_exchange = 18;</code>
-       */
-      public Builder setPandaKeyExchange(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
-        pandaKeyExchange_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bytes panda_key_exchange = 18;</code>
-       */
-      public Builder clearPandaKeyExchange() {
-        bitField0_ = (bitField0_ & ~0x00000020);
-        pandaKeyExchange_ = getDefaultInstance().getPandaKeyExchange();
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object pandaError_ = "";
-      /**
-       * <code>optional string panda_error = 19;</code>
-       */
-      public boolean hasPandaError() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
-      }
-      /**
-       * <code>optional string panda_error = 19;</code>
-       */
-      public java.lang.String getPandaError() {
-        java.lang.Object ref = pandaError_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            pandaError_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string panda_error = 19;</code>
-       */
-      public com.google.protobuf.ByteString
-          getPandaErrorBytes() {
-        java.lang.Object ref = pandaError_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          pandaError_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string panda_error = 19;</code>
-       */
-      public Builder setPandaError(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
-        pandaError_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string panda_error = 19;</code>
-       */
-      public Builder clearPandaError() {
-        bitField0_ = (bitField0_ & ~0x00000040);
-        pandaError_ = getDefaultInstance().getPandaError();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string panda_error = 19;</code>
-       */
-      public Builder setPandaErrorBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
-        pandaError_ = value;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString theirGroup_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes their_group = 5;</code>
-       */
-      public boolean hasTheirGroup() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
-      }
-      /**
-       * <code>optional bytes their_group = 5;</code>
-       */
-      public com.google.protobuf.ByteString getTheirGroup() {
-        return theirGroup_;
-      }
-      /**
-       * <code>optional bytes their_group = 5;</code>
-       */
-      public Builder setTheirGroup(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
-        theirGroup_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bytes their_group = 5;</code>
-       */
-      public Builder clearTheirGroup() {
-        bitField0_ = (bitField0_ & ~0x00000080);
-        theirGroup_ = getDefaultInstance().getTheirGroup();
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString myGroupKey_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes my_group_key = 6;</code>
-       */
-      public boolean hasMyGroupKey() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
-      }
-      /**
-       * <code>optional bytes my_group_key = 6;</code>
-       */
-      public com.google.protobuf.ByteString getMyGroupKey() {
-        return myGroupKey_;
-      }
-      /**
-       * <code>optional bytes my_group_key = 6;</code>
-       */
-      public Builder setMyGroupKey(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000100;
-        myGroupKey_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bytes my_group_key = 6;</code>
-       */
-      public Builder clearMyGroupKey() {
-        bitField0_ = (bitField0_ & ~0x00000100);
-        myGroupKey_ = getDefaultInstance().getMyGroupKey();
         onChanged();
         return this;
       }
 
       private int generation_ ;
       /**
-       * <code>optional uint32 generation = 7;</code>
+       * <code>optional uint32 generation = 5;</code>
        */
       public boolean hasGeneration() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional uint32 generation = 7;</code>
+       * <code>optional uint32 generation = 5;</code>
        */
       public int getGeneration() {
         return generation_;
       }
       /**
-       * <code>optional uint32 generation = 7;</code>
+       * <code>optional uint32 generation = 5;</code>
        */
       public Builder setGeneration(int value) {
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000010;
         generation_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional uint32 generation = 7;</code>
+       * <code>optional uint32 generation = 5;</code>
        */
       public Builder clearGeneration() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000010);
         generation_ = 0;
         onChanged();
         return this;
@@ -5219,13 +4234,13 @@ public final class LocalStorage {
 
       private java.lang.Object theirServer_ = "";
       /**
-       * <code>optional string their_server = 8;</code>
+       * <code>optional string their_server = 6;</code>
        */
       public boolean hasTheirServer() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional string their_server = 8;</code>
+       * <code>optional string their_server = 6;</code>
        */
       public java.lang.String getTheirServer() {
         java.lang.Object ref = theirServer_;
@@ -5242,7 +4257,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>optional string their_server = 8;</code>
+       * <code>optional string their_server = 6;</code>
        */
       public com.google.protobuf.ByteString
           getTheirServerBytes() {
@@ -5258,36 +4273,36 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>optional string their_server = 8;</code>
+       * <code>optional string their_server = 6;</code>
        */
       public Builder setTheirServer(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000400;
+  bitField0_ |= 0x00000020;
         theirServer_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string their_server = 8;</code>
+       * <code>optional string their_server = 6;</code>
        */
       public Builder clearTheirServer() {
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000020);
         theirServer_ = getDefaultInstance().getTheirServer();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string their_server = 8;</code>
+       * <code>optional string their_server = 6;</code>
        */
       public Builder setTheirServerBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000400;
+  bitField0_ |= 0x00000020;
         theirServer_ = value;
         onChanged();
         return this;
@@ -5295,34 +4310,34 @@ public final class LocalStorage {
 
       private com.google.protobuf.ByteString theirPub_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>optional bytes their_pub = 9;</code>
+       * <code>optional bytes their_pub = 7;</code>
        */
       public boolean hasTheirPub() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional bytes their_pub = 9;</code>
+       * <code>optional bytes their_pub = 7;</code>
        */
       public com.google.protobuf.ByteString getTheirPub() {
         return theirPub_;
       }
       /**
-       * <code>optional bytes their_pub = 9;</code>
+       * <code>optional bytes their_pub = 7;</code>
        */
       public Builder setTheirPub(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000800;
+  bitField0_ |= 0x00000040;
         theirPub_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bytes their_pub = 9;</code>
+       * <code>optional bytes their_pub = 7;</code>
        */
       public Builder clearTheirPub() {
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00000040);
         theirPub_ = getDefaultInstance().getTheirPub();
         onChanged();
         return this;
@@ -5330,34 +4345,34 @@ public final class LocalStorage {
 
       private com.google.protobuf.ByteString theirIdentityPublic_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>optional bytes their_identity_public = 10;</code>
+       * <code>optional bytes their_identity_public = 8;</code>
        */
       public boolean hasTheirIdentityPublic() {
-        return ((bitField0_ & 0x00001000) == 0x00001000);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional bytes their_identity_public = 10;</code>
+       * <code>optional bytes their_identity_public = 8;</code>
        */
       public com.google.protobuf.ByteString getTheirIdentityPublic() {
         return theirIdentityPublic_;
       }
       /**
-       * <code>optional bytes their_identity_public = 10;</code>
+       * <code>optional bytes their_identity_public = 8;</code>
        */
       public Builder setTheirIdentityPublic(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00001000;
+  bitField0_ |= 0x00000080;
         theirIdentityPublic_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bytes their_identity_public = 10;</code>
+       * <code>optional bytes their_identity_public = 8;</code>
        */
       public Builder clearTheirIdentityPublic() {
-        bitField0_ = (bitField0_ & ~0x00001000);
+        bitField0_ = (bitField0_ & ~0x00000080);
         theirIdentityPublic_ = getDefaultInstance().getTheirIdentityPublic();
         onChanged();
         return this;
@@ -5365,31 +4380,31 @@ public final class LocalStorage {
 
       private boolean revokedUs_ ;
       /**
-       * <code>optional bool revoked_us = 21;</code>
+       * <code>optional bool revoked_us = 9;</code>
        */
       public boolean hasRevokedUs() {
-        return ((bitField0_ & 0x00002000) == 0x00002000);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional bool revoked_us = 21;</code>
+       * <code>optional bool revoked_us = 9;</code>
        */
       public boolean getRevokedUs() {
         return revokedUs_;
       }
       /**
-       * <code>optional bool revoked_us = 21;</code>
+       * <code>optional bool revoked_us = 9;</code>
        */
       public Builder setRevokedUs(boolean value) {
-        bitField0_ |= 0x00002000;
+        bitField0_ |= 0x00000100;
         revokedUs_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool revoked_us = 21;</code>
+       * <code>optional bool revoked_us = 9;</code>
        */
       public Builder clearRevokedUs() {
-        bitField0_ = (bitField0_ & ~0x00002000);
+        bitField0_ = (bitField0_ & ~0x00000100);
         revokedUs_ = false;
         onChanged();
         return this;
@@ -5397,34 +4412,34 @@ public final class LocalStorage {
 
       private com.google.protobuf.ByteString lastPrivate_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>optional bytes last_private = 11;</code>
+       * <code>optional bytes last_private = 10;</code>
        */
       public boolean hasLastPrivate() {
-        return ((bitField0_ & 0x00004000) == 0x00004000);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional bytes last_private = 11;</code>
+       * <code>optional bytes last_private = 10;</code>
        */
       public com.google.protobuf.ByteString getLastPrivate() {
         return lastPrivate_;
       }
       /**
-       * <code>optional bytes last_private = 11;</code>
+       * <code>optional bytes last_private = 10;</code>
        */
       public Builder setLastPrivate(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00004000;
+  bitField0_ |= 0x00000200;
         lastPrivate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bytes last_private = 11;</code>
+       * <code>optional bytes last_private = 10;</code>
        */
       public Builder clearLastPrivate() {
-        bitField0_ = (bitField0_ & ~0x00004000);
+        bitField0_ = (bitField0_ & ~0x00000200);
         lastPrivate_ = getDefaultInstance().getLastPrivate();
         onChanged();
         return this;
@@ -5432,34 +4447,34 @@ public final class LocalStorage {
 
       private com.google.protobuf.ByteString currentPrivate_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>optional bytes current_private = 12;</code>
+       * <code>optional bytes current_private = 11;</code>
        */
       public boolean hasCurrentPrivate() {
-        return ((bitField0_ & 0x00008000) == 0x00008000);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional bytes current_private = 12;</code>
+       * <code>optional bytes current_private = 11;</code>
        */
       public com.google.protobuf.ByteString getCurrentPrivate() {
         return currentPrivate_;
       }
       /**
-       * <code>optional bytes current_private = 12;</code>
+       * <code>optional bytes current_private = 11;</code>
        */
       public Builder setCurrentPrivate(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00008000;
+  bitField0_ |= 0x00000400;
         currentPrivate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bytes current_private = 12;</code>
+       * <code>optional bytes current_private = 11;</code>
        */
       public Builder clearCurrentPrivate() {
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00000400);
         currentPrivate_ = getDefaultInstance().getCurrentPrivate();
         onChanged();
         return this;
@@ -5467,34 +4482,34 @@ public final class LocalStorage {
 
       private com.google.protobuf.ByteString theirLastPublic_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>optional bytes their_last_public = 13;</code>
+       * <code>optional bytes their_last_public = 12;</code>
        */
       public boolean hasTheirLastPublic() {
-        return ((bitField0_ & 0x00010000) == 0x00010000);
+        return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional bytes their_last_public = 13;</code>
+       * <code>optional bytes their_last_public = 12;</code>
        */
       public com.google.protobuf.ByteString getTheirLastPublic() {
         return theirLastPublic_;
       }
       /**
-       * <code>optional bytes their_last_public = 13;</code>
+       * <code>optional bytes their_last_public = 12;</code>
        */
       public Builder setTheirLastPublic(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00010000;
+  bitField0_ |= 0x00000800;
         theirLastPublic_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bytes their_last_public = 13;</code>
+       * <code>optional bytes their_last_public = 12;</code>
        */
       public Builder clearTheirLastPublic() {
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00000800);
         theirLastPublic_ = getDefaultInstance().getTheirLastPublic();
         onChanged();
         return this;
@@ -5502,34 +4517,34 @@ public final class LocalStorage {
 
       private com.google.protobuf.ByteString theirCurrentPublic_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>optional bytes their_current_public = 14;</code>
+       * <code>optional bytes their_current_public = 13;</code>
        */
       public boolean hasTheirCurrentPublic() {
-        return ((bitField0_ & 0x00020000) == 0x00020000);
+        return ((bitField0_ & 0x00001000) == 0x00001000);
       }
       /**
-       * <code>optional bytes their_current_public = 14;</code>
+       * <code>optional bytes their_current_public = 13;</code>
        */
       public com.google.protobuf.ByteString getTheirCurrentPublic() {
         return theirCurrentPublic_;
       }
       /**
-       * <code>optional bytes their_current_public = 14;</code>
+       * <code>optional bytes their_current_public = 13;</code>
        */
       public Builder setTheirCurrentPublic(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00020000;
+  bitField0_ |= 0x00001000;
         theirCurrentPublic_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bytes their_current_public = 14;</code>
+       * <code>optional bytes their_current_public = 13;</code>
        */
       public Builder clearTheirCurrentPublic() {
-        bitField0_ = (bitField0_ & ~0x00020000);
+        bitField0_ = (bitField0_ & ~0x00001000);
         theirCurrentPublic_ = getDefaultInstance().getTheirCurrentPublic();
         onChanged();
         return this;
@@ -5539,13 +4554,13 @@ public final class LocalStorage {
       private com.google.protobuf.SingleFieldBuilder<
           LocalStorage.RatchetState, LocalStorage.RatchetState.Builder, LocalStorage.RatchetStateOrBuilder> ratchetBuilder_;
       /**
-       * <code>optional .RatchetState ratchet = 20;</code>
+       * <code>optional .RatchetState ratchet = 14;</code>
        */
       public boolean hasRatchet() {
-        return ((bitField0_ & 0x00040000) == 0x00040000);
+        return ((bitField0_ & 0x00002000) == 0x00002000);
       }
       /**
-       * <code>optional .RatchetState ratchet = 20;</code>
+       * <code>optional .RatchetState ratchet = 14;</code>
        */
       public LocalStorage.RatchetState getRatchet() {
         if (ratchetBuilder_ == null) {
@@ -5555,7 +4570,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>optional .RatchetState ratchet = 20;</code>
+       * <code>optional .RatchetState ratchet = 14;</code>
        */
       public Builder setRatchet(LocalStorage.RatchetState value) {
         if (ratchetBuilder_ == null) {
@@ -5567,11 +4582,11 @@ public final class LocalStorage {
         } else {
           ratchetBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00040000;
+        bitField0_ |= 0x00002000;
         return this;
       }
       /**
-       * <code>optional .RatchetState ratchet = 20;</code>
+       * <code>optional .RatchetState ratchet = 14;</code>
        */
       public Builder setRatchet(
           LocalStorage.RatchetState.Builder builderForValue) {
@@ -5581,15 +4596,15 @@ public final class LocalStorage {
         } else {
           ratchetBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00040000;
+        bitField0_ |= 0x00002000;
         return this;
       }
       /**
-       * <code>optional .RatchetState ratchet = 20;</code>
+       * <code>optional .RatchetState ratchet = 14;</code>
        */
       public Builder mergeRatchet(LocalStorage.RatchetState value) {
         if (ratchetBuilder_ == null) {
-          if (((bitField0_ & 0x00040000) == 0x00040000) &&
+          if (((bitField0_ & 0x00002000) == 0x00002000) &&
               ratchet_ != LocalStorage.RatchetState.getDefaultInstance()) {
             ratchet_ =
               LocalStorage.RatchetState.newBuilder(ratchet_).mergeFrom(value).buildPartial();
@@ -5600,11 +4615,11 @@ public final class LocalStorage {
         } else {
           ratchetBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00040000;
+        bitField0_ |= 0x00002000;
         return this;
       }
       /**
-       * <code>optional .RatchetState ratchet = 20;</code>
+       * <code>optional .RatchetState ratchet = 14;</code>
        */
       public Builder clearRatchet() {
         if (ratchetBuilder_ == null) {
@@ -5613,19 +4628,19 @@ public final class LocalStorage {
         } else {
           ratchetBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00040000);
+        bitField0_ = (bitField0_ & ~0x00002000);
         return this;
       }
       /**
-       * <code>optional .RatchetState ratchet = 20;</code>
+       * <code>optional .RatchetState ratchet = 14;</code>
        */
       public LocalStorage.RatchetState.Builder getRatchetBuilder() {
-        bitField0_ |= 0x00040000;
+        bitField0_ |= 0x00002000;
         onChanged();
         return getRatchetFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .RatchetState ratchet = 20;</code>
+       * <code>optional .RatchetState ratchet = 14;</code>
        */
       public LocalStorage.RatchetStateOrBuilder getRatchetOrBuilder() {
         if (ratchetBuilder_ != null) {
@@ -5635,7 +4650,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>optional .RatchetState ratchet = 20;</code>
+       * <code>optional .RatchetState ratchet = 14;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           LocalStorage.RatchetState, LocalStorage.RatchetState.Builder, LocalStorage.RatchetStateOrBuilder> 
@@ -5651,252 +4666,12 @@ public final class LocalStorage {
         return ratchetBuilder_;
       }
 
-      private java.util.List<LocalStorage.Contact.PreviousTag> previousTags_ =
-        java.util.Collections.emptyList();
-      private void ensurePreviousTagsIsMutable() {
-        if (!((bitField0_ & 0x00080000) == 0x00080000)) {
-          previousTags_ = new java.util.ArrayList<LocalStorage.Contact.PreviousTag>(previousTags_);
-          bitField0_ |= 0x00080000;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Contact.PreviousTag, LocalStorage.Contact.PreviousTag.Builder, LocalStorage.Contact.PreviousTagOrBuilder> previousTagsBuilder_;
-
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public java.util.List<LocalStorage.Contact.PreviousTag> getPreviousTagsList() {
-        if (previousTagsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(previousTags_);
-        } else {
-          return previousTagsBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public int getPreviousTagsCount() {
-        if (previousTagsBuilder_ == null) {
-          return previousTags_.size();
-        } else {
-          return previousTagsBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public LocalStorage.Contact.PreviousTag getPreviousTags(int index) {
-        if (previousTagsBuilder_ == null) {
-          return previousTags_.get(index);
-        } else {
-          return previousTagsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public Builder setPreviousTags(
-          int index, LocalStorage.Contact.PreviousTag value) {
-        if (previousTagsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePreviousTagsIsMutable();
-          previousTags_.set(index, value);
-          onChanged();
-        } else {
-          previousTagsBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public Builder setPreviousTags(
-          int index, LocalStorage.Contact.PreviousTag.Builder builderForValue) {
-        if (previousTagsBuilder_ == null) {
-          ensurePreviousTagsIsMutable();
-          previousTags_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          previousTagsBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public Builder addPreviousTags(LocalStorage.Contact.PreviousTag value) {
-        if (previousTagsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePreviousTagsIsMutable();
-          previousTags_.add(value);
-          onChanged();
-        } else {
-          previousTagsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public Builder addPreviousTags(
-          int index, LocalStorage.Contact.PreviousTag value) {
-        if (previousTagsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensurePreviousTagsIsMutable();
-          previousTags_.add(index, value);
-          onChanged();
-        } else {
-          previousTagsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public Builder addPreviousTags(
-          LocalStorage.Contact.PreviousTag.Builder builderForValue) {
-        if (previousTagsBuilder_ == null) {
-          ensurePreviousTagsIsMutable();
-          previousTags_.add(builderForValue.build());
-          onChanged();
-        } else {
-          previousTagsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public Builder addPreviousTags(
-          int index, LocalStorage.Contact.PreviousTag.Builder builderForValue) {
-        if (previousTagsBuilder_ == null) {
-          ensurePreviousTagsIsMutable();
-          previousTags_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          previousTagsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public Builder addAllPreviousTags(
-          java.lang.Iterable<? extends LocalStorage.Contact.PreviousTag> values) {
-        if (previousTagsBuilder_ == null) {
-          ensurePreviousTagsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, previousTags_);
-          onChanged();
-        } else {
-          previousTagsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public Builder clearPreviousTags() {
-        if (previousTagsBuilder_ == null) {
-          previousTags_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00080000);
-          onChanged();
-        } else {
-          previousTagsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public Builder removePreviousTags(int index) {
-        if (previousTagsBuilder_ == null) {
-          ensurePreviousTagsIsMutable();
-          previousTags_.remove(index);
-          onChanged();
-        } else {
-          previousTagsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public LocalStorage.Contact.PreviousTag.Builder getPreviousTagsBuilder(
-          int index) {
-        return getPreviousTagsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public LocalStorage.Contact.PreviousTagOrBuilder getPreviousTagsOrBuilder(
-          int index) {
-        if (previousTagsBuilder_ == null) {
-          return previousTags_.get(index);  } else {
-          return previousTagsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public java.util.List<? extends LocalStorage.Contact.PreviousTagOrBuilder> 
-           getPreviousTagsOrBuilderList() {
-        if (previousTagsBuilder_ != null) {
-          return previousTagsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(previousTags_);
-        }
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public LocalStorage.Contact.PreviousTag.Builder addPreviousTagsBuilder() {
-        return getPreviousTagsFieldBuilder().addBuilder(
-            LocalStorage.Contact.PreviousTag.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public LocalStorage.Contact.PreviousTag.Builder addPreviousTagsBuilder(
-          int index) {
-        return getPreviousTagsFieldBuilder().addBuilder(
-            index, LocalStorage.Contact.PreviousTag.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .Contact.PreviousTag previous_tags = 17;</code>
-       */
-      public java.util.List<LocalStorage.Contact.PreviousTag.Builder> 
-           getPreviousTagsBuilderList() {
-        return getPreviousTagsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Contact.PreviousTag, LocalStorage.Contact.PreviousTag.Builder, LocalStorage.Contact.PreviousTagOrBuilder> 
-          getPreviousTagsFieldBuilder() {
-        if (previousTagsBuilder_ == null) {
-          previousTagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              LocalStorage.Contact.PreviousTag, LocalStorage.Contact.PreviousTag.Builder, LocalStorage.Contact.PreviousTagOrBuilder>(
-                  previousTags_,
-                  ((bitField0_ & 0x00080000) == 0x00080000),
-                  getParentForChildren(),
-                  isClean());
-          previousTags_ = null;
-        }
-        return previousTagsBuilder_;
-      }
-
       private java.util.List<LocalStorage.Contact.Event> events_ =
         java.util.Collections.emptyList();
       private void ensureEventsIsMutable() {
-        if (!((bitField0_ & 0x00100000) == 0x00100000)) {
+        if (!((bitField0_ & 0x00004000) == 0x00004000)) {
           events_ = new java.util.ArrayList<LocalStorage.Contact.Event>(events_);
-          bitField0_ |= 0x00100000;
+          bitField0_ |= 0x00004000;
          }
       }
 
@@ -5904,7 +4679,7 @@ public final class LocalStorage {
           LocalStorage.Contact.Event, LocalStorage.Contact.Event.Builder, LocalStorage.Contact.EventOrBuilder> eventsBuilder_;
 
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public java.util.List<LocalStorage.Contact.Event> getEventsList() {
         if (eventsBuilder_ == null) {
@@ -5914,7 +4689,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public int getEventsCount() {
         if (eventsBuilder_ == null) {
@@ -5924,7 +4699,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public LocalStorage.Contact.Event getEvents(int index) {
         if (eventsBuilder_ == null) {
@@ -5934,7 +4709,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder setEvents(
           int index, LocalStorage.Contact.Event value) {
@@ -5951,7 +4726,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder setEvents(
           int index, LocalStorage.Contact.Event.Builder builderForValue) {
@@ -5965,7 +4740,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder addEvents(LocalStorage.Contact.Event value) {
         if (eventsBuilder_ == null) {
@@ -5981,7 +4756,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder addEvents(
           int index, LocalStorage.Contact.Event value) {
@@ -5998,7 +4773,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder addEvents(
           LocalStorage.Contact.Event.Builder builderForValue) {
@@ -6012,7 +4787,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder addEvents(
           int index, LocalStorage.Contact.Event.Builder builderForValue) {
@@ -6026,7 +4801,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder addAllEvents(
           java.lang.Iterable<? extends LocalStorage.Contact.Event> values) {
@@ -6041,12 +4816,12 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder clearEvents() {
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00100000);
+          bitField0_ = (bitField0_ & ~0x00004000);
           onChanged();
         } else {
           eventsBuilder_.clear();
@@ -6054,7 +4829,7 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder removeEvents(int index) {
         if (eventsBuilder_ == null) {
@@ -6067,14 +4842,14 @@ public final class LocalStorage {
         return this;
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public LocalStorage.Contact.Event.Builder getEventsBuilder(
           int index) {
         return getEventsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public LocalStorage.Contact.EventOrBuilder getEventsOrBuilder(
           int index) {
@@ -6084,7 +4859,7 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public java.util.List<? extends LocalStorage.Contact.EventOrBuilder> 
            getEventsOrBuilderList() {
@@ -6095,14 +4870,14 @@ public final class LocalStorage {
         }
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public LocalStorage.Contact.Event.Builder addEventsBuilder() {
         return getEventsFieldBuilder().addBuilder(
             LocalStorage.Contact.Event.getDefaultInstance());
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public LocalStorage.Contact.Event.Builder addEventsBuilder(
           int index) {
@@ -6110,7 +4885,7 @@ public final class LocalStorage {
             index, LocalStorage.Contact.Event.getDefaultInstance());
       }
       /**
-       * <code>repeated .Contact.Event events = 22;</code>
+       * <code>repeated .Contact.Event events = 15;</code>
        */
       public java.util.List<LocalStorage.Contact.Event.Builder> 
            getEventsBuilderList() {
@@ -6123,7 +4898,7 @@ public final class LocalStorage {
           eventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               LocalStorage.Contact.Event, LocalStorage.Contact.Event.Builder, LocalStorage.Contact.EventOrBuilder>(
                   events_,
-                  ((bitField0_ & 0x00100000) == 0x00100000),
+                  ((bitField0_ & 0x00004000) == 0x00004000),
                   getParentForChildren(),
                   isClean());
           events_ = null;
@@ -6131,33 +4906,273 @@ public final class LocalStorage {
         return eventsBuilder_;
       }
 
-      private boolean isPending_ ;
+      private java.util.List<Pond.HMACPair> pairs_ =
+        java.util.Collections.emptyList();
+      private void ensurePairsIsMutable() {
+        if (!((bitField0_ & 0x00008000) == 0x00008000)) {
+          pairs_ = new java.util.ArrayList<Pond.HMACPair>(pairs_);
+          bitField0_ |= 0x00008000;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> pairsBuilder_;
+
       /**
-       * <code>optional bool is_pending = 15 [default = false];</code>
+       * <code>repeated .HMACPair pairs = 16;</code>
        */
-      public boolean hasIsPending() {
-        return ((bitField0_ & 0x00200000) == 0x00200000);
+      public java.util.List<Pond.HMACPair> getPairsList() {
+        if (pairsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(pairs_);
+        } else {
+          return pairsBuilder_.getMessageList();
+        }
       }
       /**
-       * <code>optional bool is_pending = 15 [default = false];</code>
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public int getPairsCount() {
+        if (pairsBuilder_ == null) {
+          return pairs_.size();
+        } else {
+          return pairsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Pond.HMACPair getPairs(int index) {
+        if (pairsBuilder_ == null) {
+          return pairs_.get(index);
+        } else {
+          return pairsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Builder setPairs(
+          int index, Pond.HMACPair value) {
+        if (pairsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePairsIsMutable();
+          pairs_.set(index, value);
+          onChanged();
+        } else {
+          pairsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Builder setPairs(
+          int index, Pond.HMACPair.Builder builderForValue) {
+        if (pairsBuilder_ == null) {
+          ensurePairsIsMutable();
+          pairs_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          pairsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Builder addPairs(Pond.HMACPair value) {
+        if (pairsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePairsIsMutable();
+          pairs_.add(value);
+          onChanged();
+        } else {
+          pairsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Builder addPairs(
+          int index, Pond.HMACPair value) {
+        if (pairsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePairsIsMutable();
+          pairs_.add(index, value);
+          onChanged();
+        } else {
+          pairsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Builder addPairs(
+          Pond.HMACPair.Builder builderForValue) {
+        if (pairsBuilder_ == null) {
+          ensurePairsIsMutable();
+          pairs_.add(builderForValue.build());
+          onChanged();
+        } else {
+          pairsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Builder addPairs(
+          int index, Pond.HMACPair.Builder builderForValue) {
+        if (pairsBuilder_ == null) {
+          ensurePairsIsMutable();
+          pairs_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          pairsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Builder addAllPairs(
+          java.lang.Iterable<? extends Pond.HMACPair> values) {
+        if (pairsBuilder_ == null) {
+          ensurePairsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, pairs_);
+          onChanged();
+        } else {
+          pairsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Builder clearPairs() {
+        if (pairsBuilder_ == null) {
+          pairs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00008000);
+          onChanged();
+        } else {
+          pairsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Builder removePairs(int index) {
+        if (pairsBuilder_ == null) {
+          ensurePairsIsMutable();
+          pairs_.remove(index);
+          onChanged();
+        } else {
+          pairsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Pond.HMACPair.Builder getPairsBuilder(
+          int index) {
+        return getPairsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Pond.HMACPairOrBuilder getPairsOrBuilder(
+          int index) {
+        if (pairsBuilder_ == null) {
+          return pairs_.get(index);  } else {
+          return pairsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public java.util.List<? extends Pond.HMACPairOrBuilder> 
+           getPairsOrBuilderList() {
+        if (pairsBuilder_ != null) {
+          return pairsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(pairs_);
+        }
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Pond.HMACPair.Builder addPairsBuilder() {
+        return getPairsFieldBuilder().addBuilder(
+            Pond.HMACPair.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public Pond.HMACPair.Builder addPairsBuilder(
+          int index) {
+        return getPairsFieldBuilder().addBuilder(
+            index, Pond.HMACPair.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .HMACPair pairs = 16;</code>
+       */
+      public java.util.List<Pond.HMACPair.Builder> 
+           getPairsBuilderList() {
+        return getPairsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> 
+          getPairsFieldBuilder() {
+        if (pairsBuilder_ == null) {
+          pairsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder>(
+                  pairs_,
+                  ((bitField0_ & 0x00008000) == 0x00008000),
+                  getParentForChildren(),
+                  isClean());
+          pairs_ = null;
+        }
+        return pairsBuilder_;
+      }
+
+      private boolean isPending_ ;
+      /**
+       * <code>optional bool is_pending = 17 [default = false];</code>
+       */
+      public boolean hasIsPending() {
+        return ((bitField0_ & 0x00010000) == 0x00010000);
+      }
+      /**
+       * <code>optional bool is_pending = 17 [default = false];</code>
        */
       public boolean getIsPending() {
         return isPending_;
       }
       /**
-       * <code>optional bool is_pending = 15 [default = false];</code>
+       * <code>optional bool is_pending = 17 [default = false];</code>
        */
       public Builder setIsPending(boolean value) {
-        bitField0_ |= 0x00200000;
+        bitField0_ |= 0x00010000;
         isPending_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool is_pending = 15 [default = false];</code>
+       * <code>optional bool is_pending = 17 [default = false];</code>
        */
       public Builder clearIsPending() {
-        bitField0_ = (bitField0_ & ~0x00200000);
+        bitField0_ = (bitField0_ & ~0x00010000);
         isPending_ = false;
         onChanged();
         return this;
@@ -12127,7 +11142,7 @@ public final class LocalStorage {
     /**
      * <code>repeated .Message.Detachment detachments = 7;</code>
      */
-    public java.util.List<? extends Pond.Message.DetachmentOrBuilder>
+    public java.util.List<? extends Pond.Message.DetachmentOrBuilder> 
         getDetachmentsOrBuilderList() {
       return detachments_;
     }
@@ -15698,11 +14713,6 @@ public final class LocalStorage {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_protos_Contact_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Contact_PreviousTag_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Contact_PreviousTag_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_Contact_Event_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -15758,56 +14768,51 @@ public final class LocalStorage {
       "\0132\022.Header.TPM\022\032\n\022no_erasure_stor" +
       "age\030\005 \001(\010\0327\n\006SCrypt\022\020\n\001N\030\002 \001(\005:\00532768\022\r\n" +
       "\001r\030\003 \001(\005:\00216\022\014\n\001p\030\004 \001(\005:\0011\032\024\n\003TPM\022\r\n\005ind" +
-      "ex\030\001 \002(\r\"\223\005\n\007Contact\022\n\n\002id\030\001 \002(\006\022\014\n\004name" +
-      "\030\002 \002(\t\022\021\n\tgroup_key\030\003 \002(\014\022\031\n\021supported_v" +
-      "ersion\030\020 \001(\005\022\032\n\022key_exchange_bytes\030\004 \001(\014",
-      "\022\032\n\022panda_key_exchange\030\022 \001(\014\022\023\n\013panda_er" +
-      "ror\030\023 \001(\t\022\023\n\013their_group\030\005 \001(\014\022\024\n\014my_gro" +
-      "up_key\030\006 \001(\014\022\022\n\ngeneration\030\007 \001(\r\022\024\n\014thei" +
-      "r_server\030\010 \001(\t\022\021\n\ttheir_pub\030\t \001(\014\022\035\n\025the" +
-      "ir_identity_public\030\n \001(\014\022\022\n\nrevoked_us\030\025" +
-      " \001(\010\022\024\n\014last_private\030\013 \001(\014\022\027\n\017current_pr" +
-      "ivate\030\014 \001(\014\022\031\n\021their_last_public\030\r \001(\014\022\034" +
-      "\n\024their_current_public\030\016 \001(\014\022%\n\007ratchet\030" +
-      "\024 \001(\0132\024.RatchetState\0222\n\rprevious_" +
-      "tags\030\021 \003(\0132\033.Contact.PreviousTag\022",
-      "%\n\006events\030\026 \003(\0132\025.Contact.Event\022\031" +
-      "\n\nis_pending\030\017 \001(\010:\005false\032+\n\013PreviousTag" +
-      "\022\013\n\003tag\030\001 \002(\014\022\017\n\007expired\030\002 \002(\003\032&\n\005Event\022" +
-      "\014\n\004time\030\001 \002(\003\022\017\n\007message\030\002 \002(\t\"\321\004\n\014Ratch" +
-      "etState\022\020\n\010root_key\030\001 \002(\014\022\027\n\017send_header" +
-      "_key\030\002 \002(\014\022\027\n\017recv_header_key\030\003 \002(\014\022\034\n\024n" +
-      "ext_send_header_key\030\004 \002(\014\022\034\n\024next_recv_h" +
-      "eader_key\030\005 \002(\014\022\026\n\016send_chain_key\030\006 \002(\014\022" +
-      "\026\n\016recv_chain_key\030\007 \002(\014\022\034\n\024send_ratchet_" +
-      "private\030\010 \002(\014\022\033\n\023recv_ratchet_public\030\t \002",
-      "(\014\022\022\n\nsend_count\030\n \002(\r\022\022\n\nrecv_count\030\013 \002" +
-      "(\r\022\027\n\017prev_send_count\030\014 \002(\r\022\017\n\007ratchet\030\r" +
-      " \002(\010\022\n\n\002v2\030\021 \001(\010\022\020\n\010private0\030\016 \001(\014\022\020\n\010pr" +
-      "ivate1\030\017 \001(\014\0222\n\nsaved_keys\030\020 \003(\0132\036.proto" +
-      "s.RatchetState.SavedKeys\032\237\001\n\tSavedKeys\022\022" +
-      "\n\nheader_key\030\001 \002(\014\022?\n\014message_keys\030\002 \003(\013" +
-      "2).RatchetState.SavedKeys.Message" +
-      "Key\032=\n\nMessageKey\022\013\n\003num\030\001 \002(\r\022\013\n\003key\030\002 " +
-      "\002(\014\022\025\n\rcreation_time\030\003 \002(\003\"\217\001\n\005Inbox\022\n\n\002" +
-      "id\030\001 \002(\006\022\014\n\004from\030\002 \002(\006\022\025\n\rreceived_time\030",
-      "\003 \002(\003\022\r\n\005acked\030\004 \002(\010\022\017\n\007message\030\005 \001(\014\022\014\n" +
-      "\004read\030\006 \002(\010\022\016\n\006sealed\030\007 \001(\014\022\027\n\010retained\030" +
-      "\010 \001(\010:\005false\"\224\001\n\006Outbox\022\n\n\002id\030\001 \002(\006\022\n\n\002t" +
-      "o\030\002 \002(\006\022\016\n\006server\030\003 \002(\t\022\017\n\007created\030\004 \002(\003" +
-      "\022\014\n\004sent\030\005 \001(\003\022\017\n\007message\030\006 \001(\014\022\017\n\007reque" +
-      "st\030\007 \001(\014\022\r\n\005acked\030\010 \001(\003\022\022\n\nrevocation\030\t " +
-      "\001(\010\"\265\001\n\005Draft\022\n\n\002id\030\001 \002(\006\022\017\n\007created\030\002 \002" +
-      "(\003\022\n\n\002to\030\003 \001(\006\022\014\n\004body\030\004 \002(\t\022\023\n\013in_reply" +
-      "_to\030\005 \001(\006\022/\n\013attachments\030\006 \003(\0132\032." +
-      "Message.Attachment\022/\n\013detachments\030\007 \003(\0132",
-      "\032.Message.Detachment\"\332\001\n\005State\022\020\n" +
-      "\010identity\030\001 \002(\014\022\014\n\004seed\030\002 \002(\014\022\016\n\006server\030" +
-      "\003 \002(\t\022!\n\031last_erasure_storage_time\030\010 \001(\003" +
-      "\022!\n\010contacts\030\004 \003(\0132\017.Contact\022\034\n\005i" +
-      "nbox\030\005 \003(\0132\r.Inbox\022\036\n\006outbox\030\006 \003(" +
-      "\0132\016.Outbox\022\035\n\006drafts\030\007 \003(\0132\r.prot" +
-      "os.Draft"
+      "ex\030\001 \002(\r\"\344\003\n\007Contact\022\n\n\002id\030\001 \002(\006\022\014\n\004name" +
+      "\030\002 \002(\t\022\031\n\021supported_version\030\003 \001(\005\022\032\n\022key" +
+      "_exchange_bytes\030\004 \001(\014\022\022\n\ngeneration\030\005 \001(",
+      "\r\022\024\n\014their_server\030\006 \001(\t\022\021\n\ttheir_pub\030\007 \001" +
+      "(\014\022\035\n\025their_identity_public\030\010 \001(\014\022\022\n\nrev" +
+      "oked_us\030\t \001(\010\022\024\n\014last_private\030\n \001(\014\022\027\n\017c" +
+      "urrent_private\030\013 \001(\014\022\031\n\021their_last_publi" +
+      "c\030\014 \001(\014\022\034\n\024their_current_public\030\r \001(\014\022%\n" +
+      "\007ratchet\030\016 \001(\0132\024.RatchetState\022%\n\006" +
+      "events\030\017 \003(\0132\025.Contact.Event\022\037\n\005p" +
+      "airs\030\020 \003(\0132\020.HMACPair\022\031\n\nis_pendi" +
+      "ng\030\021 \001(\010:\005false\032&\n\005Event\022\014\n\004time\030\001 \002(\003\022\017" +
+      "\n\007message\030\002 \002(\t\"\321\004\n\014RatchetState\022\020\n\010root",
+      "_key\030\001 \002(\014\022\027\n\017send_header_key\030\002 \002(\014\022\027\n\017r" +
+      "ecv_header_key\030\003 \002(\014\022\034\n\024next_send_header" +
+      "_key\030\004 \002(\014\022\034\n\024next_recv_header_key\030\005 \002(\014" +
+      "\022\026\n\016send_chain_key\030\006 \002(\014\022\026\n\016recv_chain_k" +
+      "ey\030\007 \002(\014\022\034\n\024send_ratchet_private\030\010 \002(\014\022\033" +
+      "\n\023recv_ratchet_public\030\t \002(\014\022\022\n\nsend_coun" +
+      "t\030\n \002(\r\022\022\n\nrecv_count\030\013 \002(\r\022\027\n\017prev_send" +
+      "_count\030\014 \002(\r\022\017\n\007ratchet\030\r \002(\010\022\n\n\002v2\030\021 \001(" +
+      "\010\022\020\n\010private0\030\016 \001(\014\022\020\n\010private1\030\017 \001(\014\0222\n" +
+      "\nsaved_keys\030\020 \003(\0132\036.RatchetState.",
+      "SavedKeys\032\237\001\n\tSavedKeys\022\022\n\nheader_key\030\001 " +
+      "\002(\014\022?\n\014message_keys\030\002 \003(\0132).Ratch" +
+      "etState.SavedKeys.MessageKey\032=\n\nMessageK" +
+      "ey\022\013\n\003num\030\001 \002(\r\022\013\n\003key\030\002 \002(\014\022\025\n\rcreation" +
+      "_time\030\003 \002(\003\"\217\001\n\005Inbox\022\n\n\002id\030\001 \002(\006\022\014\n\004fro" +
+      "m\030\002 \002(\006\022\025\n\rreceived_time\030\003 \002(\003\022\r\n\005acked\030" +
+      "\004 \002(\010\022\017\n\007message\030\005 \001(\014\022\014\n\004read\030\006 \002(\010\022\016\n\006" +
+      "sealed\030\007 \001(\014\022\027\n\010retained\030\010 \001(\010:\005false\"\224\001" +
+      "\n\006Outbox\022\n\n\002id\030\001 \002(\006\022\n\n\002to\030\002 \002(\006\022\016\n\006serv" +
+      "er\030\003 \002(\t\022\017\n\007created\030\004 \002(\003\022\014\n\004sent\030\005 \001(\003\022",
+      "\017\n\007message\030\006 \001(\014\022\017\n\007request\030\007 \001(\014\022\r\n\005ack" +
+      "ed\030\010 \001(\003\022\022\n\nrevocation\030\t \001(\010\"\265\001\n\005Draft\022\n" +
+      "\n\002id\030\001 \002(\006\022\017\n\007created\030\002 \002(\003\022\n\n\002to\030\003 \001(\006\022" +
+      "\014\n\004body\030\004 \002(\t\022\023\n\013in_reply_to\030\005 \001(\006\022/\n\013at" +
+      "tachments\030\006 \003(\0132\032.Message.Attachm" +
+      "ent\022/\n\013detachments\030\007 \003(\0132\032.Messag" +
+      "e.Detachment\"\332\001\n\005State\022\020\n\010identity\030\001 \002(\014" +
+      "\022\014\n\004seed\030\002 \002(\014\022\016\n\006server\030\003 \002(\t\022!\n\031last_e" +
+      "rasure_storage_time\030\010 \001(\003\022!\n\010contacts\030\004 " +
+      "\003(\0132\017.Contact\022\034\n\005inbox\030\005 \003(\0132\r.pr",
+      "otos.Inbox\022\036\n\006outbox\030\006 \003(\0132\016.Outb" +
+      "ox\022\035\n\006drafts\030\007 \003(\0132\r.Draft"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -15845,15 +14850,9 @@ public final class LocalStorage {
     internal_static_protos_Contact_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_protos_Contact_descriptor,
-        new java.lang.String[] { "Id", "Name", "GroupKey", "SupportedVersion", "KeyExchangeBytes", "PandaKeyExchange", "PandaError", "TheirGroup", "MyGroupKey", "Generation", "TheirServer", "TheirPub", "TheirIdentityPublic", "RevokedUs", "LastPrivate", "CurrentPrivate", "TheirLastPublic", "TheirCurrentPublic", "Ratchet", "PreviousTags", "Events", "IsPending", });
-    internal_static_protos_Contact_PreviousTag_descriptor =
-      internal_static_protos_Contact_descriptor.getNestedTypes().get(0);
-    internal_static_protos_Contact_PreviousTag_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Contact_PreviousTag_descriptor,
-        new java.lang.String[] { "Tag", "Expired", });
+        new java.lang.String[] { "Id", "Name", "SupportedVersion", "KeyExchangeBytes", "Generation", "TheirServer", "TheirPub", "TheirIdentityPublic", "RevokedUs", "LastPrivate", "CurrentPrivate", "TheirLastPublic", "TheirCurrentPublic", "Ratchet", "Events", "Pairs", "IsPending", });
     internal_static_protos_Contact_Event_descriptor =
-      internal_static_protos_Contact_descriptor.getNestedTypes().get(1);
+      internal_static_protos_Contact_descriptor.getNestedTypes().get(0);
     internal_static_protos_Contact_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_protos_Contact_Event_descriptor,
