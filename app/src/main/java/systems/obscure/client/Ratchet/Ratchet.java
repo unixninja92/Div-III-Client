@@ -6,6 +6,8 @@ import org.abstractj.kalium.crypto.Point;
 import org.abstractj.kalium.crypto.SecretBox;
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.VerifyKey;
+import org.spongycastle.pqc.math.linearalgebra.ByteUtils;
+import org.whispersystems.libaxolotl.util.ByteUtil;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -225,9 +227,9 @@ public class Ratchet {
         return null;
     }
 
-    public byte[] trySavedKeys(byte[] ciphertext) throws IOException {
+    private byte[] trySavedKeys(byte[] ciphertext) {
         if(ciphertext.length < Globals.SECRETBOX_OVERHEAD)
-            throw new IOException("ratchet: header too small to be valid");
+            throw new RuntimeException("ratchet: header too small to be valid");
         ByteBuffer sealedHeaderBuffer = ByteBuffer.wrap(ciphertext, 0, sealedHeaderSize);
         byte[] nonce = new byte[24];
         sealedHeaderBuffer.get(nonce);
@@ -263,6 +265,146 @@ public class Ratchet {
 
         }
         return null;
+    }
+
+    private class SavedKeysStruct {
+        byte[] provisionalChainKey;
+        byte[] messageKey;
+        HashMap<byte[], HashMap<Long, SavedKey>> savedKey;
+
+        public SavedKeysStruct(byte[] provisionalChainKey, byte[] messageKey) {
+            this.messageKey = messageKey;
+            this.provisionalChainKey = provisionalChainKey;
+        }
+    }
+
+    private SavedKeysStruct saveKeys(byte[] headerKey, byte[] recvChainKey, long messageNum, long receivedCount) {
+        if(messageNum < receivedCount)
+            throw new RuntimeException("ratchet: duplicate message or message delayed longer than tolerance");
+
+        long missingMessages = messageNum - receivedCount;
+        if(missingMessages > maxMissingMessages)
+            throw new RuntimeException("ratchet: message exceeds reordering limit");
+
+        HashMap<Long, SavedKey> messageKeys = null;
+        long now = System.nanoTime();
+        if(missingMessages > 0) {
+            messageKeys = new HashMap<>();
+        }
+
+        byte[] provisionalChainKey = recvChainKey.clone();
+        byte[] messageKey = new byte[32];
+        for(long i = receivedCount; i <= messageNum; i++ ){
+            try {
+                Mac h = Mac.getInstance("HmacSHA256");
+                h.init(new SecretKeySpec(provisionalChainKey, "HmacSHA256"));
+                messageKey = h.doFinal(messageKeyLabel);
+                provisionalChainKey = h.doFinal(chainKeyStepLabel);
+                if(i < messageNum)
+                    messageKeys.put(i, new SavedKey(messageKey, now));
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            } catch (InvalidKeyException e) {
+                e.printStackTrace();
+            }
+        }
+        SavedKeysStruct savedKeys = new SavedKeysStruct(provisionalChainKey, messageKey);
+        if(messageKeys != null) {
+            savedKeys.savedKey = new HashMap<>();
+            savedKeys.savedKey.put(headerKey, messageKeys);
+        }
+        return savedKeys;
+    }
+
+    private void mergeSavedKeys(HashMap<byte[], HashMap<Long, SavedKey>> keys) {
+        //TODO merge that shit
+    }
+
+    private boolean isZeroKey(byte[] key){
+        short x = 0;
+        for(byte y : key)
+            x |= y;
+        return x == 0;
+    }
+
+    public byte[] decrypt(byte[] ciphertext) {
+        byte[] msg = trySavedKeys(ciphertext);
+        if(msg != null)
+            return msg;
+        ByteBuffer cipherbuffer = ByteBuffer.wrap(ciphertext);
+        byte[] sealedHeader = new byte[sealedHeaderSize];
+        cipherbuffer.get(sealedHeader);
+        byte[] sealedMessage = new byte[cipherbuffer.remaining()];
+        cipherbuffer.get(sealedMessage);
+        byte[] nonce = ByteUtils.subArray(sealedHeader, 0, 24);
+        sealedHeader = ByteUtils.subArray(sealedHeader, 24);
+
+        SecretBox secretBox = new SecretBox(recvHeaderKey);
+        boolean ok = !isZeroKey(recvHeaderKey);
+        ByteBuffer header = null;
+        try {
+            header = ByteBuffer.wrap(secretBox.decrypt(nonce, sealedHeader));
+        } catch (RuntimeException e){
+            ok = false;
+        }
+        if(ok) {
+            if(header.capacity() != headerSize)
+                throw new RuntimeException("ratchet: incorrect header size");
+            long messageNum = header.getLong();
+            SavedKeysStruct keys = saveKeys(recvHeaderKey, recvChainKey, messageNum, recvCount);
+
+            header.position(nonceInHeaderOffset);
+            header.get(nonce);
+            secretBox = new SecretBox(keys.messageKey);
+            msg = secretBox.decrypt(nonce, sealedMessage);
+
+            recvChainKey = keys.provisionalChainKey.clone();
+
+            mergeSavedKeys(keys.savedKey);
+            recvCount = messageNum + 1;
+            return msg;
+        }
+
+        secretBox = new SecretBox(nextRecvHeaderKey);
+        header = ByteBuffer.wrap(secretBox.decrypt(nonce, sealedHeader));
+        if(header.remaining() != headerSize)
+            throw new RuntimeException("ratchet: incorrect header size");
+
+        if(rachet)
+            throw new RuntimeException("ratchet: received message encrypted to next header key without ratchet flag set");
+
+        long messageNum = header.getLong();
+        long prevMessageCount = header.getLong();
+
+        SavedKeysStruct oldKeys = saveKeys(recvHeaderKey, recvChainKey, prevMessageCount, recvCount);
+
+        byte[] dhPublic = new byte[32];
+        Point sharedKey;
+        byte[] rootKey = new byte[32];
+        byte[] chainKey = new byte[32];
+        byte[] keyMaterial = new byte[32];
+
+        header.get(dhPublic);
+        Point dhPoint = new Point(dhPublic);
+        sharedKey = dhPoint.mult(sendRatchetPrivate);
+
+        try {
+            MessageDigest sha = MessageDigest.getInstance("SHA256");
+            sha.update(rootKeyUpdateLabel);
+            sha.update(rootKey);
+            sha.update(sharedKey.toBytes());
+            keyMaterial = sha.digest();
+
+            Mac rootKeyHMAC = Mac.getInstance("HmacSHA256");
+            rootKeyHMAC.init(new SecretKeySpec(keyMaterial, "HmacSHA256"));
+            rootKey = rootKeyHMAC.doFinal(rootKeyLabel);
+            chainKey = rootKeyHMAC.doFinal(chainKeyLabel);
+            
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        }
     }
 
 }
