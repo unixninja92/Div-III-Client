@@ -103,7 +103,7 @@ public class Contact {
         theirServer = keyExchange.getServer();
         theirIdentityPublic = new PublicKey(keyExchange.getIdentityPublic().toByteArray());
         theirPub = new VerifyKey(keyExchange.getPublicKey().toByteArray());
-        theirHMACPairs = (ArrayList<Pond.HMACPair>) keyExchange.getHmacPairsList();
+        theirHMACPairs =  new ArrayList<>(keyExchange.getHmacPairsList());
     }
 
     public ArrayList<Pond.HMACPair> generateHMACPairs(int num) {

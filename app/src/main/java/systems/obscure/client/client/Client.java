@@ -477,7 +477,7 @@ public class Client {
             if(cont.hasSupportedVersion())
                 contact.supportedVersion = cont.getSupportedVersion();
 
-            contact.theirHMACPairs = (ArrayList<Pond.HMACPair>) cont.getTheirPairsList();
+            contact.theirHMACPairs = new ArrayList<>(cont.getTheirPairsList());
 
             for(LocalStorage.Contact.MyHMACPair pair: cont.getMyPairsList()){
                 contact.myHMACs.add(new HMACPair(pair.getPublicKey().toByteArray(),

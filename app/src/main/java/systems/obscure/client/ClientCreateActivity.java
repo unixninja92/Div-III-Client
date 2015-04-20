@@ -22,6 +22,7 @@ import android.support.v7.app.ActionBar;
 
 import org.thoughtcrime.securesms.BaseActionBarActivity;
 
+import info.guardianproject.onionkit.ui.OrbotHelper;
 import systems.obscure.client.client.Client;
 
 
@@ -40,6 +41,12 @@ public class ClientCreateActivity extends BaseActionBarActivity {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.create_passphrase_activity);
+
+    OrbotHelper oc = new OrbotHelper(this);
+    if (!oc.isOrbotInstalled())
+      oc.promptToInstall(this);
+    else if (!oc.isOrbotRunning())
+      oc.requestOrbotStart(this);
 
     initializeResources();
   }
