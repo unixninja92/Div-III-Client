@@ -317,9 +317,9 @@ public class Client {
 
     // registerId records that an ID number has been used, typically because we are
     // loading a state file.
-    public void registerId(long id) throws Exception {//TODO choose better execption to throw
+    public void registerId(long id){
         if(usedIds.get(id))
-            throw new Exception("duplicate ID registered");
+            throw new RuntimeException("duplicate ID registered");
         usedIds.put(id, true);
     }
 
@@ -456,11 +456,7 @@ public class Client {
             Contact contact = new Contact(cont.getId(), cont.getName());
             contact.kxsBytes = cont.getKeyExchangeBytes().toByteArray();
             contact.revokedUs = cont.getRevokedUs();
-            try {
-                registerId(contact.id);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            registerId(contact.id);
             contacts.put(contact.id, contact);
 
             if(cont.hasIsPending() && cont.getIsPending()) {
@@ -501,11 +497,7 @@ public class Client {
             mesg.sealed = in.getSealed().toByteArray();
             mesg.retained = in.getRetained();
 
-            try {
-                registerId(mesg.id);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            registerId(mesg.id);
 
             if(in.getMessage().size() > 0){
                 mesg.message = Pond.Message.parseFrom(in.getMessage());
@@ -521,11 +513,7 @@ public class Client {
             msg.server = out.getServer();
             msg.created = out.getCreated();
 
-            try {
-                registerId(msg.id);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            registerId(msg.id);
 
             if(out.getMessage().size() > 0){
                 msg.message = Pond.Message.parseFrom(out.getMessage()).toBuilder();
@@ -556,11 +544,7 @@ public class Client {
             draft.detachments = d.getDetachmentsList();
             draft.created = d.getCreated();
 
-            try {
-                registerId(draft.id);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            registerId(draft.id);
             if(d.hasTo())
                 draft.to = d.getTo();
             if(d.hasInReplyTo())
