@@ -399,12 +399,37 @@ public class Ratchet {
             rootKeyHMAC.init(new SecretKeySpec(keyMaterial, "HmacSHA256"));
             rootKey = rootKeyHMAC.doFinal(rootKeyLabel);
             chainKey = rootKeyHMAC.doFinal(chainKeyLabel);
-            
+
+            SavedKeysStruct keysStruct = saveKeys(nextRecvHeaderKey, chainKey, messageNum, 0);
+
+            header.position(nonceInHeaderOffset);
+            header.get(nonce);
+
+            secretBox = new SecretBox(keysStruct.messageKey);
+            msg = secretBox.decrypt(nonce, sealedMessage);
+            this.rootkey = rootKey;
+            this.recvChainKey = keysStruct.provisionalChainKey;
+            this.recvHeaderKey = this.nextRecvHeaderKey;
+            this.nextRecvHeaderKey = rootKeyHMAC.doFinal(sendHeaderKeyLabel);
+
+            for(int i = 0; i < sendRatchetPrivate.length; i++) {
+                sendRatchetPrivate[i] = 0;
+            }
+
+            recvRatchetPublic = dhPublic.clone();
+
+            recvCount = messageNum + 1;
+            mergeSavedKeys(oldKeys.savedKey);
+            mergeSavedKeys(keysStruct.savedKey);
+            rachet = true;
+
+            return msg;
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (InvalidKeyException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
 }
