@@ -1,7 +1,6 @@
 package systems.obscure.client;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 
 import org.jcsp.lang.AltingChannelInput;
 import org.jcsp.lang.ChannelOutput;
@@ -12,7 +11,7 @@ import systems.obscure.client.disk.NewState;
  * Created by charles on 2/5/15.
  */
 public class Globals {
-    public static Bitmap lastImageTaken;
+    public static byte[] lastImageTaken;
 
     public static Context applicaiontContext;
 

@@ -1,24 +1,21 @@
 package systems.obscure.client;
 
-import android.graphics.Bitmap;
+import android.app.Activity;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import org.thoughtcrime.securesms.PassphraseRequiredNoActionBarActivity;
 
-
-public class PictureActivity extends PassphraseRequiredNoActionBarActivity {
+public class PictureActivity extends Activity {
 //    DrawingView drawingView;
     ImageView imageView;
 //    Button penButton;
 //    Button eraseButton;
 
-    static byte[] imageToShow=null;
+//    static byte[] imageToShow=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +24,32 @@ public class PictureActivity extends PassphraseRequiredNoActionBarActivity {
 
 //        Intent intent = getIntent();
 //        byte[] bytes = intent.getByteArrayExtra("image");
-        Bitmap image = Globals.lastImageTaken;
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
         imageView = (ImageView) findViewById(R.id.imageReview);
-        imageView.setImageBitmap(image);
+//        imageView = new ImageView(this);
+//        this.addContentView(imageView, null);
+//        imageView = new ImageView(this);
+        BitmapFactory.Options opts=new BitmapFactory.Options();
+
+        opts.inPurgeable=true;
+        opts.inInputShareable=true;
+        opts.inMutable=false;
+        opts.inSampleSize=2;
+
+        imageView.setImageBitmap(BitmapFactory.decodeByteArray(Globals.lastImageTaken,
+                0,
+                Globals.lastImageTaken.length,
+                opts));
+        Globals.lastImageTaken=null;
+//        setContentView(imageView);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//        imageView.setScaleType(ImageView.ScaleType.FIT_END);
+
+//        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 //        drawingView = (DrawingView) findViewById(R.id.imageReview);
 //        drawingView.loadBitmap(image);
 //        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
@@ -39,32 +57,30 @@ public class PictureActivity extends PassphraseRequiredNoActionBarActivity {
 //        penButton = (Button) findViewById(R.id.penButton);
 //        eraseButton = (Button) findViewById(R.id.eraseButton);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_picture, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_picture, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     public void up(View view) {
         NavUtils.navigateUpFromSameTask(this);

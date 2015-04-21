@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.hardware.Camera;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +16,8 @@ import com.commonsware.cwac.camera.CameraHost;
 import com.commonsware.cwac.camera.CameraUtils;
 import com.commonsware.cwac.camera.PictureTransaction;
 import com.commonsware.cwac.camera.SimpleCameraHost;
+
+import java.io.File;
 
 /**
  * @author unixninja92
@@ -69,17 +70,19 @@ public class SnapSecureCameraFragment extends CameraFragment {
 //        zoom=(SeekBar)results.findViewById(R.id.zoom);
 //        zoom.setKeepScreenOn(true);
 
-        setRecordingItemVisibility();
+//        setRecordingItemVisibility();
 
+//        takePictureItem.setEnabled(false);
+        autoFocus();
         return(results);
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        getActivity().invalidateOptionsMenu();
-    }
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//
+//        getActivity().invalidateOptionsMenu();
+//    }
 
 //    @Override
 //    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -195,14 +198,14 @@ public class SnapSecureCameraFragment extends CameraFragment {
 //        // ignore
 //    }
 
-    void setRecordingItemVisibility() {
-        if (zoom != null && recordItem != null) {
-            if (getDisplayOrientation() != 0
-                    && getDisplayOrientation() != 180) {
-                recordItem.setVisible(false);
-            }
-        }
-    }
+//    void setRecordingItemVisibility() {
+//        if (zoom != null && recordItem != null) {
+//            if (getDisplayOrientation() != 0
+//                    && getDisplayOrientation() != 180) {
+//                recordItem.setVisible(false);
+//            }
+//        }
+//    }
 
     Contract getContract() {
         return((Contract)getActivity());
@@ -224,13 +227,13 @@ public class SnapSecureCameraFragment extends CameraFragment {
     }
 
     interface Contract {
-        boolean isSingleShotMode();
+        int getCameraNum();
 
-        void setSingleShotMode(boolean mode);
+        void setCameraNum(int cameraNum);
     }
 
-    class DemoCameraHost extends SimpleCameraHost implements
-            Camera.FaceDetectionListener {
+    class DemoCameraHost extends SimpleCameraHost {//implements
+//            Camera.FaceDetectionListener {
         boolean supportsFaces=false;
 
         public DemoCameraHost(Context _ctxt) {
@@ -247,32 +250,37 @@ public class SnapSecureCameraFragment extends CameraFragment {
         }
 
         @Override
-        public boolean useSingleShotMode() {
-            if (singleShotItem == null) {
-                return(false);
-            }
+        public File getPhotoDirectory(){
+            return getActivity().getFilesDir();
+        }
 
-            return(singleShotItem.isChecked());
+        @Override
+        public boolean useSingleShotMode() {
+            return true;
         }
 
         @Override
         public void saveImage(PictureTransaction xact, byte[] image) {
-            if (useSingleShotMode()) {
-                singleShotProcessing=false;
-
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        takePictureItem.setEnabled(true);
-                    }
-                });
-
-                PictureActivity.imageToShow=image;
-                startActivity(new Intent(getActivity(), PictureActivity.class));
-            }
-            else {
-                super.saveImage(xact, image);
-            }
+//            this.
+            Globals.lastImageTaken = image;
+            Intent intent = new Intent(getActivity(), PictureActivity.class);
+            startActivity(intent);
+//            if (useSingleShotMode()) {
+//                singleShotProcessing=false;
+//
+//                getActivity().runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        takePictureItem.setEnabled(true);
+//                    }
+//                });
+//
+//                PictureActivity.imageToShow=image;
+//                startActivity(new Intent(getActivity(), PictureActivity.class));
+//            }
+//            else {
+//                super.saveImage(xact, image);
+//            }
         }
 
         @Override
@@ -320,30 +328,30 @@ public class SnapSecureCameraFragment extends CameraFragment {
 //                zoom.setEnabled(false);
 //            }
 
-            if (parameters.getMaxNumDetectedFaces() > 0) {
-                supportsFaces=true;
-            }
-            else {
-                Toast.makeText(getActivity(),
-                        "Face detection not available for this camera",
-                        Toast.LENGTH_LONG).show();
-            }
+//            if (parameters.getMaxNumDetectedFaces() > 0) {
+//                supportsFaces=true;
+//            }
+//            else {
+//                Toast.makeText(getActivity(),
+//                        "Face detection not available for this camera",
+//                        Toast.LENGTH_LONG).show();
+//            }
 
             return(super.adjustPreviewParameters(parameters));
         }
 
-        @Override
-        public void onFaceDetection(Camera.Face[] faces, Camera camera) {
-            if (faces.length > 0) {
-                long now= SystemClock.elapsedRealtime();
-
-                if (now > lastFaceToast + 10000) {
-                    Toast.makeText(getActivity(), "I see your face!",
-                            Toast.LENGTH_LONG).show();
-                    lastFaceToast=now;
-                }
-            }
-        }
+//        @Override
+//        public void onFaceDetection(Camera.Face[] faces, Camera camera) {
+//            if (faces.length > 0) {
+//                long now= SystemClock.elapsedRealtime();
+//
+//                if (now > lastFaceToast + 10000) {
+//                    Toast.makeText(getActivity(), "I see your face!",
+//                            Toast.LENGTH_LONG).show();
+//                    lastFaceToast=now;
+//                }
+//            }
+//        }
 
         @Override
         public void onAutoFocus(boolean success, Camera camera) {

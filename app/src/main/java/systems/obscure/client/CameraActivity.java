@@ -25,7 +25,6 @@ import systems.obscure.client.util.SystemUiHider;
 public class CameraActivity extends PassphraseRequiredNoActionBarActivity
         implements SnapSecureCameraFragment.Contract{
     private FrameLayout mFrame;
-//    private PreviewSurfaceView mPreview;
     private int camNum;
     private MasterSecret masterSecret;
     private SnapSecureCameraFragment fragment;
@@ -152,13 +151,6 @@ public class CameraActivity extends PassphraseRequiredNoActionBarActivity
 //        }
 //    };
 
-//    Camera.ShutterCallback shutterCallback = new Camera.ShutterCallback() {
-//        @Override
-//        public void onShutter() {
-//
-//        }
-//    };
-
     // from https://github.com/devcelebi/Kut-Camera/tree/master/KutCamera
 //    public static Bitmap rotate(Bitmap source, float angle) {
 //        Matrix matrix = new Matrix();
@@ -174,12 +166,12 @@ public class CameraActivity extends PassphraseRequiredNoActionBarActivity
     }
 
     @Override
-    public boolean isSingleShotMode() {
-        return true;
+    public int getCameraNum() {
+        return camNum;
     }
 
     @Override
-    public void setSingleShotMode(boolean mode) {
-
+    public void setCameraNum(int cameraNum) {
+        camNum = cameraNum;
     }
 }
