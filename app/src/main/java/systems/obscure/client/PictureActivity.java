@@ -18,6 +18,8 @@ public class PictureActivity extends PassphraseRequiredNoActionBarActivity {
 //    Button penButton;
 //    Button eraseButton;
 
+    static byte[] imageToShow=null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

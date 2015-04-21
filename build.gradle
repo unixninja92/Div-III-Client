@@ -24,5 +24,8 @@ allprojects {
         maven {
             url "https://raw.github.com/whispersystems/maven/master/shortcutbadger/releases/"
         }
+        maven {
+            url "https://repo.commonsware.com.s3.amazonaws.com"
+        }
     }
 }

@@ -5,6 +5,13 @@
     android:id="@+id/fullscreen_camera">
     <!--android:background="#0099cc"-->
 
+    <fragment
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:name="systems.obscure.client.SnapSecureCameraFragment"
+        android:id="@+id/camera_preview"
+        tools:layout="@layout/camera_preview" />
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -51,5 +58,6 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:onClick="viewContacts" />
+
     </RelativeLayout>
 </FrameLayout>

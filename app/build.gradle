@@ -60,6 +60,8 @@ dependencies {
     compile 'com.google.guava:guava:18.0'
     compile 'org.codehaus.jcsp:jcsp:1.1-rc5'
 
+    compile 'com.commonsware.cwac:camera:0.6.+'
+
     compile project(':libnetcipher')
     compile files('libs/kalium-jni-1.0.0-SNAPSHOT/kalium-jni-1.0.0-SNAPSHOT.jar')
 }
