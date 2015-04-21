@@ -39,6 +39,7 @@ import systems.obscure.client.disk.NewState;
 import systems.obscure.client.disk.StateFile;
 import systems.obscure.client.protos.LocalStorage;
 import systems.obscure.client.protos.Pond;
+import systems.obscure.client.ratchet.Ratchet;
 import systems.obscure.client.service.StateService;
 import systems.obscure.client.service.TransactService;
 
@@ -325,18 +326,27 @@ public class Client {
 
     //TODO newRatchet func
 
-    public Pond.KeyExchange newKeyExchange(Contact contact) {
+    public Pond.SignedKeyExchange newKeyExchange(Contact contact) {
+        contact.ratchet = new Ratchet(rand);
         Pond.KeyExchange.Builder kx = Pond.KeyExchange.newBuilder();
         kx.setPublicKey(ByteString.copyFrom(signingKey.getVerifyKey().toBytes()));
         kx.setIdentityPublic(ByteString.copyFrom(identity.getPublicKey().toBytes()));
         kx.setServer(server);
-        byte[] dh = new byte[32];
-        kx.setDh(ByteString.copyFrom(dh));
-        kx.setDh1(ByteString.copyFrom(dh));
+
+        contact.ratchet.fillKeyExchagne(kx);
+
         kx.addAllHmacPairs(contact.generateHMACPairs(4));
 
-        contact.kxsBytes = kx.build().toByteArray();
-        return kx.build();
+
+        byte[] sig = signingKey.sign(kx.build().toByteArray());
+
+        Pond.SignedKeyExchange.Builder kxs = Pond.SignedKeyExchange.newBuilder();
+        kxs.setSigned(ByteString.copyFrom(kx.build().toByteArray()));
+        kxs.setSignature(ByteString.copyFrom(sig));
+
+        contact.kxsBytes = kxs.build().toByteArray();
+
+        return kxs.build();
     }
 
     public Contact contactByName(String name) {

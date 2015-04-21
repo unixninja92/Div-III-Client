@@ -14,6 +14,7 @@ import javax.crypto.Mac;
 
 import systems.obscure.client.crypto.SigningKey;
 import systems.obscure.client.protos.Pond;
+import systems.obscure.client.ratchet.Ratchet;
 
 /**
  * @author unixninja92
@@ -35,10 +36,6 @@ public class Contact {
     public byte[] kxsBytes;
 
 
-
-//    // generation is the current group generation number that we know for
-//    // this contact.
-//    Integer generation;
 
     // theirServer is the URL of the contact's home server.
     public String theirServer;
@@ -63,6 +60,8 @@ public class Contact {
     public ArrayList<Pond.HMACPair> theirHMACPairs = new ArrayList<>();
 
     public ArrayList<HMACPair> myHMACs = new ArrayList<>();
+
+    public Ratchet ratchet;
 
 //    // pandaKeyExchange contains the serialised PANDA state if a key
 //    // exchange is ongoing.
@@ -104,6 +103,7 @@ public class Contact {
         theirIdentityPublic = new PublicKey(keyExchange.getIdentityPublic().toByteArray());
         theirPub = new VerifyKey(keyExchange.getPublicKey().toByteArray());
         theirHMACPairs =  new ArrayList<>(keyExchange.getHmacPairsList());
+        ratchet.completeKeyExchange(keyExchange);
     }
 
     public ArrayList<Pond.HMACPair> generateHMACPairs(int num) {

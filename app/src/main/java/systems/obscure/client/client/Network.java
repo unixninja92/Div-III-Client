@@ -8,6 +8,9 @@ import org.abstractj.kalium.keys.PublicKey;
 import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import systems.obscure.client.Globals;
 import systems.obscure.client.protos.Pond;
@@ -54,7 +57,6 @@ public class Network {
 
         Contact to = client.contacts.get(msg.from);
 
-        //TODO var myNextDH []byte
 
         long id = client.randId();
 
@@ -63,7 +65,8 @@ public class Network {
         message.setTime(System.nanoTime());
         message.setBody(ByteString.copyFrom(new byte[1]));
         message.setBodyEncoding(Pond.Message.Encoding.RAW);
-//        message.setMyNextDh()
+
+//        message.setMyNextDh()TODO set this
         message.setInReplyTo(msg.message.getId());
         message.setSupportedVersion(Globals.PROTO_VERSION);
         send(to, message);
@@ -81,7 +84,43 @@ public class Network {
         out.message = messageBuilder;
         out.created = messageBuilder.getTime();
         client.enqueue(out);
-//        client.outbox.add(out); TODO make outbox an ArrayList
+        client.outbox.put(out.id, out);
+    }
+
+    public static void processSigningRequest(SigningRequest signingRequest){
+        Contact to = client.contacts.get(signingRequest.msg.to);
+
+        byte[] message = signingRequest.msg.message.build().toByteArray();
+
+        if(message.length > Globals.MAX_SERIALIZED_MESSAGE)
+            throw new RuntimeException("Failed to sign outgoing message because it's too large");
+
+        ByteBuffer plaintext = ByteBuffer.allocate(Globals.MAX_SERIALIZED_MESSAGE+4);
+        plaintext.putInt(message.length);
+        plaintext.put(message);
+        byte[] randBytes = new byte[plaintext.remaining()];
+        client.rand.nextBytes(randBytes);
+        plaintext.put(randBytes);
+
+        byte[] sealed = to.ratchet.encrypt(plaintext.array());
+
+        try {
+            MessageDigest sha = MessageDigest.getInstance("SHA256");
+            byte[] digest = sha.digest(sealed);
+            //TODO sign digest
+
+            Pond.Delivery.Builder deliver = Pond.Delivery.newBuilder();
+            deliver.setTo(ByteString.copyFrom(to.theirIdentityPublic.toBytes()));
+            //TODO HMAC stuff
+            deliver.setMessage(ByteString.copyFrom(sealed));
+
+            Pond.Request.Builder request = Pond.Request.newBuilder();
+            request.setDeliver(deliver);
+
+            signingRequest.resultChan.write(request);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
     }
 
     private static boolean tooLarge(Pond.Message.Builder msg) {
@@ -106,7 +145,6 @@ public class Network {
     }
 
     public static void doCreateAccount() {
-//        client.generation = client.randId().intValue();
 
         Pond.NewAccount.Builder newAccount = Pond.NewAccount.newBuilder();
 //        newAccount.setGeneration(client.generation);
@@ -139,13 +177,5 @@ public class Network {
         else
             throw new IOException("unknown error from server: "+reply.getStatus());
     }
-
-    //TODO uploadDetachment
-
-    //TODO downloadDetachment
-
-    //TODO transferDetachmentConn
-
-    //TODO transferDetachment
 
 }
