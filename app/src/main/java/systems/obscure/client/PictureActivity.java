@@ -1,6 +1,7 @@
 package systems.obscure.client;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -44,7 +45,7 @@ public class PictureActivity extends Activity {
                 0,
                 Globals.lastImageTaken.length,
                 opts));
-        Globals.lastImageTaken=null;
+//        Globals.lastImageTaken=null;
 //        setContentView(imageView);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 //        imageView.setScaleType(ImageView.ScaleType.FIT_END);
@@ -84,6 +85,11 @@ public class PictureActivity extends Activity {
 
     public void up(View view) {
         NavUtils.navigateUpFromSameTask(this);
+    }
+
+    public void send(View view) {
+        Intent intent = new Intent(this, SendListActivity.class);
+        startActivity(intent);
     }
 
 //    public void penSelect(View view) {

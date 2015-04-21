@@ -41,6 +41,14 @@
                 android:value="org.thoughtcrime.securesms.RoutingActivity" />
         </activity>
         <activity
+            android:name=".SendListActivity"
+            android:label="@string/title_activity_contacts"
+            android:parentActivityName="systems.obscure.client.PictureActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="systems.obscure.client.PictureActivity" />
+        </activity>
+        <activity
             android:name=".CameraActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_camera"

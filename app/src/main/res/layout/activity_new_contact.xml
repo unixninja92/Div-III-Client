@@ -32,29 +32,32 @@
         android:layout_height="wrap_content"
         android:text="Scan new contact"
         android:id="@+id/button9"
-        android:layout_above="@+id/button10"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="49dp"
-        android:onClick="initiateScan" />
+        android:onClick="initiateScan"
+        android:layout_below="@+id/textView7"
+        android:layout_toLeftOf="@+id/button11"
+        android:layout_toStartOf="@+id/button11"
+        android:layout_marginTop="59dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get Scanned"
         android:id="@+id/button10"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="initiateDisplay" />
+        android:onClick="initiateDisplay"
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/button9"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:text="You must scan your contacts key and they must scan yours. Once this is complete, and you have entered a name for the contact, press done."
         android:id="@+id/textView7"
-        android:layout_above="@+id/button9"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="42dp" />
+        android:layout_below="@+id/newContactName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="36dp" />
 
     <Button
         android:layout_width="wrap_content"

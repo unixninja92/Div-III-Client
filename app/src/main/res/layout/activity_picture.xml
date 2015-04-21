@@ -37,7 +37,8 @@
                 android:id="@+id/sendButton"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:onClick="send" />
 
         <!--<Button-->
             <!--style="?android:attr/buttonStyleSmall"-->
