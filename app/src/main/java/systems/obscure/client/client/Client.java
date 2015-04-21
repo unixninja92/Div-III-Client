@@ -141,7 +141,7 @@ public class Client {
     public static Client getInstance() {
             if (ourInstance == null) {
                 ourInstance = new Client(Globals.applicaiontContext);
-                ourInstance.start(Globals.applicaiontContext);
+//                ourInstance.start(Globals.applicaiontContext);
             }
         return ourInstance;
     }
@@ -174,7 +174,7 @@ public class Client {
         fetchNowChan = Channel.any2one();
 //        Pond.KeyExchange.
 
-
+        start(context);
     }
 
     public synchronized void start(Context context) {
@@ -324,7 +324,7 @@ public class Client {
     // registerId records that an ID number has been used, typically because we are
     // loading a state file.
     public void registerId(long id){
-        if(usedIds.get(id))
+        if(usedIds.containsKey(id))
             throw new RuntimeException("duplicate ID registered");
         usedIds.put(id, true);
     }

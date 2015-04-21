@@ -294,13 +294,14 @@ public class TransactService extends Service implements Runnable, InjectableType
     }
 
     private synchronized boolean canTransact() {
-        return orbotHelper.isOrbotRunning() ;//&& !Client.isNull(); //&& networkRequirement.isPresent()
+        System.out.println("Clinet is null: "+Client.isNull());
+        return orbotHelper.isOrbotRunning() && !Client.isNull(); //&& networkRequirement.isPresent()
                 //&& activeActivities > 0;
     }
 
     private synchronized void waitForNetwork() {
         try {
-            while (!canTransact()) wait();
+            while (!canTransact()) wait(1000);
         } catch (InterruptedException e) {
             throw new AssertionError(e);
         }
