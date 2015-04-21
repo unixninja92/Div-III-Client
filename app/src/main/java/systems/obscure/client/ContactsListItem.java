@@ -48,8 +48,8 @@ public class ContactsListItem extends RelativeLayout
 
   private Context           context;
   private Set<Long>         selectedThreads;
-  private Contact recipients;
-  private long              threadId;
+  private Contact           recipients;
+  private long              contactId;
   private TextView          subjectView;
   private TextView          fromView;
   private TextView          dateView;
@@ -80,7 +80,9 @@ public class ContactsListItem extends RelativeLayout
 //    initializeContactWidgetVisibility();
   }
 
-//  public void set(ThreadRecord thread, Set<Long> selectedThreads, boolean batchMode) {
+  public void set(Contact contact) {
+    recipients = contact;
+  }
 //    this.selectedThreads  = selectedThreads;
 //    this.recipients       = thread.getRecipients();
 //    this.threadId         = thread.getThreadId();
@@ -138,7 +140,7 @@ public class ContactsListItem extends RelativeLayout
   }
 
   public long getThreadId() {
-    return threadId;
+    return contactId;
   }
 
   public int getDistributionType() {

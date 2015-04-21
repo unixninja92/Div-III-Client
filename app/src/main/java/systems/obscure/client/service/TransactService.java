@@ -294,7 +294,7 @@ public class TransactService extends Service implements Runnable, InjectableType
     }
 
     private synchronized boolean canTransact() {
-        System.out.println("Clinet is null: "+Client.isNull());
+//        System.out.println("Clinet is null: "+Client.isNull());
         return orbotHelper.isOrbotRunning() && !Client.isNull(); //&& networkRequirement.isPresent()
                 //&& activeActivities > 0;
     }
