@@ -7,6 +7,7 @@ import org.abstractj.kalium.keys.VerifyKey;
 
 import java.nio.ByteBuffer;
 import java.security.InvalidKeyException;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
@@ -123,6 +124,7 @@ public class Contact {
                 hmacBuilder.setHmacOfPublicKey(ByteBuffer.wrap(hmacBytes).getLong());
 
                 pairs.add(hmacBuilder.build());
+                Client.getInstance().hmacIndex.put(ByteBuffer.wrap(hmacBytes).getLong(), id);
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
             } catch (InvalidKeyException e) {
@@ -130,5 +132,21 @@ public class Contact {
             }
         }
         return pairs;
+    }
+
+    private HMACPair getMyPair(long hmac) {
+        for(int i = 0; i < myHMACs.size(); i ++)
+            if(myHMACs.get(i).getHmac() == hmac)
+                return myHMACs.get(i);
+        return null;
+    }
+
+    public boolean verifyMyPair(byte[] publicKey, long hmac) {
+        HMACPair pair = getMyPair(hmac);
+        if(pair != null &&
+                MessageDigest.isEqual(publicKey, pair.publicKey) &&
+                hmac == pair.getHmac())
+            return true;
+        return false;
     }
 }

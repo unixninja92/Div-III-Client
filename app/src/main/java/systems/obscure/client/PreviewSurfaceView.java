@@ -77,13 +77,13 @@ public class PreviewSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 
-
+//        stopPreviewAndFreeCamera();
         if (mCamera == null) { safeCameraOpen(cameraNum); }
-
-        try {
+//        safeCameraOpen(cameraNum);
+//        try {
             mCamera.stopPreview();
-        } catch (Exception e){
-        }
+//        } catch (Exception e){
+//        }
 
         try {
 //            Camera.Parameters parameters = mCamera.getParameters();
@@ -124,6 +124,7 @@ public class PreviewSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 
             mCamera = null;
         }
+        System.out.println("Camera Stopped and Freed!!!");
 
     }
 
@@ -131,11 +132,19 @@ public class PreviewSurfaceView extends SurfaceView implements SurfaceHolder.Cal
         cameraNum = id;
         boolean qOpened = false;
 
+        if(mCamera != null) {
+            try {
+                mCamera.reconnect();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return true;
+        }
         try {
             stopPreviewAndFreeCamera();
             mCamera = Camera.open(id);
             qOpened = (mCamera != null);
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             Log.e(getContext().getString(R.string.app_name), "failed to open Camera");
             e.printStackTrace();
         }

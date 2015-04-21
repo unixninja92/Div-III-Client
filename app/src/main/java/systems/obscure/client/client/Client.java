@@ -109,6 +109,9 @@ public class Client {
     public HashMap<Long, Contact> contacts;
     public HashMap<Long, InboxMessage> inbox;
 
+    // <hmac, id> hmac mapped to contact id
+    public HashMap<Long, Long> hmacIndex;
+
 
     // queue is a queue of messages for transmission that's shared with the
     // network goroutine and protected by queueMutex.
@@ -163,6 +166,8 @@ public class Client {
         drafts = new HashMap<>();
         contacts = new HashMap<>();
         inbox = new HashMap<>();
+
+        hmacIndex = new HashMap<>();
 
 //        contactList = new ArrayList<>();
 

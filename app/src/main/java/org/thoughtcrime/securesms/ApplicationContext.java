@@ -24,8 +24,6 @@ import org.thoughtcrime.securesms.dependencies.AxolotlStorageModule;
 import org.thoughtcrime.securesms.dependencies.InjectableType;
 import org.whispersystems.jobqueue.JobManager;
 import org.whispersystems.jobqueue.dependencies.DependencyInjector;
-import org.whispersystems.libaxolotl.logging.AxolotlLoggerProvider;
-import org.whispersystems.libaxolotl.util.AndroidAxolotlLogger;
 
 import dagger.ObjectGraph;
 
@@ -55,7 +53,7 @@ public class ApplicationContext extends MultiDexApplication implements Dependenc
   public void onCreate() {
     super.onCreate();
     initializeRandomNumberFix();
-    initializeLogging();
+//    initializeLogging();
 //    initializeDependencyInjection();
 //    initializeJobManager();
   }
@@ -75,9 +73,9 @@ public class ApplicationContext extends MultiDexApplication implements Dependenc
     PRNGFixes.apply();
   }
 
-  private void initializeLogging() {
-    AxolotlLoggerProvider.setProvider(new AndroidAxolotlLogger());
-  }
+//  private void initializeLogging() {
+//    AxolotlLoggerProvider.setProvider(new AndroidAxolotlLogger());
+//  }
 
 //  private void initializeJobManager() {
 //    this.jobManager = JobManager.newBuilder(this)

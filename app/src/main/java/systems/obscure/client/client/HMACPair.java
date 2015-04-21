@@ -1,5 +1,6 @@
 package systems.obscure.client.client;
 
+import java.nio.ByteBuffer;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
@@ -10,8 +11,8 @@ import javax.crypto.SecretKey;
  * @author unixninja92
  */
 public class HMACPair {
-    byte[] publicKey;
-    byte[] hmacOfKey;
+    public byte[] publicKey;
+    public byte[] hmacOfKey;
 
     public HMACPair(byte[] publickey, SecretKey hmacKey) {
         this.publicKey = publickey;
@@ -29,6 +30,10 @@ public class HMACPair {
     public HMACPair(byte[] publickey,byte[] hmacOfKey) {
         this.publicKey = publickey;
         this.hmacOfKey = hmacOfKey;
+    }
+
+    public long getHmac() {
+        return ByteBuffer.wrap(hmacOfKey).getLong();
     }
 
 }

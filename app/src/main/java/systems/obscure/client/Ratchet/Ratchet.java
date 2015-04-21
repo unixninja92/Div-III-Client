@@ -7,9 +7,7 @@ import org.abstractj.kalium.crypto.SecretBox;
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.VerifyKey;
 import org.spongycastle.pqc.math.linearalgebra.ByteUtils;
-import org.whispersystems.libaxolotl.util.ByteUtil;
 
-import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
@@ -317,7 +315,14 @@ public class Ratchet {
     }
 
     private void mergeSavedKeys(HashMap<byte[], HashMap<Long, SavedKey>> keys) {
-        //TODO merge that shit
+        for(byte[] headerKey: keys.keySet()){
+            if(saved.containsKey(headerKey)) {
+                HashMap<Long, SavedKey> value = keys.get(headerKey);
+                saved.get(headerKey).putAll(value);
+                return;
+            }
+        }
+        saved.putAll(keys);
     }
 
     private boolean isZeroKey(byte[] key){

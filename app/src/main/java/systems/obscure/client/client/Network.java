@@ -2,15 +2,19 @@ package systems.obscure.client.client;
 
 import com.google.common.io.BaseEncoding;
 import com.google.protobuf.ByteString;
+import com.google.protobuf.InvalidProtocolBufferException;
 
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.PublicKey;
+import org.abstractj.kalium.keys.SigningKey;
+import org.abstractj.kalium.keys.VerifyKey;
 import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 import systems.obscure.client.Globals;
 import systems.obscure.client.protos.Pond;
@@ -107,12 +111,18 @@ public class Network {
         try {
             MessageDigest sha = MessageDigest.getInstance("SHA256");
             byte[] digest = sha.digest(sealed);
-            //TODO sign digest
+            Pond.HMACPair pair = to.theirHMACPairs.get(0);
+            to.theirHMACPairs.remove(0);
+            //TODO revoke HMAC pair
+            SigningKey signingKey = new SigningKey(pair.getPrivateKey().toByteArray());
+            byte[] sig = signingKey.sign(digest);
 
             Pond.Delivery.Builder deliver = Pond.Delivery.newBuilder();
             deliver.setTo(ByteString.copyFrom(to.theirIdentityPublic.toBytes()));
-            //TODO HMAC stuff
             deliver.setMessage(ByteString.copyFrom(sealed));
+            deliver.setHmacOfPublicKey(pair.getHmacOfPublicKey());
+            deliver.setOneTimePublicKey(ByteString.copyFrom(signingKey.toBytes()));
+            deliver.setOneTimeSignature(ByteString.copyFrom(sig));
 
             Pond.Request.Builder request = Pond.Request.newBuilder();
             request.setDeliver(deliver);
@@ -121,6 +131,138 @@ public class Network {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
+    }
+
+    private byte[] decryptMessage(byte[] sealed, Contact from) {
+        return from.ratchet.decrypt(sealed);
+    }
+
+//    public byte[] decryptMessageInner(byte[] sealed, byte[] nonce, Contact from) {
+//        SecretBox secretBox;
+//        try {
+//            secretBox = new SecretBox()
+//        }
+//    }
+
+    public void processNewMessage(NewMessage m) {
+        if(m.fetched != null)
+            processFetch(m);
+//        else
+//            processServerAnnounce(m);
+        m.ack.write(true);
+    }
+
+    private void processFetch(NewMessage m) {
+        Pond.Fetched f = m.fetched;
+
+
+        Long id = client.hmacIndex.get(f.getHmacOfPublicKey());
+        Contact from = client.contacts.get(id);
+        try {
+            MessageDigest sha = MessageDigest.getInstance("SHA256");
+            byte[] digest = sha.digest(f.getMessage().toByteArray());
+
+            if(id != null) {
+                if(!from.verifyMyPair(f.getOneTimePublicKey().toByteArray(),
+                        f.getHmacOfPublicKey())) {
+                    System.out.println("Provieded key does not match stored key");
+                    return;
+                }
+                VerifyKey key = new VerifyKey(f.getOneTimePublicKey().toByteArray());
+                if(!key.verify(f.getMessage().toByteArray(), f.getOneTimeSignature().toByteArray())){
+                    System.out.println("Received message with bad signature!");
+                    return;
+                }
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        if(from.revoked) {
+            System.out.println("Message from revoked contact "+from+". Dropping");
+            return;
+        }
+
+        InboxMessage inboxMsg = new InboxMessage();
+        inboxMsg.id = client.randId();
+        inboxMsg.receivedTime = System.nanoTime();
+        inboxMsg.from = from.id;
+        inboxMsg.sealed = f.getMessage().toByteArray();
+        if(!from.isPending)
+            if(!unsealMessage(inboxMsg, from) || inboxMsg.message.getBody().size() == 0)
+                return;
+
+        client.inbox.put(inboxMsg.id, inboxMsg);
+        client.save();
+        //TODO notify UI
+    }
+
+    public boolean unsealMessage(InboxMessage message, Contact from) {
+        if(from.isPending)
+            throw new RuntimeException("was asked to unseal message from pending contact");
+
+        byte[] sealed = message.sealed;
+        ByteBuffer plaintext = ByteBuffer.wrap(decryptMessage(sealed, from));
+
+        if(plaintext.capacity() < 4) {
+            System.out.println("Plaintext too small to process");
+            return false;
+        }
+
+        int mLen = plaintext.getInt();
+        if(mLen < 0 || mLen > plaintext.remaining()) {
+            System.out.println("Plaintext length incorrect: "+mLen);
+            return false;
+        }
+        plaintext.limit(mLen + plaintext.position());
+
+        byte[] msgBytes = new byte[mLen];
+        plaintext.get(msgBytes);
+        Pond.Message msg;
+        try {
+             msg = Pond.Message.parseFrom(msgBytes);
+        } catch (InvalidProtocolBufferException e) {
+            e.printStackTrace();
+            return false;
+        }
+        for(InboxMessage candidate: client.inbox.values()) {
+            if(candidate.from == from.id &&
+                    candidate.id != message.id &&
+                    candidate.message != null &&
+                    candidate.message.getId() == msg.getId()) {
+                System.out.println("Dropping duplicate message from "+from.name);
+                return false;
+            }
+        }
+
+        ArrayList<Long> ackedIds = new ArrayList<>();
+        for(Long ack: msg.getAlsoAckList())
+            ackedIds.add(ack);
+        if(msg.hasInReplyTo())
+            ackedIds.add(msg.getInReplyTo());
+
+        long now = System.nanoTime();
+
+        for(Long ack: ackedIds) {
+            for(QueuedMessage candidate: client.outbox.values()) {
+                if(candidate.id == ack) {
+                    candidate.acked = now;
+                    //TODO process ack
+                    break;
+                }
+            }
+        }
+
+        if(msg.hasSupportedVersion())
+            from.supportedVersion = msg.getSupportedVersion();
+
+        from.kxsBytes = null;
+        message.message = msg;
+        message.sealed = null;
+        message.read = false;
+
+        return true;
     }
 
     private static boolean tooLarge(Pond.Message.Builder msg) {

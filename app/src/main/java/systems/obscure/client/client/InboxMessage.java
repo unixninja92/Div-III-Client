@@ -45,11 +45,11 @@ public class InboxMessage {
         if(message == null)
             return "(unknown)";
         else
-            return ""+message.getTime();//TODO format dat time!!!
+            return ""+message.getTime();
     }
 
     public Long getEraserTime(){
-        return receivedTime + Globals.MESSAGE_LIFETIME;//TODO format dat time!!!
+        return receivedTime + Globals.MESSAGE_LIFETIME;
     }
 
     public String getBody(){

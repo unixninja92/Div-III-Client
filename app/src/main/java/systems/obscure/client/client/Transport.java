@@ -301,7 +301,6 @@ public class Transport {
             return data;
         byte[] plain = readBox.decrypt(readSequence, data);
         incSequence(readSequence);
-        //TODO check MAC??
         return plain;
     }
 
