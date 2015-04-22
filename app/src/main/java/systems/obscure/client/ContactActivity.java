@@ -28,11 +28,11 @@ public class ContactActivity extends PassphraseRequiredActionBarActivity {
         Intent intent = getIntent();
         masterSecret = intent.getParcelableExtra("master_secret");
 
-        int contact_id = intent.getIntExtra("contact_id", 0);
+        long contact_id = intent.getLongExtra("contact_id", 0L);
         contact = client.contacts.get(contact_id);
 
-        System.out.println("Contact is null: "+ (contact == null));
-//        getSupportActionBar().setTitle(contact.name);
+//        System.out.println("Contact is null: "+ (contact == null));
+        getSupportActionBar().setTitle(contact.name);
     }
 
 

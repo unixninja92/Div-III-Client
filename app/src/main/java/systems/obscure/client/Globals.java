@@ -24,7 +24,7 @@ public class Globals {
 
     // TransportSize is the number of bytes that all payloads are padded to before
     // sending on the network.
-    public static final int TRANSPORT_SIZE = 16384 - 2 - SECRETBOX_OVERHEAD;
+    public static final int TRANSPORT_SIZE = 5000000 - 2 - SECRETBOX_OVERHEAD;
 
     // MessageOverhead is the number of bytes reserved for wrapping a Message up in
     // protobufs. That includes the overhead of the protobufs themselves, as well

@@ -200,11 +200,13 @@ public class Transport {
         if(data.length > Globals.TRANSPORT_SIZE)
             throw new IOException("transport: message too large");
 
-        byte[] buf = new byte[Globals.TRANSPORT_SIZE+2];
+        byte[] buf = new byte[Globals.TRANSPORT_SIZE+4];
         buf[0] = (byte) data.length;
         buf[1] = (byte) (data.length >> 8);
+        buf[2] = (byte)(data.length >> 16);
+        buf[3] = (byte)(data.length >> 32);
         for (int i = 0; i < data.length; i++){
-            buf[i+2] = data[i];
+            buf[i+4] = data[i];
         }
         write(buf);
     }
@@ -213,12 +215,12 @@ public class Transport {
         byte[] buf = new byte[Globals.TRANSPORT_SIZE+2+Globals.SECRETBOX_OVERHEAD];
         buf = read(buf);
         int n = buf.length;
-        if(n != Globals.TRANSPORT_SIZE+2)
+        if(n != Globals.TRANSPORT_SIZE+4)
             throw new IOException("transport: message wrong length");
 
-        n = (int)buf[0] + (((int)buf[1])<<8);
+        n = (int)buf[0] + (((int)buf[1])<<8) + (((int)buf[2])<<16) + (((int)buf[3])<<32);
 
-        byte[] data = Arrays.copyOfRange(buf, 2, buf.length);
+        byte[] data = Arrays.copyOfRange(buf, 4, buf.length);
         if(n > data.length)
             throw new IOException("transport: corrupt message");
 
@@ -240,9 +242,11 @@ public class Transport {
 
     private int write(byte[] data) {
         byte[] enc = encrypt(data);
-        byte[] lenBytes = new byte[2];
+        byte[] lenBytes = new byte[4];
         lenBytes[0] = (byte)enc.length;
         lenBytes[1] = (byte)(enc.length >> 8);
+        lenBytes[2] = (byte)(enc.length >> 16);
+        lenBytes[3] = (byte)(enc.length >> 32);
         System.out.println("write len[1] = "+ (int)lenBytes[1]+", len[0] = "+ (int)lenBytes[0]);
         try {
             writer.write(lenBytes);
@@ -255,16 +259,15 @@ public class Transport {
     }
 
     private byte[] read(byte[] data) {
-        byte[] lenBytes = new byte[2];
+        byte[] lenBytes = new byte[4];
         try {
             ByteStreams.readFully(reader, lenBytes);
-//            reader.read(lenBytes);
 //            System.out.println("len[1] = "+ (int)lenBytes[1]+", len[0] = "+ (int)lenBytes[0]);
-            int theirLen = (int)lenBytes[0] + (((int)lenBytes[1])<<8);
+            int theirLen = (int)lenBytes[0] + (((int)lenBytes[1])<<8) + (((int)lenBytes[2])<<16)
+                    + (((int)lenBytes[3])<<32);
             if(theirLen > data.length)
                 throw new IOException("transport: given buffer too small ("+data.length+" vs "+theirLen+")");
             byte[] theirData = Arrays.copyOf(data, theirLen);
-//            reader.read(theirData);
 //            printBytes(theirData);
             ByteStreams.readFully(reader, theirData);
             byte[] plain = decrypt(theirData);

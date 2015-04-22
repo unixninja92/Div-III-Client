@@ -44,12 +44,12 @@ import systems.obscure.client.protos.Pond;
 
 
 public class SendListActivity extends PassphraseRequiredActionBarActivity
-    implements ContactsListFragment.ConversationSelectedListener
+    implements SendListFragment.SenderSelectedListener
   {
   private final DynamicTheme dynamicTheme    = new DynamicTheme();
   private final DynamicLanguage dynamicLanguage = new DynamicLanguage();
 
-  private ContactsListFragment fragment;
+  private SendListFragment fragment;
   private MasterSecret masterSecret;
   private ContentObserver observer;
 
@@ -62,7 +62,7 @@ public class SendListActivity extends PassphraseRequiredActionBarActivity
 
     getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_TITLE);
       getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_ab_back);
-    setContentView(R.layout.contacts_list_activity);
+    setContentView(R.layout.send_list_activity);
 
     getSupportActionBar().setTitle(R.string.contacts);
 
@@ -260,7 +260,7 @@ public class SendListActivity extends PassphraseRequiredActionBarActivity
   private void initializeResources() {
     this.masterSecret = getIntent().getParcelableExtra("master_secret");
 
-    this.fragment = (ContactsListFragment)this.getSupportFragmentManager()
+    this.fragment = (SendListFragment)this.getSupportFragmentManager()
                                                   .findFragmentById(R.id.fragment_content);
 
     this.fragment.setMasterSecret(masterSecret);

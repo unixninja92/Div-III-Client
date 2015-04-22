@@ -267,7 +267,7 @@ public class Network {
 
     private static boolean tooLarge(Pond.Message.Builder msg) {
         Pond.Message message = msg.build();
-
+        System.out.println("Message size: "+message.getSerializedSize()+" vs "+ Globals.MAX_SERIALIZED_MESSAGE);
         return message.getSerializedSize() > Globals.MAX_SERIALIZED_MESSAGE;
     }
 
@@ -286,18 +286,18 @@ public class Network {
         return transport;
     }
 
-    public static void doCreateAccount() {
+    public static void doCreateAccount(byte[] hmacKey, String server) {
 
         Pond.NewAccount.Builder newAccount = Pond.NewAccount.newBuilder();
 //        newAccount.setGeneration(client.generation);
 //        newAccount.setGroup(ByteString.copyFrom(client.hmacKey));
-        newAccount.setHmacKey(ByteString.copyFrom(client.hmacKey.getEncoded()));
+        newAccount.setHmacKey(ByteString.copyFrom(hmacKey));
 
         Pond.Request.Builder request = Pond.Request.newBuilder();
         request.setNewAccount(newAccount);
 
         try {
-            Transport transport = dialServer(client.server, false);
+            Transport transport = dialServer(server, false);
             transport.writeProto(request);
             Pond.Reply reply = transport.readProto();
             replyToError(reply);

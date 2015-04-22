@@ -135,20 +135,24 @@ public class Client {
 
     public StateFile stateFile;
 
+    static boolean stateReady = false;
+
 
     private static Client ourInstance;// = new Client();
 
     public static Client getInstance() {
-            if (ourInstance == null) {
+            if (ourInstance == null ) {
                 ourInstance = new Client(Globals.applicaiontContext);
-//                ourInstance.start(Globals.applicaiontContext);
+                ourInstance.start(Globals.applicaiontContext);
             }
         return ourInstance;
     }
 
     public static boolean isNull() {
-        return ourInstance == null;
+//        return ourInstance == null;
+        return ourInstance == null || !stateReady;
     }
+
 
     private Client(Context context) {
         torAddress = "127.0.0.1:9050";
@@ -174,7 +178,7 @@ public class Client {
         fetchNowChan = Channel.any2one();
 //        Pond.KeyExchange.
 
-        start(context);
+//        start(context);
     }
 
     public synchronized void start(Context context) {
@@ -213,7 +217,7 @@ public class Client {
 //                new AsyncTask<Void, Void, Void>() {
 //                    @Override
 //                    protected Void doInBackground(Void... params) {
-                        Network.doCreateAccount();
+                        Network.doCreateAccount(hmacKey.getEncoded(), server);
                         TextSecurePreferences.setRegisteredOnServer(context, true);
 //                        return null;
 //                    }
@@ -261,6 +265,7 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        stateReady = true;
     }
 
     public Draft outboxToDraft(QueuedMessage msg) {
@@ -324,8 +329,8 @@ public class Client {
     // registerId records that an ID number has been used, typically because we are
     // loading a state file.
     public void registerId(long id){
-        if(usedIds.containsKey(id))
-            throw new RuntimeException("duplicate ID registered");
+//        if(usedIds.containsKey(id))
+//            throw new RuntimeException("duplicate ID registered");
         usedIds.put(id, true);
     }
 

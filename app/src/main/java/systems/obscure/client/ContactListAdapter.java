@@ -57,6 +57,9 @@ public class ContactListAdapter extends ArrayAdapter<Contact>{ //implements AbsL
     this.inflater       = LayoutInflater.from(context);
   }
 
+
+
+
 //  @Override
 //  public View newView(Context context, Cursor cursor, ViewGroup parent) {
 //    return inflater.inflate(R.layout.conversation_list_item_view, parent, false);

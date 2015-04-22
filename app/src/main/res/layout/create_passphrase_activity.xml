@@ -14,11 +14,11 @@
     <ImageView android:id="@+id/watermark"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:layout_centerHorizontal="true"
-               android:layout_marginBottom="20dp"
-               android:src="@drawable/lockscreen_watermark"
+        android:src="@drawable/doll2"
                android:contentDescription="@string/PassphrasePromptActivity_watermark_content_description"
-               android:layout_marginTop="100dp"/>
+               android:layout_marginTop="59dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <RelativeLayout android:layout_width="match_parent"
                     android:layout_height="wrap_content"

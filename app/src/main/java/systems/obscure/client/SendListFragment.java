@@ -32,11 +32,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.protobuf.ByteString;
 import com.melnykov.fab.FloatingActionButton;
 
 import org.thoughtcrime.securesms.crypto.MasterSecret;
@@ -48,6 +48,8 @@ import java.util.Set;
 
 import systems.obscure.client.client.Client;
 import systems.obscure.client.client.Contact;
+import systems.obscure.client.client.Network;
+import systems.obscure.client.protos.Pond;
 
 //import org.thoughtcrime.securesms.database.DatabaseFactory;
 //import org.thoughtcrime.securesms.database.loaders.ConversationListLoader;
@@ -55,11 +57,11 @@ import systems.obscure.client.client.Contact;
 //import org.thoughtcrime.securesms.components.DefaultSmsReminder;
 
 
-public class ContactsListFragment extends ListFragment
+public class SendListFragment extends ListFragment
   implements ActionMode.Callback
 {
 
-  private ConversationSelectedListener listener;
+  private SenderSelectedListener listener;
   private MasterSecret masterSecret;
   private ActionMode actionMode;
 //  private ReminderView                 reminderView;
@@ -71,6 +73,7 @@ public class ContactsListFragment extends ListFragment
     final View view = inflater.inflate(R.layout.contact_list_fragment, container, false);
 //    reminderView = new ReminderView(getActivity());
     fab          = (FloatingActionButton) view.findViewById(R.id.fab);
+    fab.hide();
     return view;
   }
 
@@ -87,17 +90,17 @@ public class ContactsListFragment extends ListFragment
     setHasOptionsMenu(true);
     getListView().setAdapter(null);
 //    getListView().addHeaderView(reminderView);
-    fab.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View v) {
-          Intent intent = new Intent(getActivity(), NewContactActivity.class);
-          intent.putExtra("master_secret", masterSecret);
-          startActivity(intent);
-//        Intent intent = new Intent(getActivity(), NewConversationActivity.class);
-//        intent.putExtra(NewConversationActivity.MASTER_SECRET_EXTRA, masterSecret);
-//        startActivity(intent);
-      }
-    });
+//    fab.setOnClickListener(new OnClickListener() {
+//      @Override
+//      public void onClick(View v) {
+//          Intent intent = new Intent(getActivity(), NewContactActivity.class);
+//          intent.putExtra("master_secret", masterSecret);
+//          startActivity(intent);
+////        Intent intent = new Intent(getActivity(), NewConversationActivity.class);
+////        intent.putExtra(NewConversationActivity.MASTER_SECRET_EXTRA, masterSecret);
+////        startActivity(intent);
+//      }
+//    });
     initializeListAdapter();
 //    initializeBatchListener();
 
@@ -114,13 +117,22 @@ public class ContactsListFragment extends ListFragment
   @Override
   public void onAttach(Activity activity) {
     super.onAttach(activity);
-    this.listener = (ConversationSelectedListener)activity;
+    this.listener = (SenderSelectedListener)activity;
   }
 
   @Override
   public void onListItemClick(ListView l, View v, int position, long id) {
-      Intent contactPage = new Intent(getActivity(), ContactActivity.class);
-      contactPage.putExtra("contact_id", ((Contact)l.getAdapter().getItem(position)).id);
+    Contact contact = (Contact)l.getAdapter().getItem(position);
+
+    Client client = Client.getInstance();
+    Pond.Message.Builder msg = Pond.Message.newBuilder();
+    msg.setId(client.randId());
+    client.registerId(msg.getId());
+    msg.setBody(ByteString.copyFrom(Globals.lastImageTaken));
+    msg.setTime(System.nanoTime());
+    Network.send(contact, msg);
+      Intent contactPage = new Intent(getActivity(), CameraActivity.class);
+//      contactPage.putExtra("contact_id", position);
       contactPage.putExtra("master_secret", masterSecret);
       startActivity(contactPage);
 //    if (v instanceof ContactsListItem) {
@@ -167,7 +179,7 @@ public class ContactsListFragment extends ListFragment
       @Override
       public boolean onItemLongClick(AdapterView<?> arg0, View v, int position, long id) {
         ContactListAdapter adapter = (ContactListAdapter)getListAdapter();
-        actionMode = ((ActionBarActivity)getActivity()).startSupportActionMode(ContactsListFragment.this);
+        actionMode = ((ActionBarActivity)getActivity()).startSupportActionMode(SendListFragment.this);
 
         adapter.initializeBatchMode(true);
         adapter.toggleThreadInBatchSet(((ContactsListItem) v).getThreadId());
@@ -274,7 +286,7 @@ public class ContactsListFragment extends ListFragment
 //    ((CursorAdapter)getListAdapter()).changeCursor(null);
 //  }
 
-  public interface ConversationSelectedListener {
+  public interface SenderSelectedListener {
     public void onCreateConversation(long threadId, Contact recipients, int distributionType);
 }
 
