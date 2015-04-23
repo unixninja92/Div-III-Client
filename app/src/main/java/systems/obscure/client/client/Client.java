@@ -345,7 +345,7 @@ public class Client {
 
         contact.ratchet.fillKeyExchagne(kx);
 
-        kx.addAllHmacPairs(contact.generateHMACPairs(4));
+        kx.addAllHmacPairs(contact.generateHMACPairs(2));
 
 
         byte[] sig = signingKey.sign(kx.build().toByteArray());

@@ -79,7 +79,7 @@ public class NewContactActivity extends PassphraseRequiredActionBarActivity {
                 contact.processKeyExchange(receivedKeyExchange);
                 Dialogs.showInfoDialog(this, "Contact Scanned", "Contacts key exchange successfully scanned.");
                 scannedTheirs = true;
-            } catch (IOException e) {
+            } catch (IOException | ExceptionInInitializerError e) {
                 Dialogs.showAlertDialog(this, "Contact Scan Failed", "An error occurred while scanning your contact.");
                 e.printStackTrace();
             }
