@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.Socket;
+import java.nio.ByteBuffer;
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.MessageDigest;
@@ -37,7 +38,7 @@ public class Transport {
     // working in streaming mode. Each block is prefixed by two length bytes (which
     // aren't counted in blockSize) and includes secretbox.Overhead bytes of MAC
     // tag (which are).
-    private final int blockSize = 4096 - 2;
+    private final int blockSize = 4096 - 4;
 
     private Socket serverSocket;
 
@@ -200,15 +201,18 @@ public class Transport {
         if(data.length > Globals.TRANSPORT_SIZE)
             throw new IOException("transport: message too large");
 
-        byte[] buf = new byte[Globals.TRANSPORT_SIZE+4];
-        buf[0] = (byte) data.length;
-        buf[1] = (byte) (data.length >> 8);
-        buf[2] = (byte) (data.length >> 12);
-        buf[3] = (byte) (data.length >> 16);
-        for (int i = 0; i < data.length; i++){
-            buf[i+4] = data[i];
-        }
-        write(buf);
+        byte[] b = new byte[Globals.TRANSPORT_SIZE+4];
+        ByteBuffer buf = ByteBuffer.wrap(b);
+        buf.putInt(data.length);
+//        buf[0] = (byte) data.length;
+//        buf[1] = (byte) (data.length >> 8);
+//        buf[2] = (byte) (data.length >> 12);
+//        buf[3] = (byte) (data.length >> 16);
+//        for (int i = 0; i < data.length; i++){
+//            buf[i+4] = data[i];
+//        }
+        buf.put(data);
+        write(buf.array());
     }
 
     public Pond.Reply readProto() throws IOException {
@@ -218,7 +222,7 @@ public class Transport {
         if(n != Globals.TRANSPORT_SIZE+4)
             throw new IOException("transport: message wrong length");
 
-        n = (int)buf[0] + (((int)buf[1])<<8) + (((int)buf[2])<<12) + (((int)buf[3])<<16);
+        n = ByteBuffer.wrap(buf).getInt();
 
         byte[] data = Arrays.copyOfRange(buf, 4, buf.length);
         if(n > data.length)
@@ -242,14 +246,16 @@ public class Transport {
 
     private int write(byte[] data) {
         byte[] enc = encrypt(data);
-        byte[] lenBytes = new byte[4];
-        lenBytes[0] = (byte)enc.length;
-        lenBytes[1] = (byte)(enc.length >> 8);
-        lenBytes[2] = (byte)(enc.length >> 12);
-        lenBytes[3] = (byte)(enc.length >> 16);
-        System.out.println(enc.length+" vs len[3] = "+ (int)lenBytes[3]+",len[2] = "+ (int)lenBytes[2]+",len[1] = "+ (int)lenBytes[1]+", len[0] = "+ (int)lenBytes[0]);
+        ByteBuffer len = ByteBuffer.allocate(4);
+        len.putInt(enc.length);
+//        byte[] lenBytes = new byte[4];
+//        lenBytes[0] = (byte)enc.length;
+//        lenBytes[1] = (byte)(enc.length >> 8);
+//        lenBytes[2] = (byte)(enc.length >> 12);
+//        lenBytes[3] = (byte)(enc.length >> 16);
+//        System.out.println(enc.length+" vs len[3] = "+ (int)lenBytes[3]+",len[2] = "+ (int)lenBytes[2]+",len[1] = "+ (int)lenBytes[1]+", len[0] = "+ (int)lenBytes[0]);
         try {
-            writer.write(lenBytes);
+            writer.write(len.array());
             writer.write(enc);
         } catch (IOException e) {
             e.printStackTrace();
@@ -263,9 +269,10 @@ public class Transport {
         try {
             ByteStreams.readFully(reader, lenBytes);
 //            System.out.println("len[3] = "+ (int)lenBytes[3]+",len[2] = "+ (int)lenBytes[2]+",len[1] = "+ (int)lenBytes[1]+", len[0] = "+ (int)lenBytes[0]);
-            long theirLen = (long)lenBytes[0] + (((long)lenBytes[1])<<8) + (((long)lenBytes[2])<<12)
-                    + (((int)lenBytes[3])<<16);
-            System.out.println(theirLen+" is len[3] = "+ (int)lenBytes[3]+",len[2] = "+ (int)lenBytes[2]+",len[1] = "+ (int)lenBytes[1]+", len[0] = "+ (int)lenBytes[0]);
+            int theirLen = ByteBuffer.wrap(lenBytes).getInt();
+//            long theirLen = (long)lenBytes[0] + (((long)lenBytes[1])<<8) + (((long)lenBytes[2])<<12)
+//                    + (((int)lenBytes[3])<<16);
+//            System.out.println(theirLen+" is len[3] = "+ (int)lenBytes[3]+",len[2] = "+ (int)lenBytes[2]+",len[1] = "+ (int)lenBytes[1]+", len[0] = "+ (int)lenBytes[0]);
             if(theirLen > data.length)
                 throw new IOException("transport: given buffer too small ("+data.length+" vs "+theirLen+")");
             byte[] theirData = Arrays.copyOf(data, (int)theirLen);
