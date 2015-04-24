@@ -66,7 +66,7 @@ public class StateFile{
             throw new KeyException("bad password");
         LocalStorage.Header.SCrypt prams;
 //        if(header == null) {
-//            LocalStorage.Header.SCrypt.Builder scrypt = LocalStorage.Header.SCrypt.newBuilder();
+//            systems.obscure.client.protos.LocalStorage.Header.SCrypt.Builder scrypt = systems.obscure.client.protos.LocalStorage.Header.SCrypt.newBuilder();
 //            scrypt.setN(Default_Header_SCrypt_N);
 //            scrypt.setP(Default_Header_SCrypt_P);
 //            scrypt.setR(Default_Header_SCrypt_R);
@@ -92,7 +92,7 @@ public class StateFile{
             hBuilder.setKdfSalt(ByteString.copyFrom(salt));
             header = hBuilder.build();
             deriveKey(pw);
-//            hBuilder.setScrypt(LocalStorage.Header.SCrypt.newBuilder());
+//            hBuilder.setScrypt(systems.obscure.client.protos.LocalStorage.Header.SCrypt.newBuilder());
         }
         hBuilder.setNoErasureStorage(true);
         header = hBuilder.build();

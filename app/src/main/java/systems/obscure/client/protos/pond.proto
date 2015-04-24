@@ -1,5 +1,7 @@
-package protos;
+//package protos;
 
+//option optimize_for = LITE_RUNTIME;
+//option java_package = "systems.obscure.client.protos";
 // This protocol buffer file defines the protocol between Pond clients and
 // servers, and between clients directly.
 

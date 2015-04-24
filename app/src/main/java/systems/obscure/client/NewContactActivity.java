@@ -75,7 +75,7 @@ public class NewContactActivity extends PassphraseRequiredActionBarActivity {
             String data = scanResult.getContents();
 
             try {
-                Pond.KeyExchange receivedKeyExchange = Pond.KeyExchange.parseFrom(Base64.decode(data));
+                Pond.SignedKeyExchange receivedKeyExchange = Pond.SignedKeyExchange.parseFrom(Base64.decode(data));
                 contact.processKeyExchange(receivedKeyExchange);
                 Dialogs.showInfoDialog(this, "Contact Scanned", "Contacts key exchange successfully scanned.");
                 scannedTheirs = true;

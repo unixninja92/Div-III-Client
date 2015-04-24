@@ -19,11 +19,11 @@ public final class Pond {
     /**
      * <code>optional .NewAccount new_account = 1;</code>
      */
-    Pond.NewAccount getNewAccount();
+    systems.obscure.client.protos.Pond.NewAccount getNewAccount();
     /**
      * <code>optional .NewAccount new_account = 1;</code>
      */
-    Pond.NewAccountOrBuilder getNewAccountOrBuilder();
+    systems.obscure.client.protos.Pond.NewAccountOrBuilder getNewAccountOrBuilder();
 
     /**
      * <code>optional .Delivery deliver = 2;</code>
@@ -32,11 +32,11 @@ public final class Pond {
     /**
      * <code>optional .Delivery deliver = 2;</code>
      */
-    Pond.Delivery getDeliver();
+    systems.obscure.client.protos.Pond.Delivery getDeliver();
     /**
      * <code>optional .Delivery deliver = 2;</code>
      */
-    Pond.DeliveryOrBuilder getDeliverOrBuilder();
+    systems.obscure.client.protos.Pond.DeliveryOrBuilder getDeliverOrBuilder();
 
     /**
      * <code>optional .Fetch fetch = 3;</code>
@@ -45,11 +45,11 @@ public final class Pond {
     /**
      * <code>optional .Fetch fetch = 3;</code>
      */
-    Pond.Fetch getFetch();
+    systems.obscure.client.protos.Pond.Fetch getFetch();
     /**
      * <code>optional .Fetch fetch = 3;</code>
      */
-    Pond.FetchOrBuilder getFetchOrBuilder();
+    systems.obscure.client.protos.Pond.FetchOrBuilder getFetchOrBuilder();
 
     /**
      * <code>optional .Upload upload = 4;</code>
@@ -58,11 +58,11 @@ public final class Pond {
     /**
      * <code>optional .Upload upload = 4;</code>
      */
-    Pond.Upload getUpload();
+    systems.obscure.client.protos.Pond.Upload getUpload();
     /**
      * <code>optional .Upload upload = 4;</code>
      */
-    Pond.UploadOrBuilder getUploadOrBuilder();
+    systems.obscure.client.protos.Pond.UploadOrBuilder getUploadOrBuilder();
 
     /**
      * <code>optional .Download download = 5;</code>
@@ -71,11 +71,11 @@ public final class Pond {
     /**
      * <code>optional .Download download = 5;</code>
      */
-    Pond.Download getDownload();
+    systems.obscure.client.protos.Pond.Download getDownload();
     /**
      * <code>optional .Download download = 5;</code>
      */
-    Pond.DownloadOrBuilder getDownloadOrBuilder();
+    systems.obscure.client.protos.Pond.DownloadOrBuilder getDownloadOrBuilder();
 
     /**
      * <code>optional .HMACSetup hmac_setup = 6;</code>
@@ -92,7 +92,7 @@ public final class Pond {
      * optional SignedRevocation revocation = 6;
      * </pre>
      */
-    Pond.HMACSetup getHmacSetup();
+    systems.obscure.client.protos.Pond.HMACSetup getHmacSetup();
     /**
      * <code>optional .HMACSetup hmac_setup = 6;</code>
      *
@@ -100,7 +100,7 @@ public final class Pond {
      * optional SignedRevocation revocation = 6;
      * </pre>
      */
-    Pond.HMACSetupOrBuilder getHmacSetupOrBuilder();
+    systems.obscure.client.protos.Pond.HMACSetupOrBuilder getHmacSetupOrBuilder();
 
     /**
      * <code>optional .HMACStrike hmac_strike = 7;</code>
@@ -109,11 +109,11 @@ public final class Pond {
     /**
      * <code>optional .HMACStrike hmac_strike = 7;</code>
      */
-    Pond.HMACStrike getHmacStrike();
+    systems.obscure.client.protos.Pond.HMACStrike getHmacStrike();
     /**
      * <code>optional .HMACStrike hmac_strike = 7;</code>
      */
-    Pond.HMACStrikeOrBuilder getHmacStrikeOrBuilder();
+    systems.obscure.client.protos.Pond.HMACStrikeOrBuilder getHmacStrikeOrBuilder();
   }
   /**
    * Protobuf type {@code Request}
@@ -173,11 +173,11 @@ public final class Pond {
               break;
             }
             case 10: {
-              Pond.NewAccount.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.NewAccount.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
                 subBuilder = newAccount_.toBuilder();
               }
-              newAccount_ = input.readMessage(Pond.NewAccount.PARSER, extensionRegistry);
+              newAccount_ = input.readMessage(systems.obscure.client.protos.Pond.NewAccount.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(newAccount_);
                 newAccount_ = subBuilder.buildPartial();
@@ -186,11 +186,11 @@ public final class Pond {
               break;
             }
             case 18: {
-              Pond.Delivery.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.Delivery.Builder subBuilder = null;
               if (((bitField0_ & 0x00000002) == 0x00000002)) {
                 subBuilder = deliver_.toBuilder();
               }
-              deliver_ = input.readMessage(Pond.Delivery.PARSER, extensionRegistry);
+              deliver_ = input.readMessage(systems.obscure.client.protos.Pond.Delivery.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(deliver_);
                 deliver_ = subBuilder.buildPartial();
@@ -199,11 +199,11 @@ public final class Pond {
               break;
             }
             case 26: {
-              Pond.Fetch.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.Fetch.Builder subBuilder = null;
               if (((bitField0_ & 0x00000004) == 0x00000004)) {
                 subBuilder = fetch_.toBuilder();
               }
-              fetch_ = input.readMessage(Pond.Fetch.PARSER, extensionRegistry);
+              fetch_ = input.readMessage(systems.obscure.client.protos.Pond.Fetch.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(fetch_);
                 fetch_ = subBuilder.buildPartial();
@@ -212,11 +212,11 @@ public final class Pond {
               break;
             }
             case 34: {
-              Pond.Upload.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.Upload.Builder subBuilder = null;
               if (((bitField0_ & 0x00000008) == 0x00000008)) {
                 subBuilder = upload_.toBuilder();
               }
-              upload_ = input.readMessage(Pond.Upload.PARSER, extensionRegistry);
+              upload_ = input.readMessage(systems.obscure.client.protos.Pond.Upload.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(upload_);
                 upload_ = subBuilder.buildPartial();
@@ -225,11 +225,11 @@ public final class Pond {
               break;
             }
             case 42: {
-              Pond.Download.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.Download.Builder subBuilder = null;
               if (((bitField0_ & 0x00000010) == 0x00000010)) {
                 subBuilder = download_.toBuilder();
               }
-              download_ = input.readMessage(Pond.Download.PARSER, extensionRegistry);
+              download_ = input.readMessage(systems.obscure.client.protos.Pond.Download.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(download_);
                 download_ = subBuilder.buildPartial();
@@ -238,11 +238,11 @@ public final class Pond {
               break;
             }
             case 50: {
-              Pond.HMACSetup.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.HMACSetup.Builder subBuilder = null;
               if (((bitField0_ & 0x00000020) == 0x00000020)) {
                 subBuilder = hmacSetup_.toBuilder();
               }
-              hmacSetup_ = input.readMessage(Pond.HMACSetup.PARSER, extensionRegistry);
+              hmacSetup_ = input.readMessage(systems.obscure.client.protos.Pond.HMACSetup.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(hmacSetup_);
                 hmacSetup_ = subBuilder.buildPartial();
@@ -251,11 +251,11 @@ public final class Pond {
               break;
             }
             case 58: {
-              Pond.HMACStrike.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.HMACStrike.Builder subBuilder = null;
               if (((bitField0_ & 0x00000040) == 0x00000040)) {
                 subBuilder = hmacStrike_.toBuilder();
               }
-              hmacStrike_ = input.readMessage(Pond.HMACStrike.PARSER, extensionRegistry);
+              hmacStrike_ = input.readMessage(systems.obscure.client.protos.Pond.HMACStrike.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(hmacStrike_);
                 hmacStrike_ = subBuilder.buildPartial();
@@ -277,14 +277,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_Request_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_Request_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_Request_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_Request_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.Request.class, Pond.Request.Builder.class);
+              systems.obscure.client.protos.Pond.Request.class, systems.obscure.client.protos.Pond.Request.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Request> PARSER =
@@ -304,7 +304,7 @@ public final class Pond {
 
     private int bitField0_;
     public static final int NEW_ACCOUNT_FIELD_NUMBER = 1;
-    private Pond.NewAccount newAccount_;
+    private systems.obscure.client.protos.Pond.NewAccount newAccount_;
     /**
      * <code>optional .NewAccount new_account = 1;</code>
      */
@@ -314,18 +314,18 @@ public final class Pond {
     /**
      * <code>optional .NewAccount new_account = 1;</code>
      */
-    public Pond.NewAccount getNewAccount() {
+    public systems.obscure.client.protos.Pond.NewAccount getNewAccount() {
       return newAccount_;
     }
     /**
      * <code>optional .NewAccount new_account = 1;</code>
      */
-    public Pond.NewAccountOrBuilder getNewAccountOrBuilder() {
+    public systems.obscure.client.protos.Pond.NewAccountOrBuilder getNewAccountOrBuilder() {
       return newAccount_;
     }
 
     public static final int DELIVER_FIELD_NUMBER = 2;
-    private Pond.Delivery deliver_;
+    private systems.obscure.client.protos.Pond.Delivery deliver_;
     /**
      * <code>optional .Delivery deliver = 2;</code>
      */
@@ -335,18 +335,18 @@ public final class Pond {
     /**
      * <code>optional .Delivery deliver = 2;</code>
      */
-    public Pond.Delivery getDeliver() {
+    public systems.obscure.client.protos.Pond.Delivery getDeliver() {
       return deliver_;
     }
     /**
      * <code>optional .Delivery deliver = 2;</code>
      */
-    public Pond.DeliveryOrBuilder getDeliverOrBuilder() {
+    public systems.obscure.client.protos.Pond.DeliveryOrBuilder getDeliverOrBuilder() {
       return deliver_;
     }
 
     public static final int FETCH_FIELD_NUMBER = 3;
-    private Pond.Fetch fetch_;
+    private systems.obscure.client.protos.Pond.Fetch fetch_;
     /**
      * <code>optional .Fetch fetch = 3;</code>
      */
@@ -356,18 +356,18 @@ public final class Pond {
     /**
      * <code>optional .Fetch fetch = 3;</code>
      */
-    public Pond.Fetch getFetch() {
+    public systems.obscure.client.protos.Pond.Fetch getFetch() {
       return fetch_;
     }
     /**
      * <code>optional .Fetch fetch = 3;</code>
      */
-    public Pond.FetchOrBuilder getFetchOrBuilder() {
+    public systems.obscure.client.protos.Pond.FetchOrBuilder getFetchOrBuilder() {
       return fetch_;
     }
 
     public static final int UPLOAD_FIELD_NUMBER = 4;
-    private Pond.Upload upload_;
+    private systems.obscure.client.protos.Pond.Upload upload_;
     /**
      * <code>optional .Upload upload = 4;</code>
      */
@@ -377,18 +377,18 @@ public final class Pond {
     /**
      * <code>optional .Upload upload = 4;</code>
      */
-    public Pond.Upload getUpload() {
+    public systems.obscure.client.protos.Pond.Upload getUpload() {
       return upload_;
     }
     /**
      * <code>optional .Upload upload = 4;</code>
      */
-    public Pond.UploadOrBuilder getUploadOrBuilder() {
+    public systems.obscure.client.protos.Pond.UploadOrBuilder getUploadOrBuilder() {
       return upload_;
     }
 
     public static final int DOWNLOAD_FIELD_NUMBER = 5;
-    private Pond.Download download_;
+    private systems.obscure.client.protos.Pond.Download download_;
     /**
      * <code>optional .Download download = 5;</code>
      */
@@ -398,18 +398,18 @@ public final class Pond {
     /**
      * <code>optional .Download download = 5;</code>
      */
-    public Pond.Download getDownload() {
+    public systems.obscure.client.protos.Pond.Download getDownload() {
       return download_;
     }
     /**
      * <code>optional .Download download = 5;</code>
      */
-    public Pond.DownloadOrBuilder getDownloadOrBuilder() {
+    public systems.obscure.client.protos.Pond.DownloadOrBuilder getDownloadOrBuilder() {
       return download_;
     }
 
     public static final int HMAC_SETUP_FIELD_NUMBER = 6;
-    private Pond.HMACSetup hmacSetup_;
+    private systems.obscure.client.protos.Pond.HMACSetup hmacSetup_;
     /**
      * <code>optional .HMACSetup hmac_setup = 6;</code>
      *
@@ -427,7 +427,7 @@ public final class Pond {
      * optional SignedRevocation revocation = 6;
      * </pre>
      */
-    public Pond.HMACSetup getHmacSetup() {
+    public systems.obscure.client.protos.Pond.HMACSetup getHmacSetup() {
       return hmacSetup_;
     }
     /**
@@ -437,12 +437,12 @@ public final class Pond {
      * optional SignedRevocation revocation = 6;
      * </pre>
      */
-    public Pond.HMACSetupOrBuilder getHmacSetupOrBuilder() {
+    public systems.obscure.client.protos.Pond.HMACSetupOrBuilder getHmacSetupOrBuilder() {
       return hmacSetup_;
     }
 
     public static final int HMAC_STRIKE_FIELD_NUMBER = 7;
-    private Pond.HMACStrike hmacStrike_;
+    private systems.obscure.client.protos.Pond.HMACStrike hmacStrike_;
     /**
      * <code>optional .HMACStrike hmac_strike = 7;</code>
      */
@@ -452,24 +452,24 @@ public final class Pond {
     /**
      * <code>optional .HMACStrike hmac_strike = 7;</code>
      */
-    public Pond.HMACStrike getHmacStrike() {
+    public systems.obscure.client.protos.Pond.HMACStrike getHmacStrike() {
       return hmacStrike_;
     }
     /**
      * <code>optional .HMACStrike hmac_strike = 7;</code>
      */
-    public Pond.HMACStrikeOrBuilder getHmacStrikeOrBuilder() {
+    public systems.obscure.client.protos.Pond.HMACStrikeOrBuilder getHmacStrikeOrBuilder() {
       return hmacStrike_;
     }
 
     private void initFields() {
-      newAccount_ = Pond.NewAccount.getDefaultInstance();
-      deliver_ = Pond.Delivery.getDefaultInstance();
-      fetch_ = Pond.Fetch.getDefaultInstance();
-      upload_ = Pond.Upload.getDefaultInstance();
-      download_ = Pond.Download.getDefaultInstance();
-      hmacSetup_ = Pond.HMACSetup.getDefaultInstance();
-      hmacStrike_ = Pond.HMACStrike.getDefaultInstance();
+      newAccount_ = systems.obscure.client.protos.Pond.NewAccount.getDefaultInstance();
+      deliver_ = systems.obscure.client.protos.Pond.Delivery.getDefaultInstance();
+      fetch_ = systems.obscure.client.protos.Pond.Fetch.getDefaultInstance();
+      upload_ = systems.obscure.client.protos.Pond.Upload.getDefaultInstance();
+      download_ = systems.obscure.client.protos.Pond.Download.getDefaultInstance();
+      hmacSetup_ = systems.obscure.client.protos.Pond.HMACSetup.getDefaultInstance();
+      hmacStrike_ = systems.obscure.client.protos.Pond.HMACStrike.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -578,53 +578,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.Request parseFrom(
+    public static systems.obscure.client.protos.Pond.Request parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Request parseFrom(
+    public static systems.obscure.client.protos.Pond.Request parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Request parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.Request parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Request parseFrom(
+    public static systems.obscure.client.protos.Pond.Request parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Request parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Request parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Request parseFrom(
+    public static systems.obscure.client.protos.Pond.Request parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.Request parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Request parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.Request parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.Request parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.Request parseFrom(
+    public static systems.obscure.client.protos.Pond.Request parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Request parseFrom(
+    public static systems.obscure.client.protos.Pond.Request parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -633,7 +633,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.Request prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.Request prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -655,20 +655,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Request)
-        Pond.RequestOrBuilder {
+        systems.obscure.client.protos.Pond.RequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_Request_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Request_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_Request_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_Request_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.Request.class, Pond.Request.Builder.class);
+                systems.obscure.client.protos.Pond.Request.class, systems.obscure.client.protos.Pond.Request.Builder.class);
       }
 
-      // Construct using Pond.Request.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.Request.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -696,43 +696,43 @@ public final class Pond {
       public Builder clear() {
         super.clear();
         if (newAccountBuilder_ == null) {
-          newAccount_ = Pond.NewAccount.getDefaultInstance();
+          newAccount_ = systems.obscure.client.protos.Pond.NewAccount.getDefaultInstance();
         } else {
           newAccountBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         if (deliverBuilder_ == null) {
-          deliver_ = Pond.Delivery.getDefaultInstance();
+          deliver_ = systems.obscure.client.protos.Pond.Delivery.getDefaultInstance();
         } else {
           deliverBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         if (fetchBuilder_ == null) {
-          fetch_ = Pond.Fetch.getDefaultInstance();
+          fetch_ = systems.obscure.client.protos.Pond.Fetch.getDefaultInstance();
         } else {
           fetchBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
         if (uploadBuilder_ == null) {
-          upload_ = Pond.Upload.getDefaultInstance();
+          upload_ = systems.obscure.client.protos.Pond.Upload.getDefaultInstance();
         } else {
           uploadBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
         if (downloadBuilder_ == null) {
-          download_ = Pond.Download.getDefaultInstance();
+          download_ = systems.obscure.client.protos.Pond.Download.getDefaultInstance();
         } else {
           downloadBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000010);
         if (hmacSetupBuilder_ == null) {
-          hmacSetup_ = Pond.HMACSetup.getDefaultInstance();
+          hmacSetup_ = systems.obscure.client.protos.Pond.HMACSetup.getDefaultInstance();
         } else {
           hmacSetupBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000020);
         if (hmacStrikeBuilder_ == null) {
-          hmacStrike_ = Pond.HMACStrike.getDefaultInstance();
+          hmacStrike_ = systems.obscure.client.protos.Pond.HMACStrike.getDefaultInstance();
         } else {
           hmacStrikeBuilder_.clear();
         }
@@ -746,23 +746,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_Request_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Request_descriptor;
       }
 
-      public Pond.Request getDefaultInstanceForType() {
-        return Pond.Request.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.Request getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.Request.getDefaultInstance();
       }
 
-      public Pond.Request build() {
-        Pond.Request result = buildPartial();
+      public systems.obscure.client.protos.Pond.Request build() {
+        systems.obscure.client.protos.Pond.Request result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.Request buildPartial() {
-        Pond.Request result = new Pond.Request(this);
+      public systems.obscure.client.protos.Pond.Request buildPartial() {
+        systems.obscure.client.protos.Pond.Request result = new systems.obscure.client.protos.Pond.Request(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -827,16 +827,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.Request) {
-          return mergeFrom((Pond.Request)other);
+        if (other instanceof systems.obscure.client.protos.Pond.Request) {
+          return mergeFrom((systems.obscure.client.protos.Pond.Request)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.Request other) {
-        if (other == Pond.Request.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.Request other) {
+        if (other == systems.obscure.client.protos.Pond.Request.getDefaultInstance()) return this;
         if (other.hasNewAccount()) {
           mergeNewAccount(other.getNewAccount());
         }
@@ -894,11 +894,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.Request parsedMessage = null;
+        systems.obscure.client.protos.Pond.Request parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.Request) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.Request) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -909,9 +909,9 @@ public final class Pond {
       }
       private int bitField0_;
 
-      private Pond.NewAccount newAccount_ = Pond.NewAccount.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.NewAccount newAccount_ = systems.obscure.client.protos.Pond.NewAccount.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.NewAccount, Pond.NewAccount.Builder, Pond.NewAccountOrBuilder> newAccountBuilder_;
+          systems.obscure.client.protos.Pond.NewAccount, systems.obscure.client.protos.Pond.NewAccount.Builder, systems.obscure.client.protos.Pond.NewAccountOrBuilder> newAccountBuilder_;
       /**
        * <code>optional .NewAccount new_account = 1;</code>
        */
@@ -921,7 +921,7 @@ public final class Pond {
       /**
        * <code>optional .NewAccount new_account = 1;</code>
        */
-      public Pond.NewAccount getNewAccount() {
+      public systems.obscure.client.protos.Pond.NewAccount getNewAccount() {
         if (newAccountBuilder_ == null) {
           return newAccount_;
         } else {
@@ -931,7 +931,7 @@ public final class Pond {
       /**
        * <code>optional .NewAccount new_account = 1;</code>
        */
-      public Builder setNewAccount(Pond.NewAccount value) {
+      public Builder setNewAccount(systems.obscure.client.protos.Pond.NewAccount value) {
         if (newAccountBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -948,7 +948,7 @@ public final class Pond {
        * <code>optional .NewAccount new_account = 1;</code>
        */
       public Builder setNewAccount(
-          Pond.NewAccount.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.NewAccount.Builder builderForValue) {
         if (newAccountBuilder_ == null) {
           newAccount_ = builderForValue.build();
           onChanged();
@@ -961,12 +961,12 @@ public final class Pond {
       /**
        * <code>optional .NewAccount new_account = 1;</code>
        */
-      public Builder mergeNewAccount(Pond.NewAccount value) {
+      public Builder mergeNewAccount(systems.obscure.client.protos.Pond.NewAccount value) {
         if (newAccountBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              newAccount_ != Pond.NewAccount.getDefaultInstance()) {
+              newAccount_ != systems.obscure.client.protos.Pond.NewAccount.getDefaultInstance()) {
             newAccount_ =
-              Pond.NewAccount.newBuilder(newAccount_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.NewAccount.newBuilder(newAccount_).mergeFrom(value).buildPartial();
           } else {
             newAccount_ = value;
           }
@@ -982,7 +982,7 @@ public final class Pond {
        */
       public Builder clearNewAccount() {
         if (newAccountBuilder_ == null) {
-          newAccount_ = Pond.NewAccount.getDefaultInstance();
+          newAccount_ = systems.obscure.client.protos.Pond.NewAccount.getDefaultInstance();
           onChanged();
         } else {
           newAccountBuilder_.clear();
@@ -993,7 +993,7 @@ public final class Pond {
       /**
        * <code>optional .NewAccount new_account = 1;</code>
        */
-      public Pond.NewAccount.Builder getNewAccountBuilder() {
+      public systems.obscure.client.protos.Pond.NewAccount.Builder getNewAccountBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getNewAccountFieldBuilder().getBuilder();
@@ -1001,7 +1001,7 @@ public final class Pond {
       /**
        * <code>optional .NewAccount new_account = 1;</code>
        */
-      public Pond.NewAccountOrBuilder getNewAccountOrBuilder() {
+      public systems.obscure.client.protos.Pond.NewAccountOrBuilder getNewAccountOrBuilder() {
         if (newAccountBuilder_ != null) {
           return newAccountBuilder_.getMessageOrBuilder();
         } else {
@@ -1012,11 +1012,11 @@ public final class Pond {
        * <code>optional .NewAccount new_account = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.NewAccount, Pond.NewAccount.Builder, Pond.NewAccountOrBuilder> 
+          systems.obscure.client.protos.Pond.NewAccount, systems.obscure.client.protos.Pond.NewAccount.Builder, systems.obscure.client.protos.Pond.NewAccountOrBuilder> 
           getNewAccountFieldBuilder() {
         if (newAccountBuilder_ == null) {
           newAccountBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.NewAccount, Pond.NewAccount.Builder, Pond.NewAccountOrBuilder>(
+              systems.obscure.client.protos.Pond.NewAccount, systems.obscure.client.protos.Pond.NewAccount.Builder, systems.obscure.client.protos.Pond.NewAccountOrBuilder>(
                   getNewAccount(),
                   getParentForChildren(),
                   isClean());
@@ -1025,9 +1025,9 @@ public final class Pond {
         return newAccountBuilder_;
       }
 
-      private Pond.Delivery deliver_ = Pond.Delivery.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.Delivery deliver_ = systems.obscure.client.protos.Pond.Delivery.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.Delivery, Pond.Delivery.Builder, Pond.DeliveryOrBuilder> deliverBuilder_;
+          systems.obscure.client.protos.Pond.Delivery, systems.obscure.client.protos.Pond.Delivery.Builder, systems.obscure.client.protos.Pond.DeliveryOrBuilder> deliverBuilder_;
       /**
        * <code>optional .Delivery deliver = 2;</code>
        */
@@ -1037,7 +1037,7 @@ public final class Pond {
       /**
        * <code>optional .Delivery deliver = 2;</code>
        */
-      public Pond.Delivery getDeliver() {
+      public systems.obscure.client.protos.Pond.Delivery getDeliver() {
         if (deliverBuilder_ == null) {
           return deliver_;
         } else {
@@ -1047,7 +1047,7 @@ public final class Pond {
       /**
        * <code>optional .Delivery deliver = 2;</code>
        */
-      public Builder setDeliver(Pond.Delivery value) {
+      public Builder setDeliver(systems.obscure.client.protos.Pond.Delivery value) {
         if (deliverBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1064,7 +1064,7 @@ public final class Pond {
        * <code>optional .Delivery deliver = 2;</code>
        */
       public Builder setDeliver(
-          Pond.Delivery.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.Delivery.Builder builderForValue) {
         if (deliverBuilder_ == null) {
           deliver_ = builderForValue.build();
           onChanged();
@@ -1077,12 +1077,12 @@ public final class Pond {
       /**
        * <code>optional .Delivery deliver = 2;</code>
        */
-      public Builder mergeDeliver(Pond.Delivery value) {
+      public Builder mergeDeliver(systems.obscure.client.protos.Pond.Delivery value) {
         if (deliverBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              deliver_ != Pond.Delivery.getDefaultInstance()) {
+              deliver_ != systems.obscure.client.protos.Pond.Delivery.getDefaultInstance()) {
             deliver_ =
-              Pond.Delivery.newBuilder(deliver_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.Delivery.newBuilder(deliver_).mergeFrom(value).buildPartial();
           } else {
             deliver_ = value;
           }
@@ -1098,7 +1098,7 @@ public final class Pond {
        */
       public Builder clearDeliver() {
         if (deliverBuilder_ == null) {
-          deliver_ = Pond.Delivery.getDefaultInstance();
+          deliver_ = systems.obscure.client.protos.Pond.Delivery.getDefaultInstance();
           onChanged();
         } else {
           deliverBuilder_.clear();
@@ -1109,7 +1109,7 @@ public final class Pond {
       /**
        * <code>optional .Delivery deliver = 2;</code>
        */
-      public Pond.Delivery.Builder getDeliverBuilder() {
+      public systems.obscure.client.protos.Pond.Delivery.Builder getDeliverBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
         return getDeliverFieldBuilder().getBuilder();
@@ -1117,7 +1117,7 @@ public final class Pond {
       /**
        * <code>optional .Delivery deliver = 2;</code>
        */
-      public Pond.DeliveryOrBuilder getDeliverOrBuilder() {
+      public systems.obscure.client.protos.Pond.DeliveryOrBuilder getDeliverOrBuilder() {
         if (deliverBuilder_ != null) {
           return deliverBuilder_.getMessageOrBuilder();
         } else {
@@ -1128,11 +1128,11 @@ public final class Pond {
        * <code>optional .Delivery deliver = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.Delivery, Pond.Delivery.Builder, Pond.DeliveryOrBuilder> 
+          systems.obscure.client.protos.Pond.Delivery, systems.obscure.client.protos.Pond.Delivery.Builder, systems.obscure.client.protos.Pond.DeliveryOrBuilder> 
           getDeliverFieldBuilder() {
         if (deliverBuilder_ == null) {
           deliverBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.Delivery, Pond.Delivery.Builder, Pond.DeliveryOrBuilder>(
+              systems.obscure.client.protos.Pond.Delivery, systems.obscure.client.protos.Pond.Delivery.Builder, systems.obscure.client.protos.Pond.DeliveryOrBuilder>(
                   getDeliver(),
                   getParentForChildren(),
                   isClean());
@@ -1141,9 +1141,9 @@ public final class Pond {
         return deliverBuilder_;
       }
 
-      private Pond.Fetch fetch_ = Pond.Fetch.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.Fetch fetch_ = systems.obscure.client.protos.Pond.Fetch.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.Fetch, Pond.Fetch.Builder, Pond.FetchOrBuilder> fetchBuilder_;
+          systems.obscure.client.protos.Pond.Fetch, systems.obscure.client.protos.Pond.Fetch.Builder, systems.obscure.client.protos.Pond.FetchOrBuilder> fetchBuilder_;
       /**
        * <code>optional .Fetch fetch = 3;</code>
        */
@@ -1153,7 +1153,7 @@ public final class Pond {
       /**
        * <code>optional .Fetch fetch = 3;</code>
        */
-      public Pond.Fetch getFetch() {
+      public systems.obscure.client.protos.Pond.Fetch getFetch() {
         if (fetchBuilder_ == null) {
           return fetch_;
         } else {
@@ -1163,7 +1163,7 @@ public final class Pond {
       /**
        * <code>optional .Fetch fetch = 3;</code>
        */
-      public Builder setFetch(Pond.Fetch value) {
+      public Builder setFetch(systems.obscure.client.protos.Pond.Fetch value) {
         if (fetchBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1180,7 +1180,7 @@ public final class Pond {
        * <code>optional .Fetch fetch = 3;</code>
        */
       public Builder setFetch(
-          Pond.Fetch.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.Fetch.Builder builderForValue) {
         if (fetchBuilder_ == null) {
           fetch_ = builderForValue.build();
           onChanged();
@@ -1193,12 +1193,12 @@ public final class Pond {
       /**
        * <code>optional .Fetch fetch = 3;</code>
        */
-      public Builder mergeFetch(Pond.Fetch value) {
+      public Builder mergeFetch(systems.obscure.client.protos.Pond.Fetch value) {
         if (fetchBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              fetch_ != Pond.Fetch.getDefaultInstance()) {
+              fetch_ != systems.obscure.client.protos.Pond.Fetch.getDefaultInstance()) {
             fetch_ =
-              Pond.Fetch.newBuilder(fetch_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.Fetch.newBuilder(fetch_).mergeFrom(value).buildPartial();
           } else {
             fetch_ = value;
           }
@@ -1214,7 +1214,7 @@ public final class Pond {
        */
       public Builder clearFetch() {
         if (fetchBuilder_ == null) {
-          fetch_ = Pond.Fetch.getDefaultInstance();
+          fetch_ = systems.obscure.client.protos.Pond.Fetch.getDefaultInstance();
           onChanged();
         } else {
           fetchBuilder_.clear();
@@ -1225,7 +1225,7 @@ public final class Pond {
       /**
        * <code>optional .Fetch fetch = 3;</code>
        */
-      public Pond.Fetch.Builder getFetchBuilder() {
+      public systems.obscure.client.protos.Pond.Fetch.Builder getFetchBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
         return getFetchFieldBuilder().getBuilder();
@@ -1233,7 +1233,7 @@ public final class Pond {
       /**
        * <code>optional .Fetch fetch = 3;</code>
        */
-      public Pond.FetchOrBuilder getFetchOrBuilder() {
+      public systems.obscure.client.protos.Pond.FetchOrBuilder getFetchOrBuilder() {
         if (fetchBuilder_ != null) {
           return fetchBuilder_.getMessageOrBuilder();
         } else {
@@ -1244,11 +1244,11 @@ public final class Pond {
        * <code>optional .Fetch fetch = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.Fetch, Pond.Fetch.Builder, Pond.FetchOrBuilder> 
+          systems.obscure.client.protos.Pond.Fetch, systems.obscure.client.protos.Pond.Fetch.Builder, systems.obscure.client.protos.Pond.FetchOrBuilder> 
           getFetchFieldBuilder() {
         if (fetchBuilder_ == null) {
           fetchBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.Fetch, Pond.Fetch.Builder, Pond.FetchOrBuilder>(
+              systems.obscure.client.protos.Pond.Fetch, systems.obscure.client.protos.Pond.Fetch.Builder, systems.obscure.client.protos.Pond.FetchOrBuilder>(
                   getFetch(),
                   getParentForChildren(),
                   isClean());
@@ -1257,9 +1257,9 @@ public final class Pond {
         return fetchBuilder_;
       }
 
-      private Pond.Upload upload_ = Pond.Upload.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.Upload upload_ = systems.obscure.client.protos.Pond.Upload.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.Upload, Pond.Upload.Builder, Pond.UploadOrBuilder> uploadBuilder_;
+          systems.obscure.client.protos.Pond.Upload, systems.obscure.client.protos.Pond.Upload.Builder, systems.obscure.client.protos.Pond.UploadOrBuilder> uploadBuilder_;
       /**
        * <code>optional .Upload upload = 4;</code>
        */
@@ -1269,7 +1269,7 @@ public final class Pond {
       /**
        * <code>optional .Upload upload = 4;</code>
        */
-      public Pond.Upload getUpload() {
+      public systems.obscure.client.protos.Pond.Upload getUpload() {
         if (uploadBuilder_ == null) {
           return upload_;
         } else {
@@ -1279,7 +1279,7 @@ public final class Pond {
       /**
        * <code>optional .Upload upload = 4;</code>
        */
-      public Builder setUpload(Pond.Upload value) {
+      public Builder setUpload(systems.obscure.client.protos.Pond.Upload value) {
         if (uploadBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1296,7 +1296,7 @@ public final class Pond {
        * <code>optional .Upload upload = 4;</code>
        */
       public Builder setUpload(
-          Pond.Upload.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.Upload.Builder builderForValue) {
         if (uploadBuilder_ == null) {
           upload_ = builderForValue.build();
           onChanged();
@@ -1309,12 +1309,12 @@ public final class Pond {
       /**
        * <code>optional .Upload upload = 4;</code>
        */
-      public Builder mergeUpload(Pond.Upload value) {
+      public Builder mergeUpload(systems.obscure.client.protos.Pond.Upload value) {
         if (uploadBuilder_ == null) {
           if (((bitField0_ & 0x00000008) == 0x00000008) &&
-              upload_ != Pond.Upload.getDefaultInstance()) {
+              upload_ != systems.obscure.client.protos.Pond.Upload.getDefaultInstance()) {
             upload_ =
-              Pond.Upload.newBuilder(upload_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.Upload.newBuilder(upload_).mergeFrom(value).buildPartial();
           } else {
             upload_ = value;
           }
@@ -1330,7 +1330,7 @@ public final class Pond {
        */
       public Builder clearUpload() {
         if (uploadBuilder_ == null) {
-          upload_ = Pond.Upload.getDefaultInstance();
+          upload_ = systems.obscure.client.protos.Pond.Upload.getDefaultInstance();
           onChanged();
         } else {
           uploadBuilder_.clear();
@@ -1341,7 +1341,7 @@ public final class Pond {
       /**
        * <code>optional .Upload upload = 4;</code>
        */
-      public Pond.Upload.Builder getUploadBuilder() {
+      public systems.obscure.client.protos.Pond.Upload.Builder getUploadBuilder() {
         bitField0_ |= 0x00000008;
         onChanged();
         return getUploadFieldBuilder().getBuilder();
@@ -1349,7 +1349,7 @@ public final class Pond {
       /**
        * <code>optional .Upload upload = 4;</code>
        */
-      public Pond.UploadOrBuilder getUploadOrBuilder() {
+      public systems.obscure.client.protos.Pond.UploadOrBuilder getUploadOrBuilder() {
         if (uploadBuilder_ != null) {
           return uploadBuilder_.getMessageOrBuilder();
         } else {
@@ -1360,11 +1360,11 @@ public final class Pond {
        * <code>optional .Upload upload = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.Upload, Pond.Upload.Builder, Pond.UploadOrBuilder> 
+          systems.obscure.client.protos.Pond.Upload, systems.obscure.client.protos.Pond.Upload.Builder, systems.obscure.client.protos.Pond.UploadOrBuilder> 
           getUploadFieldBuilder() {
         if (uploadBuilder_ == null) {
           uploadBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.Upload, Pond.Upload.Builder, Pond.UploadOrBuilder>(
+              systems.obscure.client.protos.Pond.Upload, systems.obscure.client.protos.Pond.Upload.Builder, systems.obscure.client.protos.Pond.UploadOrBuilder>(
                   getUpload(),
                   getParentForChildren(),
                   isClean());
@@ -1373,9 +1373,9 @@ public final class Pond {
         return uploadBuilder_;
       }
 
-      private Pond.Download download_ = Pond.Download.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.Download download_ = systems.obscure.client.protos.Pond.Download.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.Download, Pond.Download.Builder, Pond.DownloadOrBuilder> downloadBuilder_;
+          systems.obscure.client.protos.Pond.Download, systems.obscure.client.protos.Pond.Download.Builder, systems.obscure.client.protos.Pond.DownloadOrBuilder> downloadBuilder_;
       /**
        * <code>optional .Download download = 5;</code>
        */
@@ -1385,7 +1385,7 @@ public final class Pond {
       /**
        * <code>optional .Download download = 5;</code>
        */
-      public Pond.Download getDownload() {
+      public systems.obscure.client.protos.Pond.Download getDownload() {
         if (downloadBuilder_ == null) {
           return download_;
         } else {
@@ -1395,7 +1395,7 @@ public final class Pond {
       /**
        * <code>optional .Download download = 5;</code>
        */
-      public Builder setDownload(Pond.Download value) {
+      public Builder setDownload(systems.obscure.client.protos.Pond.Download value) {
         if (downloadBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1412,7 +1412,7 @@ public final class Pond {
        * <code>optional .Download download = 5;</code>
        */
       public Builder setDownload(
-          Pond.Download.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.Download.Builder builderForValue) {
         if (downloadBuilder_ == null) {
           download_ = builderForValue.build();
           onChanged();
@@ -1425,12 +1425,12 @@ public final class Pond {
       /**
        * <code>optional .Download download = 5;</code>
        */
-      public Builder mergeDownload(Pond.Download value) {
+      public Builder mergeDownload(systems.obscure.client.protos.Pond.Download value) {
         if (downloadBuilder_ == null) {
           if (((bitField0_ & 0x00000010) == 0x00000010) &&
-              download_ != Pond.Download.getDefaultInstance()) {
+              download_ != systems.obscure.client.protos.Pond.Download.getDefaultInstance()) {
             download_ =
-              Pond.Download.newBuilder(download_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.Download.newBuilder(download_).mergeFrom(value).buildPartial();
           } else {
             download_ = value;
           }
@@ -1446,7 +1446,7 @@ public final class Pond {
        */
       public Builder clearDownload() {
         if (downloadBuilder_ == null) {
-          download_ = Pond.Download.getDefaultInstance();
+          download_ = systems.obscure.client.protos.Pond.Download.getDefaultInstance();
           onChanged();
         } else {
           downloadBuilder_.clear();
@@ -1457,7 +1457,7 @@ public final class Pond {
       /**
        * <code>optional .Download download = 5;</code>
        */
-      public Pond.Download.Builder getDownloadBuilder() {
+      public systems.obscure.client.protos.Pond.Download.Builder getDownloadBuilder() {
         bitField0_ |= 0x00000010;
         onChanged();
         return getDownloadFieldBuilder().getBuilder();
@@ -1465,7 +1465,7 @@ public final class Pond {
       /**
        * <code>optional .Download download = 5;</code>
        */
-      public Pond.DownloadOrBuilder getDownloadOrBuilder() {
+      public systems.obscure.client.protos.Pond.DownloadOrBuilder getDownloadOrBuilder() {
         if (downloadBuilder_ != null) {
           return downloadBuilder_.getMessageOrBuilder();
         } else {
@@ -1476,11 +1476,11 @@ public final class Pond {
        * <code>optional .Download download = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.Download, Pond.Download.Builder, Pond.DownloadOrBuilder> 
+          systems.obscure.client.protos.Pond.Download, systems.obscure.client.protos.Pond.Download.Builder, systems.obscure.client.protos.Pond.DownloadOrBuilder> 
           getDownloadFieldBuilder() {
         if (downloadBuilder_ == null) {
           downloadBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.Download, Pond.Download.Builder, Pond.DownloadOrBuilder>(
+              systems.obscure.client.protos.Pond.Download, systems.obscure.client.protos.Pond.Download.Builder, systems.obscure.client.protos.Pond.DownloadOrBuilder>(
                   getDownload(),
                   getParentForChildren(),
                   isClean());
@@ -1489,9 +1489,9 @@ public final class Pond {
         return downloadBuilder_;
       }
 
-      private Pond.HMACSetup hmacSetup_ = Pond.HMACSetup.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.HMACSetup hmacSetup_ = systems.obscure.client.protos.Pond.HMACSetup.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.HMACSetup, Pond.HMACSetup.Builder, Pond.HMACSetupOrBuilder> hmacSetupBuilder_;
+          systems.obscure.client.protos.Pond.HMACSetup, systems.obscure.client.protos.Pond.HMACSetup.Builder, systems.obscure.client.protos.Pond.HMACSetupOrBuilder> hmacSetupBuilder_;
       /**
        * <code>optional .HMACSetup hmac_setup = 6;</code>
        *
@@ -1509,7 +1509,7 @@ public final class Pond {
        * optional SignedRevocation revocation = 6;
        * </pre>
        */
-      public Pond.HMACSetup getHmacSetup() {
+      public systems.obscure.client.protos.Pond.HMACSetup getHmacSetup() {
         if (hmacSetupBuilder_ == null) {
           return hmacSetup_;
         } else {
@@ -1523,7 +1523,7 @@ public final class Pond {
        * optional SignedRevocation revocation = 6;
        * </pre>
        */
-      public Builder setHmacSetup(Pond.HMACSetup value) {
+      public Builder setHmacSetup(systems.obscure.client.protos.Pond.HMACSetup value) {
         if (hmacSetupBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1544,7 +1544,7 @@ public final class Pond {
        * </pre>
        */
       public Builder setHmacSetup(
-          Pond.HMACSetup.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.HMACSetup.Builder builderForValue) {
         if (hmacSetupBuilder_ == null) {
           hmacSetup_ = builderForValue.build();
           onChanged();
@@ -1561,12 +1561,12 @@ public final class Pond {
        * optional SignedRevocation revocation = 6;
        * </pre>
        */
-      public Builder mergeHmacSetup(Pond.HMACSetup value) {
+      public Builder mergeHmacSetup(systems.obscure.client.protos.Pond.HMACSetup value) {
         if (hmacSetupBuilder_ == null) {
           if (((bitField0_ & 0x00000020) == 0x00000020) &&
-              hmacSetup_ != Pond.HMACSetup.getDefaultInstance()) {
+              hmacSetup_ != systems.obscure.client.protos.Pond.HMACSetup.getDefaultInstance()) {
             hmacSetup_ =
-              Pond.HMACSetup.newBuilder(hmacSetup_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.HMACSetup.newBuilder(hmacSetup_).mergeFrom(value).buildPartial();
           } else {
             hmacSetup_ = value;
           }
@@ -1586,7 +1586,7 @@ public final class Pond {
        */
       public Builder clearHmacSetup() {
         if (hmacSetupBuilder_ == null) {
-          hmacSetup_ = Pond.HMACSetup.getDefaultInstance();
+          hmacSetup_ = systems.obscure.client.protos.Pond.HMACSetup.getDefaultInstance();
           onChanged();
         } else {
           hmacSetupBuilder_.clear();
@@ -1601,7 +1601,7 @@ public final class Pond {
        * optional SignedRevocation revocation = 6;
        * </pre>
        */
-      public Pond.HMACSetup.Builder getHmacSetupBuilder() {
+      public systems.obscure.client.protos.Pond.HMACSetup.Builder getHmacSetupBuilder() {
         bitField0_ |= 0x00000020;
         onChanged();
         return getHmacSetupFieldBuilder().getBuilder();
@@ -1613,7 +1613,7 @@ public final class Pond {
        * optional SignedRevocation revocation = 6;
        * </pre>
        */
-      public Pond.HMACSetupOrBuilder getHmacSetupOrBuilder() {
+      public systems.obscure.client.protos.Pond.HMACSetupOrBuilder getHmacSetupOrBuilder() {
         if (hmacSetupBuilder_ != null) {
           return hmacSetupBuilder_.getMessageOrBuilder();
         } else {
@@ -1628,11 +1628,11 @@ public final class Pond {
        * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.HMACSetup, Pond.HMACSetup.Builder, Pond.HMACSetupOrBuilder> 
+          systems.obscure.client.protos.Pond.HMACSetup, systems.obscure.client.protos.Pond.HMACSetup.Builder, systems.obscure.client.protos.Pond.HMACSetupOrBuilder> 
           getHmacSetupFieldBuilder() {
         if (hmacSetupBuilder_ == null) {
           hmacSetupBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.HMACSetup, Pond.HMACSetup.Builder, Pond.HMACSetupOrBuilder>(
+              systems.obscure.client.protos.Pond.HMACSetup, systems.obscure.client.protos.Pond.HMACSetup.Builder, systems.obscure.client.protos.Pond.HMACSetupOrBuilder>(
                   getHmacSetup(),
                   getParentForChildren(),
                   isClean());
@@ -1641,9 +1641,9 @@ public final class Pond {
         return hmacSetupBuilder_;
       }
 
-      private Pond.HMACStrike hmacStrike_ = Pond.HMACStrike.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.HMACStrike hmacStrike_ = systems.obscure.client.protos.Pond.HMACStrike.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.HMACStrike, Pond.HMACStrike.Builder, Pond.HMACStrikeOrBuilder> hmacStrikeBuilder_;
+          systems.obscure.client.protos.Pond.HMACStrike, systems.obscure.client.protos.Pond.HMACStrike.Builder, systems.obscure.client.protos.Pond.HMACStrikeOrBuilder> hmacStrikeBuilder_;
       /**
        * <code>optional .HMACStrike hmac_strike = 7;</code>
        */
@@ -1653,7 +1653,7 @@ public final class Pond {
       /**
        * <code>optional .HMACStrike hmac_strike = 7;</code>
        */
-      public Pond.HMACStrike getHmacStrike() {
+      public systems.obscure.client.protos.Pond.HMACStrike getHmacStrike() {
         if (hmacStrikeBuilder_ == null) {
           return hmacStrike_;
         } else {
@@ -1663,7 +1663,7 @@ public final class Pond {
       /**
        * <code>optional .HMACStrike hmac_strike = 7;</code>
        */
-      public Builder setHmacStrike(Pond.HMACStrike value) {
+      public Builder setHmacStrike(systems.obscure.client.protos.Pond.HMACStrike value) {
         if (hmacStrikeBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1680,7 +1680,7 @@ public final class Pond {
        * <code>optional .HMACStrike hmac_strike = 7;</code>
        */
       public Builder setHmacStrike(
-          Pond.HMACStrike.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.HMACStrike.Builder builderForValue) {
         if (hmacStrikeBuilder_ == null) {
           hmacStrike_ = builderForValue.build();
           onChanged();
@@ -1693,12 +1693,12 @@ public final class Pond {
       /**
        * <code>optional .HMACStrike hmac_strike = 7;</code>
        */
-      public Builder mergeHmacStrike(Pond.HMACStrike value) {
+      public Builder mergeHmacStrike(systems.obscure.client.protos.Pond.HMACStrike value) {
         if (hmacStrikeBuilder_ == null) {
           if (((bitField0_ & 0x00000040) == 0x00000040) &&
-              hmacStrike_ != Pond.HMACStrike.getDefaultInstance()) {
+              hmacStrike_ != systems.obscure.client.protos.Pond.HMACStrike.getDefaultInstance()) {
             hmacStrike_ =
-              Pond.HMACStrike.newBuilder(hmacStrike_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.HMACStrike.newBuilder(hmacStrike_).mergeFrom(value).buildPartial();
           } else {
             hmacStrike_ = value;
           }
@@ -1714,7 +1714,7 @@ public final class Pond {
        */
       public Builder clearHmacStrike() {
         if (hmacStrikeBuilder_ == null) {
-          hmacStrike_ = Pond.HMACStrike.getDefaultInstance();
+          hmacStrike_ = systems.obscure.client.protos.Pond.HMACStrike.getDefaultInstance();
           onChanged();
         } else {
           hmacStrikeBuilder_.clear();
@@ -1725,7 +1725,7 @@ public final class Pond {
       /**
        * <code>optional .HMACStrike hmac_strike = 7;</code>
        */
-      public Pond.HMACStrike.Builder getHmacStrikeBuilder() {
+      public systems.obscure.client.protos.Pond.HMACStrike.Builder getHmacStrikeBuilder() {
         bitField0_ |= 0x00000040;
         onChanged();
         return getHmacStrikeFieldBuilder().getBuilder();
@@ -1733,7 +1733,7 @@ public final class Pond {
       /**
        * <code>optional .HMACStrike hmac_strike = 7;</code>
        */
-      public Pond.HMACStrikeOrBuilder getHmacStrikeOrBuilder() {
+      public systems.obscure.client.protos.Pond.HMACStrikeOrBuilder getHmacStrikeOrBuilder() {
         if (hmacStrikeBuilder_ != null) {
           return hmacStrikeBuilder_.getMessageOrBuilder();
         } else {
@@ -1744,11 +1744,11 @@ public final class Pond {
        * <code>optional .HMACStrike hmac_strike = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.HMACStrike, Pond.HMACStrike.Builder, Pond.HMACStrikeOrBuilder> 
+          systems.obscure.client.protos.Pond.HMACStrike, systems.obscure.client.protos.Pond.HMACStrike.Builder, systems.obscure.client.protos.Pond.HMACStrikeOrBuilder> 
           getHmacStrikeFieldBuilder() {
         if (hmacStrikeBuilder_ == null) {
           hmacStrikeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.HMACStrike, Pond.HMACStrike.Builder, Pond.HMACStrikeOrBuilder>(
+              systems.obscure.client.protos.Pond.HMACStrike, systems.obscure.client.protos.Pond.HMACStrike.Builder, systems.obscure.client.protos.Pond.HMACStrikeOrBuilder>(
                   getHmacStrike(),
                   getParentForChildren(),
                   isClean());
@@ -1779,7 +1779,7 @@ public final class Pond {
     /**
      * <code>optional .Reply.Status status = 1 [default = OK];</code>
      */
-    Pond.Reply.Status getStatus();
+    systems.obscure.client.protos.Pond.Reply.Status getStatus();
 
     /**
      * <code>optional .AccountCreated account_created = 2;</code>
@@ -1788,11 +1788,11 @@ public final class Pond {
     /**
      * <code>optional .AccountCreated account_created = 2;</code>
      */
-    Pond.AccountCreated getAccountCreated();
+    systems.obscure.client.protos.Pond.AccountCreated getAccountCreated();
     /**
      * <code>optional .AccountCreated account_created = 2;</code>
      */
-    Pond.AccountCreatedOrBuilder getAccountCreatedOrBuilder();
+    systems.obscure.client.protos.Pond.AccountCreatedOrBuilder getAccountCreatedOrBuilder();
 
     /**
      * <code>optional .Fetched fetched = 3;</code>
@@ -1801,11 +1801,11 @@ public final class Pond {
     /**
      * <code>optional .Fetched fetched = 3;</code>
      */
-    Pond.Fetched getFetched();
+    systems.obscure.client.protos.Pond.Fetched getFetched();
     /**
      * <code>optional .Fetched fetched = 3;</code>
      */
-    Pond.FetchedOrBuilder getFetchedOrBuilder();
+    systems.obscure.client.protos.Pond.FetchedOrBuilder getFetchedOrBuilder();
 
     /**
      * <code>optional .ServerAnnounce announce = 4;</code>
@@ -1814,11 +1814,11 @@ public final class Pond {
     /**
      * <code>optional .ServerAnnounce announce = 4;</code>
      */
-    Pond.ServerAnnounce getAnnounce();
+    systems.obscure.client.protos.Pond.ServerAnnounce getAnnounce();
     /**
      * <code>optional .ServerAnnounce announce = 4;</code>
      */
-    Pond.ServerAnnounceOrBuilder getAnnounceOrBuilder();
+    systems.obscure.client.protos.Pond.ServerAnnounceOrBuilder getAnnounceOrBuilder();
 
     /**
      * <code>optional .UploadReply upload = 5;</code>
@@ -1827,11 +1827,11 @@ public final class Pond {
     /**
      * <code>optional .UploadReply upload = 5;</code>
      */
-    Pond.UploadReply getUpload();
+    systems.obscure.client.protos.Pond.UploadReply getUpload();
     /**
      * <code>optional .UploadReply upload = 5;</code>
      */
-    Pond.UploadReplyOrBuilder getUploadOrBuilder();
+    systems.obscure.client.protos.Pond.UploadReplyOrBuilder getUploadOrBuilder();
 
     /**
      * <code>optional .DownloadReply download = 6;</code>
@@ -1850,7 +1850,7 @@ public final class Pond {
      * repeated SignedRevocation extra_revocations = 8;
      * </pre>
      */
-    Pond.DownloadReply getDownload();
+    systems.obscure.client.protos.Pond.DownloadReply getDownload();
     /**
      * <code>optional .DownloadReply download = 6;</code>
      *
@@ -1859,7 +1859,7 @@ public final class Pond {
      * repeated SignedRevocation extra_revocations = 8;
      * </pre>
      */
-    Pond.DownloadReplyOrBuilder getDownloadOrBuilder();
+    systems.obscure.client.protos.Pond.DownloadReplyOrBuilder getDownloadOrBuilder();
   }
   /**
    * Protobuf type {@code Reply}
@@ -1919,7 +1919,7 @@ public final class Pond {
             }
             case 8: {
               int rawValue = input.readEnum();
-              Pond.Reply.Status value = Pond.Reply.Status.valueOf(rawValue);
+              systems.obscure.client.protos.Pond.Reply.Status value = systems.obscure.client.protos.Pond.Reply.Status.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -1929,11 +1929,11 @@ public final class Pond {
               break;
             }
             case 18: {
-              Pond.AccountCreated.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.AccountCreated.Builder subBuilder = null;
               if (((bitField0_ & 0x00000002) == 0x00000002)) {
                 subBuilder = accountCreated_.toBuilder();
               }
-              accountCreated_ = input.readMessage(Pond.AccountCreated.PARSER, extensionRegistry);
+              accountCreated_ = input.readMessage(systems.obscure.client.protos.Pond.AccountCreated.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(accountCreated_);
                 accountCreated_ = subBuilder.buildPartial();
@@ -1942,11 +1942,11 @@ public final class Pond {
               break;
             }
             case 26: {
-              Pond.Fetched.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.Fetched.Builder subBuilder = null;
               if (((bitField0_ & 0x00000004) == 0x00000004)) {
                 subBuilder = fetched_.toBuilder();
               }
-              fetched_ = input.readMessage(Pond.Fetched.PARSER, extensionRegistry);
+              fetched_ = input.readMessage(systems.obscure.client.protos.Pond.Fetched.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(fetched_);
                 fetched_ = subBuilder.buildPartial();
@@ -1955,11 +1955,11 @@ public final class Pond {
               break;
             }
             case 34: {
-              Pond.ServerAnnounce.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.ServerAnnounce.Builder subBuilder = null;
               if (((bitField0_ & 0x00000008) == 0x00000008)) {
                 subBuilder = announce_.toBuilder();
               }
-              announce_ = input.readMessage(Pond.ServerAnnounce.PARSER, extensionRegistry);
+              announce_ = input.readMessage(systems.obscure.client.protos.Pond.ServerAnnounce.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(announce_);
                 announce_ = subBuilder.buildPartial();
@@ -1968,11 +1968,11 @@ public final class Pond {
               break;
             }
             case 42: {
-              Pond.UploadReply.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.UploadReply.Builder subBuilder = null;
               if (((bitField0_ & 0x00000010) == 0x00000010)) {
                 subBuilder = upload_.toBuilder();
               }
-              upload_ = input.readMessage(Pond.UploadReply.PARSER, extensionRegistry);
+              upload_ = input.readMessage(systems.obscure.client.protos.Pond.UploadReply.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(upload_);
                 upload_ = subBuilder.buildPartial();
@@ -1981,11 +1981,11 @@ public final class Pond {
               break;
             }
             case 50: {
-              Pond.DownloadReply.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.DownloadReply.Builder subBuilder = null;
               if (((bitField0_ & 0x00000020) == 0x00000020)) {
                 subBuilder = download_.toBuilder();
               }
-              download_ = input.readMessage(Pond.DownloadReply.PARSER, extensionRegistry);
+              download_ = input.readMessage(systems.obscure.client.protos.Pond.DownloadReply.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(download_);
                 download_ = subBuilder.buildPartial();
@@ -2007,14 +2007,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_Reply_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_Reply_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_Reply_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_Reply_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.Reply.class, Pond.Reply.Builder.class);
+              systems.obscure.client.protos.Pond.Reply.class, systems.obscure.client.protos.Pond.Reply.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Reply> PARSER =
@@ -2339,7 +2339,7 @@ public final class Pond {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return Pond.Reply.getDescriptor().getEnumTypes().get(0);
+        return systems.obscure.client.protos.Pond.Reply.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final Status[] VALUES = values();
@@ -2366,7 +2366,7 @@ public final class Pond {
 
     private int bitField0_;
     public static final int STATUS_FIELD_NUMBER = 1;
-    private Pond.Reply.Status status_;
+    private systems.obscure.client.protos.Pond.Reply.Status status_;
     /**
      * <code>optional .Reply.Status status = 1 [default = OK];</code>
      */
@@ -2376,12 +2376,12 @@ public final class Pond {
     /**
      * <code>optional .Reply.Status status = 1 [default = OK];</code>
      */
-    public Pond.Reply.Status getStatus() {
+    public systems.obscure.client.protos.Pond.Reply.Status getStatus() {
       return status_;
     }
 
     public static final int ACCOUNT_CREATED_FIELD_NUMBER = 2;
-    private Pond.AccountCreated accountCreated_;
+    private systems.obscure.client.protos.Pond.AccountCreated accountCreated_;
     /**
      * <code>optional .AccountCreated account_created = 2;</code>
      */
@@ -2391,18 +2391,18 @@ public final class Pond {
     /**
      * <code>optional .AccountCreated account_created = 2;</code>
      */
-    public Pond.AccountCreated getAccountCreated() {
+    public systems.obscure.client.protos.Pond.AccountCreated getAccountCreated() {
       return accountCreated_;
     }
     /**
      * <code>optional .AccountCreated account_created = 2;</code>
      */
-    public Pond.AccountCreatedOrBuilder getAccountCreatedOrBuilder() {
+    public systems.obscure.client.protos.Pond.AccountCreatedOrBuilder getAccountCreatedOrBuilder() {
       return accountCreated_;
     }
 
     public static final int FETCHED_FIELD_NUMBER = 3;
-    private Pond.Fetched fetched_;
+    private systems.obscure.client.protos.Pond.Fetched fetched_;
     /**
      * <code>optional .Fetched fetched = 3;</code>
      */
@@ -2412,18 +2412,18 @@ public final class Pond {
     /**
      * <code>optional .Fetched fetched = 3;</code>
      */
-    public Pond.Fetched getFetched() {
+    public systems.obscure.client.protos.Pond.Fetched getFetched() {
       return fetched_;
     }
     /**
      * <code>optional .Fetched fetched = 3;</code>
      */
-    public Pond.FetchedOrBuilder getFetchedOrBuilder() {
+    public systems.obscure.client.protos.Pond.FetchedOrBuilder getFetchedOrBuilder() {
       return fetched_;
     }
 
     public static final int ANNOUNCE_FIELD_NUMBER = 4;
-    private Pond.ServerAnnounce announce_;
+    private systems.obscure.client.protos.Pond.ServerAnnounce announce_;
     /**
      * <code>optional .ServerAnnounce announce = 4;</code>
      */
@@ -2433,18 +2433,18 @@ public final class Pond {
     /**
      * <code>optional .ServerAnnounce announce = 4;</code>
      */
-    public Pond.ServerAnnounce getAnnounce() {
+    public systems.obscure.client.protos.Pond.ServerAnnounce getAnnounce() {
       return announce_;
     }
     /**
      * <code>optional .ServerAnnounce announce = 4;</code>
      */
-    public Pond.ServerAnnounceOrBuilder getAnnounceOrBuilder() {
+    public systems.obscure.client.protos.Pond.ServerAnnounceOrBuilder getAnnounceOrBuilder() {
       return announce_;
     }
 
     public static final int UPLOAD_FIELD_NUMBER = 5;
-    private Pond.UploadReply upload_;
+    private systems.obscure.client.protos.Pond.UploadReply upload_;
     /**
      * <code>optional .UploadReply upload = 5;</code>
      */
@@ -2454,18 +2454,18 @@ public final class Pond {
     /**
      * <code>optional .UploadReply upload = 5;</code>
      */
-    public Pond.UploadReply getUpload() {
+    public systems.obscure.client.protos.Pond.UploadReply getUpload() {
       return upload_;
     }
     /**
      * <code>optional .UploadReply upload = 5;</code>
      */
-    public Pond.UploadReplyOrBuilder getUploadOrBuilder() {
+    public systems.obscure.client.protos.Pond.UploadReplyOrBuilder getUploadOrBuilder() {
       return upload_;
     }
 
     public static final int DOWNLOAD_FIELD_NUMBER = 6;
-    private Pond.DownloadReply download_;
+    private systems.obscure.client.protos.Pond.DownloadReply download_;
     /**
      * <code>optional .DownloadReply download = 6;</code>
      *
@@ -2485,7 +2485,7 @@ public final class Pond {
      * repeated SignedRevocation extra_revocations = 8;
      * </pre>
      */
-    public Pond.DownloadReply getDownload() {
+    public systems.obscure.client.protos.Pond.DownloadReply getDownload() {
       return download_;
     }
     /**
@@ -2496,17 +2496,17 @@ public final class Pond {
      * repeated SignedRevocation extra_revocations = 8;
      * </pre>
      */
-    public Pond.DownloadReplyOrBuilder getDownloadOrBuilder() {
+    public systems.obscure.client.protos.Pond.DownloadReplyOrBuilder getDownloadOrBuilder() {
       return download_;
     }
 
     private void initFields() {
-      status_ = Pond.Reply.Status.OK;
-      accountCreated_ = Pond.AccountCreated.getDefaultInstance();
-      fetched_ = Pond.Fetched.getDefaultInstance();
-      announce_ = Pond.ServerAnnounce.getDefaultInstance();
-      upload_ = Pond.UploadReply.getDefaultInstance();
-      download_ = Pond.DownloadReply.getDefaultInstance();
+      status_ = systems.obscure.client.protos.Pond.Reply.Status.OK;
+      accountCreated_ = systems.obscure.client.protos.Pond.AccountCreated.getDefaultInstance();
+      fetched_ = systems.obscure.client.protos.Pond.Fetched.getDefaultInstance();
+      announce_ = systems.obscure.client.protos.Pond.ServerAnnounce.getDefaultInstance();
+      upload_ = systems.obscure.client.protos.Pond.UploadReply.getDefaultInstance();
+      download_ = systems.obscure.client.protos.Pond.DownloadReply.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -2608,53 +2608,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.Reply parseFrom(
+    public static systems.obscure.client.protos.Pond.Reply parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Reply parseFrom(
+    public static systems.obscure.client.protos.Pond.Reply parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Reply parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.Reply parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Reply parseFrom(
+    public static systems.obscure.client.protos.Pond.Reply parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Reply parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Reply parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Reply parseFrom(
+    public static systems.obscure.client.protos.Pond.Reply parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.Reply parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Reply parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.Reply parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.Reply parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.Reply parseFrom(
+    public static systems.obscure.client.protos.Pond.Reply parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Reply parseFrom(
+    public static systems.obscure.client.protos.Pond.Reply parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2663,7 +2663,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.Reply prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.Reply prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -2684,20 +2684,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Reply)
-        Pond.ReplyOrBuilder {
+        systems.obscure.client.protos.Pond.ReplyOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_Reply_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Reply_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_Reply_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_Reply_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.Reply.class, Pond.Reply.Builder.class);
+                systems.obscure.client.protos.Pond.Reply.class, systems.obscure.client.protos.Pond.Reply.Builder.class);
       }
 
-      // Construct using Pond.Reply.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.Reply.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2722,34 +2722,34 @@ public final class Pond {
 
       public Builder clear() {
         super.clear();
-        status_ = Pond.Reply.Status.OK;
+        status_ = systems.obscure.client.protos.Pond.Reply.Status.OK;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (accountCreatedBuilder_ == null) {
-          accountCreated_ = Pond.AccountCreated.getDefaultInstance();
+          accountCreated_ = systems.obscure.client.protos.Pond.AccountCreated.getDefaultInstance();
         } else {
           accountCreatedBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         if (fetchedBuilder_ == null) {
-          fetched_ = Pond.Fetched.getDefaultInstance();
+          fetched_ = systems.obscure.client.protos.Pond.Fetched.getDefaultInstance();
         } else {
           fetchedBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
         if (announceBuilder_ == null) {
-          announce_ = Pond.ServerAnnounce.getDefaultInstance();
+          announce_ = systems.obscure.client.protos.Pond.ServerAnnounce.getDefaultInstance();
         } else {
           announceBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
         if (uploadBuilder_ == null) {
-          upload_ = Pond.UploadReply.getDefaultInstance();
+          upload_ = systems.obscure.client.protos.Pond.UploadReply.getDefaultInstance();
         } else {
           uploadBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000010);
         if (downloadBuilder_ == null) {
-          download_ = Pond.DownloadReply.getDefaultInstance();
+          download_ = systems.obscure.client.protos.Pond.DownloadReply.getDefaultInstance();
         } else {
           downloadBuilder_.clear();
         }
@@ -2763,23 +2763,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_Reply_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Reply_descriptor;
       }
 
-      public Pond.Reply getDefaultInstanceForType() {
-        return Pond.Reply.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.Reply getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.Reply.getDefaultInstance();
       }
 
-      public Pond.Reply build() {
-        Pond.Reply result = buildPartial();
+      public systems.obscure.client.protos.Pond.Reply build() {
+        systems.obscure.client.protos.Pond.Reply result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.Reply buildPartial() {
-        Pond.Reply result = new Pond.Reply(this);
+      public systems.obscure.client.protos.Pond.Reply buildPartial() {
+        systems.obscure.client.protos.Pond.Reply result = new systems.obscure.client.protos.Pond.Reply(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2832,16 +2832,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.Reply) {
-          return mergeFrom((Pond.Reply)other);
+        if (other instanceof systems.obscure.client.protos.Pond.Reply) {
+          return mergeFrom((systems.obscure.client.protos.Pond.Reply)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.Reply other) {
-        if (other == Pond.Reply.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.Reply other) {
+        if (other == systems.obscure.client.protos.Pond.Reply.getDefaultInstance()) return this;
         if (other.hasStatus()) {
           setStatus(other.getStatus());
         }
@@ -2896,11 +2896,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.Reply parsedMessage = null;
+        systems.obscure.client.protos.Pond.Reply parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.Reply) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.Reply) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2911,7 +2911,7 @@ public final class Pond {
       }
       private int bitField0_;
 
-      private Pond.Reply.Status status_ = Pond.Reply.Status.OK;
+      private systems.obscure.client.protos.Pond.Reply.Status status_ = systems.obscure.client.protos.Pond.Reply.Status.OK;
       /**
        * <code>optional .Reply.Status status = 1 [default = OK];</code>
        */
@@ -2921,13 +2921,13 @@ public final class Pond {
       /**
        * <code>optional .Reply.Status status = 1 [default = OK];</code>
        */
-      public Pond.Reply.Status getStatus() {
+      public systems.obscure.client.protos.Pond.Reply.Status getStatus() {
         return status_;
       }
       /**
        * <code>optional .Reply.Status status = 1 [default = OK];</code>
        */
-      public Builder setStatus(Pond.Reply.Status value) {
+      public Builder setStatus(systems.obscure.client.protos.Pond.Reply.Status value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -2941,14 +2941,14 @@ public final class Pond {
        */
       public Builder clearStatus() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        status_ = Pond.Reply.Status.OK;
+        status_ = systems.obscure.client.protos.Pond.Reply.Status.OK;
         onChanged();
         return this;
       }
 
-      private Pond.AccountCreated accountCreated_ = Pond.AccountCreated.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.AccountCreated accountCreated_ = systems.obscure.client.protos.Pond.AccountCreated.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.AccountCreated, Pond.AccountCreated.Builder, Pond.AccountCreatedOrBuilder> accountCreatedBuilder_;
+          systems.obscure.client.protos.Pond.AccountCreated, systems.obscure.client.protos.Pond.AccountCreated.Builder, systems.obscure.client.protos.Pond.AccountCreatedOrBuilder> accountCreatedBuilder_;
       /**
        * <code>optional .AccountCreated account_created = 2;</code>
        */
@@ -2958,7 +2958,7 @@ public final class Pond {
       /**
        * <code>optional .AccountCreated account_created = 2;</code>
        */
-      public Pond.AccountCreated getAccountCreated() {
+      public systems.obscure.client.protos.Pond.AccountCreated getAccountCreated() {
         if (accountCreatedBuilder_ == null) {
           return accountCreated_;
         } else {
@@ -2968,7 +2968,7 @@ public final class Pond {
       /**
        * <code>optional .AccountCreated account_created = 2;</code>
        */
-      public Builder setAccountCreated(Pond.AccountCreated value) {
+      public Builder setAccountCreated(systems.obscure.client.protos.Pond.AccountCreated value) {
         if (accountCreatedBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2985,7 +2985,7 @@ public final class Pond {
        * <code>optional .AccountCreated account_created = 2;</code>
        */
       public Builder setAccountCreated(
-          Pond.AccountCreated.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.AccountCreated.Builder builderForValue) {
         if (accountCreatedBuilder_ == null) {
           accountCreated_ = builderForValue.build();
           onChanged();
@@ -2998,12 +2998,12 @@ public final class Pond {
       /**
        * <code>optional .AccountCreated account_created = 2;</code>
        */
-      public Builder mergeAccountCreated(Pond.AccountCreated value) {
+      public Builder mergeAccountCreated(systems.obscure.client.protos.Pond.AccountCreated value) {
         if (accountCreatedBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              accountCreated_ != Pond.AccountCreated.getDefaultInstance()) {
+              accountCreated_ != systems.obscure.client.protos.Pond.AccountCreated.getDefaultInstance()) {
             accountCreated_ =
-              Pond.AccountCreated.newBuilder(accountCreated_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.AccountCreated.newBuilder(accountCreated_).mergeFrom(value).buildPartial();
           } else {
             accountCreated_ = value;
           }
@@ -3019,7 +3019,7 @@ public final class Pond {
        */
       public Builder clearAccountCreated() {
         if (accountCreatedBuilder_ == null) {
-          accountCreated_ = Pond.AccountCreated.getDefaultInstance();
+          accountCreated_ = systems.obscure.client.protos.Pond.AccountCreated.getDefaultInstance();
           onChanged();
         } else {
           accountCreatedBuilder_.clear();
@@ -3030,7 +3030,7 @@ public final class Pond {
       /**
        * <code>optional .AccountCreated account_created = 2;</code>
        */
-      public Pond.AccountCreated.Builder getAccountCreatedBuilder() {
+      public systems.obscure.client.protos.Pond.AccountCreated.Builder getAccountCreatedBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
         return getAccountCreatedFieldBuilder().getBuilder();
@@ -3038,7 +3038,7 @@ public final class Pond {
       /**
        * <code>optional .AccountCreated account_created = 2;</code>
        */
-      public Pond.AccountCreatedOrBuilder getAccountCreatedOrBuilder() {
+      public systems.obscure.client.protos.Pond.AccountCreatedOrBuilder getAccountCreatedOrBuilder() {
         if (accountCreatedBuilder_ != null) {
           return accountCreatedBuilder_.getMessageOrBuilder();
         } else {
@@ -3049,11 +3049,11 @@ public final class Pond {
        * <code>optional .AccountCreated account_created = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.AccountCreated, Pond.AccountCreated.Builder, Pond.AccountCreatedOrBuilder> 
+          systems.obscure.client.protos.Pond.AccountCreated, systems.obscure.client.protos.Pond.AccountCreated.Builder, systems.obscure.client.protos.Pond.AccountCreatedOrBuilder> 
           getAccountCreatedFieldBuilder() {
         if (accountCreatedBuilder_ == null) {
           accountCreatedBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.AccountCreated, Pond.AccountCreated.Builder, Pond.AccountCreatedOrBuilder>(
+              systems.obscure.client.protos.Pond.AccountCreated, systems.obscure.client.protos.Pond.AccountCreated.Builder, systems.obscure.client.protos.Pond.AccountCreatedOrBuilder>(
                   getAccountCreated(),
                   getParentForChildren(),
                   isClean());
@@ -3062,9 +3062,9 @@ public final class Pond {
         return accountCreatedBuilder_;
       }
 
-      private Pond.Fetched fetched_ = Pond.Fetched.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.Fetched fetched_ = systems.obscure.client.protos.Pond.Fetched.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.Fetched, Pond.Fetched.Builder, Pond.FetchedOrBuilder> fetchedBuilder_;
+          systems.obscure.client.protos.Pond.Fetched, systems.obscure.client.protos.Pond.Fetched.Builder, systems.obscure.client.protos.Pond.FetchedOrBuilder> fetchedBuilder_;
       /**
        * <code>optional .Fetched fetched = 3;</code>
        */
@@ -3074,7 +3074,7 @@ public final class Pond {
       /**
        * <code>optional .Fetched fetched = 3;</code>
        */
-      public Pond.Fetched getFetched() {
+      public systems.obscure.client.protos.Pond.Fetched getFetched() {
         if (fetchedBuilder_ == null) {
           return fetched_;
         } else {
@@ -3084,7 +3084,7 @@ public final class Pond {
       /**
        * <code>optional .Fetched fetched = 3;</code>
        */
-      public Builder setFetched(Pond.Fetched value) {
+      public Builder setFetched(systems.obscure.client.protos.Pond.Fetched value) {
         if (fetchedBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3101,7 +3101,7 @@ public final class Pond {
        * <code>optional .Fetched fetched = 3;</code>
        */
       public Builder setFetched(
-          Pond.Fetched.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.Fetched.Builder builderForValue) {
         if (fetchedBuilder_ == null) {
           fetched_ = builderForValue.build();
           onChanged();
@@ -3114,12 +3114,12 @@ public final class Pond {
       /**
        * <code>optional .Fetched fetched = 3;</code>
        */
-      public Builder mergeFetched(Pond.Fetched value) {
+      public Builder mergeFetched(systems.obscure.client.protos.Pond.Fetched value) {
         if (fetchedBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              fetched_ != Pond.Fetched.getDefaultInstance()) {
+              fetched_ != systems.obscure.client.protos.Pond.Fetched.getDefaultInstance()) {
             fetched_ =
-              Pond.Fetched.newBuilder(fetched_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.Fetched.newBuilder(fetched_).mergeFrom(value).buildPartial();
           } else {
             fetched_ = value;
           }
@@ -3135,7 +3135,7 @@ public final class Pond {
        */
       public Builder clearFetched() {
         if (fetchedBuilder_ == null) {
-          fetched_ = Pond.Fetched.getDefaultInstance();
+          fetched_ = systems.obscure.client.protos.Pond.Fetched.getDefaultInstance();
           onChanged();
         } else {
           fetchedBuilder_.clear();
@@ -3146,7 +3146,7 @@ public final class Pond {
       /**
        * <code>optional .Fetched fetched = 3;</code>
        */
-      public Pond.Fetched.Builder getFetchedBuilder() {
+      public systems.obscure.client.protos.Pond.Fetched.Builder getFetchedBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
         return getFetchedFieldBuilder().getBuilder();
@@ -3154,7 +3154,7 @@ public final class Pond {
       /**
        * <code>optional .Fetched fetched = 3;</code>
        */
-      public Pond.FetchedOrBuilder getFetchedOrBuilder() {
+      public systems.obscure.client.protos.Pond.FetchedOrBuilder getFetchedOrBuilder() {
         if (fetchedBuilder_ != null) {
           return fetchedBuilder_.getMessageOrBuilder();
         } else {
@@ -3165,11 +3165,11 @@ public final class Pond {
        * <code>optional .Fetched fetched = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.Fetched, Pond.Fetched.Builder, Pond.FetchedOrBuilder> 
+          systems.obscure.client.protos.Pond.Fetched, systems.obscure.client.protos.Pond.Fetched.Builder, systems.obscure.client.protos.Pond.FetchedOrBuilder> 
           getFetchedFieldBuilder() {
         if (fetchedBuilder_ == null) {
           fetchedBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.Fetched, Pond.Fetched.Builder, Pond.FetchedOrBuilder>(
+              systems.obscure.client.protos.Pond.Fetched, systems.obscure.client.protos.Pond.Fetched.Builder, systems.obscure.client.protos.Pond.FetchedOrBuilder>(
                   getFetched(),
                   getParentForChildren(),
                   isClean());
@@ -3178,9 +3178,9 @@ public final class Pond {
         return fetchedBuilder_;
       }
 
-      private Pond.ServerAnnounce announce_ = Pond.ServerAnnounce.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.ServerAnnounce announce_ = systems.obscure.client.protos.Pond.ServerAnnounce.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.ServerAnnounce, Pond.ServerAnnounce.Builder, Pond.ServerAnnounceOrBuilder> announceBuilder_;
+          systems.obscure.client.protos.Pond.ServerAnnounce, systems.obscure.client.protos.Pond.ServerAnnounce.Builder, systems.obscure.client.protos.Pond.ServerAnnounceOrBuilder> announceBuilder_;
       /**
        * <code>optional .ServerAnnounce announce = 4;</code>
        */
@@ -3190,7 +3190,7 @@ public final class Pond {
       /**
        * <code>optional .ServerAnnounce announce = 4;</code>
        */
-      public Pond.ServerAnnounce getAnnounce() {
+      public systems.obscure.client.protos.Pond.ServerAnnounce getAnnounce() {
         if (announceBuilder_ == null) {
           return announce_;
         } else {
@@ -3200,7 +3200,7 @@ public final class Pond {
       /**
        * <code>optional .ServerAnnounce announce = 4;</code>
        */
-      public Builder setAnnounce(Pond.ServerAnnounce value) {
+      public Builder setAnnounce(systems.obscure.client.protos.Pond.ServerAnnounce value) {
         if (announceBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3217,7 +3217,7 @@ public final class Pond {
        * <code>optional .ServerAnnounce announce = 4;</code>
        */
       public Builder setAnnounce(
-          Pond.ServerAnnounce.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.ServerAnnounce.Builder builderForValue) {
         if (announceBuilder_ == null) {
           announce_ = builderForValue.build();
           onChanged();
@@ -3230,12 +3230,12 @@ public final class Pond {
       /**
        * <code>optional .ServerAnnounce announce = 4;</code>
        */
-      public Builder mergeAnnounce(Pond.ServerAnnounce value) {
+      public Builder mergeAnnounce(systems.obscure.client.protos.Pond.ServerAnnounce value) {
         if (announceBuilder_ == null) {
           if (((bitField0_ & 0x00000008) == 0x00000008) &&
-              announce_ != Pond.ServerAnnounce.getDefaultInstance()) {
+              announce_ != systems.obscure.client.protos.Pond.ServerAnnounce.getDefaultInstance()) {
             announce_ =
-              Pond.ServerAnnounce.newBuilder(announce_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.ServerAnnounce.newBuilder(announce_).mergeFrom(value).buildPartial();
           } else {
             announce_ = value;
           }
@@ -3251,7 +3251,7 @@ public final class Pond {
        */
       public Builder clearAnnounce() {
         if (announceBuilder_ == null) {
-          announce_ = Pond.ServerAnnounce.getDefaultInstance();
+          announce_ = systems.obscure.client.protos.Pond.ServerAnnounce.getDefaultInstance();
           onChanged();
         } else {
           announceBuilder_.clear();
@@ -3262,7 +3262,7 @@ public final class Pond {
       /**
        * <code>optional .ServerAnnounce announce = 4;</code>
        */
-      public Pond.ServerAnnounce.Builder getAnnounceBuilder() {
+      public systems.obscure.client.protos.Pond.ServerAnnounce.Builder getAnnounceBuilder() {
         bitField0_ |= 0x00000008;
         onChanged();
         return getAnnounceFieldBuilder().getBuilder();
@@ -3270,7 +3270,7 @@ public final class Pond {
       /**
        * <code>optional .ServerAnnounce announce = 4;</code>
        */
-      public Pond.ServerAnnounceOrBuilder getAnnounceOrBuilder() {
+      public systems.obscure.client.protos.Pond.ServerAnnounceOrBuilder getAnnounceOrBuilder() {
         if (announceBuilder_ != null) {
           return announceBuilder_.getMessageOrBuilder();
         } else {
@@ -3281,11 +3281,11 @@ public final class Pond {
        * <code>optional .ServerAnnounce announce = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.ServerAnnounce, Pond.ServerAnnounce.Builder, Pond.ServerAnnounceOrBuilder> 
+          systems.obscure.client.protos.Pond.ServerAnnounce, systems.obscure.client.protos.Pond.ServerAnnounce.Builder, systems.obscure.client.protos.Pond.ServerAnnounceOrBuilder> 
           getAnnounceFieldBuilder() {
         if (announceBuilder_ == null) {
           announceBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.ServerAnnounce, Pond.ServerAnnounce.Builder, Pond.ServerAnnounceOrBuilder>(
+              systems.obscure.client.protos.Pond.ServerAnnounce, systems.obscure.client.protos.Pond.ServerAnnounce.Builder, systems.obscure.client.protos.Pond.ServerAnnounceOrBuilder>(
                   getAnnounce(),
                   getParentForChildren(),
                   isClean());
@@ -3294,9 +3294,9 @@ public final class Pond {
         return announceBuilder_;
       }
 
-      private Pond.UploadReply upload_ = Pond.UploadReply.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.UploadReply upload_ = systems.obscure.client.protos.Pond.UploadReply.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.UploadReply, Pond.UploadReply.Builder, Pond.UploadReplyOrBuilder> uploadBuilder_;
+          systems.obscure.client.protos.Pond.UploadReply, systems.obscure.client.protos.Pond.UploadReply.Builder, systems.obscure.client.protos.Pond.UploadReplyOrBuilder> uploadBuilder_;
       /**
        * <code>optional .UploadReply upload = 5;</code>
        */
@@ -3306,7 +3306,7 @@ public final class Pond {
       /**
        * <code>optional .UploadReply upload = 5;</code>
        */
-      public Pond.UploadReply getUpload() {
+      public systems.obscure.client.protos.Pond.UploadReply getUpload() {
         if (uploadBuilder_ == null) {
           return upload_;
         } else {
@@ -3316,7 +3316,7 @@ public final class Pond {
       /**
        * <code>optional .UploadReply upload = 5;</code>
        */
-      public Builder setUpload(Pond.UploadReply value) {
+      public Builder setUpload(systems.obscure.client.protos.Pond.UploadReply value) {
         if (uploadBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3333,7 +3333,7 @@ public final class Pond {
        * <code>optional .UploadReply upload = 5;</code>
        */
       public Builder setUpload(
-          Pond.UploadReply.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.UploadReply.Builder builderForValue) {
         if (uploadBuilder_ == null) {
           upload_ = builderForValue.build();
           onChanged();
@@ -3346,12 +3346,12 @@ public final class Pond {
       /**
        * <code>optional .UploadReply upload = 5;</code>
        */
-      public Builder mergeUpload(Pond.UploadReply value) {
+      public Builder mergeUpload(systems.obscure.client.protos.Pond.UploadReply value) {
         if (uploadBuilder_ == null) {
           if (((bitField0_ & 0x00000010) == 0x00000010) &&
-              upload_ != Pond.UploadReply.getDefaultInstance()) {
+              upload_ != systems.obscure.client.protos.Pond.UploadReply.getDefaultInstance()) {
             upload_ =
-              Pond.UploadReply.newBuilder(upload_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.UploadReply.newBuilder(upload_).mergeFrom(value).buildPartial();
           } else {
             upload_ = value;
           }
@@ -3367,7 +3367,7 @@ public final class Pond {
        */
       public Builder clearUpload() {
         if (uploadBuilder_ == null) {
-          upload_ = Pond.UploadReply.getDefaultInstance();
+          upload_ = systems.obscure.client.protos.Pond.UploadReply.getDefaultInstance();
           onChanged();
         } else {
           uploadBuilder_.clear();
@@ -3378,7 +3378,7 @@ public final class Pond {
       /**
        * <code>optional .UploadReply upload = 5;</code>
        */
-      public Pond.UploadReply.Builder getUploadBuilder() {
+      public systems.obscure.client.protos.Pond.UploadReply.Builder getUploadBuilder() {
         bitField0_ |= 0x00000010;
         onChanged();
         return getUploadFieldBuilder().getBuilder();
@@ -3386,7 +3386,7 @@ public final class Pond {
       /**
        * <code>optional .UploadReply upload = 5;</code>
        */
-      public Pond.UploadReplyOrBuilder getUploadOrBuilder() {
+      public systems.obscure.client.protos.Pond.UploadReplyOrBuilder getUploadOrBuilder() {
         if (uploadBuilder_ != null) {
           return uploadBuilder_.getMessageOrBuilder();
         } else {
@@ -3397,11 +3397,11 @@ public final class Pond {
        * <code>optional .UploadReply upload = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.UploadReply, Pond.UploadReply.Builder, Pond.UploadReplyOrBuilder> 
+          systems.obscure.client.protos.Pond.UploadReply, systems.obscure.client.protos.Pond.UploadReply.Builder, systems.obscure.client.protos.Pond.UploadReplyOrBuilder> 
           getUploadFieldBuilder() {
         if (uploadBuilder_ == null) {
           uploadBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.UploadReply, Pond.UploadReply.Builder, Pond.UploadReplyOrBuilder>(
+              systems.obscure.client.protos.Pond.UploadReply, systems.obscure.client.protos.Pond.UploadReply.Builder, systems.obscure.client.protos.Pond.UploadReplyOrBuilder>(
                   getUpload(),
                   getParentForChildren(),
                   isClean());
@@ -3410,9 +3410,9 @@ public final class Pond {
         return uploadBuilder_;
       }
 
-      private Pond.DownloadReply download_ = Pond.DownloadReply.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.DownloadReply download_ = systems.obscure.client.protos.Pond.DownloadReply.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.DownloadReply, Pond.DownloadReply.Builder, Pond.DownloadReplyOrBuilder> downloadBuilder_;
+          systems.obscure.client.protos.Pond.DownloadReply, systems.obscure.client.protos.Pond.DownloadReply.Builder, systems.obscure.client.protos.Pond.DownloadReplyOrBuilder> downloadBuilder_;
       /**
        * <code>optional .DownloadReply download = 6;</code>
        *
@@ -3432,7 +3432,7 @@ public final class Pond {
        * repeated SignedRevocation extra_revocations = 8;
        * </pre>
        */
-      public Pond.DownloadReply getDownload() {
+      public systems.obscure.client.protos.Pond.DownloadReply getDownload() {
         if (downloadBuilder_ == null) {
           return download_;
         } else {
@@ -3447,7 +3447,7 @@ public final class Pond {
        * repeated SignedRevocation extra_revocations = 8;
        * </pre>
        */
-      public Builder setDownload(Pond.DownloadReply value) {
+      public Builder setDownload(systems.obscure.client.protos.Pond.DownloadReply value) {
         if (downloadBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3469,7 +3469,7 @@ public final class Pond {
        * </pre>
        */
       public Builder setDownload(
-          Pond.DownloadReply.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.DownloadReply.Builder builderForValue) {
         if (downloadBuilder_ == null) {
           download_ = builderForValue.build();
           onChanged();
@@ -3487,12 +3487,12 @@ public final class Pond {
        * repeated SignedRevocation extra_revocations = 8;
        * </pre>
        */
-      public Builder mergeDownload(Pond.DownloadReply value) {
+      public Builder mergeDownload(systems.obscure.client.protos.Pond.DownloadReply value) {
         if (downloadBuilder_ == null) {
           if (((bitField0_ & 0x00000020) == 0x00000020) &&
-              download_ != Pond.DownloadReply.getDefaultInstance()) {
+              download_ != systems.obscure.client.protos.Pond.DownloadReply.getDefaultInstance()) {
             download_ =
-              Pond.DownloadReply.newBuilder(download_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.DownloadReply.newBuilder(download_).mergeFrom(value).buildPartial();
           } else {
             download_ = value;
           }
@@ -3513,7 +3513,7 @@ public final class Pond {
        */
       public Builder clearDownload() {
         if (downloadBuilder_ == null) {
-          download_ = Pond.DownloadReply.getDefaultInstance();
+          download_ = systems.obscure.client.protos.Pond.DownloadReply.getDefaultInstance();
           onChanged();
         } else {
           downloadBuilder_.clear();
@@ -3529,7 +3529,7 @@ public final class Pond {
        * repeated SignedRevocation extra_revocations = 8;
        * </pre>
        */
-      public Pond.DownloadReply.Builder getDownloadBuilder() {
+      public systems.obscure.client.protos.Pond.DownloadReply.Builder getDownloadBuilder() {
         bitField0_ |= 0x00000020;
         onChanged();
         return getDownloadFieldBuilder().getBuilder();
@@ -3542,7 +3542,7 @@ public final class Pond {
        * repeated SignedRevocation extra_revocations = 8;
        * </pre>
        */
-      public Pond.DownloadReplyOrBuilder getDownloadOrBuilder() {
+      public systems.obscure.client.protos.Pond.DownloadReplyOrBuilder getDownloadOrBuilder() {
         if (downloadBuilder_ != null) {
           return downloadBuilder_.getMessageOrBuilder();
         } else {
@@ -3558,11 +3558,11 @@ public final class Pond {
        * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.DownloadReply, Pond.DownloadReply.Builder, Pond.DownloadReplyOrBuilder> 
+          systems.obscure.client.protos.Pond.DownloadReply, systems.obscure.client.protos.Pond.DownloadReply.Builder, systems.obscure.client.protos.Pond.DownloadReplyOrBuilder> 
           getDownloadFieldBuilder() {
         if (downloadBuilder_ == null) {
           downloadBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.DownloadReply, Pond.DownloadReply.Builder, Pond.DownloadReplyOrBuilder>(
+              systems.obscure.client.protos.Pond.DownloadReply, systems.obscure.client.protos.Pond.DownloadReply.Builder, systems.obscure.client.protos.Pond.DownloadReplyOrBuilder>(
                   getDownload(),
                   getParentForChildren(),
                   isClean());
@@ -3696,14 +3696,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_NewAccount_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_NewAccount_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_NewAccount_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_NewAccount_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.NewAccount.class, Pond.NewAccount.Builder.class);
+              systems.obscure.client.protos.Pond.NewAccount.class, systems.obscure.client.protos.Pond.NewAccount.Builder.class);
     }
 
     public static com.google.protobuf.Parser<NewAccount> PARSER =
@@ -3805,53 +3805,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.NewAccount parseFrom(
+    public static systems.obscure.client.protos.Pond.NewAccount parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.NewAccount parseFrom(
+    public static systems.obscure.client.protos.Pond.NewAccount parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.NewAccount parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.NewAccount parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.NewAccount parseFrom(
+    public static systems.obscure.client.protos.Pond.NewAccount parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.NewAccount parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.NewAccount parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.NewAccount parseFrom(
+    public static systems.obscure.client.protos.Pond.NewAccount parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.NewAccount parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.NewAccount parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.NewAccount parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.NewAccount parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.NewAccount parseFrom(
+    public static systems.obscure.client.protos.Pond.NewAccount parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.NewAccount parseFrom(
+    public static systems.obscure.client.protos.Pond.NewAccount parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3860,7 +3860,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.NewAccount prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.NewAccount prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -3883,20 +3883,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:NewAccount)
-        Pond.NewAccountOrBuilder {
+        systems.obscure.client.protos.Pond.NewAccountOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_NewAccount_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_NewAccount_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_NewAccount_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_NewAccount_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.NewAccount.class, Pond.NewAccount.Builder.class);
+                systems.obscure.client.protos.Pond.NewAccount.class, systems.obscure.client.protos.Pond.NewAccount.Builder.class);
       }
 
-      // Construct using Pond.NewAccount.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.NewAccount.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3927,23 +3927,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_NewAccount_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_NewAccount_descriptor;
       }
 
-      public Pond.NewAccount getDefaultInstanceForType() {
-        return Pond.NewAccount.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.NewAccount getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.NewAccount.getDefaultInstance();
       }
 
-      public Pond.NewAccount build() {
-        Pond.NewAccount result = buildPartial();
+      public systems.obscure.client.protos.Pond.NewAccount build() {
+        systems.obscure.client.protos.Pond.NewAccount result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.NewAccount buildPartial() {
-        Pond.NewAccount result = new Pond.NewAccount(this);
+      public systems.obscure.client.protos.Pond.NewAccount buildPartial() {
+        systems.obscure.client.protos.Pond.NewAccount result = new systems.obscure.client.protos.Pond.NewAccount(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3956,16 +3956,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.NewAccount) {
-          return mergeFrom((Pond.NewAccount)other);
+        if (other instanceof systems.obscure.client.protos.Pond.NewAccount) {
+          return mergeFrom((systems.obscure.client.protos.Pond.NewAccount)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.NewAccount other) {
-        if (other == Pond.NewAccount.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.NewAccount other) {
+        if (other == systems.obscure.client.protos.Pond.NewAccount.getDefaultInstance()) return this;
         if (other.hasHmacKey()) {
           setHmacKey(other.getHmacKey());
         }
@@ -3981,11 +3981,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.NewAccount parsedMessage = null;
+        systems.obscure.client.protos.Pond.NewAccount parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.NewAccount) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.NewAccount) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -4210,14 +4210,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_AccountDetails_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_AccountDetails_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_AccountDetails_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_AccountDetails_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.AccountDetails.class, Pond.AccountDetails.Builder.class);
+              systems.obscure.client.protos.Pond.AccountDetails.class, systems.obscure.client.protos.Pond.AccountDetails.Builder.class);
     }
 
     public static com.google.protobuf.Parser<AccountDetails> PARSER =
@@ -4344,53 +4344,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.AccountDetails parseFrom(
+    public static systems.obscure.client.protos.Pond.AccountDetails parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.AccountDetails parseFrom(
+    public static systems.obscure.client.protos.Pond.AccountDetails parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.AccountDetails parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.AccountDetails parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.AccountDetails parseFrom(
+    public static systems.obscure.client.protos.Pond.AccountDetails parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.AccountDetails parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.AccountDetails parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.AccountDetails parseFrom(
+    public static systems.obscure.client.protos.Pond.AccountDetails parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.AccountDetails parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.AccountDetails parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.AccountDetails parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.AccountDetails parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.AccountDetails parseFrom(
+    public static systems.obscure.client.protos.Pond.AccountDetails parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.AccountDetails parseFrom(
+    public static systems.obscure.client.protos.Pond.AccountDetails parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4399,7 +4399,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.AccountDetails prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.AccountDetails prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -4420,20 +4420,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:AccountDetails)
-        Pond.AccountDetailsOrBuilder {
+        systems.obscure.client.protos.Pond.AccountDetailsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_AccountDetails_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_AccountDetails_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_AccountDetails_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_AccountDetails_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.AccountDetails.class, Pond.AccountDetails.Builder.class);
+                systems.obscure.client.protos.Pond.AccountDetails.class, systems.obscure.client.protos.Pond.AccountDetails.Builder.class);
       }
 
-      // Construct using Pond.AccountDetails.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.AccountDetails.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4466,23 +4466,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_AccountDetails_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_AccountDetails_descriptor;
       }
 
-      public Pond.AccountDetails getDefaultInstanceForType() {
-        return Pond.AccountDetails.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.AccountDetails getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.AccountDetails.getDefaultInstance();
       }
 
-      public Pond.AccountDetails build() {
-        Pond.AccountDetails result = buildPartial();
+      public systems.obscure.client.protos.Pond.AccountDetails build() {
+        systems.obscure.client.protos.Pond.AccountDetails result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.AccountDetails buildPartial() {
-        Pond.AccountDetails result = new Pond.AccountDetails(this);
+      public systems.obscure.client.protos.Pond.AccountDetails buildPartial() {
+        systems.obscure.client.protos.Pond.AccountDetails result = new systems.obscure.client.protos.Pond.AccountDetails(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4499,16 +4499,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.AccountDetails) {
-          return mergeFrom((Pond.AccountDetails)other);
+        if (other instanceof systems.obscure.client.protos.Pond.AccountDetails) {
+          return mergeFrom((systems.obscure.client.protos.Pond.AccountDetails)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.AccountDetails other) {
-        if (other == Pond.AccountDetails.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.AccountDetails other) {
+        if (other == systems.obscure.client.protos.Pond.AccountDetails.getDefaultInstance()) return this;
         if (other.hasQueue()) {
           setQueue(other.getQueue());
         }
@@ -4535,11 +4535,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.AccountDetails parsedMessage = null;
+        systems.obscure.client.protos.Pond.AccountDetails parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.AccountDetails) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.AccountDetails) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -4672,11 +4672,11 @@ public final class Pond {
     /**
      * <code>required .AccountDetails details = 1;</code>
      */
-    Pond.AccountDetails getDetails();
+    systems.obscure.client.protos.Pond.AccountDetails getDetails();
     /**
      * <code>required .AccountDetails details = 1;</code>
      */
-    Pond.AccountDetailsOrBuilder getDetailsOrBuilder();
+    systems.obscure.client.protos.Pond.AccountDetailsOrBuilder getDetailsOrBuilder();
   }
   /**
    * Protobuf type {@code AccountCreated}
@@ -4735,11 +4735,11 @@ public final class Pond {
               break;
             }
             case 10: {
-              Pond.AccountDetails.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.AccountDetails.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
                 subBuilder = details_.toBuilder();
               }
-              details_ = input.readMessage(Pond.AccountDetails.PARSER, extensionRegistry);
+              details_ = input.readMessage(systems.obscure.client.protos.Pond.AccountDetails.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(details_);
                 details_ = subBuilder.buildPartial();
@@ -4761,14 +4761,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_AccountCreated_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_AccountCreated_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_AccountCreated_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_AccountCreated_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.AccountCreated.class, Pond.AccountCreated.Builder.class);
+              systems.obscure.client.protos.Pond.AccountCreated.class, systems.obscure.client.protos.Pond.AccountCreated.Builder.class);
     }
 
     public static com.google.protobuf.Parser<AccountCreated> PARSER =
@@ -4788,7 +4788,7 @@ public final class Pond {
 
     private int bitField0_;
     public static final int DETAILS_FIELD_NUMBER = 1;
-    private Pond.AccountDetails details_;
+    private systems.obscure.client.protos.Pond.AccountDetails details_;
     /**
      * <code>required .AccountDetails details = 1;</code>
      */
@@ -4798,18 +4798,18 @@ public final class Pond {
     /**
      * <code>required .AccountDetails details = 1;</code>
      */
-    public Pond.AccountDetails getDetails() {
+    public systems.obscure.client.protos.Pond.AccountDetails getDetails() {
       return details_;
     }
     /**
      * <code>required .AccountDetails details = 1;</code>
      */
-    public Pond.AccountDetailsOrBuilder getDetailsOrBuilder() {
+    public systems.obscure.client.protos.Pond.AccountDetailsOrBuilder getDetailsOrBuilder() {
       return details_;
     }
 
     private void initFields() {
-      details_ = Pond.AccountDetails.getDefaultInstance();
+      details_ = systems.obscure.client.protos.Pond.AccountDetails.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -4860,53 +4860,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.AccountCreated parseFrom(
+    public static systems.obscure.client.protos.Pond.AccountCreated parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.AccountCreated parseFrom(
+    public static systems.obscure.client.protos.Pond.AccountCreated parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.AccountCreated parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.AccountCreated parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.AccountCreated parseFrom(
+    public static systems.obscure.client.protos.Pond.AccountCreated parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.AccountCreated parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.AccountCreated parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.AccountCreated parseFrom(
+    public static systems.obscure.client.protos.Pond.AccountCreated parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.AccountCreated parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.AccountCreated parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.AccountCreated parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.AccountCreated parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.AccountCreated parseFrom(
+    public static systems.obscure.client.protos.Pond.AccountCreated parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.AccountCreated parseFrom(
+    public static systems.obscure.client.protos.Pond.AccountCreated parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4915,7 +4915,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.AccountCreated prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.AccountCreated prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -4936,20 +4936,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:AccountCreated)
-        Pond.AccountCreatedOrBuilder {
+        systems.obscure.client.protos.Pond.AccountCreatedOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_AccountCreated_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_AccountCreated_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_AccountCreated_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_AccountCreated_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.AccountCreated.class, Pond.AccountCreated.Builder.class);
+                systems.obscure.client.protos.Pond.AccountCreated.class, systems.obscure.client.protos.Pond.AccountCreated.Builder.class);
       }
 
-      // Construct using Pond.AccountCreated.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.AccountCreated.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4971,7 +4971,7 @@ public final class Pond {
       public Builder clear() {
         super.clear();
         if (detailsBuilder_ == null) {
-          details_ = Pond.AccountDetails.getDefaultInstance();
+          details_ = systems.obscure.client.protos.Pond.AccountDetails.getDefaultInstance();
         } else {
           detailsBuilder_.clear();
         }
@@ -4985,23 +4985,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_AccountCreated_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_AccountCreated_descriptor;
       }
 
-      public Pond.AccountCreated getDefaultInstanceForType() {
-        return Pond.AccountCreated.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.AccountCreated getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.AccountCreated.getDefaultInstance();
       }
 
-      public Pond.AccountCreated build() {
-        Pond.AccountCreated result = buildPartial();
+      public systems.obscure.client.protos.Pond.AccountCreated build() {
+        systems.obscure.client.protos.Pond.AccountCreated result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.AccountCreated buildPartial() {
-        Pond.AccountCreated result = new Pond.AccountCreated(this);
+      public systems.obscure.client.protos.Pond.AccountCreated buildPartial() {
+        systems.obscure.client.protos.Pond.AccountCreated result = new systems.obscure.client.protos.Pond.AccountCreated(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5018,16 +5018,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.AccountCreated) {
-          return mergeFrom((Pond.AccountCreated)other);
+        if (other instanceof systems.obscure.client.protos.Pond.AccountCreated) {
+          return mergeFrom((systems.obscure.client.protos.Pond.AccountCreated)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.AccountCreated other) {
-        if (other == Pond.AccountCreated.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.AccountCreated other) {
+        if (other == systems.obscure.client.protos.Pond.AccountCreated.getDefaultInstance()) return this;
         if (other.hasDetails()) {
           mergeDetails(other.getDetails());
         }
@@ -5051,11 +5051,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.AccountCreated parsedMessage = null;
+        systems.obscure.client.protos.Pond.AccountCreated parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.AccountCreated) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.AccountCreated) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -5066,9 +5066,9 @@ public final class Pond {
       }
       private int bitField0_;
 
-      private Pond.AccountDetails details_ = Pond.AccountDetails.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.AccountDetails details_ = systems.obscure.client.protos.Pond.AccountDetails.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.AccountDetails, Pond.AccountDetails.Builder, Pond.AccountDetailsOrBuilder> detailsBuilder_;
+          systems.obscure.client.protos.Pond.AccountDetails, systems.obscure.client.protos.Pond.AccountDetails.Builder, systems.obscure.client.protos.Pond.AccountDetailsOrBuilder> detailsBuilder_;
       /**
        * <code>required .AccountDetails details = 1;</code>
        */
@@ -5078,7 +5078,7 @@ public final class Pond {
       /**
        * <code>required .AccountDetails details = 1;</code>
        */
-      public Pond.AccountDetails getDetails() {
+      public systems.obscure.client.protos.Pond.AccountDetails getDetails() {
         if (detailsBuilder_ == null) {
           return details_;
         } else {
@@ -5088,7 +5088,7 @@ public final class Pond {
       /**
        * <code>required .AccountDetails details = 1;</code>
        */
-      public Builder setDetails(Pond.AccountDetails value) {
+      public Builder setDetails(systems.obscure.client.protos.Pond.AccountDetails value) {
         if (detailsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5105,7 +5105,7 @@ public final class Pond {
        * <code>required .AccountDetails details = 1;</code>
        */
       public Builder setDetails(
-          Pond.AccountDetails.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.AccountDetails.Builder builderForValue) {
         if (detailsBuilder_ == null) {
           details_ = builderForValue.build();
           onChanged();
@@ -5118,12 +5118,12 @@ public final class Pond {
       /**
        * <code>required .AccountDetails details = 1;</code>
        */
-      public Builder mergeDetails(Pond.AccountDetails value) {
+      public Builder mergeDetails(systems.obscure.client.protos.Pond.AccountDetails value) {
         if (detailsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              details_ != Pond.AccountDetails.getDefaultInstance()) {
+              details_ != systems.obscure.client.protos.Pond.AccountDetails.getDefaultInstance()) {
             details_ =
-              Pond.AccountDetails.newBuilder(details_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.AccountDetails.newBuilder(details_).mergeFrom(value).buildPartial();
           } else {
             details_ = value;
           }
@@ -5139,7 +5139,7 @@ public final class Pond {
        */
       public Builder clearDetails() {
         if (detailsBuilder_ == null) {
-          details_ = Pond.AccountDetails.getDefaultInstance();
+          details_ = systems.obscure.client.protos.Pond.AccountDetails.getDefaultInstance();
           onChanged();
         } else {
           detailsBuilder_.clear();
@@ -5150,7 +5150,7 @@ public final class Pond {
       /**
        * <code>required .AccountDetails details = 1;</code>
        */
-      public Pond.AccountDetails.Builder getDetailsBuilder() {
+      public systems.obscure.client.protos.Pond.AccountDetails.Builder getDetailsBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getDetailsFieldBuilder().getBuilder();
@@ -5158,7 +5158,7 @@ public final class Pond {
       /**
        * <code>required .AccountDetails details = 1;</code>
        */
-      public Pond.AccountDetailsOrBuilder getDetailsOrBuilder() {
+      public systems.obscure.client.protos.Pond.AccountDetailsOrBuilder getDetailsOrBuilder() {
         if (detailsBuilder_ != null) {
           return detailsBuilder_.getMessageOrBuilder();
         } else {
@@ -5169,11 +5169,11 @@ public final class Pond {
        * <code>required .AccountDetails details = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.AccountDetails, Pond.AccountDetails.Builder, Pond.AccountDetailsOrBuilder> 
+          systems.obscure.client.protos.Pond.AccountDetails, systems.obscure.client.protos.Pond.AccountDetails.Builder, systems.obscure.client.protos.Pond.AccountDetailsOrBuilder> 
           getDetailsFieldBuilder() {
         if (detailsBuilder_ == null) {
           detailsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.AccountDetails, Pond.AccountDetails.Builder, Pond.AccountDetailsOrBuilder>(
+              systems.obscure.client.protos.Pond.AccountDetails, systems.obscure.client.protos.Pond.AccountDetails.Builder, systems.obscure.client.protos.Pond.AccountDetailsOrBuilder>(
                   getDetails(),
                   getParentForChildren(),
                   isClean());
@@ -5395,14 +5395,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_Delivery_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_Delivery_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_Delivery_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_Delivery_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.Delivery.class, Pond.Delivery.Builder.class);
+              systems.obscure.client.protos.Pond.Delivery.class, systems.obscure.client.protos.Pond.Delivery.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Delivery> PARSER =
@@ -5636,53 +5636,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.Delivery parseFrom(
+    public static systems.obscure.client.protos.Pond.Delivery parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Delivery parseFrom(
+    public static systems.obscure.client.protos.Pond.Delivery parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Delivery parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.Delivery parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Delivery parseFrom(
+    public static systems.obscure.client.protos.Pond.Delivery parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Delivery parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Delivery parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Delivery parseFrom(
+    public static systems.obscure.client.protos.Pond.Delivery parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.Delivery parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Delivery parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.Delivery parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.Delivery parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.Delivery parseFrom(
+    public static systems.obscure.client.protos.Pond.Delivery parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Delivery parseFrom(
+    public static systems.obscure.client.protos.Pond.Delivery parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5691,7 +5691,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.Delivery prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.Delivery prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -5714,20 +5714,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Delivery)
-        Pond.DeliveryOrBuilder {
+        systems.obscure.client.protos.Pond.DeliveryOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_Delivery_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Delivery_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_Delivery_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_Delivery_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.Delivery.class, Pond.Delivery.Builder.class);
+                systems.obscure.client.protos.Pond.Delivery.class, systems.obscure.client.protos.Pond.Delivery.Builder.class);
       }
 
-      // Construct using Pond.Delivery.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.Delivery.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5766,23 +5766,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_Delivery_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Delivery_descriptor;
       }
 
-      public Pond.Delivery getDefaultInstanceForType() {
-        return Pond.Delivery.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.Delivery getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.Delivery.getDefaultInstance();
       }
 
-      public Pond.Delivery build() {
-        Pond.Delivery result = buildPartial();
+      public systems.obscure.client.protos.Pond.Delivery build() {
+        systems.obscure.client.protos.Pond.Delivery result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.Delivery buildPartial() {
-        Pond.Delivery result = new Pond.Delivery(this);
+      public systems.obscure.client.protos.Pond.Delivery buildPartial() {
+        systems.obscure.client.protos.Pond.Delivery result = new systems.obscure.client.protos.Pond.Delivery(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5811,16 +5811,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.Delivery) {
-          return mergeFrom((Pond.Delivery)other);
+        if (other instanceof systems.obscure.client.protos.Pond.Delivery) {
+          return mergeFrom((systems.obscure.client.protos.Pond.Delivery)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.Delivery other) {
-        if (other == Pond.Delivery.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.Delivery other) {
+        if (other == systems.obscure.client.protos.Pond.Delivery.getDefaultInstance()) return this;
         if (other.hasTo()) {
           setTo(other.getTo());
         }
@@ -5856,11 +5856,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.Delivery parsedMessage = null;
+        systems.obscure.client.protos.Pond.Delivery parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.Delivery) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.Delivery) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -6240,14 +6240,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_Fetch_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_Fetch_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_Fetch_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_Fetch_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.Fetch.class, Pond.Fetch.Builder.class);
+              systems.obscure.client.protos.Pond.Fetch.class, systems.obscure.client.protos.Pond.Fetch.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Fetch> PARSER =
@@ -6301,53 +6301,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.Fetch parseFrom(
+    public static systems.obscure.client.protos.Pond.Fetch parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Fetch parseFrom(
+    public static systems.obscure.client.protos.Pond.Fetch parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Fetch parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.Fetch parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Fetch parseFrom(
+    public static systems.obscure.client.protos.Pond.Fetch parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Fetch parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Fetch parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Fetch parseFrom(
+    public static systems.obscure.client.protos.Pond.Fetch parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.Fetch parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Fetch parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.Fetch parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.Fetch parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.Fetch parseFrom(
+    public static systems.obscure.client.protos.Pond.Fetch parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Fetch parseFrom(
+    public static systems.obscure.client.protos.Pond.Fetch parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -6356,7 +6356,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.Fetch prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.Fetch prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -6378,20 +6378,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Fetch)
-        Pond.FetchOrBuilder {
+        systems.obscure.client.protos.Pond.FetchOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_Fetch_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Fetch_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_Fetch_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_Fetch_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.Fetch.class, Pond.Fetch.Builder.class);
+                systems.obscure.client.protos.Pond.Fetch.class, systems.obscure.client.protos.Pond.Fetch.Builder.class);
       }
 
-      // Construct using Pond.Fetch.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.Fetch.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6420,38 +6420,38 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_Fetch_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Fetch_descriptor;
       }
 
-      public Pond.Fetch getDefaultInstanceForType() {
-        return Pond.Fetch.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.Fetch getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.Fetch.getDefaultInstance();
       }
 
-      public Pond.Fetch build() {
-        Pond.Fetch result = buildPartial();
+      public systems.obscure.client.protos.Pond.Fetch build() {
+        systems.obscure.client.protos.Pond.Fetch result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.Fetch buildPartial() {
-        Pond.Fetch result = new Pond.Fetch(this);
+      public systems.obscure.client.protos.Pond.Fetch buildPartial() {
+        systems.obscure.client.protos.Pond.Fetch result = new systems.obscure.client.protos.Pond.Fetch(this);
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.Fetch) {
-          return mergeFrom((Pond.Fetch)other);
+        if (other instanceof systems.obscure.client.protos.Pond.Fetch) {
+          return mergeFrom((systems.obscure.client.protos.Pond.Fetch)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.Fetch other) {
-        if (other == Pond.Fetch.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.Fetch other) {
+        if (other == systems.obscure.client.protos.Pond.Fetch.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -6464,11 +6464,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.Fetch parsedMessage = null;
+        systems.obscure.client.protos.Pond.Fetch parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.Fetch) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.Fetch) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -6572,11 +6572,11 @@ public final class Pond {
     /**
      * <code>required .AccountDetails details = 5;</code>
      */
-    Pond.AccountDetails getDetails();
+    systems.obscure.client.protos.Pond.AccountDetails getDetails();
     /**
      * <code>required .AccountDetails details = 5;</code>
      */
-    Pond.AccountDetailsOrBuilder getDetailsOrBuilder();
+    systems.obscure.client.protos.Pond.AccountDetailsOrBuilder getDetailsOrBuilder();
   }
   /**
    * Protobuf type {@code Fetched}
@@ -6656,11 +6656,11 @@ public final class Pond {
               break;
             }
             case 42: {
-              Pond.AccountDetails.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.AccountDetails.Builder subBuilder = null;
               if (((bitField0_ & 0x00000010) == 0x00000010)) {
                 subBuilder = details_.toBuilder();
               }
-              details_ = input.readMessage(Pond.AccountDetails.PARSER, extensionRegistry);
+              details_ = input.readMessage(systems.obscure.client.protos.Pond.AccountDetails.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(details_);
                 details_ = subBuilder.buildPartial();
@@ -6682,14 +6682,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_Fetched_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_Fetched_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_Fetched_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_Fetched_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.Fetched.class, Pond.Fetched.Builder.class);
+              systems.obscure.client.protos.Pond.Fetched.class, systems.obscure.client.protos.Pond.Fetched.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Fetched> PARSER =
@@ -6805,7 +6805,7 @@ public final class Pond {
     }
 
     public static final int DETAILS_FIELD_NUMBER = 5;
-    private Pond.AccountDetails details_;
+    private systems.obscure.client.protos.Pond.AccountDetails details_;
     /**
      * <code>required .AccountDetails details = 5;</code>
      */
@@ -6815,13 +6815,13 @@ public final class Pond {
     /**
      * <code>required .AccountDetails details = 5;</code>
      */
-    public Pond.AccountDetails getDetails() {
+    public systems.obscure.client.protos.Pond.AccountDetails getDetails() {
       return details_;
     }
     /**
      * <code>required .AccountDetails details = 5;</code>
      */
-    public Pond.AccountDetailsOrBuilder getDetailsOrBuilder() {
+    public systems.obscure.client.protos.Pond.AccountDetailsOrBuilder getDetailsOrBuilder() {
       return details_;
     }
 
@@ -6830,7 +6830,7 @@ public final class Pond {
       hmacOfPublicKey_ = 0L;
       oneTimeSignature_ = com.google.protobuf.ByteString.EMPTY;
       message_ = com.google.protobuf.ByteString.EMPTY;
-      details_ = Pond.AccountDetails.getDefaultInstance();
+      details_ = systems.obscure.client.protos.Pond.AccountDetails.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -6913,53 +6913,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.Fetched parseFrom(
+    public static systems.obscure.client.protos.Pond.Fetched parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Fetched parseFrom(
+    public static systems.obscure.client.protos.Pond.Fetched parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Fetched parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.Fetched parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Fetched parseFrom(
+    public static systems.obscure.client.protos.Pond.Fetched parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Fetched parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Fetched parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Fetched parseFrom(
+    public static systems.obscure.client.protos.Pond.Fetched parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.Fetched parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Fetched parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.Fetched parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.Fetched parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.Fetched parseFrom(
+    public static systems.obscure.client.protos.Pond.Fetched parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Fetched parseFrom(
+    public static systems.obscure.client.protos.Pond.Fetched parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -6968,7 +6968,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.Fetched prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.Fetched prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -6990,20 +6990,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Fetched)
-        Pond.FetchedOrBuilder {
+        systems.obscure.client.protos.Pond.FetchedOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_Fetched_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Fetched_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_Fetched_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_Fetched_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.Fetched.class, Pond.Fetched.Builder.class);
+                systems.obscure.client.protos.Pond.Fetched.class, systems.obscure.client.protos.Pond.Fetched.Builder.class);
       }
 
-      // Construct using Pond.Fetched.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.Fetched.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7033,7 +7033,7 @@ public final class Pond {
         message_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000008);
         if (detailsBuilder_ == null) {
-          details_ = Pond.AccountDetails.getDefaultInstance();
+          details_ = systems.obscure.client.protos.Pond.AccountDetails.getDefaultInstance();
         } else {
           detailsBuilder_.clear();
         }
@@ -7047,23 +7047,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_Fetched_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Fetched_descriptor;
       }
 
-      public Pond.Fetched getDefaultInstanceForType() {
-        return Pond.Fetched.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.Fetched getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.Fetched.getDefaultInstance();
       }
 
-      public Pond.Fetched build() {
-        Pond.Fetched result = buildPartial();
+      public systems.obscure.client.protos.Pond.Fetched build() {
+        systems.obscure.client.protos.Pond.Fetched result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.Fetched buildPartial() {
-        Pond.Fetched result = new Pond.Fetched(this);
+      public systems.obscure.client.protos.Pond.Fetched buildPartial() {
+        systems.obscure.client.protos.Pond.Fetched result = new systems.obscure.client.protos.Pond.Fetched(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7096,16 +7096,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.Fetched) {
-          return mergeFrom((Pond.Fetched)other);
+        if (other instanceof systems.obscure.client.protos.Pond.Fetched) {
+          return mergeFrom((systems.obscure.client.protos.Pond.Fetched)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.Fetched other) {
-        if (other == Pond.Fetched.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.Fetched other) {
+        if (other == systems.obscure.client.protos.Pond.Fetched.getDefaultInstance()) return this;
         if (other.hasOneTimePublicKey()) {
           setOneTimePublicKey(other.getOneTimePublicKey());
         }
@@ -7145,11 +7145,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.Fetched parsedMessage = null;
+        systems.obscure.client.protos.Pond.Fetched parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.Fetched) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.Fetched) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -7369,9 +7369,9 @@ public final class Pond {
         return this;
       }
 
-      private Pond.AccountDetails details_ = Pond.AccountDetails.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.AccountDetails details_ = systems.obscure.client.protos.Pond.AccountDetails.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.AccountDetails, Pond.AccountDetails.Builder, Pond.AccountDetailsOrBuilder> detailsBuilder_;
+          systems.obscure.client.protos.Pond.AccountDetails, systems.obscure.client.protos.Pond.AccountDetails.Builder, systems.obscure.client.protos.Pond.AccountDetailsOrBuilder> detailsBuilder_;
       /**
        * <code>required .AccountDetails details = 5;</code>
        */
@@ -7381,7 +7381,7 @@ public final class Pond {
       /**
        * <code>required .AccountDetails details = 5;</code>
        */
-      public Pond.AccountDetails getDetails() {
+      public systems.obscure.client.protos.Pond.AccountDetails getDetails() {
         if (detailsBuilder_ == null) {
           return details_;
         } else {
@@ -7391,7 +7391,7 @@ public final class Pond {
       /**
        * <code>required .AccountDetails details = 5;</code>
        */
-      public Builder setDetails(Pond.AccountDetails value) {
+      public Builder setDetails(systems.obscure.client.protos.Pond.AccountDetails value) {
         if (detailsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -7408,7 +7408,7 @@ public final class Pond {
        * <code>required .AccountDetails details = 5;</code>
        */
       public Builder setDetails(
-          Pond.AccountDetails.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.AccountDetails.Builder builderForValue) {
         if (detailsBuilder_ == null) {
           details_ = builderForValue.build();
           onChanged();
@@ -7421,12 +7421,12 @@ public final class Pond {
       /**
        * <code>required .AccountDetails details = 5;</code>
        */
-      public Builder mergeDetails(Pond.AccountDetails value) {
+      public Builder mergeDetails(systems.obscure.client.protos.Pond.AccountDetails value) {
         if (detailsBuilder_ == null) {
           if (((bitField0_ & 0x00000010) == 0x00000010) &&
-              details_ != Pond.AccountDetails.getDefaultInstance()) {
+              details_ != systems.obscure.client.protos.Pond.AccountDetails.getDefaultInstance()) {
             details_ =
-              Pond.AccountDetails.newBuilder(details_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.AccountDetails.newBuilder(details_).mergeFrom(value).buildPartial();
           } else {
             details_ = value;
           }
@@ -7442,7 +7442,7 @@ public final class Pond {
        */
       public Builder clearDetails() {
         if (detailsBuilder_ == null) {
-          details_ = Pond.AccountDetails.getDefaultInstance();
+          details_ = systems.obscure.client.protos.Pond.AccountDetails.getDefaultInstance();
           onChanged();
         } else {
           detailsBuilder_.clear();
@@ -7453,7 +7453,7 @@ public final class Pond {
       /**
        * <code>required .AccountDetails details = 5;</code>
        */
-      public Pond.AccountDetails.Builder getDetailsBuilder() {
+      public systems.obscure.client.protos.Pond.AccountDetails.Builder getDetailsBuilder() {
         bitField0_ |= 0x00000010;
         onChanged();
         return getDetailsFieldBuilder().getBuilder();
@@ -7461,7 +7461,7 @@ public final class Pond {
       /**
        * <code>required .AccountDetails details = 5;</code>
        */
-      public Pond.AccountDetailsOrBuilder getDetailsOrBuilder() {
+      public systems.obscure.client.protos.Pond.AccountDetailsOrBuilder getDetailsOrBuilder() {
         if (detailsBuilder_ != null) {
           return detailsBuilder_.getMessageOrBuilder();
         } else {
@@ -7472,11 +7472,11 @@ public final class Pond {
        * <code>required .AccountDetails details = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.AccountDetails, Pond.AccountDetails.Builder, Pond.AccountDetailsOrBuilder> 
+          systems.obscure.client.protos.Pond.AccountDetails, systems.obscure.client.protos.Pond.AccountDetails.Builder, systems.obscure.client.protos.Pond.AccountDetailsOrBuilder> 
           getDetailsFieldBuilder() {
         if (detailsBuilder_ == null) {
           detailsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.AccountDetails, Pond.AccountDetails.Builder, Pond.AccountDetailsOrBuilder>(
+              systems.obscure.client.protos.Pond.AccountDetails, systems.obscure.client.protos.Pond.AccountDetails.Builder, systems.obscure.client.protos.Pond.AccountDetailsOrBuilder>(
                   getDetails(),
                   getParentForChildren(),
                   isClean());
@@ -7507,11 +7507,11 @@ public final class Pond {
     /**
      * <code>required .Message message = 1;</code>
      */
-    Pond.Message getMessage();
+    systems.obscure.client.protos.Pond.Message getMessage();
     /**
      * <code>required .Message message = 1;</code>
      */
-    Pond.MessageOrBuilder getMessageOrBuilder();
+    systems.obscure.client.protos.Pond.MessageOrBuilder getMessageOrBuilder();
   }
   /**
    * Protobuf type {@code ServerAnnounce}
@@ -7572,11 +7572,11 @@ public final class Pond {
               break;
             }
             case 10: {
-              Pond.Message.Builder subBuilder = null;
+              systems.obscure.client.protos.Pond.Message.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
                 subBuilder = message_.toBuilder();
               }
-              message_ = input.readMessage(Pond.Message.PARSER, extensionRegistry);
+              message_ = input.readMessage(systems.obscure.client.protos.Pond.Message.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(message_);
                 message_ = subBuilder.buildPartial();
@@ -7598,14 +7598,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_ServerAnnounce_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_ServerAnnounce_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_ServerAnnounce_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_ServerAnnounce_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.ServerAnnounce.class, Pond.ServerAnnounce.Builder.class);
+              systems.obscure.client.protos.Pond.ServerAnnounce.class, systems.obscure.client.protos.Pond.ServerAnnounce.Builder.class);
     }
 
     public static com.google.protobuf.Parser<ServerAnnounce> PARSER =
@@ -7625,7 +7625,7 @@ public final class Pond {
 
     private int bitField0_;
     public static final int MESSAGE_FIELD_NUMBER = 1;
-    private Pond.Message message_;
+    private systems.obscure.client.protos.Pond.Message message_;
     /**
      * <code>required .Message message = 1;</code>
      */
@@ -7635,18 +7635,18 @@ public final class Pond {
     /**
      * <code>required .Message message = 1;</code>
      */
-    public Pond.Message getMessage() {
+    public systems.obscure.client.protos.Pond.Message getMessage() {
       return message_;
     }
     /**
      * <code>required .Message message = 1;</code>
      */
-    public Pond.MessageOrBuilder getMessageOrBuilder() {
+    public systems.obscure.client.protos.Pond.MessageOrBuilder getMessageOrBuilder() {
       return message_;
     }
 
     private void initFields() {
-      message_ = Pond.Message.getDefaultInstance();
+      message_ = systems.obscure.client.protos.Pond.Message.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -7697,53 +7697,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.ServerAnnounce parseFrom(
+    public static systems.obscure.client.protos.Pond.ServerAnnounce parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.ServerAnnounce parseFrom(
+    public static systems.obscure.client.protos.Pond.ServerAnnounce parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.ServerAnnounce parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.ServerAnnounce parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.ServerAnnounce parseFrom(
+    public static systems.obscure.client.protos.Pond.ServerAnnounce parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.ServerAnnounce parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.ServerAnnounce parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.ServerAnnounce parseFrom(
+    public static systems.obscure.client.protos.Pond.ServerAnnounce parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.ServerAnnounce parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.ServerAnnounce parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.ServerAnnounce parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.ServerAnnounce parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.ServerAnnounce parseFrom(
+    public static systems.obscure.client.protos.Pond.ServerAnnounce parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.ServerAnnounce parseFrom(
+    public static systems.obscure.client.protos.Pond.ServerAnnounce parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -7752,7 +7752,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.ServerAnnounce prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.ServerAnnounce prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -7775,20 +7775,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:ServerAnnounce)
-        Pond.ServerAnnounceOrBuilder {
+        systems.obscure.client.protos.Pond.ServerAnnounceOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_ServerAnnounce_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_ServerAnnounce_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_ServerAnnounce_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_ServerAnnounce_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.ServerAnnounce.class, Pond.ServerAnnounce.Builder.class);
+                systems.obscure.client.protos.Pond.ServerAnnounce.class, systems.obscure.client.protos.Pond.ServerAnnounce.Builder.class);
       }
 
-      // Construct using Pond.ServerAnnounce.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.ServerAnnounce.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7810,7 +7810,7 @@ public final class Pond {
       public Builder clear() {
         super.clear();
         if (messageBuilder_ == null) {
-          message_ = Pond.Message.getDefaultInstance();
+          message_ = systems.obscure.client.protos.Pond.Message.getDefaultInstance();
         } else {
           messageBuilder_.clear();
         }
@@ -7824,23 +7824,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_ServerAnnounce_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_ServerAnnounce_descriptor;
       }
 
-      public Pond.ServerAnnounce getDefaultInstanceForType() {
-        return Pond.ServerAnnounce.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.ServerAnnounce getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.ServerAnnounce.getDefaultInstance();
       }
 
-      public Pond.ServerAnnounce build() {
-        Pond.ServerAnnounce result = buildPartial();
+      public systems.obscure.client.protos.Pond.ServerAnnounce build() {
+        systems.obscure.client.protos.Pond.ServerAnnounce result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.ServerAnnounce buildPartial() {
-        Pond.ServerAnnounce result = new Pond.ServerAnnounce(this);
+      public systems.obscure.client.protos.Pond.ServerAnnounce buildPartial() {
+        systems.obscure.client.protos.Pond.ServerAnnounce result = new systems.obscure.client.protos.Pond.ServerAnnounce(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7857,16 +7857,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.ServerAnnounce) {
-          return mergeFrom((Pond.ServerAnnounce)other);
+        if (other instanceof systems.obscure.client.protos.Pond.ServerAnnounce) {
+          return mergeFrom((systems.obscure.client.protos.Pond.ServerAnnounce)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.ServerAnnounce other) {
-        if (other == Pond.ServerAnnounce.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.ServerAnnounce other) {
+        if (other == systems.obscure.client.protos.Pond.ServerAnnounce.getDefaultInstance()) return this;
         if (other.hasMessage()) {
           mergeMessage(other.getMessage());
         }
@@ -7890,11 +7890,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.ServerAnnounce parsedMessage = null;
+        systems.obscure.client.protos.Pond.ServerAnnounce parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.ServerAnnounce) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.ServerAnnounce) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -7905,9 +7905,9 @@ public final class Pond {
       }
       private int bitField0_;
 
-      private Pond.Message message_ = Pond.Message.getDefaultInstance();
+      private systems.obscure.client.protos.Pond.Message message_ = systems.obscure.client.protos.Pond.Message.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.Message, Pond.Message.Builder, Pond.MessageOrBuilder> messageBuilder_;
+          systems.obscure.client.protos.Pond.Message, systems.obscure.client.protos.Pond.Message.Builder, systems.obscure.client.protos.Pond.MessageOrBuilder> messageBuilder_;
       /**
        * <code>required .Message message = 1;</code>
        */
@@ -7917,7 +7917,7 @@ public final class Pond {
       /**
        * <code>required .Message message = 1;</code>
        */
-      public Pond.Message getMessage() {
+      public systems.obscure.client.protos.Pond.Message getMessage() {
         if (messageBuilder_ == null) {
           return message_;
         } else {
@@ -7927,7 +7927,7 @@ public final class Pond {
       /**
        * <code>required .Message message = 1;</code>
        */
-      public Builder setMessage(Pond.Message value) {
+      public Builder setMessage(systems.obscure.client.protos.Pond.Message value) {
         if (messageBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -7944,7 +7944,7 @@ public final class Pond {
        * <code>required .Message message = 1;</code>
        */
       public Builder setMessage(
-          Pond.Message.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.Message.Builder builderForValue) {
         if (messageBuilder_ == null) {
           message_ = builderForValue.build();
           onChanged();
@@ -7957,12 +7957,12 @@ public final class Pond {
       /**
        * <code>required .Message message = 1;</code>
        */
-      public Builder mergeMessage(Pond.Message value) {
+      public Builder mergeMessage(systems.obscure.client.protos.Pond.Message value) {
         if (messageBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              message_ != Pond.Message.getDefaultInstance()) {
+              message_ != systems.obscure.client.protos.Pond.Message.getDefaultInstance()) {
             message_ =
-              Pond.Message.newBuilder(message_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.Pond.Message.newBuilder(message_).mergeFrom(value).buildPartial();
           } else {
             message_ = value;
           }
@@ -7978,7 +7978,7 @@ public final class Pond {
        */
       public Builder clearMessage() {
         if (messageBuilder_ == null) {
-          message_ = Pond.Message.getDefaultInstance();
+          message_ = systems.obscure.client.protos.Pond.Message.getDefaultInstance();
           onChanged();
         } else {
           messageBuilder_.clear();
@@ -7989,7 +7989,7 @@ public final class Pond {
       /**
        * <code>required .Message message = 1;</code>
        */
-      public Pond.Message.Builder getMessageBuilder() {
+      public systems.obscure.client.protos.Pond.Message.Builder getMessageBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getMessageFieldBuilder().getBuilder();
@@ -7997,7 +7997,7 @@ public final class Pond {
       /**
        * <code>required .Message message = 1;</code>
        */
-      public Pond.MessageOrBuilder getMessageOrBuilder() {
+      public systems.obscure.client.protos.Pond.MessageOrBuilder getMessageOrBuilder() {
         if (messageBuilder_ != null) {
           return messageBuilder_.getMessageOrBuilder();
         } else {
@@ -8008,11 +8008,11 @@ public final class Pond {
        * <code>required .Message message = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Pond.Message, Pond.Message.Builder, Pond.MessageOrBuilder> 
+          systems.obscure.client.protos.Pond.Message, systems.obscure.client.protos.Pond.Message.Builder, systems.obscure.client.protos.Pond.MessageOrBuilder> 
           getMessageFieldBuilder() {
         if (messageBuilder_ == null) {
           messageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Pond.Message, Pond.Message.Builder, Pond.MessageOrBuilder>(
+              systems.obscure.client.protos.Pond.Message, systems.obscure.client.protos.Pond.Message.Builder, systems.obscure.client.protos.Pond.MessageOrBuilder>(
                   getMessage(),
                   getParentForChildren(),
                   isClean());
@@ -8130,14 +8130,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_Upload_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_Upload_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_Upload_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_Upload_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.Upload.class, Pond.Upload.Builder.class);
+              systems.obscure.client.protos.Pond.Upload.class, systems.obscure.client.protos.Pond.Upload.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Upload> PARSER =
@@ -8246,53 +8246,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.Upload parseFrom(
+    public static systems.obscure.client.protos.Pond.Upload parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Upload parseFrom(
+    public static systems.obscure.client.protos.Pond.Upload parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Upload parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.Upload parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Upload parseFrom(
+    public static systems.obscure.client.protos.Pond.Upload parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Upload parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Upload parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Upload parseFrom(
+    public static systems.obscure.client.protos.Pond.Upload parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.Upload parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Upload parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.Upload parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.Upload parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.Upload parseFrom(
+    public static systems.obscure.client.protos.Pond.Upload parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Upload parseFrom(
+    public static systems.obscure.client.protos.Pond.Upload parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8301,7 +8301,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.Upload prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.Upload prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -8318,20 +8318,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Upload)
-        Pond.UploadOrBuilder {
+        systems.obscure.client.protos.Pond.UploadOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_Upload_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Upload_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_Upload_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_Upload_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.Upload.class, Pond.Upload.Builder.class);
+                systems.obscure.client.protos.Pond.Upload.class, systems.obscure.client.protos.Pond.Upload.Builder.class);
       }
 
-      // Construct using Pond.Upload.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.Upload.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8364,23 +8364,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_Upload_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Upload_descriptor;
       }
 
-      public Pond.Upload getDefaultInstanceForType() {
-        return Pond.Upload.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.Upload getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.Upload.getDefaultInstance();
       }
 
-      public Pond.Upload build() {
-        Pond.Upload result = buildPartial();
+      public systems.obscure.client.protos.Pond.Upload build() {
+        systems.obscure.client.protos.Pond.Upload result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.Upload buildPartial() {
-        Pond.Upload result = new Pond.Upload(this);
+      public systems.obscure.client.protos.Pond.Upload buildPartial() {
+        systems.obscure.client.protos.Pond.Upload result = new systems.obscure.client.protos.Pond.Upload(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8397,16 +8397,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.Upload) {
-          return mergeFrom((Pond.Upload)other);
+        if (other instanceof systems.obscure.client.protos.Pond.Upload) {
+          return mergeFrom((systems.obscure.client.protos.Pond.Upload)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.Upload other) {
-        if (other == Pond.Upload.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.Upload other) {
+        if (other == systems.obscure.client.protos.Pond.Upload.getDefaultInstance()) return this;
         if (other.hasId()) {
           setId(other.getId());
         }
@@ -8433,11 +8433,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.Upload parsedMessage = null;
+        systems.obscure.client.protos.Pond.Upload parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.Upload) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.Upload) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -8607,14 +8607,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_UploadReply_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_UploadReply_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_UploadReply_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_UploadReply_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.UploadReply.class, Pond.UploadReply.Builder.class);
+              systems.obscure.client.protos.Pond.UploadReply.class, systems.obscure.client.protos.Pond.UploadReply.Builder.class);
     }
 
     public static com.google.protobuf.Parser<UploadReply> PARSER =
@@ -8692,53 +8692,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.UploadReply parseFrom(
+    public static systems.obscure.client.protos.Pond.UploadReply parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.UploadReply parseFrom(
+    public static systems.obscure.client.protos.Pond.UploadReply parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.UploadReply parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.UploadReply parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.UploadReply parseFrom(
+    public static systems.obscure.client.protos.Pond.UploadReply parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.UploadReply parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.UploadReply parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.UploadReply parseFrom(
+    public static systems.obscure.client.protos.Pond.UploadReply parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.UploadReply parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.UploadReply parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.UploadReply parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.UploadReply parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.UploadReply parseFrom(
+    public static systems.obscure.client.protos.Pond.UploadReply parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.UploadReply parseFrom(
+    public static systems.obscure.client.protos.Pond.UploadReply parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8747,7 +8747,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.UploadReply prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.UploadReply prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -8764,20 +8764,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:UploadReply)
-        Pond.UploadReplyOrBuilder {
+        systems.obscure.client.protos.Pond.UploadReplyOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_UploadReply_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_UploadReply_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_UploadReply_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_UploadReply_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.UploadReply.class, Pond.UploadReply.Builder.class);
+                systems.obscure.client.protos.Pond.UploadReply.class, systems.obscure.client.protos.Pond.UploadReply.Builder.class);
       }
 
-      // Construct using Pond.UploadReply.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.UploadReply.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8808,23 +8808,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_UploadReply_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_UploadReply_descriptor;
       }
 
-      public Pond.UploadReply getDefaultInstanceForType() {
-        return Pond.UploadReply.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.UploadReply getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.UploadReply.getDefaultInstance();
       }
 
-      public Pond.UploadReply build() {
-        Pond.UploadReply result = buildPartial();
+      public systems.obscure.client.protos.Pond.UploadReply build() {
+        systems.obscure.client.protos.Pond.UploadReply result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.UploadReply buildPartial() {
-        Pond.UploadReply result = new Pond.UploadReply(this);
+      public systems.obscure.client.protos.Pond.UploadReply buildPartial() {
+        systems.obscure.client.protos.Pond.UploadReply result = new systems.obscure.client.protos.Pond.UploadReply(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8837,16 +8837,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.UploadReply) {
-          return mergeFrom((Pond.UploadReply)other);
+        if (other instanceof systems.obscure.client.protos.Pond.UploadReply) {
+          return mergeFrom((systems.obscure.client.protos.Pond.UploadReply)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.UploadReply other) {
-        if (other == Pond.UploadReply.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.UploadReply other) {
+        if (other == systems.obscure.client.protos.Pond.UploadReply.getDefaultInstance()) return this;
         if (other.hasResume()) {
           setResume(other.getResume());
         }
@@ -8862,11 +8862,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.UploadReply parsedMessage = null;
+        systems.obscure.client.protos.Pond.UploadReply parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.UploadReply) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.UploadReply) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -9032,14 +9032,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_Download_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_Download_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_Download_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_Download_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.Download.class, Pond.Download.Builder.class);
+              systems.obscure.client.protos.Pond.Download.class, systems.obscure.client.protos.Pond.Download.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Download> PARSER =
@@ -9171,53 +9171,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.Download parseFrom(
+    public static systems.obscure.client.protos.Pond.Download parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Download parseFrom(
+    public static systems.obscure.client.protos.Pond.Download parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Download parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.Download parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Download parseFrom(
+    public static systems.obscure.client.protos.Pond.Download parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Download parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Download parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Download parseFrom(
+    public static systems.obscure.client.protos.Pond.Download parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.Download parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Download parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.Download parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.Download parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.Download parseFrom(
+    public static systems.obscure.client.protos.Pond.Download parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Download parseFrom(
+    public static systems.obscure.client.protos.Pond.Download parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -9226,7 +9226,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.Download prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.Download prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -9243,20 +9243,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Download)
-        Pond.DownloadOrBuilder {
+        systems.obscure.client.protos.Pond.DownloadOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_Download_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Download_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_Download_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_Download_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.Download.class, Pond.Download.Builder.class);
+                systems.obscure.client.protos.Pond.Download.class, systems.obscure.client.protos.Pond.Download.Builder.class);
       }
 
-      // Construct using Pond.Download.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.Download.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9291,23 +9291,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_Download_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Download_descriptor;
       }
 
-      public Pond.Download getDefaultInstanceForType() {
-        return Pond.Download.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.Download getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.Download.getDefaultInstance();
       }
 
-      public Pond.Download build() {
-        Pond.Download result = buildPartial();
+      public systems.obscure.client.protos.Pond.Download build() {
+        systems.obscure.client.protos.Pond.Download result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.Download buildPartial() {
-        Pond.Download result = new Pond.Download(this);
+      public systems.obscure.client.protos.Pond.Download buildPartial() {
+        systems.obscure.client.protos.Pond.Download result = new systems.obscure.client.protos.Pond.Download(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9328,16 +9328,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.Download) {
-          return mergeFrom((Pond.Download)other);
+        if (other instanceof systems.obscure.client.protos.Pond.Download) {
+          return mergeFrom((systems.obscure.client.protos.Pond.Download)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.Download other) {
-        if (other == Pond.Download.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.Download other) {
+        if (other == systems.obscure.client.protos.Pond.Download.getDefaultInstance()) return this;
         if (other.hasFrom()) {
           setFrom(other.getFrom());
         }
@@ -9367,11 +9367,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.Download parsedMessage = null;
+        systems.obscure.client.protos.Pond.Download parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.Download) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.Download) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -9576,14 +9576,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_DownloadReply_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_DownloadReply_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_DownloadReply_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_DownloadReply_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.DownloadReply.class, Pond.DownloadReply.Builder.class);
+              systems.obscure.client.protos.Pond.DownloadReply.class, systems.obscure.client.protos.Pond.DownloadReply.Builder.class);
     }
 
     public static com.google.protobuf.Parser<DownloadReply> PARSER =
@@ -9665,53 +9665,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.DownloadReply parseFrom(
+    public static systems.obscure.client.protos.Pond.DownloadReply parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.DownloadReply parseFrom(
+    public static systems.obscure.client.protos.Pond.DownloadReply parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.DownloadReply parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.DownloadReply parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.DownloadReply parseFrom(
+    public static systems.obscure.client.protos.Pond.DownloadReply parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.DownloadReply parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.DownloadReply parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.DownloadReply parseFrom(
+    public static systems.obscure.client.protos.Pond.DownloadReply parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.DownloadReply parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.DownloadReply parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.DownloadReply parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.DownloadReply parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.DownloadReply parseFrom(
+    public static systems.obscure.client.protos.Pond.DownloadReply parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.DownloadReply parseFrom(
+    public static systems.obscure.client.protos.Pond.DownloadReply parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -9720,7 +9720,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.DownloadReply prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.DownloadReply prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -9737,20 +9737,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:DownloadReply)
-        Pond.DownloadReplyOrBuilder {
+        systems.obscure.client.protos.Pond.DownloadReplyOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_DownloadReply_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_DownloadReply_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_DownloadReply_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_DownloadReply_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.DownloadReply.class, Pond.DownloadReply.Builder.class);
+                systems.obscure.client.protos.Pond.DownloadReply.class, systems.obscure.client.protos.Pond.DownloadReply.Builder.class);
       }
 
-      // Construct using Pond.DownloadReply.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.DownloadReply.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9781,23 +9781,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_DownloadReply_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_DownloadReply_descriptor;
       }
 
-      public Pond.DownloadReply getDefaultInstanceForType() {
-        return Pond.DownloadReply.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.DownloadReply getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.DownloadReply.getDefaultInstance();
       }
 
-      public Pond.DownloadReply build() {
-        Pond.DownloadReply result = buildPartial();
+      public systems.obscure.client.protos.Pond.DownloadReply build() {
+        systems.obscure.client.protos.Pond.DownloadReply result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.DownloadReply buildPartial() {
-        Pond.DownloadReply result = new Pond.DownloadReply(this);
+      public systems.obscure.client.protos.Pond.DownloadReply buildPartial() {
+        systems.obscure.client.protos.Pond.DownloadReply result = new systems.obscure.client.protos.Pond.DownloadReply(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9810,16 +9810,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.DownloadReply) {
-          return mergeFrom((Pond.DownloadReply)other);
+        if (other instanceof systems.obscure.client.protos.Pond.DownloadReply) {
+          return mergeFrom((systems.obscure.client.protos.Pond.DownloadReply)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.DownloadReply other) {
-        if (other == Pond.DownloadReply.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.DownloadReply other) {
+        if (other == systems.obscure.client.protos.Pond.DownloadReply.getDefaultInstance()) return this;
         if (other.hasSize()) {
           setSize(other.getSize());
         }
@@ -9839,11 +9839,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.DownloadReply parsedMessage = null;
+        systems.obscure.client.protos.Pond.DownloadReply parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.DownloadReply) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.DownloadReply) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -9986,14 +9986,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_HMACSetup_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_HMACSetup_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_HMACSetup_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_HMACSetup_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.HMACSetup.class, Pond.HMACSetup.Builder.class);
+              systems.obscure.client.protos.Pond.HMACSetup.class, systems.obscure.client.protos.Pond.HMACSetup.Builder.class);
     }
 
     public static com.google.protobuf.Parser<HMACSetup> PARSER =
@@ -10075,53 +10075,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.HMACSetup parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACSetup parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.HMACSetup parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACSetup parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.HMACSetup parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.HMACSetup parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.HMACSetup parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACSetup parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.HMACSetup parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.HMACSetup parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.HMACSetup parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACSetup parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.HMACSetup parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.HMACSetup parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.HMACSetup parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.HMACSetup parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.HMACSetup parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACSetup parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.HMACSetup parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACSetup parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -10130,7 +10130,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.HMACSetup prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.HMACSetup prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -10152,20 +10152,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:HMACSetup)
-        Pond.HMACSetupOrBuilder {
+        systems.obscure.client.protos.Pond.HMACSetupOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_HMACSetup_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_HMACSetup_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_HMACSetup_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_HMACSetup_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.HMACSetup.class, Pond.HMACSetup.Builder.class);
+                systems.obscure.client.protos.Pond.HMACSetup.class, systems.obscure.client.protos.Pond.HMACSetup.Builder.class);
       }
 
-      // Construct using Pond.HMACSetup.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.HMACSetup.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -10196,23 +10196,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_HMACSetup_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_HMACSetup_descriptor;
       }
 
-      public Pond.HMACSetup getDefaultInstanceForType() {
-        return Pond.HMACSetup.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.HMACSetup getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.HMACSetup.getDefaultInstance();
       }
 
-      public Pond.HMACSetup build() {
-        Pond.HMACSetup result = buildPartial();
+      public systems.obscure.client.protos.Pond.HMACSetup build() {
+        systems.obscure.client.protos.Pond.HMACSetup result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.HMACSetup buildPartial() {
-        Pond.HMACSetup result = new Pond.HMACSetup(this);
+      public systems.obscure.client.protos.Pond.HMACSetup buildPartial() {
+        systems.obscure.client.protos.Pond.HMACSetup result = new systems.obscure.client.protos.Pond.HMACSetup(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10225,16 +10225,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.HMACSetup) {
-          return mergeFrom((Pond.HMACSetup)other);
+        if (other instanceof systems.obscure.client.protos.Pond.HMACSetup) {
+          return mergeFrom((systems.obscure.client.protos.Pond.HMACSetup)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.HMACSetup other) {
-        if (other == Pond.HMACSetup.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.HMACSetup other) {
+        if (other == systems.obscure.client.protos.Pond.HMACSetup.getDefaultInstance()) return this;
         if (other.hasHmacKey()) {
           setHmacKey(other.getHmacKey());
         }
@@ -10254,11 +10254,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.HMACSetup parsedMessage = null;
+        systems.obscure.client.protos.Pond.HMACSetup parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.HMACSetup) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.HMACSetup) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -10441,14 +10441,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_HMACStrike_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_HMACStrike_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_HMACStrike_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_HMACStrike_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.HMACStrike.class, Pond.HMACStrike.Builder.class);
+              systems.obscure.client.protos.Pond.HMACStrike.class, systems.obscure.client.protos.Pond.HMACStrike.Builder.class);
     }
 
     public static com.google.protobuf.Parser<HMACStrike> PARSER =
@@ -10559,53 +10559,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.HMACStrike parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACStrike parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.HMACStrike parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACStrike parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.HMACStrike parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.HMACStrike parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.HMACStrike parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACStrike parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.HMACStrike parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.HMACStrike parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.HMACStrike parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACStrike parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.HMACStrike parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.HMACStrike parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.HMACStrike parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.HMACStrike parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.HMACStrike parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACStrike parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.HMACStrike parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACStrike parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -10614,7 +10614,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.HMACStrike prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.HMACStrike prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -10635,20 +10635,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:HMACStrike)
-        Pond.HMACStrikeOrBuilder {
+        systems.obscure.client.protos.Pond.HMACStrikeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_HMACStrike_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_HMACStrike_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_HMACStrike_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_HMACStrike_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.HMACStrike.class, Pond.HMACStrike.Builder.class);
+                systems.obscure.client.protos.Pond.HMACStrike.class, systems.obscure.client.protos.Pond.HMACStrike.Builder.class);
       }
 
-      // Construct using Pond.HMACStrike.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.HMACStrike.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -10679,23 +10679,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_HMACStrike_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_HMACStrike_descriptor;
       }
 
-      public Pond.HMACStrike getDefaultInstanceForType() {
-        return Pond.HMACStrike.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.HMACStrike getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.HMACStrike.getDefaultInstance();
       }
 
-      public Pond.HMACStrike build() {
-        Pond.HMACStrike result = buildPartial();
+      public systems.obscure.client.protos.Pond.HMACStrike build() {
+        systems.obscure.client.protos.Pond.HMACStrike result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.HMACStrike buildPartial() {
-        Pond.HMACStrike result = new Pond.HMACStrike(this);
+      public systems.obscure.client.protos.Pond.HMACStrike buildPartial() {
+        systems.obscure.client.protos.Pond.HMACStrike result = new systems.obscure.client.protos.Pond.HMACStrike(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           hmacs_ = java.util.Collections.unmodifiableList(hmacs_);
@@ -10707,16 +10707,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.HMACStrike) {
-          return mergeFrom((Pond.HMACStrike)other);
+        if (other instanceof systems.obscure.client.protos.Pond.HMACStrike) {
+          return mergeFrom((systems.obscure.client.protos.Pond.HMACStrike)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.HMACStrike other) {
-        if (other == Pond.HMACStrike.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.HMACStrike other) {
+        if (other == systems.obscure.client.protos.Pond.HMACStrike.getDefaultInstance()) return this;
         if (!other.hmacs_.isEmpty()) {
           if (hmacs_.isEmpty()) {
             hmacs_ = other.hmacs_;
@@ -10739,11 +10739,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.HMACStrike parsedMessage = null;
+        systems.obscure.client.protos.Pond.HMACStrike parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.HMACStrike) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.HMACStrike) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -10998,14 +10998,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_HMACPair_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_HMACPair_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_HMACPair_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_HMACPair_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.HMACPair.class, Pond.HMACPair.Builder.class);
+              systems.obscure.client.protos.Pond.HMACPair.class, systems.obscure.client.protos.Pond.HMACPair.Builder.class);
     }
 
     public static com.google.protobuf.Parser<HMACPair> PARSER =
@@ -11157,53 +11157,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.HMACPair parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACPair parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.HMACPair parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACPair parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.HMACPair parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.HMACPair parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.HMACPair parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACPair parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.HMACPair parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.HMACPair parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.HMACPair parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACPair parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.HMACPair parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.HMACPair parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.HMACPair parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.HMACPair parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.HMACPair parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACPair parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.HMACPair parseFrom(
+    public static systems.obscure.client.protos.Pond.HMACPair parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11212,7 +11212,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.HMACPair prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.HMACPair prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -11233,20 +11233,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:HMACPair)
-        Pond.HMACPairOrBuilder {
+        systems.obscure.client.protos.Pond.HMACPairOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_HMACPair_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_HMACPair_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_HMACPair_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_HMACPair_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.HMACPair.class, Pond.HMACPair.Builder.class);
+                systems.obscure.client.protos.Pond.HMACPair.class, systems.obscure.client.protos.Pond.HMACPair.Builder.class);
       }
 
-      // Construct using Pond.HMACPair.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.HMACPair.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11281,23 +11281,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_HMACPair_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_HMACPair_descriptor;
       }
 
-      public Pond.HMACPair getDefaultInstanceForType() {
-        return Pond.HMACPair.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.HMACPair getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.HMACPair.getDefaultInstance();
       }
 
-      public Pond.HMACPair build() {
-        Pond.HMACPair result = buildPartial();
+      public systems.obscure.client.protos.Pond.HMACPair build() {
+        systems.obscure.client.protos.Pond.HMACPair result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.HMACPair buildPartial() {
-        Pond.HMACPair result = new Pond.HMACPair(this);
+      public systems.obscure.client.protos.Pond.HMACPair buildPartial() {
+        systems.obscure.client.protos.Pond.HMACPair result = new systems.obscure.client.protos.Pond.HMACPair(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11318,16 +11318,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.HMACPair) {
-          return mergeFrom((Pond.HMACPair)other);
+        if (other instanceof systems.obscure.client.protos.Pond.HMACPair) {
+          return mergeFrom((systems.obscure.client.protos.Pond.HMACPair)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.HMACPair other) {
-        if (other == Pond.HMACPair.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.HMACPair other) {
+        if (other == systems.obscure.client.protos.Pond.HMACPair.getDefaultInstance()) return this;
         if (other.hasPrivateKey()) {
           setPrivateKey(other.getPrivateKey());
         }
@@ -11361,11 +11361,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.HMACPair parsedMessage = null;
+        systems.obscure.client.protos.Pond.HMACPair parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.HMACPair) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.HMACPair) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -11639,7 +11639,7 @@ public final class Pond {
      * HMAC key known to server and recipient.
      * </pre>
      */
-    java.util.List<Pond.HMACPair> 
+    java.util.List<systems.obscure.client.protos.Pond.HMACPair> 
         getHmacPairsList();
     /**
      * <code>repeated .HMACPair hmac_pairs = 6;</code>
@@ -11653,7 +11653,7 @@ public final class Pond {
      * HMAC key known to server and recipient.
      * </pre>
      */
-    Pond.HMACPair getHmacPairs(int index);
+    systems.obscure.client.protos.Pond.HMACPair getHmacPairs(int index);
     /**
      * <code>repeated .HMACPair hmac_pairs = 6;</code>
      *
@@ -11679,7 +11679,7 @@ public final class Pond {
      * HMAC key known to server and recipient.
      * </pre>
      */
-    java.util.List<? extends Pond.HMACPairOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.Pond.HMACPairOrBuilder> 
         getHmacPairsOrBuilderList();
     /**
      * <code>repeated .HMACPair hmac_pairs = 6;</code>
@@ -11693,7 +11693,7 @@ public final class Pond {
      * HMAC key known to server and recipient.
      * </pre>
      */
-    Pond.HMACPairOrBuilder getHmacPairsOrBuilder(
+    systems.obscure.client.protos.Pond.HMACPairOrBuilder getHmacPairsOrBuilder(
         int index);
   }
   /**
@@ -11781,10 +11781,10 @@ public final class Pond {
             }
             case 50: {
               if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                hmacPairs_ = new java.util.ArrayList<Pond.HMACPair>();
+                hmacPairs_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.HMACPair>();
                 mutable_bitField0_ |= 0x00000020;
               }
-              hmacPairs_.add(input.readMessage(Pond.HMACPair.PARSER, extensionRegistry));
+              hmacPairs_.add(input.readMessage(systems.obscure.client.protos.Pond.HMACPair.PARSER, extensionRegistry));
               break;
             }
           }
@@ -11804,14 +11804,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_KeyExchange_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_KeyExchange_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_KeyExchange_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_KeyExchange_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.KeyExchange.class, Pond.KeyExchange.Builder.class);
+              systems.obscure.client.protos.Pond.KeyExchange.class, systems.obscure.client.protos.Pond.KeyExchange.Builder.class);
     }
 
     public static com.google.protobuf.Parser<KeyExchange> PARSER =
@@ -11985,7 +11985,7 @@ public final class Pond {
     }
 
     public static final int HMAC_PAIRS_FIELD_NUMBER = 6;
-    private java.util.List<Pond.HMACPair> hmacPairs_;
+    private java.util.List<systems.obscure.client.protos.Pond.HMACPair> hmacPairs_;
     /**
      * <code>repeated .HMACPair hmac_pairs = 6;</code>
      *
@@ -11998,7 +11998,7 @@ public final class Pond {
      * HMAC key known to server and recipient.
      * </pre>
      */
-    public java.util.List<Pond.HMACPair> getHmacPairsList() {
+    public java.util.List<systems.obscure.client.protos.Pond.HMACPair> getHmacPairsList() {
       return hmacPairs_;
     }
     /**
@@ -12013,7 +12013,7 @@ public final class Pond {
      * HMAC key known to server and recipient.
      * </pre>
      */
-    public java.util.List<? extends Pond.HMACPairOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.Pond.HMACPairOrBuilder> 
         getHmacPairsOrBuilderList() {
       return hmacPairs_;
     }
@@ -12044,7 +12044,7 @@ public final class Pond {
      * HMAC key known to server and recipient.
      * </pre>
      */
-    public Pond.HMACPair getHmacPairs(int index) {
+    public systems.obscure.client.protos.Pond.HMACPair getHmacPairs(int index) {
       return hmacPairs_.get(index);
     }
     /**
@@ -12059,7 +12059,7 @@ public final class Pond {
      * HMAC key known to server and recipient.
      * </pre>
      */
-    public Pond.HMACPairOrBuilder getHmacPairsOrBuilder(
+    public systems.obscure.client.protos.Pond.HMACPairOrBuilder getHmacPairsOrBuilder(
         int index) {
       return hmacPairs_.get(index);
     }
@@ -12174,53 +12174,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.KeyExchange parseFrom(
+    public static systems.obscure.client.protos.Pond.KeyExchange parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.KeyExchange parseFrom(
+    public static systems.obscure.client.protos.Pond.KeyExchange parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.KeyExchange parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.KeyExchange parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.KeyExchange parseFrom(
+    public static systems.obscure.client.protos.Pond.KeyExchange parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.KeyExchange parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.KeyExchange parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.KeyExchange parseFrom(
+    public static systems.obscure.client.protos.Pond.KeyExchange parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.KeyExchange parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.KeyExchange parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.KeyExchange parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.KeyExchange parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.KeyExchange parseFrom(
+    public static systems.obscure.client.protos.Pond.KeyExchange parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.KeyExchange parseFrom(
+    public static systems.obscure.client.protos.Pond.KeyExchange parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12229,7 +12229,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.KeyExchange prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.KeyExchange prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -12251,20 +12251,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:KeyExchange)
-        Pond.KeyExchangeOrBuilder {
+        systems.obscure.client.protos.Pond.KeyExchangeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_KeyExchange_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_KeyExchange_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_KeyExchange_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_KeyExchange_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.KeyExchange.class, Pond.KeyExchange.Builder.class);
+                systems.obscure.client.protos.Pond.KeyExchange.class, systems.obscure.client.protos.Pond.KeyExchange.Builder.class);
       }
 
-      // Construct using Pond.KeyExchange.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.KeyExchange.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12310,23 +12310,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_KeyExchange_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_KeyExchange_descriptor;
       }
 
-      public Pond.KeyExchange getDefaultInstanceForType() {
-        return Pond.KeyExchange.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.KeyExchange getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.KeyExchange.getDefaultInstance();
       }
 
-      public Pond.KeyExchange build() {
-        Pond.KeyExchange result = buildPartial();
+      public systems.obscure.client.protos.Pond.KeyExchange build() {
+        systems.obscure.client.protos.Pond.KeyExchange result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.KeyExchange buildPartial() {
-        Pond.KeyExchange result = new Pond.KeyExchange(this);
+      public systems.obscure.client.protos.Pond.KeyExchange buildPartial() {
+        systems.obscure.client.protos.Pond.KeyExchange result = new systems.obscure.client.protos.Pond.KeyExchange(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12364,16 +12364,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.KeyExchange) {
-          return mergeFrom((Pond.KeyExchange)other);
+        if (other instanceof systems.obscure.client.protos.Pond.KeyExchange) {
+          return mergeFrom((systems.obscure.client.protos.Pond.KeyExchange)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.KeyExchange other) {
-        if (other == Pond.KeyExchange.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.KeyExchange other) {
+        if (other == systems.obscure.client.protos.Pond.KeyExchange.getDefaultInstance()) return this;
         if (other.hasPublicKey()) {
           setPublicKey(other.getPublicKey());
         }
@@ -12455,11 +12455,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.KeyExchange parsedMessage = null;
+        systems.obscure.client.protos.Pond.KeyExchange parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.KeyExchange) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.KeyExchange) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -12790,17 +12790,17 @@ public final class Pond {
         return this;
       }
 
-      private java.util.List<Pond.HMACPair> hmacPairs_ =
+      private java.util.List<systems.obscure.client.protos.Pond.HMACPair> hmacPairs_ =
         java.util.Collections.emptyList();
       private void ensureHmacPairsIsMutable() {
         if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-          hmacPairs_ = new java.util.ArrayList<Pond.HMACPair>(hmacPairs_);
+          hmacPairs_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.HMACPair>(hmacPairs_);
           bitField0_ |= 0x00000020;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> hmacPairsBuilder_;
+          systems.obscure.client.protos.Pond.HMACPair, systems.obscure.client.protos.Pond.HMACPair.Builder, systems.obscure.client.protos.Pond.HMACPairOrBuilder> hmacPairsBuilder_;
 
       /**
        * <code>repeated .HMACPair hmac_pairs = 6;</code>
@@ -12814,7 +12814,7 @@ public final class Pond {
        * HMAC key known to server and recipient.
        * </pre>
        */
-      public java.util.List<Pond.HMACPair> getHmacPairsList() {
+      public java.util.List<systems.obscure.client.protos.Pond.HMACPair> getHmacPairsList() {
         if (hmacPairsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(hmacPairs_);
         } else {
@@ -12852,7 +12852,7 @@ public final class Pond {
        * HMAC key known to server and recipient.
        * </pre>
        */
-      public Pond.HMACPair getHmacPairs(int index) {
+      public systems.obscure.client.protos.Pond.HMACPair getHmacPairs(int index) {
         if (hmacPairsBuilder_ == null) {
           return hmacPairs_.get(index);
         } else {
@@ -12872,7 +12872,7 @@ public final class Pond {
        * </pre>
        */
       public Builder setHmacPairs(
-          int index, Pond.HMACPair value) {
+          int index, systems.obscure.client.protos.Pond.HMACPair value) {
         if (hmacPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12898,7 +12898,7 @@ public final class Pond {
        * </pre>
        */
       public Builder setHmacPairs(
-          int index, Pond.HMACPair.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.HMACPair.Builder builderForValue) {
         if (hmacPairsBuilder_ == null) {
           ensureHmacPairsIsMutable();
           hmacPairs_.set(index, builderForValue.build());
@@ -12920,7 +12920,7 @@ public final class Pond {
        * HMAC key known to server and recipient.
        * </pre>
        */
-      public Builder addHmacPairs(Pond.HMACPair value) {
+      public Builder addHmacPairs(systems.obscure.client.protos.Pond.HMACPair value) {
         if (hmacPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12946,7 +12946,7 @@ public final class Pond {
        * </pre>
        */
       public Builder addHmacPairs(
-          int index, Pond.HMACPair value) {
+          int index, systems.obscure.client.protos.Pond.HMACPair value) {
         if (hmacPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12972,7 +12972,7 @@ public final class Pond {
        * </pre>
        */
       public Builder addHmacPairs(
-          Pond.HMACPair.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.HMACPair.Builder builderForValue) {
         if (hmacPairsBuilder_ == null) {
           ensureHmacPairsIsMutable();
           hmacPairs_.add(builderForValue.build());
@@ -12995,7 +12995,7 @@ public final class Pond {
        * </pre>
        */
       public Builder addHmacPairs(
-          int index, Pond.HMACPair.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.HMACPair.Builder builderForValue) {
         if (hmacPairsBuilder_ == null) {
           ensureHmacPairsIsMutable();
           hmacPairs_.add(index, builderForValue.build());
@@ -13018,7 +13018,7 @@ public final class Pond {
        * </pre>
        */
       public Builder addAllHmacPairs(
-          java.lang.Iterable<? extends Pond.HMACPair> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.Pond.HMACPair> values) {
         if (hmacPairsBuilder_ == null) {
           ensureHmacPairsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -13085,7 +13085,7 @@ public final class Pond {
        * HMAC key known to server and recipient.
        * </pre>
        */
-      public Pond.HMACPair.Builder getHmacPairsBuilder(
+      public systems.obscure.client.protos.Pond.HMACPair.Builder getHmacPairsBuilder(
           int index) {
         return getHmacPairsFieldBuilder().getBuilder(index);
       }
@@ -13101,7 +13101,7 @@ public final class Pond {
        * HMAC key known to server and recipient.
        * </pre>
        */
-      public Pond.HMACPairOrBuilder getHmacPairsOrBuilder(
+      public systems.obscure.client.protos.Pond.HMACPairOrBuilder getHmacPairsOrBuilder(
           int index) {
         if (hmacPairsBuilder_ == null) {
           return hmacPairs_.get(index);  } else {
@@ -13120,7 +13120,7 @@ public final class Pond {
        * HMAC key known to server and recipient.
        * </pre>
        */
-      public java.util.List<? extends Pond.HMACPairOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.Pond.HMACPairOrBuilder> 
            getHmacPairsOrBuilderList() {
         if (hmacPairsBuilder_ != null) {
           return hmacPairsBuilder_.getMessageOrBuilderList();
@@ -13140,9 +13140,9 @@ public final class Pond {
        * HMAC key known to server and recipient.
        * </pre>
        */
-      public Pond.HMACPair.Builder addHmacPairsBuilder() {
+      public systems.obscure.client.protos.Pond.HMACPair.Builder addHmacPairsBuilder() {
         return getHmacPairsFieldBuilder().addBuilder(
-            Pond.HMACPair.getDefaultInstance());
+            systems.obscure.client.protos.Pond.HMACPair.getDefaultInstance());
       }
       /**
        * <code>repeated .HMACPair hmac_pairs = 6;</code>
@@ -13156,10 +13156,10 @@ public final class Pond {
        * HMAC key known to server and recipient.
        * </pre>
        */
-      public Pond.HMACPair.Builder addHmacPairsBuilder(
+      public systems.obscure.client.protos.Pond.HMACPair.Builder addHmacPairsBuilder(
           int index) {
         return getHmacPairsFieldBuilder().addBuilder(
-            index, Pond.HMACPair.getDefaultInstance());
+            index, systems.obscure.client.protos.Pond.HMACPair.getDefaultInstance());
       }
       /**
        * <code>repeated .HMACPair hmac_pairs = 6;</code>
@@ -13173,16 +13173,16 @@ public final class Pond {
        * HMAC key known to server and recipient.
        * </pre>
        */
-      public java.util.List<Pond.HMACPair.Builder> 
+      public java.util.List<systems.obscure.client.protos.Pond.HMACPair.Builder> 
            getHmacPairsBuilderList() {
         return getHmacPairsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> 
+          systems.obscure.client.protos.Pond.HMACPair, systems.obscure.client.protos.Pond.HMACPair.Builder, systems.obscure.client.protos.Pond.HMACPairOrBuilder> 
           getHmacPairsFieldBuilder() {
         if (hmacPairsBuilder_ == null) {
           hmacPairsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder>(
+              systems.obscure.client.protos.Pond.HMACPair, systems.obscure.client.protos.Pond.HMACPair.Builder, systems.obscure.client.protos.Pond.HMACPairOrBuilder>(
                   hmacPairs_,
                   ((bitField0_ & 0x00000020) == 0x00000020),
                   getParentForChildren(),
@@ -13324,14 +13324,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_SignedKeyExchange_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_SignedKeyExchange_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_SignedKeyExchange_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_SignedKeyExchange_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.SignedKeyExchange.class, Pond.SignedKeyExchange.Builder.class);
+              systems.obscure.client.protos.Pond.SignedKeyExchange.class, systems.obscure.client.protos.Pond.SignedKeyExchange.Builder.class);
     }
 
     public static com.google.protobuf.Parser<SignedKeyExchange> PARSER =
@@ -13458,53 +13458,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.SignedKeyExchange parseFrom(
+    public static systems.obscure.client.protos.Pond.SignedKeyExchange parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.SignedKeyExchange parseFrom(
+    public static systems.obscure.client.protos.Pond.SignedKeyExchange parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.SignedKeyExchange parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.SignedKeyExchange parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.SignedKeyExchange parseFrom(
+    public static systems.obscure.client.protos.Pond.SignedKeyExchange parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.SignedKeyExchange parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.SignedKeyExchange parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.SignedKeyExchange parseFrom(
+    public static systems.obscure.client.protos.Pond.SignedKeyExchange parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.SignedKeyExchange parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.SignedKeyExchange parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.SignedKeyExchange parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.SignedKeyExchange parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.SignedKeyExchange parseFrom(
+    public static systems.obscure.client.protos.Pond.SignedKeyExchange parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.SignedKeyExchange parseFrom(
+    public static systems.obscure.client.protos.Pond.SignedKeyExchange parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -13513,7 +13513,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.SignedKeyExchange prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.SignedKeyExchange prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -13535,20 +13535,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:SignedKeyExchange)
-        Pond.SignedKeyExchangeOrBuilder {
+        systems.obscure.client.protos.Pond.SignedKeyExchangeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_SignedKeyExchange_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_SignedKeyExchange_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_SignedKeyExchange_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_SignedKeyExchange_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.SignedKeyExchange.class, Pond.SignedKeyExchange.Builder.class);
+                systems.obscure.client.protos.Pond.SignedKeyExchange.class, systems.obscure.client.protos.Pond.SignedKeyExchange.Builder.class);
       }
 
-      // Construct using Pond.SignedKeyExchange.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.SignedKeyExchange.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -13581,23 +13581,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_SignedKeyExchange_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_SignedKeyExchange_descriptor;
       }
 
-      public Pond.SignedKeyExchange getDefaultInstanceForType() {
-        return Pond.SignedKeyExchange.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.SignedKeyExchange getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.SignedKeyExchange.getDefaultInstance();
       }
 
-      public Pond.SignedKeyExchange build() {
-        Pond.SignedKeyExchange result = buildPartial();
+      public systems.obscure.client.protos.Pond.SignedKeyExchange build() {
+        systems.obscure.client.protos.Pond.SignedKeyExchange result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.SignedKeyExchange buildPartial() {
-        Pond.SignedKeyExchange result = new Pond.SignedKeyExchange(this);
+      public systems.obscure.client.protos.Pond.SignedKeyExchange buildPartial() {
+        systems.obscure.client.protos.Pond.SignedKeyExchange result = new systems.obscure.client.protos.Pond.SignedKeyExchange(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -13614,16 +13614,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.SignedKeyExchange) {
-          return mergeFrom((Pond.SignedKeyExchange)other);
+        if (other instanceof systems.obscure.client.protos.Pond.SignedKeyExchange) {
+          return mergeFrom((systems.obscure.client.protos.Pond.SignedKeyExchange)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.SignedKeyExchange other) {
-        if (other == Pond.SignedKeyExchange.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.SignedKeyExchange other) {
+        if (other == systems.obscure.client.protos.Pond.SignedKeyExchange.getDefaultInstance()) return this;
         if (other.hasSigned()) {
           setSigned(other.getSigned());
         }
@@ -13650,11 +13650,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.SignedKeyExchange parsedMessage = null;
+        systems.obscure.client.protos.Pond.SignedKeyExchange parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.SignedKeyExchange) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.SignedKeyExchange) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -13846,7 +13846,7 @@ public final class Pond {
     /**
      * <code>optional .Message.Encoding body_encoding = 4;</code>
      */
-    Pond.Message.Encoding getBodyEncoding();
+    systems.obscure.client.protos.Pond.Message.Encoding getBodyEncoding();
 
     /**
      * <code>optional bytes my_next_dh = 5;</code>
@@ -13915,12 +13915,12 @@ public final class Pond {
     /**
      * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
      */
-    java.util.List<Pond.HMACPair> 
+    java.util.List<systems.obscure.client.protos.Pond.HMACPair> 
         getNewHmacPairsList();
     /**
      * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
      */
-    Pond.HMACPair getNewHmacPairs(int index);
+    systems.obscure.client.protos.Pond.HMACPair getNewHmacPairs(int index);
     /**
      * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
      */
@@ -13928,23 +13928,23 @@ public final class Pond {
     /**
      * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
      */
-    java.util.List<? extends Pond.HMACPairOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.Pond.HMACPairOrBuilder> 
         getNewHmacPairsOrBuilderList();
     /**
      * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
      */
-    Pond.HMACPairOrBuilder getNewHmacPairsOrBuilder(
+    systems.obscure.client.protos.Pond.HMACPairOrBuilder getNewHmacPairsOrBuilder(
         int index);
 
     /**
      * <code>repeated .Message.Attachment files = 7;</code>
      */
-    java.util.List<Pond.Message.Attachment> 
+    java.util.List<systems.obscure.client.protos.Pond.Message.Attachment> 
         getFilesList();
     /**
      * <code>repeated .Message.Attachment files = 7;</code>
      */
-    Pond.Message.Attachment getFiles(int index);
+    systems.obscure.client.protos.Pond.Message.Attachment getFiles(int index);
     /**
      * <code>repeated .Message.Attachment files = 7;</code>
      */
@@ -13952,23 +13952,23 @@ public final class Pond {
     /**
      * <code>repeated .Message.Attachment files = 7;</code>
      */
-    java.util.List<? extends Pond.Message.AttachmentOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder> 
         getFilesOrBuilderList();
     /**
      * <code>repeated .Message.Attachment files = 7;</code>
      */
-    Pond.Message.AttachmentOrBuilder getFilesOrBuilder(
+    systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder getFilesOrBuilder(
         int index);
 
     /**
      * <code>repeated .Message.Detachment detached_files = 8;</code>
      */
-    java.util.List<Pond.Message.Detachment> 
+    java.util.List<systems.obscure.client.protos.Pond.Message.Detachment> 
         getDetachedFilesList();
     /**
      * <code>repeated .Message.Detachment detached_files = 8;</code>
      */
-    Pond.Message.Detachment getDetachedFiles(int index);
+    systems.obscure.client.protos.Pond.Message.Detachment getDetachedFiles(int index);
     /**
      * <code>repeated .Message.Detachment detached_files = 8;</code>
      */
@@ -13976,12 +13976,12 @@ public final class Pond {
     /**
      * <code>repeated .Message.Detachment detached_files = 8;</code>
      */
-    java.util.List<? extends Pond.Message.DetachmentOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder> 
         getDetachedFilesOrBuilderList();
     /**
      * <code>repeated .Message.Detachment detached_files = 8;</code>
      */
-    Pond.Message.DetachmentOrBuilder getDetachedFilesOrBuilder(
+    systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder getDetachedFilesOrBuilder(
         int index);
 
     /**
@@ -14077,7 +14077,7 @@ public final class Pond {
             }
             case 32: {
               int rawValue = input.readEnum();
-              Pond.Message.Encoding value = Pond.Message.Encoding.valueOf(rawValue);
+              systems.obscure.client.protos.Pond.Message.Encoding value = systems.obscure.client.protos.Pond.Message.Encoding.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(4, rawValue);
               } else {
@@ -14098,18 +14098,18 @@ public final class Pond {
             }
             case 58: {
               if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-                files_ = new java.util.ArrayList<Pond.Message.Attachment>();
+                files_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.Message.Attachment>();
                 mutable_bitField0_ |= 0x00000100;
               }
-              files_.add(input.readMessage(Pond.Message.Attachment.PARSER, extensionRegistry));
+              files_.add(input.readMessage(systems.obscure.client.protos.Pond.Message.Attachment.PARSER, extensionRegistry));
               break;
             }
             case 66: {
               if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
-                detachedFiles_ = new java.util.ArrayList<Pond.Message.Detachment>();
+                detachedFiles_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.Message.Detachment>();
                 mutable_bitField0_ |= 0x00000200;
               }
-              detachedFiles_.add(input.readMessage(Pond.Message.Detachment.PARSER, extensionRegistry));
+              detachedFiles_.add(input.readMessage(systems.obscure.client.protos.Pond.Message.Detachment.PARSER, extensionRegistry));
               break;
             }
             case 72: {
@@ -14140,10 +14140,10 @@ public final class Pond {
             }
             case 90: {
               if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-                newHmacPairs_ = new java.util.ArrayList<Pond.HMACPair>();
+                newHmacPairs_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.HMACPair>();
                 mutable_bitField0_ |= 0x00000080;
               }
-              newHmacPairs_.add(input.readMessage(Pond.HMACPair.PARSER, extensionRegistry));
+              newHmacPairs_.add(input.readMessage(systems.obscure.client.protos.Pond.HMACPair.PARSER, extensionRegistry));
               break;
             }
           }
@@ -14172,14 +14172,14 @@ public final class Pond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Pond.internal_static_protos_Message_descriptor;
+      return systems.obscure.client.protos.Pond.internal_static_Message_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Pond.internal_static_protos_Message_fieldAccessorTable
+      return systems.obscure.client.protos.Pond.internal_static_Message_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Pond.Message.class, Pond.Message.Builder.class);
+              systems.obscure.client.protos.Pond.Message.class, systems.obscure.client.protos.Pond.Message.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Message> PARSER =
@@ -14254,7 +14254,7 @@ public final class Pond {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return Pond.Message.getDescriptor().getEnumTypes().get(0);
+        return systems.obscure.client.protos.Pond.Message.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final Encoding[] VALUES = values();
@@ -14383,14 +14383,14 @@ public final class Pond {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_Message_Attachment_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Message_Attachment_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_Message_Attachment_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_Message_Attachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.Message.Attachment.class, Pond.Message.Attachment.Builder.class);
+                systems.obscure.client.protos.Pond.Message.Attachment.class, systems.obscure.client.protos.Pond.Message.Attachment.Builder.class);
       }
 
       public static com.google.protobuf.Parser<Attachment> PARSER =
@@ -14526,53 +14526,53 @@ public final class Pond {
         return super.writeReplace();
       }
 
-      public static Pond.Message.Attachment parseFrom(
+      public static systems.obscure.client.protos.Pond.Message.Attachment parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static Pond.Message.Attachment parseFrom(
+      public static systems.obscure.client.protos.Pond.Message.Attachment parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static Pond.Message.Attachment parseFrom(byte[] data)
+      public static systems.obscure.client.protos.Pond.Message.Attachment parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static Pond.Message.Attachment parseFrom(
+      public static systems.obscure.client.protos.Pond.Message.Attachment parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static Pond.Message.Attachment parseFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.Pond.Message.Attachment parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static Pond.Message.Attachment parseFrom(
+      public static systems.obscure.client.protos.Pond.Message.Attachment parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
-      public static Pond.Message.Attachment parseDelimitedFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.Pond.Message.Attachment parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input);
       }
-      public static Pond.Message.Attachment parseDelimitedFrom(
+      public static systems.obscure.client.protos.Pond.Message.Attachment parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
-      public static Pond.Message.Attachment parseFrom(
+      public static systems.obscure.client.protos.Pond.Message.Attachment parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static Pond.Message.Attachment parseFrom(
+      public static systems.obscure.client.protos.Pond.Message.Attachment parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -14581,7 +14581,7 @@ public final class Pond {
 
       public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(Pond.Message.Attachment prototype) {
+      public static Builder newBuilder(systems.obscure.client.protos.Pond.Message.Attachment prototype) {
         return newBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() { return newBuilder(this); }
@@ -14598,20 +14598,20 @@ public final class Pond {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:Message.Attachment)
-          Pond.Message.AttachmentOrBuilder {
+          systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return Pond.internal_static_protos_Message_Attachment_descriptor;
+          return systems.obscure.client.protos.Pond.internal_static_Message_Attachment_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return Pond.internal_static_protos_Message_Attachment_fieldAccessorTable
+          return systems.obscure.client.protos.Pond.internal_static_Message_Attachment_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  Pond.Message.Attachment.class, Pond.Message.Attachment.Builder.class);
+                  systems.obscure.client.protos.Pond.Message.Attachment.class, systems.obscure.client.protos.Pond.Message.Attachment.Builder.class);
         }
 
-        // Construct using Pond.Message.Attachment.newBuilder()
+        // Construct using systems.obscure.client.protos.Pond.Message.Attachment.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -14644,23 +14644,23 @@ public final class Pond {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return Pond.internal_static_protos_Message_Attachment_descriptor;
+          return systems.obscure.client.protos.Pond.internal_static_Message_Attachment_descriptor;
         }
 
-        public Pond.Message.Attachment getDefaultInstanceForType() {
-          return Pond.Message.Attachment.getDefaultInstance();
+        public systems.obscure.client.protos.Pond.Message.Attachment getDefaultInstanceForType() {
+          return systems.obscure.client.protos.Pond.Message.Attachment.getDefaultInstance();
         }
 
-        public Pond.Message.Attachment build() {
-          Pond.Message.Attachment result = buildPartial();
+        public systems.obscure.client.protos.Pond.Message.Attachment build() {
+          systems.obscure.client.protos.Pond.Message.Attachment result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public Pond.Message.Attachment buildPartial() {
-          Pond.Message.Attachment result = new Pond.Message.Attachment(this);
+        public systems.obscure.client.protos.Pond.Message.Attachment buildPartial() {
+          systems.obscure.client.protos.Pond.Message.Attachment result = new systems.obscure.client.protos.Pond.Message.Attachment(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -14677,16 +14677,16 @@ public final class Pond {
         }
 
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof Pond.Message.Attachment) {
-            return mergeFrom((Pond.Message.Attachment)other);
+          if (other instanceof systems.obscure.client.protos.Pond.Message.Attachment) {
+            return mergeFrom((systems.obscure.client.protos.Pond.Message.Attachment)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(Pond.Message.Attachment other) {
-          if (other == Pond.Message.Attachment.getDefaultInstance()) return this;
+        public Builder mergeFrom(systems.obscure.client.protos.Pond.Message.Attachment other) {
+          if (other == systems.obscure.client.protos.Pond.Message.Attachment.getDefaultInstance()) return this;
           if (other.hasFilename()) {
             bitField0_ |= 0x00000001;
             filename_ = other.filename_;
@@ -14715,11 +14715,11 @@ public final class Pond {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          Pond.Message.Attachment parsedMessage = null;
+          systems.obscure.client.protos.Pond.Message.Attachment parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (Pond.Message.Attachment) e.getUnfinishedMessage();
+            parsedMessage = (systems.obscure.client.protos.Pond.Message.Attachment) e.getUnfinishedMessage();
             throw e;
           } finally {
             if (parsedMessage != null) {
@@ -15018,14 +15018,14 @@ public final class Pond {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_Message_Detachment_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Message_Detachment_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_Message_Detachment_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_Message_Detachment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.Message.Detachment.class, Pond.Message.Detachment.Builder.class);
+                systems.obscure.client.protos.Pond.Message.Detachment.class, systems.obscure.client.protos.Pond.Message.Detachment.Builder.class);
       }
 
       public static com.google.protobuf.Parser<Detachment> PARSER =
@@ -15292,53 +15292,53 @@ public final class Pond {
         return super.writeReplace();
       }
 
-      public static Pond.Message.Detachment parseFrom(
+      public static systems.obscure.client.protos.Pond.Message.Detachment parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static Pond.Message.Detachment parseFrom(
+      public static systems.obscure.client.protos.Pond.Message.Detachment parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static Pond.Message.Detachment parseFrom(byte[] data)
+      public static systems.obscure.client.protos.Pond.Message.Detachment parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static Pond.Message.Detachment parseFrom(
+      public static systems.obscure.client.protos.Pond.Message.Detachment parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static Pond.Message.Detachment parseFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.Pond.Message.Detachment parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static Pond.Message.Detachment parseFrom(
+      public static systems.obscure.client.protos.Pond.Message.Detachment parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
-      public static Pond.Message.Detachment parseDelimitedFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.Pond.Message.Detachment parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input);
       }
-      public static Pond.Message.Detachment parseDelimitedFrom(
+      public static systems.obscure.client.protos.Pond.Message.Detachment parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
-      public static Pond.Message.Detachment parseFrom(
+      public static systems.obscure.client.protos.Pond.Message.Detachment parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static Pond.Message.Detachment parseFrom(
+      public static systems.obscure.client.protos.Pond.Message.Detachment parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -15347,7 +15347,7 @@ public final class Pond {
 
       public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(Pond.Message.Detachment prototype) {
+      public static Builder newBuilder(systems.obscure.client.protos.Pond.Message.Detachment prototype) {
         return newBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() { return newBuilder(this); }
@@ -15364,20 +15364,20 @@ public final class Pond {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:Message.Detachment)
-          Pond.Message.DetachmentOrBuilder {
+          systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return Pond.internal_static_protos_Message_Detachment_descriptor;
+          return systems.obscure.client.protos.Pond.internal_static_Message_Detachment_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return Pond.internal_static_protos_Message_Detachment_fieldAccessorTable
+          return systems.obscure.client.protos.Pond.internal_static_Message_Detachment_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  Pond.Message.Detachment.class, Pond.Message.Detachment.Builder.class);
+                  systems.obscure.client.protos.Pond.Message.Detachment.class, systems.obscure.client.protos.Pond.Message.Detachment.Builder.class);
         }
 
-        // Construct using Pond.Message.Detachment.newBuilder()
+        // Construct using systems.obscure.client.protos.Pond.Message.Detachment.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -15418,23 +15418,23 @@ public final class Pond {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return Pond.internal_static_protos_Message_Detachment_descriptor;
+          return systems.obscure.client.protos.Pond.internal_static_Message_Detachment_descriptor;
         }
 
-        public Pond.Message.Detachment getDefaultInstanceForType() {
-          return Pond.Message.Detachment.getDefaultInstance();
+        public systems.obscure.client.protos.Pond.Message.Detachment getDefaultInstanceForType() {
+          return systems.obscure.client.protos.Pond.Message.Detachment.getDefaultInstance();
         }
 
-        public Pond.Message.Detachment build() {
-          Pond.Message.Detachment result = buildPartial();
+        public systems.obscure.client.protos.Pond.Message.Detachment build() {
+          systems.obscure.client.protos.Pond.Message.Detachment result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public Pond.Message.Detachment buildPartial() {
-          Pond.Message.Detachment result = new Pond.Message.Detachment(this);
+        public systems.obscure.client.protos.Pond.Message.Detachment buildPartial() {
+          systems.obscure.client.protos.Pond.Message.Detachment result = new systems.obscure.client.protos.Pond.Message.Detachment(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -15467,16 +15467,16 @@ public final class Pond {
         }
 
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof Pond.Message.Detachment) {
-            return mergeFrom((Pond.Message.Detachment)other);
+          if (other instanceof systems.obscure.client.protos.Pond.Message.Detachment) {
+            return mergeFrom((systems.obscure.client.protos.Pond.Message.Detachment)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(Pond.Message.Detachment other) {
-          if (other == Pond.Message.Detachment.getDefaultInstance()) return this;
+        public Builder mergeFrom(systems.obscure.client.protos.Pond.Message.Detachment other) {
+          if (other == systems.obscure.client.protos.Pond.Message.Detachment.getDefaultInstance()) return this;
           if (other.hasFilename()) {
             bitField0_ |= 0x00000001;
             filename_ = other.filename_;
@@ -15531,11 +15531,11 @@ public final class Pond {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          Pond.Message.Detachment parsedMessage = null;
+          systems.obscure.client.protos.Pond.Message.Detachment parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (Pond.Message.Detachment) e.getUnfinishedMessage();
+            parsedMessage = (systems.obscure.client.protos.Pond.Message.Detachment) e.getUnfinishedMessage();
             throw e;
           } finally {
             if (parsedMessage != null) {
@@ -15913,7 +15913,7 @@ public final class Pond {
     }
 
     public static final int BODY_ENCODING_FIELD_NUMBER = 4;
-    private Pond.Message.Encoding bodyEncoding_;
+    private systems.obscure.client.protos.Pond.Message.Encoding bodyEncoding_;
     /**
      * <code>optional .Message.Encoding body_encoding = 4;</code>
      */
@@ -15923,7 +15923,7 @@ public final class Pond {
     /**
      * <code>optional .Message.Encoding body_encoding = 4;</code>
      */
-    public Pond.Message.Encoding getBodyEncoding() {
+    public systems.obscure.client.protos.Pond.Message.Encoding getBodyEncoding() {
       return bodyEncoding_;
     }
 
@@ -16013,17 +16013,17 @@ public final class Pond {
     }
 
     public static final int NEW_HMAC_PAIRS_FIELD_NUMBER = 11;
-    private java.util.List<Pond.HMACPair> newHmacPairs_;
+    private java.util.List<systems.obscure.client.protos.Pond.HMACPair> newHmacPairs_;
     /**
      * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
      */
-    public java.util.List<Pond.HMACPair> getNewHmacPairsList() {
+    public java.util.List<systems.obscure.client.protos.Pond.HMACPair> getNewHmacPairsList() {
       return newHmacPairs_;
     }
     /**
      * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
      */
-    public java.util.List<? extends Pond.HMACPairOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.Pond.HMACPairOrBuilder> 
         getNewHmacPairsOrBuilderList() {
       return newHmacPairs_;
     }
@@ -16036,29 +16036,29 @@ public final class Pond {
     /**
      * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
      */
-    public Pond.HMACPair getNewHmacPairs(int index) {
+    public systems.obscure.client.protos.Pond.HMACPair getNewHmacPairs(int index) {
       return newHmacPairs_.get(index);
     }
     /**
      * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
      */
-    public Pond.HMACPairOrBuilder getNewHmacPairsOrBuilder(
+    public systems.obscure.client.protos.Pond.HMACPairOrBuilder getNewHmacPairsOrBuilder(
         int index) {
       return newHmacPairs_.get(index);
     }
 
     public static final int FILES_FIELD_NUMBER = 7;
-    private java.util.List<Pond.Message.Attachment> files_;
+    private java.util.List<systems.obscure.client.protos.Pond.Message.Attachment> files_;
     /**
      * <code>repeated .Message.Attachment files = 7;</code>
      */
-    public java.util.List<Pond.Message.Attachment> getFilesList() {
+    public java.util.List<systems.obscure.client.protos.Pond.Message.Attachment> getFilesList() {
       return files_;
     }
     /**
      * <code>repeated .Message.Attachment files = 7;</code>
      */
-    public java.util.List<? extends Pond.Message.AttachmentOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder> 
         getFilesOrBuilderList() {
       return files_;
     }
@@ -16071,29 +16071,29 @@ public final class Pond {
     /**
      * <code>repeated .Message.Attachment files = 7;</code>
      */
-    public Pond.Message.Attachment getFiles(int index) {
+    public systems.obscure.client.protos.Pond.Message.Attachment getFiles(int index) {
       return files_.get(index);
     }
     /**
      * <code>repeated .Message.Attachment files = 7;</code>
      */
-    public Pond.Message.AttachmentOrBuilder getFilesOrBuilder(
+    public systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder getFilesOrBuilder(
         int index) {
       return files_.get(index);
     }
 
     public static final int DETACHED_FILES_FIELD_NUMBER = 8;
-    private java.util.List<Pond.Message.Detachment> detachedFiles_;
+    private java.util.List<systems.obscure.client.protos.Pond.Message.Detachment> detachedFiles_;
     /**
      * <code>repeated .Message.Detachment detached_files = 8;</code>
      */
-    public java.util.List<Pond.Message.Detachment> getDetachedFilesList() {
+    public java.util.List<systems.obscure.client.protos.Pond.Message.Detachment> getDetachedFilesList() {
       return detachedFiles_;
     }
     /**
      * <code>repeated .Message.Detachment detached_files = 8;</code>
      */
-    public java.util.List<? extends Pond.Message.DetachmentOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder> 
         getDetachedFilesOrBuilderList() {
       return detachedFiles_;
     }
@@ -16106,13 +16106,13 @@ public final class Pond {
     /**
      * <code>repeated .Message.Detachment detached_files = 8;</code>
      */
-    public Pond.Message.Detachment getDetachedFiles(int index) {
+    public systems.obscure.client.protos.Pond.Message.Detachment getDetachedFiles(int index) {
       return detachedFiles_.get(index);
     }
     /**
      * <code>repeated .Message.Detachment detached_files = 8;</code>
      */
-    public Pond.Message.DetachmentOrBuilder getDetachedFilesOrBuilder(
+    public systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder getDetachedFilesOrBuilder(
         int index) {
       return detachedFiles_.get(index);
     }
@@ -16146,7 +16146,7 @@ public final class Pond {
       id_ = 0L;
       time_ = 0L;
       body_ = com.google.protobuf.ByteString.EMPTY;
-      bodyEncoding_ = Pond.Message.Encoding.RAW;
+      bodyEncoding_ = systems.obscure.client.protos.Pond.Message.Encoding.RAW;
       myNextDh_ = com.google.protobuf.ByteString.EMPTY;
       inReplyTo_ = 0L;
       alsoAck_ = java.util.Collections.emptyList();
@@ -16301,53 +16301,53 @@ public final class Pond {
       return super.writeReplace();
     }
 
-    public static Pond.Message parseFrom(
+    public static systems.obscure.client.protos.Pond.Message parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Message parseFrom(
+    public static systems.obscure.client.protos.Pond.Message parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Message parseFrom(byte[] data)
+    public static systems.obscure.client.protos.Pond.Message parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Pond.Message parseFrom(
+    public static systems.obscure.client.protos.Pond.Message parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Pond.Message parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Message parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Message parseFrom(
+    public static systems.obscure.client.protos.Pond.Message parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Pond.Message parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.Pond.Message parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Pond.Message parseDelimitedFrom(
+    public static systems.obscure.client.protos.Pond.Message parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Pond.Message parseFrom(
+    public static systems.obscure.client.protos.Pond.Message parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Pond.Message parseFrom(
+    public static systems.obscure.client.protos.Pond.Message parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -16356,7 +16356,7 @@ public final class Pond {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(Pond.Message prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.Pond.Message prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -16378,20 +16378,20 @@ public final class Pond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Message)
-        Pond.MessageOrBuilder {
+        systems.obscure.client.protos.Pond.MessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Pond.internal_static_protos_Message_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Message_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Pond.internal_static_protos_Message_fieldAccessorTable
+        return systems.obscure.client.protos.Pond.internal_static_Message_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Pond.Message.class, Pond.Message.Builder.class);
+                systems.obscure.client.protos.Pond.Message.class, systems.obscure.client.protos.Pond.Message.Builder.class);
       }
 
-      // Construct using Pond.Message.newBuilder()
+      // Construct using systems.obscure.client.protos.Pond.Message.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -16420,7 +16420,7 @@ public final class Pond {
         bitField0_ = (bitField0_ & ~0x00000002);
         body_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
-        bodyEncoding_ = Pond.Message.Encoding.RAW;
+        bodyEncoding_ = systems.obscure.client.protos.Pond.Message.Encoding.RAW;
         bitField0_ = (bitField0_ & ~0x00000008);
         myNextDh_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -16457,23 +16457,23 @@ public final class Pond {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Pond.internal_static_protos_Message_descriptor;
+        return systems.obscure.client.protos.Pond.internal_static_Message_descriptor;
       }
 
-      public Pond.Message getDefaultInstanceForType() {
-        return Pond.Message.getDefaultInstance();
+      public systems.obscure.client.protos.Pond.Message getDefaultInstanceForType() {
+        return systems.obscure.client.protos.Pond.Message.getDefaultInstance();
       }
 
-      public Pond.Message build() {
-        Pond.Message result = buildPartial();
+      public systems.obscure.client.protos.Pond.Message build() {
+        systems.obscure.client.protos.Pond.Message result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Pond.Message buildPartial() {
-        Pond.Message result = new Pond.Message(this);
+      public systems.obscure.client.protos.Pond.Message buildPartial() {
+        systems.obscure.client.protos.Pond.Message result = new systems.obscure.client.protos.Pond.Message(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -16542,16 +16542,16 @@ public final class Pond {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Pond.Message) {
-          return mergeFrom((Pond.Message)other);
+        if (other instanceof systems.obscure.client.protos.Pond.Message) {
+          return mergeFrom((systems.obscure.client.protos.Pond.Message)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Pond.Message other) {
-        if (other == Pond.Message.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.Pond.Message other) {
+        if (other == systems.obscure.client.protos.Pond.Message.getDefaultInstance()) return this;
         if (other.hasId()) {
           setId(other.getId());
         }
@@ -16703,11 +16703,11 @@ public final class Pond {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Pond.Message parsedMessage = null;
+        systems.obscure.client.protos.Pond.Message parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Pond.Message) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.Pond.Message) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -16869,7 +16869,7 @@ public final class Pond {
         return this;
       }
 
-      private Pond.Message.Encoding bodyEncoding_ = Pond.Message.Encoding.RAW;
+      private systems.obscure.client.protos.Pond.Message.Encoding bodyEncoding_ = systems.obscure.client.protos.Pond.Message.Encoding.RAW;
       /**
        * <code>optional .Message.Encoding body_encoding = 4;</code>
        */
@@ -16879,13 +16879,13 @@ public final class Pond {
       /**
        * <code>optional .Message.Encoding body_encoding = 4;</code>
        */
-      public Pond.Message.Encoding getBodyEncoding() {
+      public systems.obscure.client.protos.Pond.Message.Encoding getBodyEncoding() {
         return bodyEncoding_;
       }
       /**
        * <code>optional .Message.Encoding body_encoding = 4;</code>
        */
-      public Builder setBodyEncoding(Pond.Message.Encoding value) {
+      public Builder setBodyEncoding(systems.obscure.client.protos.Pond.Message.Encoding value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -16899,7 +16899,7 @@ public final class Pond {
        */
       public Builder clearBodyEncoding() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        bodyEncoding_ = Pond.Message.Encoding.RAW;
+        bodyEncoding_ = systems.obscure.client.protos.Pond.Message.Encoding.RAW;
         onChanged();
         return this;
       }
@@ -17108,22 +17108,22 @@ public final class Pond {
         return this;
       }
 
-      private java.util.List<Pond.HMACPair> newHmacPairs_ =
+      private java.util.List<systems.obscure.client.protos.Pond.HMACPair> newHmacPairs_ =
         java.util.Collections.emptyList();
       private void ensureNewHmacPairsIsMutable() {
         if (!((bitField0_ & 0x00000080) == 0x00000080)) {
-          newHmacPairs_ = new java.util.ArrayList<Pond.HMACPair>(newHmacPairs_);
+          newHmacPairs_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.HMACPair>(newHmacPairs_);
           bitField0_ |= 0x00000080;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> newHmacPairsBuilder_;
+          systems.obscure.client.protos.Pond.HMACPair, systems.obscure.client.protos.Pond.HMACPair.Builder, systems.obscure.client.protos.Pond.HMACPairOrBuilder> newHmacPairsBuilder_;
 
       /**
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
-      public java.util.List<Pond.HMACPair> getNewHmacPairsList() {
+      public java.util.List<systems.obscure.client.protos.Pond.HMACPair> getNewHmacPairsList() {
         if (newHmacPairsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(newHmacPairs_);
         } else {
@@ -17143,7 +17143,7 @@ public final class Pond {
       /**
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
-      public Pond.HMACPair getNewHmacPairs(int index) {
+      public systems.obscure.client.protos.Pond.HMACPair getNewHmacPairs(int index) {
         if (newHmacPairsBuilder_ == null) {
           return newHmacPairs_.get(index);
         } else {
@@ -17154,7 +17154,7 @@ public final class Pond {
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
       public Builder setNewHmacPairs(
-          int index, Pond.HMACPair value) {
+          int index, systems.obscure.client.protos.Pond.HMACPair value) {
         if (newHmacPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17171,7 +17171,7 @@ public final class Pond {
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
       public Builder setNewHmacPairs(
-          int index, Pond.HMACPair.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.HMACPair.Builder builderForValue) {
         if (newHmacPairsBuilder_ == null) {
           ensureNewHmacPairsIsMutable();
           newHmacPairs_.set(index, builderForValue.build());
@@ -17184,7 +17184,7 @@ public final class Pond {
       /**
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
-      public Builder addNewHmacPairs(Pond.HMACPair value) {
+      public Builder addNewHmacPairs(systems.obscure.client.protos.Pond.HMACPair value) {
         if (newHmacPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17201,7 +17201,7 @@ public final class Pond {
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
       public Builder addNewHmacPairs(
-          int index, Pond.HMACPair value) {
+          int index, systems.obscure.client.protos.Pond.HMACPair value) {
         if (newHmacPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17218,7 +17218,7 @@ public final class Pond {
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
       public Builder addNewHmacPairs(
-          Pond.HMACPair.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.HMACPair.Builder builderForValue) {
         if (newHmacPairsBuilder_ == null) {
           ensureNewHmacPairsIsMutable();
           newHmacPairs_.add(builderForValue.build());
@@ -17232,7 +17232,7 @@ public final class Pond {
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
       public Builder addNewHmacPairs(
-          int index, Pond.HMACPair.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.HMACPair.Builder builderForValue) {
         if (newHmacPairsBuilder_ == null) {
           ensureNewHmacPairsIsMutable();
           newHmacPairs_.add(index, builderForValue.build());
@@ -17246,7 +17246,7 @@ public final class Pond {
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
       public Builder addAllNewHmacPairs(
-          java.lang.Iterable<? extends Pond.HMACPair> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.Pond.HMACPair> values) {
         if (newHmacPairsBuilder_ == null) {
           ensureNewHmacPairsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -17286,14 +17286,14 @@ public final class Pond {
       /**
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
-      public Pond.HMACPair.Builder getNewHmacPairsBuilder(
+      public systems.obscure.client.protos.Pond.HMACPair.Builder getNewHmacPairsBuilder(
           int index) {
         return getNewHmacPairsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
-      public Pond.HMACPairOrBuilder getNewHmacPairsOrBuilder(
+      public systems.obscure.client.protos.Pond.HMACPairOrBuilder getNewHmacPairsOrBuilder(
           int index) {
         if (newHmacPairsBuilder_ == null) {
           return newHmacPairs_.get(index);  } else {
@@ -17303,7 +17303,7 @@ public final class Pond {
       /**
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
-      public java.util.List<? extends Pond.HMACPairOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.Pond.HMACPairOrBuilder> 
            getNewHmacPairsOrBuilderList() {
         if (newHmacPairsBuilder_ != null) {
           return newHmacPairsBuilder_.getMessageOrBuilderList();
@@ -17314,31 +17314,31 @@ public final class Pond {
       /**
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
-      public Pond.HMACPair.Builder addNewHmacPairsBuilder() {
+      public systems.obscure.client.protos.Pond.HMACPair.Builder addNewHmacPairsBuilder() {
         return getNewHmacPairsFieldBuilder().addBuilder(
-            Pond.HMACPair.getDefaultInstance());
+            systems.obscure.client.protos.Pond.HMACPair.getDefaultInstance());
       }
       /**
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
-      public Pond.HMACPair.Builder addNewHmacPairsBuilder(
+      public systems.obscure.client.protos.Pond.HMACPair.Builder addNewHmacPairsBuilder(
           int index) {
         return getNewHmacPairsFieldBuilder().addBuilder(
-            index, Pond.HMACPair.getDefaultInstance());
+            index, systems.obscure.client.protos.Pond.HMACPair.getDefaultInstance());
       }
       /**
        * <code>repeated .HMACPair new_hmac_pairs = 11;</code>
        */
-      public java.util.List<Pond.HMACPair.Builder> 
+      public java.util.List<systems.obscure.client.protos.Pond.HMACPair.Builder> 
            getNewHmacPairsBuilderList() {
         return getNewHmacPairsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> 
+          systems.obscure.client.protos.Pond.HMACPair, systems.obscure.client.protos.Pond.HMACPair.Builder, systems.obscure.client.protos.Pond.HMACPairOrBuilder> 
           getNewHmacPairsFieldBuilder() {
         if (newHmacPairsBuilder_ == null) {
           newHmacPairsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder>(
+              systems.obscure.client.protos.Pond.HMACPair, systems.obscure.client.protos.Pond.HMACPair.Builder, systems.obscure.client.protos.Pond.HMACPairOrBuilder>(
                   newHmacPairs_,
                   ((bitField0_ & 0x00000080) == 0x00000080),
                   getParentForChildren(),
@@ -17348,22 +17348,22 @@ public final class Pond {
         return newHmacPairsBuilder_;
       }
 
-      private java.util.List<Pond.Message.Attachment> files_ =
+      private java.util.List<systems.obscure.client.protos.Pond.Message.Attachment> files_ =
         java.util.Collections.emptyList();
       private void ensureFilesIsMutable() {
         if (!((bitField0_ & 0x00000100) == 0x00000100)) {
-          files_ = new java.util.ArrayList<Pond.Message.Attachment>(files_);
+          files_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.Message.Attachment>(files_);
           bitField0_ |= 0x00000100;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.Message.Attachment, Pond.Message.Attachment.Builder, Pond.Message.AttachmentOrBuilder> filesBuilder_;
+          systems.obscure.client.protos.Pond.Message.Attachment, systems.obscure.client.protos.Pond.Message.Attachment.Builder, systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder> filesBuilder_;
 
       /**
        * <code>repeated .Message.Attachment files = 7;</code>
        */
-      public java.util.List<Pond.Message.Attachment> getFilesList() {
+      public java.util.List<systems.obscure.client.protos.Pond.Message.Attachment> getFilesList() {
         if (filesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(files_);
         } else {
@@ -17383,7 +17383,7 @@ public final class Pond {
       /**
        * <code>repeated .Message.Attachment files = 7;</code>
        */
-      public Pond.Message.Attachment getFiles(int index) {
+      public systems.obscure.client.protos.Pond.Message.Attachment getFiles(int index) {
         if (filesBuilder_ == null) {
           return files_.get(index);
         } else {
@@ -17394,7 +17394,7 @@ public final class Pond {
        * <code>repeated .Message.Attachment files = 7;</code>
        */
       public Builder setFiles(
-          int index, Pond.Message.Attachment value) {
+          int index, systems.obscure.client.protos.Pond.Message.Attachment value) {
         if (filesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17411,7 +17411,7 @@ public final class Pond {
        * <code>repeated .Message.Attachment files = 7;</code>
        */
       public Builder setFiles(
-          int index, Pond.Message.Attachment.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.Message.Attachment.Builder builderForValue) {
         if (filesBuilder_ == null) {
           ensureFilesIsMutable();
           files_.set(index, builderForValue.build());
@@ -17424,7 +17424,7 @@ public final class Pond {
       /**
        * <code>repeated .Message.Attachment files = 7;</code>
        */
-      public Builder addFiles(Pond.Message.Attachment value) {
+      public Builder addFiles(systems.obscure.client.protos.Pond.Message.Attachment value) {
         if (filesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17441,7 +17441,7 @@ public final class Pond {
        * <code>repeated .Message.Attachment files = 7;</code>
        */
       public Builder addFiles(
-          int index, Pond.Message.Attachment value) {
+          int index, systems.obscure.client.protos.Pond.Message.Attachment value) {
         if (filesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17458,7 +17458,7 @@ public final class Pond {
        * <code>repeated .Message.Attachment files = 7;</code>
        */
       public Builder addFiles(
-          Pond.Message.Attachment.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.Message.Attachment.Builder builderForValue) {
         if (filesBuilder_ == null) {
           ensureFilesIsMutable();
           files_.add(builderForValue.build());
@@ -17472,7 +17472,7 @@ public final class Pond {
        * <code>repeated .Message.Attachment files = 7;</code>
        */
       public Builder addFiles(
-          int index, Pond.Message.Attachment.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.Message.Attachment.Builder builderForValue) {
         if (filesBuilder_ == null) {
           ensureFilesIsMutable();
           files_.add(index, builderForValue.build());
@@ -17486,7 +17486,7 @@ public final class Pond {
        * <code>repeated .Message.Attachment files = 7;</code>
        */
       public Builder addAllFiles(
-          java.lang.Iterable<? extends Pond.Message.Attachment> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.Pond.Message.Attachment> values) {
         if (filesBuilder_ == null) {
           ensureFilesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -17526,14 +17526,14 @@ public final class Pond {
       /**
        * <code>repeated .Message.Attachment files = 7;</code>
        */
-      public Pond.Message.Attachment.Builder getFilesBuilder(
+      public systems.obscure.client.protos.Pond.Message.Attachment.Builder getFilesBuilder(
           int index) {
         return getFilesFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .Message.Attachment files = 7;</code>
        */
-      public Pond.Message.AttachmentOrBuilder getFilesOrBuilder(
+      public systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder getFilesOrBuilder(
           int index) {
         if (filesBuilder_ == null) {
           return files_.get(index);  } else {
@@ -17543,7 +17543,7 @@ public final class Pond {
       /**
        * <code>repeated .Message.Attachment files = 7;</code>
        */
-      public java.util.List<? extends Pond.Message.AttachmentOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder> 
            getFilesOrBuilderList() {
         if (filesBuilder_ != null) {
           return filesBuilder_.getMessageOrBuilderList();
@@ -17554,31 +17554,31 @@ public final class Pond {
       /**
        * <code>repeated .Message.Attachment files = 7;</code>
        */
-      public Pond.Message.Attachment.Builder addFilesBuilder() {
+      public systems.obscure.client.protos.Pond.Message.Attachment.Builder addFilesBuilder() {
         return getFilesFieldBuilder().addBuilder(
-            Pond.Message.Attachment.getDefaultInstance());
+            systems.obscure.client.protos.Pond.Message.Attachment.getDefaultInstance());
       }
       /**
        * <code>repeated .Message.Attachment files = 7;</code>
        */
-      public Pond.Message.Attachment.Builder addFilesBuilder(
+      public systems.obscure.client.protos.Pond.Message.Attachment.Builder addFilesBuilder(
           int index) {
         return getFilesFieldBuilder().addBuilder(
-            index, Pond.Message.Attachment.getDefaultInstance());
+            index, systems.obscure.client.protos.Pond.Message.Attachment.getDefaultInstance());
       }
       /**
        * <code>repeated .Message.Attachment files = 7;</code>
        */
-      public java.util.List<Pond.Message.Attachment.Builder> 
+      public java.util.List<systems.obscure.client.protos.Pond.Message.Attachment.Builder> 
            getFilesBuilderList() {
         return getFilesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.Message.Attachment, Pond.Message.Attachment.Builder, Pond.Message.AttachmentOrBuilder> 
+          systems.obscure.client.protos.Pond.Message.Attachment, systems.obscure.client.protos.Pond.Message.Attachment.Builder, systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder> 
           getFilesFieldBuilder() {
         if (filesBuilder_ == null) {
           filesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              Pond.Message.Attachment, Pond.Message.Attachment.Builder, Pond.Message.AttachmentOrBuilder>(
+              systems.obscure.client.protos.Pond.Message.Attachment, systems.obscure.client.protos.Pond.Message.Attachment.Builder, systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder>(
                   files_,
                   ((bitField0_ & 0x00000100) == 0x00000100),
                   getParentForChildren(),
@@ -17588,22 +17588,22 @@ public final class Pond {
         return filesBuilder_;
       }
 
-      private java.util.List<Pond.Message.Detachment> detachedFiles_ =
+      private java.util.List<systems.obscure.client.protos.Pond.Message.Detachment> detachedFiles_ =
         java.util.Collections.emptyList();
       private void ensureDetachedFilesIsMutable() {
         if (!((bitField0_ & 0x00000200) == 0x00000200)) {
-          detachedFiles_ = new java.util.ArrayList<Pond.Message.Detachment>(detachedFiles_);
+          detachedFiles_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.Message.Detachment>(detachedFiles_);
           bitField0_ |= 0x00000200;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.Message.Detachment, Pond.Message.Detachment.Builder, Pond.Message.DetachmentOrBuilder> detachedFilesBuilder_;
+          systems.obscure.client.protos.Pond.Message.Detachment, systems.obscure.client.protos.Pond.Message.Detachment.Builder, systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder> detachedFilesBuilder_;
 
       /**
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
-      public java.util.List<Pond.Message.Detachment> getDetachedFilesList() {
+      public java.util.List<systems.obscure.client.protos.Pond.Message.Detachment> getDetachedFilesList() {
         if (detachedFilesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(detachedFiles_);
         } else {
@@ -17623,7 +17623,7 @@ public final class Pond {
       /**
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
-      public Pond.Message.Detachment getDetachedFiles(int index) {
+      public systems.obscure.client.protos.Pond.Message.Detachment getDetachedFiles(int index) {
         if (detachedFilesBuilder_ == null) {
           return detachedFiles_.get(index);
         } else {
@@ -17634,7 +17634,7 @@ public final class Pond {
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
       public Builder setDetachedFiles(
-          int index, Pond.Message.Detachment value) {
+          int index, systems.obscure.client.protos.Pond.Message.Detachment value) {
         if (detachedFilesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17651,7 +17651,7 @@ public final class Pond {
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
       public Builder setDetachedFiles(
-          int index, Pond.Message.Detachment.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.Message.Detachment.Builder builderForValue) {
         if (detachedFilesBuilder_ == null) {
           ensureDetachedFilesIsMutable();
           detachedFiles_.set(index, builderForValue.build());
@@ -17664,7 +17664,7 @@ public final class Pond {
       /**
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
-      public Builder addDetachedFiles(Pond.Message.Detachment value) {
+      public Builder addDetachedFiles(systems.obscure.client.protos.Pond.Message.Detachment value) {
         if (detachedFilesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17681,7 +17681,7 @@ public final class Pond {
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
       public Builder addDetachedFiles(
-          int index, Pond.Message.Detachment value) {
+          int index, systems.obscure.client.protos.Pond.Message.Detachment value) {
         if (detachedFilesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -17698,7 +17698,7 @@ public final class Pond {
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
       public Builder addDetachedFiles(
-          Pond.Message.Detachment.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.Message.Detachment.Builder builderForValue) {
         if (detachedFilesBuilder_ == null) {
           ensureDetachedFilesIsMutable();
           detachedFiles_.add(builderForValue.build());
@@ -17712,7 +17712,7 @@ public final class Pond {
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
       public Builder addDetachedFiles(
-          int index, Pond.Message.Detachment.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.Message.Detachment.Builder builderForValue) {
         if (detachedFilesBuilder_ == null) {
           ensureDetachedFilesIsMutable();
           detachedFiles_.add(index, builderForValue.build());
@@ -17726,7 +17726,7 @@ public final class Pond {
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
       public Builder addAllDetachedFiles(
-          java.lang.Iterable<? extends Pond.Message.Detachment> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.Pond.Message.Detachment> values) {
         if (detachedFilesBuilder_ == null) {
           ensureDetachedFilesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -17766,14 +17766,14 @@ public final class Pond {
       /**
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
-      public Pond.Message.Detachment.Builder getDetachedFilesBuilder(
+      public systems.obscure.client.protos.Pond.Message.Detachment.Builder getDetachedFilesBuilder(
           int index) {
         return getDetachedFilesFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
-      public Pond.Message.DetachmentOrBuilder getDetachedFilesOrBuilder(
+      public systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder getDetachedFilesOrBuilder(
           int index) {
         if (detachedFilesBuilder_ == null) {
           return detachedFiles_.get(index);  } else {
@@ -17783,7 +17783,7 @@ public final class Pond {
       /**
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
-      public java.util.List<? extends Pond.Message.DetachmentOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder> 
            getDetachedFilesOrBuilderList() {
         if (detachedFilesBuilder_ != null) {
           return detachedFilesBuilder_.getMessageOrBuilderList();
@@ -17794,31 +17794,31 @@ public final class Pond {
       /**
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
-      public Pond.Message.Detachment.Builder addDetachedFilesBuilder() {
+      public systems.obscure.client.protos.Pond.Message.Detachment.Builder addDetachedFilesBuilder() {
         return getDetachedFilesFieldBuilder().addBuilder(
-            Pond.Message.Detachment.getDefaultInstance());
+            systems.obscure.client.protos.Pond.Message.Detachment.getDefaultInstance());
       }
       /**
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
-      public Pond.Message.Detachment.Builder addDetachedFilesBuilder(
+      public systems.obscure.client.protos.Pond.Message.Detachment.Builder addDetachedFilesBuilder(
           int index) {
         return getDetachedFilesFieldBuilder().addBuilder(
-            index, Pond.Message.Detachment.getDefaultInstance());
+            index, systems.obscure.client.protos.Pond.Message.Detachment.getDefaultInstance());
       }
       /**
        * <code>repeated .Message.Detachment detached_files = 8;</code>
        */
-      public java.util.List<Pond.Message.Detachment.Builder> 
+      public java.util.List<systems.obscure.client.protos.Pond.Message.Detachment.Builder> 
            getDetachedFilesBuilderList() {
         return getDetachedFilesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.Message.Detachment, Pond.Message.Detachment.Builder, Pond.Message.DetachmentOrBuilder> 
+          systems.obscure.client.protos.Pond.Message.Detachment, systems.obscure.client.protos.Pond.Message.Detachment.Builder, systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder> 
           getDetachedFilesFieldBuilder() {
         if (detachedFilesBuilder_ == null) {
           detachedFilesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              Pond.Message.Detachment, Pond.Message.Detachment.Builder, Pond.Message.DetachmentOrBuilder>(
+              systems.obscure.client.protos.Pond.Message.Detachment, systems.obscure.client.protos.Pond.Message.Detachment.Builder, systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder>(
                   detachedFiles_,
                   ((bitField0_ & 0x00000200) == 0x00000200),
                   getParentForChildren(),
@@ -17892,110 +17892,110 @@ public final class Pond {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Request_descriptor;
+    internal_static_Request_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Request_fieldAccessorTable;
+      internal_static_Request_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Reply_descriptor;
+    internal_static_Reply_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Reply_fieldAccessorTable;
+      internal_static_Reply_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_NewAccount_descriptor;
+    internal_static_NewAccount_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_NewAccount_fieldAccessorTable;
+      internal_static_NewAccount_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_AccountDetails_descriptor;
+    internal_static_AccountDetails_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_AccountDetails_fieldAccessorTable;
+      internal_static_AccountDetails_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_AccountCreated_descriptor;
+    internal_static_AccountCreated_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_AccountCreated_fieldAccessorTable;
+      internal_static_AccountCreated_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Delivery_descriptor;
+    internal_static_Delivery_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Delivery_fieldAccessorTable;
+      internal_static_Delivery_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Fetch_descriptor;
+    internal_static_Fetch_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Fetch_fieldAccessorTable;
+      internal_static_Fetch_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Fetched_descriptor;
+    internal_static_Fetched_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Fetched_fieldAccessorTable;
+      internal_static_Fetched_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_ServerAnnounce_descriptor;
+    internal_static_ServerAnnounce_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_ServerAnnounce_fieldAccessorTable;
+      internal_static_ServerAnnounce_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Upload_descriptor;
+    internal_static_Upload_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Upload_fieldAccessorTable;
+      internal_static_Upload_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_UploadReply_descriptor;
+    internal_static_UploadReply_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_UploadReply_fieldAccessorTable;
+      internal_static_UploadReply_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Download_descriptor;
+    internal_static_Download_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Download_fieldAccessorTable;
+      internal_static_Download_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_DownloadReply_descriptor;
+    internal_static_DownloadReply_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_DownloadReply_fieldAccessorTable;
+      internal_static_DownloadReply_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_HMACSetup_descriptor;
+    internal_static_HMACSetup_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_HMACSetup_fieldAccessorTable;
+      internal_static_HMACSetup_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_HMACStrike_descriptor;
+    internal_static_HMACStrike_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_HMACStrike_fieldAccessorTable;
+      internal_static_HMACStrike_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_HMACPair_descriptor;
+    internal_static_HMACPair_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_HMACPair_fieldAccessorTable;
+      internal_static_HMACPair_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_KeyExchange_descriptor;
+    internal_static_KeyExchange_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_KeyExchange_fieldAccessorTable;
+      internal_static_KeyExchange_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_SignedKeyExchange_descriptor;
+    internal_static_SignedKeyExchange_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_SignedKeyExchange_fieldAccessorTable;
+      internal_static_SignedKeyExchange_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Message_descriptor;
+    internal_static_Message_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Message_fieldAccessorTable;
+      internal_static_Message_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Message_Attachment_descriptor;
+    internal_static_Message_Attachment_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Message_Attachment_fieldAccessorTable;
+      internal_static_Message_Attachment_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Message_Detachment_descriptor;
+    internal_static_Message_Detachment_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Message_Detachment_fieldAccessorTable;
+      internal_static_Message_Detachment_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -18005,69 +18005,66 @@ public final class Pond {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\npond.proto\022\006protos\"\207\002\n\007Request\022\'\n\013new_" +
-      "account\030\001 \001(\0132\022.NewAccount\022!\n\007del" +
-      "iver\030\002 \001(\0132\020.Delivery\022\034\n\005fetch\030\003 " +
-      "\001(\0132\r.Fetch\022\036\n\006upload\030\004 \001(\0132\016.pro" +
-      "tos.Upload\022\"\n\010download\030\005 \001(\0132\020.Do" +
-      "wnload\022%\n\nhmac_setup\030\006 \001(\0132\021.HMAC" +
-      "Setup\022\'\n\013hmac_strike\030\007 \001(\0132\022.HMAC" +
-      "Strike\"\315\005\n\005Reply\022(\n\006status\030\001 \001(\0162\024.proto" +
-      "s.Reply.Status:\002OK\022/\n\017account_created\030\002 " +
-      "\001(\0132\026.AccountCreated\022 \n\007fetched\030\003",
-      " \001(\0132\017.Fetched\022(\n\010announce\030\004 \001(\0132" +
-      "\026.ServerAnnounce\022#\n\006upload\030\005 \001(\0132" +
-      "\023.UploadReply\022\'\n\010download\030\006 \001(\0132\025" +
-      ".DownloadReply\"\316\003\n\006Status\022\006\n\002OK\020\000" +
-      "\022\017\n\013PARSE_ERROR\020\001\022\016\n\nNO_REQUEST\020\002\022\022\n\016INT" +
-      "ERNAL_ERROR\020\003\022\032\n\026IDENTITY_ALREADY_KNOWN\020" +
-      "\n\022\014\n\010OVERLOAD\020\013\022\023\n\017NO_SUCH_ADDRESS\020\014\022\036\n\032" +
-      "DELIVERY_SIGNATURE_INVALID\020\r\022\020\n\014MAILBOX_" +
-      "FULL\020\016\022\016\n\nNO_ACCOUNT\020\017\022\016\n\nOVER_QUOTA\020\020\022\031" +
-      "\n\025FILE_LARGER_THAN_SIZE\020\021\022\021\n\rFILE_COMPLE",
-      "TE\020\022\022\020\n\014NO_SUCH_FILE\020\023\022\033\n\027RESUME_PAST_EN" +
-      "D_OF_FILE\020\024\022\033\n\027CANNOT_PARSE_REVOCATION\020\025" +
-      "\022\031\n\025REGISTRATION_DISABLED\020\026\022\030\n\024HMAC_KEY_" +
-      "ALREADY_SET\020\027\022\022\n\016HMAC_NOT_SETUP\020\030\022\022\n\016HMA" +
-      "C_INCORRECT\020\031\022\r\n\tHMAC_USED\020\032\022\020\n\014HMAC_REV" +
-      "OKED\020\033\"\036\n\nNewAccount\022\020\n\010hmac_key\030\001 \001(\014\"2" +
-      "\n\016AccountDetails\022\r\n\005queue\030\001 \002(\r\022\021\n\tmax_q" +
-      "ueue\030\002 \002(\r\"9\n\016AccountCreated\022\'\n\007details\030" +
-      "\001 \002(\0132\026.AccountDetails\"|\n\010Deliver" +
-      "y\022\n\n\002to\030\001 \002(\014\022\017\n\007message\030\002 \002(\014\022\033\n\023one_ti",
-      "me_public_key\030\003 \001(\014\022\032\n\022hmac_of_public_ke" +
-      "y\030\004 \001(\006\022\032\n\022one_time_signature\030\005 \001(\014\"\007\n\005F" +
-      "etch\"\230\001\n\007Fetched\022\033\n\023one_time_public_key\030" +
-      "\001 \001(\014\022\032\n\022hmac_of_public_key\030\002 \001(\006\022\032\n\022one" +
-      "_time_signature\030\003 \001(\014\022\017\n\007message\030\004 \002(\014\022\'" +
-      "\n\007details\030\005 \002(\0132\026.AccountDetails\"" +
-      "2\n\016ServerAnnounce\022 \n\007message\030\001 \002(\0132\017.pro" +
-      "tos.Message\"\"\n\006Upload\022\n\n\002id\030\001 \002(\006\022\014\n\004siz" +
+      "\n\npond.proto\"\326\001\n\007Request\022 \n\013new_account\030" +
+      "\001 \001(\0132\013.NewAccount\022\032\n\007deliver\030\002 \001(\0132\t.De" +
+      "livery\022\025\n\005fetch\030\003 \001(\0132\006.Fetch\022\027\n\006upload\030" +
+      "\004 \001(\0132\007.Upload\022\033\n\010download\030\005 \001(\0132\t.Downl" +
+      "oad\022\036\n\nhmac_setup\030\006 \001(\0132\n.HMACSetup\022 \n\013h" +
+      "mac_strike\030\007 \001(\0132\013.HMACStrike\"\243\005\n\005Reply\022" +
+      "!\n\006status\030\001 \001(\0162\r.Reply.Status:\002OK\022(\n\017ac" +
+      "count_created\030\002 \001(\0132\017.AccountCreated\022\031\n\007" +
+      "fetched\030\003 \001(\0132\010.Fetched\022!\n\010announce\030\004 \001(" +
+      "\0132\017.ServerAnnounce\022\034\n\006upload\030\005 \001(\0132\014.Upl",
+      "oadReply\022 \n\010download\030\006 \001(\0132\016.DownloadRep" +
+      "ly\"\316\003\n\006Status\022\006\n\002OK\020\000\022\017\n\013PARSE_ERROR\020\001\022\016" +
+      "\n\nNO_REQUEST\020\002\022\022\n\016INTERNAL_ERROR\020\003\022\032\n\026ID" +
+      "ENTITY_ALREADY_KNOWN\020\n\022\014\n\010OVERLOAD\020\013\022\023\n\017" +
+      "NO_SUCH_ADDRESS\020\014\022\036\n\032DELIVERY_SIGNATURE_" +
+      "INVALID\020\r\022\020\n\014MAILBOX_FULL\020\016\022\016\n\nNO_ACCOUN" +
+      "T\020\017\022\016\n\nOVER_QUOTA\020\020\022\031\n\025FILE_LARGER_THAN_" +
+      "SIZE\020\021\022\021\n\rFILE_COMPLETE\020\022\022\020\n\014NO_SUCH_FIL" +
+      "E\020\023\022\033\n\027RESUME_PAST_END_OF_FILE\020\024\022\033\n\027CANN" +
+      "OT_PARSE_REVOCATION\020\025\022\031\n\025REGISTRATION_DI",
+      "SABLED\020\026\022\030\n\024HMAC_KEY_ALREADY_SET\020\027\022\022\n\016HM" +
+      "AC_NOT_SETUP\020\030\022\022\n\016HMAC_INCORRECT\020\031\022\r\n\tHM" +
+      "AC_USED\020\032\022\020\n\014HMAC_REVOKED\020\033\"\036\n\nNewAccoun" +
+      "t\022\020\n\010hmac_key\030\001 \001(\014\"2\n\016AccountDetails\022\r\n" +
+      "\005queue\030\001 \002(\r\022\021\n\tmax_queue\030\002 \002(\r\"2\n\016Accou" +
+      "ntCreated\022 \n\007details\030\001 \002(\0132\017.AccountDeta" +
+      "ils\"|\n\010Delivery\022\n\n\002to\030\001 \002(\014\022\017\n\007message\030\002" +
+      " \002(\014\022\033\n\023one_time_public_key\030\003 \001(\014\022\032\n\022hma" +
+      "c_of_public_key\030\004 \001(\006\022\032\n\022one_time_signat" +
+      "ure\030\005 \001(\014\"\007\n\005Fetch\"\221\001\n\007Fetched\022\033\n\023one_ti",
+      "me_public_key\030\001 \001(\014\022\032\n\022hmac_of_public_ke" +
+      "y\030\002 \001(\006\022\032\n\022one_time_signature\030\003 \001(\014\022\017\n\007m" +
+      "essage\030\004 \002(\014\022 \n\007details\030\005 \002(\0132\017.AccountD" +
+      "etails\"+\n\016ServerAnnounce\022\031\n\007message\030\001 \002(" +
+      "\0132\010.Message\"\"\n\006Upload\022\n\n\002id\030\001 \002(\006\022\014\n\004siz" +
       "e\030\002 \002(\003\"\035\n\013UploadReply\022\016\n\006resume\030\001 \001(\003\"4" +
-      "\n\010Download\022\014\n\004from\030\001 \002(\014\022\n\n\002id\030\002 \002(\006\022\016\n\006",
+      "\n\010Download\022\014\n\004from\030\001 \002(\014\022\n\n\002id\030\002 \002(\006\022\016\n\006" +
       "resume\030\003 \001(\003\"\035\n\rDownloadReply\022\014\n\004size\030\001 " +
       "\002(\003\"\035\n\tHMACSetup\022\020\n\010hmac_key\030\001 \002(\014\"\037\n\nHM" +
-      "ACStrike\022\021\n\005hmacs\030\001 \003(\006B\002\020\001\"O\n\010HMACPair\022" +
+      "ACStrike\022\021\n\005hmacs\030\001 \003(\006B\002\020\001\"O\n\010HMACPair\022",
       "\023\n\013private_key\030\001 \002(\014\022\022\n\npulbic_key\030\002 \002(\014" +
-      "\022\032\n\022hmac_of_public_key\030\003 \002(\006\"\211\001\n\013KeyExch" +
+      "\022\032\n\022hmac_of_public_key\030\003 \002(\006\"\202\001\n\013KeyExch" +
       "ange\022\022\n\npublic_key\030\001 \002(\014\022\027\n\017identity_pub" +
       "lic\030\002 \002(\014\022\016\n\006server\030\003 \002(\t\022\n\n\002dh\030\004 \002(\014\022\013\n" +
-      "\003dh1\030\005 \002(\014\022$\n\nhmac_pairs\030\006 \003(\0132\020." +
-      "HMACPair\"6\n\021SignedKeyExchange\022\016\n\006signed\030" +
-      "\001 \002(\014\022\021\n\tsignature\030\002 \002(\014\"\203\004\n\007Message\022\n\n\002",
-      "id\030\001 \002(\006\022\014\n\004time\030\002 \002(\003\022\014\n\004body\030\003 \002(\014\022/\n\r" +
-      "body_encoding\030\004 \001(\0162\030.Message.Enc" +
-      "oding\022\022\n\nmy_next_dh\030\005 \001(\014\022\023\n\013in_reply_to" +
-      "\030\006 \001(\004\022\020\n\010also_ack\030\n \003(\004\022(\n\016new_hmac_pai" +
-      "rs\030\013 \003(\0132\020.HMACPair\022)\n\005files\030\007 \003(" +
-      "\0132\032.Message.Attachment\0222\n\016detache" +
-      "d_files\030\010 \003(\0132\032.Message.Detachmen" +
-      "t\022\031\n\021supported_version\030\t \001(\005\0320\n\nAttachme" +
-      "nt\022\020\n\010filename\030\001 \002(\t\022\020\n\010contents\030\002 \002(\014\032o" +
-      "\n\nDetachment\022\020\n\010filename\030\001 \002(\t\022\014\n\004size\030\002",
-      " \002(\004\022\023\n\013padded_size\030\003 \002(\004\022\022\n\nchunk_size\030" +
-      "\004 \002(\r\022\013\n\003key\030\005 \002(\014\022\013\n\003url\030\006 \001(\t\"\035\n\010Encod" +
-      "ing\022\007\n\003RAW\020\000\022\010\n\004GZIP\020\001"
+      "\003dh1\030\005 \002(\014\022\035\n\nhmac_pairs\030\006 \003(\0132\t.HMACPai" +
+      "r\"6\n\021SignedKeyExchange\022\016\n\006signed\030\001 \002(\014\022\021" +
+      "\n\tsignature\030\002 \002(\014\"\347\003\n\007Message\022\n\n\002id\030\001 \002(" +
+      "\006\022\014\n\004time\030\002 \002(\003\022\014\n\004body\030\003 \002(\014\022(\n\rbody_en" +
+      "coding\030\004 \001(\0162\021.Message.Encoding\022\022\n\nmy_ne" +
+      "xt_dh\030\005 \001(\014\022\023\n\013in_reply_to\030\006 \001(\004\022\020\n\010also",
+      "_ack\030\n \003(\004\022!\n\016new_hmac_pairs\030\013 \003(\0132\t.HMA" +
+      "CPair\022\"\n\005files\030\007 \003(\0132\023.Message.Attachmen" +
+      "t\022+\n\016detached_files\030\010 \003(\0132\023.Message.Deta" +
+      "chment\022\031\n\021supported_version\030\t \001(\005\0320\n\nAtt" +
+      "achment\022\020\n\010filename\030\001 \002(\t\022\020\n\010contents\030\002 " +
+      "\002(\014\032o\n\nDetachment\022\020\n\010filename\030\001 \002(\t\022\014\n\004s" +
+      "ize\030\002 \002(\004\022\023\n\013padded_size\030\003 \002(\004\022\022\n\nchunk_" +
+      "size\030\004 \002(\r\022\013\n\003key\030\005 \002(\014\022\013\n\003url\030\006 \001(\t\"\035\n\010" +
+      "Encoding\022\007\n\003RAW\020\000\022\010\n\004GZIP\020\001B\037\n\035systems.o" +
+      "bscure.client.protos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -18081,131 +18078,131 @@ public final class Pond {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_protos_Request_descriptor =
+    internal_static_Request_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_protos_Request_fieldAccessorTable = new
+    internal_static_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Request_descriptor,
+        internal_static_Request_descriptor,
         new java.lang.String[] { "NewAccount", "Deliver", "Fetch", "Upload", "Download", "HmacSetup", "HmacStrike", });
-    internal_static_protos_Reply_descriptor =
+    internal_static_Reply_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_protos_Reply_fieldAccessorTable = new
+    internal_static_Reply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Reply_descriptor,
+        internal_static_Reply_descriptor,
         new java.lang.String[] { "Status", "AccountCreated", "Fetched", "Announce", "Upload", "Download", });
-    internal_static_protos_NewAccount_descriptor =
+    internal_static_NewAccount_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_protos_NewAccount_fieldAccessorTable = new
+    internal_static_NewAccount_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_NewAccount_descriptor,
+        internal_static_NewAccount_descriptor,
         new java.lang.String[] { "HmacKey", });
-    internal_static_protos_AccountDetails_descriptor =
+    internal_static_AccountDetails_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_protos_AccountDetails_fieldAccessorTable = new
+    internal_static_AccountDetails_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_AccountDetails_descriptor,
+        internal_static_AccountDetails_descriptor,
         new java.lang.String[] { "Queue", "MaxQueue", });
-    internal_static_protos_AccountCreated_descriptor =
+    internal_static_AccountCreated_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_protos_AccountCreated_fieldAccessorTable = new
+    internal_static_AccountCreated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_AccountCreated_descriptor,
+        internal_static_AccountCreated_descriptor,
         new java.lang.String[] { "Details", });
-    internal_static_protos_Delivery_descriptor =
+    internal_static_Delivery_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_protos_Delivery_fieldAccessorTable = new
+    internal_static_Delivery_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Delivery_descriptor,
+        internal_static_Delivery_descriptor,
         new java.lang.String[] { "To", "Message", "OneTimePublicKey", "HmacOfPublicKey", "OneTimeSignature", });
-    internal_static_protos_Fetch_descriptor =
+    internal_static_Fetch_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_protos_Fetch_fieldAccessorTable = new
+    internal_static_Fetch_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Fetch_descriptor,
+        internal_static_Fetch_descriptor,
         new java.lang.String[] { });
-    internal_static_protos_Fetched_descriptor =
+    internal_static_Fetched_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_protos_Fetched_fieldAccessorTable = new
+    internal_static_Fetched_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Fetched_descriptor,
+        internal_static_Fetched_descriptor,
         new java.lang.String[] { "OneTimePublicKey", "HmacOfPublicKey", "OneTimeSignature", "Message", "Details", });
-    internal_static_protos_ServerAnnounce_descriptor =
+    internal_static_ServerAnnounce_descriptor =
       getDescriptor().getMessageTypes().get(8);
-    internal_static_protos_ServerAnnounce_fieldAccessorTable = new
+    internal_static_ServerAnnounce_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_ServerAnnounce_descriptor,
+        internal_static_ServerAnnounce_descriptor,
         new java.lang.String[] { "Message", });
-    internal_static_protos_Upload_descriptor =
+    internal_static_Upload_descriptor =
       getDescriptor().getMessageTypes().get(9);
-    internal_static_protos_Upload_fieldAccessorTable = new
+    internal_static_Upload_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Upload_descriptor,
+        internal_static_Upload_descriptor,
         new java.lang.String[] { "Id", "Size", });
-    internal_static_protos_UploadReply_descriptor =
+    internal_static_UploadReply_descriptor =
       getDescriptor().getMessageTypes().get(10);
-    internal_static_protos_UploadReply_fieldAccessorTable = new
+    internal_static_UploadReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_UploadReply_descriptor,
+        internal_static_UploadReply_descriptor,
         new java.lang.String[] { "Resume", });
-    internal_static_protos_Download_descriptor =
+    internal_static_Download_descriptor =
       getDescriptor().getMessageTypes().get(11);
-    internal_static_protos_Download_fieldAccessorTable = new
+    internal_static_Download_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Download_descriptor,
+        internal_static_Download_descriptor,
         new java.lang.String[] { "From", "Id", "Resume", });
-    internal_static_protos_DownloadReply_descriptor =
+    internal_static_DownloadReply_descriptor =
       getDescriptor().getMessageTypes().get(12);
-    internal_static_protos_DownloadReply_fieldAccessorTable = new
+    internal_static_DownloadReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_DownloadReply_descriptor,
+        internal_static_DownloadReply_descriptor,
         new java.lang.String[] { "Size", });
-    internal_static_protos_HMACSetup_descriptor =
+    internal_static_HMACSetup_descriptor =
       getDescriptor().getMessageTypes().get(13);
-    internal_static_protos_HMACSetup_fieldAccessorTable = new
+    internal_static_HMACSetup_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_HMACSetup_descriptor,
+        internal_static_HMACSetup_descriptor,
         new java.lang.String[] { "HmacKey", });
-    internal_static_protos_HMACStrike_descriptor =
+    internal_static_HMACStrike_descriptor =
       getDescriptor().getMessageTypes().get(14);
-    internal_static_protos_HMACStrike_fieldAccessorTable = new
+    internal_static_HMACStrike_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_HMACStrike_descriptor,
+        internal_static_HMACStrike_descriptor,
         new java.lang.String[] { "Hmacs", });
-    internal_static_protos_HMACPair_descriptor =
+    internal_static_HMACPair_descriptor =
       getDescriptor().getMessageTypes().get(15);
-    internal_static_protos_HMACPair_fieldAccessorTable = new
+    internal_static_HMACPair_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_HMACPair_descriptor,
+        internal_static_HMACPair_descriptor,
         new java.lang.String[] { "PrivateKey", "PulbicKey", "HmacOfPublicKey", });
-    internal_static_protos_KeyExchange_descriptor =
+    internal_static_KeyExchange_descriptor =
       getDescriptor().getMessageTypes().get(16);
-    internal_static_protos_KeyExchange_fieldAccessorTable = new
+    internal_static_KeyExchange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_KeyExchange_descriptor,
+        internal_static_KeyExchange_descriptor,
         new java.lang.String[] { "PublicKey", "IdentityPublic", "Server", "Dh", "Dh1", "HmacPairs", });
-    internal_static_protos_SignedKeyExchange_descriptor =
+    internal_static_SignedKeyExchange_descriptor =
       getDescriptor().getMessageTypes().get(17);
-    internal_static_protos_SignedKeyExchange_fieldAccessorTable = new
+    internal_static_SignedKeyExchange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_SignedKeyExchange_descriptor,
+        internal_static_SignedKeyExchange_descriptor,
         new java.lang.String[] { "Signed", "Signature", });
-    internal_static_protos_Message_descriptor =
+    internal_static_Message_descriptor =
       getDescriptor().getMessageTypes().get(18);
-    internal_static_protos_Message_fieldAccessorTable = new
+    internal_static_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Message_descriptor,
+        internal_static_Message_descriptor,
         new java.lang.String[] { "Id", "Time", "Body", "BodyEncoding", "MyNextDh", "InReplyTo", "AlsoAck", "NewHmacPairs", "Files", "DetachedFiles", "SupportedVersion", });
-    internal_static_protos_Message_Attachment_descriptor =
-      internal_static_protos_Message_descriptor.getNestedTypes().get(0);
-    internal_static_protos_Message_Attachment_fieldAccessorTable = new
+    internal_static_Message_Attachment_descriptor =
+      internal_static_Message_descriptor.getNestedTypes().get(0);
+    internal_static_Message_Attachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Message_Attachment_descriptor,
+        internal_static_Message_Attachment_descriptor,
         new java.lang.String[] { "Filename", "Contents", });
-    internal_static_protos_Message_Detachment_descriptor =
-      internal_static_protos_Message_descriptor.getNestedTypes().get(1);
-    internal_static_protos_Message_Detachment_fieldAccessorTable = new
+    internal_static_Message_Detachment_descriptor =
+      internal_static_Message_descriptor.getNestedTypes().get(1);
+    internal_static_Message_Detachment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Message_Detachment_descriptor,
+        internal_static_Message_Detachment_descriptor,
         new java.lang.String[] { "Filename", "Size", "PaddedSize", "ChunkSize", "Key", "Url", });
   }
 

@@ -128,7 +128,8 @@ public class SendListFragment extends ListFragment
     Pond.Message.Builder msg = Pond.Message.newBuilder();
     msg.setId(client.randId());
     client.registerId(msg.getId());
-    msg.setBody(ByteString.copyFrom(Globals.lastImageTaken));
+//    msg.setBody(ByteString.copyFrom(Globals.lastImageTaken));
+    msg.setBody(ByteString.copyFromUtf8("test"));
     msg.setTime(System.nanoTime());
     Network.send(contact, msg);
       Intent contactPage = new Intent(getActivity(), CameraActivity.class);

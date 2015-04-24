@@ -1,6 +1,7 @@
 package systems.obscure.client.client;
 
 import com.google.protobuf.ByteString;
+import com.google.protobuf.InvalidProtocolBufferException;
 
 import org.abstractj.kalium.keys.PublicKey;
 import org.abstractj.kalium.keys.VerifyKey;
@@ -99,7 +100,9 @@ public class Contact {
 
     //TODO indicator func
 
-    public void processKeyExchange(Pond.KeyExchange keyExchange) {
+    public void processKeyExchange(Pond.SignedKeyExchange signedKeyExchange) throws InvalidProtocolBufferException {
+        //TODO check sig
+        Pond.KeyExchange keyExchange = Pond.KeyExchange.parseFrom(signedKeyExchange.getSigned());
         theirServer = keyExchange.getServer();
         theirIdentityPublic = new PublicKey(keyExchange.getIdentityPublic().toByteArray());
         theirPub = new VerifyKey(keyExchange.getPublicKey().toByteArray());

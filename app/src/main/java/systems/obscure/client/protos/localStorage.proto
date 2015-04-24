@@ -1,7 +1,11 @@
-package protos;
+//package protos;
 
 //import "github.com/agl/pond/protos/pond.proto";
 import "pond.proto";
+
+//option java_package = "systems.obscure.client.protos";
+
+//option optimize_for = LITE_RUNTIME;
 
 // These protobufs are used for serialising the client's state to disk.
 
@@ -60,7 +64,7 @@ message Contact {
 	}
 	repeated Event events = 15;
 
-	repeated protos.HMACPair theirPairs = 16;
+	repeated HMACPair theirPairs = 16;
 
 	message MyHMACPair {
 		required bytes publicKey = 1;
@@ -131,8 +135,8 @@ message Draft {
 	optional fixed64 to = 3;
 	required string body = 4;
 	optional fixed64 in_reply_to = 5;
-	repeated protos.Message.Attachment attachments = 6;
-	repeated protos.Message.Detachment detachments = 7;
+	repeated Message.Attachment attachments = 6;
+	repeated Message.Detachment detachments = 7;
 }
 
 message State {

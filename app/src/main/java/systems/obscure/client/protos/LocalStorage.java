@@ -59,11 +59,11 @@ public final class LocalStorage {
     /**
      * <code>optional .Header.SCrypt scrypt = 3;</code>
      */
-    LocalStorage.Header.SCrypt getScrypt();
+    systems.obscure.client.protos.LocalStorage.Header.SCrypt getScrypt();
     /**
      * <code>optional .Header.SCrypt scrypt = 3;</code>
      */
-    LocalStorage.Header.SCryptOrBuilder getScryptOrBuilder();
+    systems.obscure.client.protos.LocalStorage.Header.SCryptOrBuilder getScryptOrBuilder();
 
     /**
      * <code>optional .Header.TPM tpm_nvram = 4;</code>
@@ -72,11 +72,11 @@ public final class LocalStorage {
     /**
      * <code>optional .Header.TPM tpm_nvram = 4;</code>
      */
-    LocalStorage.Header.TPM getTpmNvram();
+    systems.obscure.client.protos.LocalStorage.Header.TPM getTpmNvram();
     /**
      * <code>optional .Header.TPM tpm_nvram = 4;</code>
      */
-    LocalStorage.Header.TPMOrBuilder getTpmNvramOrBuilder();
+    systems.obscure.client.protos.LocalStorage.Header.TPMOrBuilder getTpmNvramOrBuilder();
 
     /**
      * <code>optional bool no_erasure_storage = 5;</code>
@@ -168,11 +168,11 @@ public final class LocalStorage {
               break;
             }
             case 26: {
-              LocalStorage.Header.SCrypt.Builder subBuilder = null;
+              systems.obscure.client.protos.LocalStorage.Header.SCrypt.Builder subBuilder = null;
               if (((bitField0_ & 0x00000004) == 0x00000004)) {
                 subBuilder = scrypt_.toBuilder();
               }
-              scrypt_ = input.readMessage(LocalStorage.Header.SCrypt.PARSER, extensionRegistry);
+              scrypt_ = input.readMessage(systems.obscure.client.protos.LocalStorage.Header.SCrypt.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(scrypt_);
                 scrypt_ = subBuilder.buildPartial();
@@ -181,11 +181,11 @@ public final class LocalStorage {
               break;
             }
             case 34: {
-              LocalStorage.Header.TPM.Builder subBuilder = null;
+              systems.obscure.client.protos.LocalStorage.Header.TPM.Builder subBuilder = null;
               if (((bitField0_ & 0x00000008) == 0x00000008)) {
                 subBuilder = tpmNvram_.toBuilder();
               }
-              tpmNvram_ = input.readMessage(LocalStorage.Header.TPM.PARSER, extensionRegistry);
+              tpmNvram_ = input.readMessage(systems.obscure.client.protos.LocalStorage.Header.TPM.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(tpmNvram_);
                 tpmNvram_ = subBuilder.buildPartial();
@@ -212,14 +212,14 @@ public final class LocalStorage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return LocalStorage.internal_static_protos_Header_descriptor;
+      return systems.obscure.client.protos.LocalStorage.internal_static_Header_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return LocalStorage.internal_static_protos_Header_fieldAccessorTable
+      return systems.obscure.client.protos.LocalStorage.internal_static_Header_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              LocalStorage.Header.class, LocalStorage.Header.Builder.class);
+              systems.obscure.client.protos.LocalStorage.Header.class, systems.obscure.client.protos.LocalStorage.Header.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Header> PARSER =
@@ -349,14 +349,14 @@ public final class LocalStorage {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return LocalStorage.internal_static_protos_Header_SCrypt_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Header_SCrypt_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_Header_SCrypt_fieldAccessorTable
+        return systems.obscure.client.protos.LocalStorage.internal_static_Header_SCrypt_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LocalStorage.Header.SCrypt.class, LocalStorage.Header.SCrypt.Builder.class);
+                systems.obscure.client.protos.LocalStorage.Header.SCrypt.class, systems.obscure.client.protos.LocalStorage.Header.SCrypt.Builder.class);
       }
 
       public static com.google.protobuf.Parser<SCrypt> PARSER =
@@ -480,53 +480,53 @@ public final class LocalStorage {
         return super.writeReplace();
       }
 
-      public static LocalStorage.Header.SCrypt parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.SCrypt parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static LocalStorage.Header.SCrypt parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.SCrypt parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static LocalStorage.Header.SCrypt parseFrom(byte[] data)
+      public static systems.obscure.client.protos.LocalStorage.Header.SCrypt parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static LocalStorage.Header.SCrypt parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.SCrypt parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static LocalStorage.Header.SCrypt parseFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.LocalStorage.Header.SCrypt parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static LocalStorage.Header.SCrypt parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.SCrypt parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
-      public static LocalStorage.Header.SCrypt parseDelimitedFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.LocalStorage.Header.SCrypt parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input);
       }
-      public static LocalStorage.Header.SCrypt parseDelimitedFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.SCrypt parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
-      public static LocalStorage.Header.SCrypt parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.SCrypt parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static LocalStorage.Header.SCrypt parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.SCrypt parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -535,7 +535,7 @@ public final class LocalStorage {
 
       public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(LocalStorage.Header.SCrypt prototype) {
+      public static Builder newBuilder(systems.obscure.client.protos.LocalStorage.Header.SCrypt prototype) {
         return newBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() { return newBuilder(this); }
@@ -552,20 +552,20 @@ public final class LocalStorage {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:Header.SCrypt)
-          LocalStorage.Header.SCryptOrBuilder {
+          systems.obscure.client.protos.LocalStorage.Header.SCryptOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return LocalStorage.internal_static_protos_Header_SCrypt_descriptor;
+          return systems.obscure.client.protos.LocalStorage.internal_static_Header_SCrypt_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return LocalStorage.internal_static_protos_Header_SCrypt_fieldAccessorTable
+          return systems.obscure.client.protos.LocalStorage.internal_static_Header_SCrypt_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  LocalStorage.Header.SCrypt.class, LocalStorage.Header.SCrypt.Builder.class);
+                  systems.obscure.client.protos.LocalStorage.Header.SCrypt.class, systems.obscure.client.protos.LocalStorage.Header.SCrypt.Builder.class);
         }
 
-        // Construct using LocalStorage.Header.SCrypt.newBuilder()
+        // Construct using systems.obscure.client.protos.LocalStorage.Header.SCrypt.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -600,23 +600,23 @@ public final class LocalStorage {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return LocalStorage.internal_static_protos_Header_SCrypt_descriptor;
+          return systems.obscure.client.protos.LocalStorage.internal_static_Header_SCrypt_descriptor;
         }
 
-        public LocalStorage.Header.SCrypt getDefaultInstanceForType() {
-          return LocalStorage.Header.SCrypt.getDefaultInstance();
+        public systems.obscure.client.protos.LocalStorage.Header.SCrypt getDefaultInstanceForType() {
+          return systems.obscure.client.protos.LocalStorage.Header.SCrypt.getDefaultInstance();
         }
 
-        public LocalStorage.Header.SCrypt build() {
-          LocalStorage.Header.SCrypt result = buildPartial();
+        public systems.obscure.client.protos.LocalStorage.Header.SCrypt build() {
+          systems.obscure.client.protos.LocalStorage.Header.SCrypt result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public LocalStorage.Header.SCrypt buildPartial() {
-          LocalStorage.Header.SCrypt result = new LocalStorage.Header.SCrypt(this);
+        public systems.obscure.client.protos.LocalStorage.Header.SCrypt buildPartial() {
+          systems.obscure.client.protos.LocalStorage.Header.SCrypt result = new systems.obscure.client.protos.LocalStorage.Header.SCrypt(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -637,16 +637,16 @@ public final class LocalStorage {
         }
 
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof LocalStorage.Header.SCrypt) {
-            return mergeFrom((LocalStorage.Header.SCrypt)other);
+          if (other instanceof systems.obscure.client.protos.LocalStorage.Header.SCrypt) {
+            return mergeFrom((systems.obscure.client.protos.LocalStorage.Header.SCrypt)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(LocalStorage.Header.SCrypt other) {
-          if (other == LocalStorage.Header.SCrypt.getDefaultInstance()) return this;
+        public Builder mergeFrom(systems.obscure.client.protos.LocalStorage.Header.SCrypt other) {
+          if (other == systems.obscure.client.protos.LocalStorage.Header.SCrypt.getDefaultInstance()) return this;
           if (other.hasN()) {
             setN(other.getN());
           }
@@ -668,11 +668,11 @@ public final class LocalStorage {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          LocalStorage.Header.SCrypt parsedMessage = null;
+          systems.obscure.client.protos.LocalStorage.Header.SCrypt parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (LocalStorage.Header.SCrypt) e.getUnfinishedMessage();
+            parsedMessage = (systems.obscure.client.protos.LocalStorage.Header.SCrypt) e.getUnfinishedMessage();
             throw e;
           } finally {
             if (parsedMessage != null) {
@@ -878,14 +878,14 @@ public final class LocalStorage {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return LocalStorage.internal_static_protos_Header_TPM_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Header_TPM_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_Header_TPM_fieldAccessorTable
+        return systems.obscure.client.protos.LocalStorage.internal_static_Header_TPM_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LocalStorage.Header.TPM.class, LocalStorage.Header.TPM.Builder.class);
+                systems.obscure.client.protos.LocalStorage.Header.TPM.class, systems.obscure.client.protos.LocalStorage.Header.TPM.Builder.class);
       }
 
       public static com.google.protobuf.Parser<TPM> PARSER =
@@ -967,53 +967,53 @@ public final class LocalStorage {
         return super.writeReplace();
       }
 
-      public static LocalStorage.Header.TPM parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.TPM parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static LocalStorage.Header.TPM parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.TPM parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static LocalStorage.Header.TPM parseFrom(byte[] data)
+      public static systems.obscure.client.protos.LocalStorage.Header.TPM parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static LocalStorage.Header.TPM parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.TPM parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static LocalStorage.Header.TPM parseFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.LocalStorage.Header.TPM parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static LocalStorage.Header.TPM parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.TPM parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
-      public static LocalStorage.Header.TPM parseDelimitedFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.LocalStorage.Header.TPM parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input);
       }
-      public static LocalStorage.Header.TPM parseDelimitedFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.TPM parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
-      public static LocalStorage.Header.TPM parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.TPM parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static LocalStorage.Header.TPM parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Header.TPM parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -1022,7 +1022,7 @@ public final class LocalStorage {
 
       public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(LocalStorage.Header.TPM prototype) {
+      public static Builder newBuilder(systems.obscure.client.protos.LocalStorage.Header.TPM prototype) {
         return newBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() { return newBuilder(this); }
@@ -1043,20 +1043,20 @@ public final class LocalStorage {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:Header.TPM)
-          LocalStorage.Header.TPMOrBuilder {
+          systems.obscure.client.protos.LocalStorage.Header.TPMOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return LocalStorage.internal_static_protos_Header_TPM_descriptor;
+          return systems.obscure.client.protos.LocalStorage.internal_static_Header_TPM_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return LocalStorage.internal_static_protos_Header_TPM_fieldAccessorTable
+          return systems.obscure.client.protos.LocalStorage.internal_static_Header_TPM_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  LocalStorage.Header.TPM.class, LocalStorage.Header.TPM.Builder.class);
+                  systems.obscure.client.protos.LocalStorage.Header.TPM.class, systems.obscure.client.protos.LocalStorage.Header.TPM.Builder.class);
         }
 
-        // Construct using LocalStorage.Header.TPM.newBuilder()
+        // Construct using systems.obscure.client.protos.LocalStorage.Header.TPM.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -1087,23 +1087,23 @@ public final class LocalStorage {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return LocalStorage.internal_static_protos_Header_TPM_descriptor;
+          return systems.obscure.client.protos.LocalStorage.internal_static_Header_TPM_descriptor;
         }
 
-        public LocalStorage.Header.TPM getDefaultInstanceForType() {
-          return LocalStorage.Header.TPM.getDefaultInstance();
+        public systems.obscure.client.protos.LocalStorage.Header.TPM getDefaultInstanceForType() {
+          return systems.obscure.client.protos.LocalStorage.Header.TPM.getDefaultInstance();
         }
 
-        public LocalStorage.Header.TPM build() {
-          LocalStorage.Header.TPM result = buildPartial();
+        public systems.obscure.client.protos.LocalStorage.Header.TPM build() {
+          systems.obscure.client.protos.LocalStorage.Header.TPM result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public LocalStorage.Header.TPM buildPartial() {
-          LocalStorage.Header.TPM result = new LocalStorage.Header.TPM(this);
+        public systems.obscure.client.protos.LocalStorage.Header.TPM buildPartial() {
+          systems.obscure.client.protos.LocalStorage.Header.TPM result = new systems.obscure.client.protos.LocalStorage.Header.TPM(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1116,16 +1116,16 @@ public final class LocalStorage {
         }
 
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof LocalStorage.Header.TPM) {
-            return mergeFrom((LocalStorage.Header.TPM)other);
+          if (other instanceof systems.obscure.client.protos.LocalStorage.Header.TPM) {
+            return mergeFrom((systems.obscure.client.protos.LocalStorage.Header.TPM)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(LocalStorage.Header.TPM other) {
-          if (other == LocalStorage.Header.TPM.getDefaultInstance()) return this;
+        public Builder mergeFrom(systems.obscure.client.protos.LocalStorage.Header.TPM other) {
+          if (other == systems.obscure.client.protos.LocalStorage.Header.TPM.getDefaultInstance()) return this;
           if (other.hasIndex()) {
             setIndex(other.getIndex());
           }
@@ -1145,11 +1145,11 @@ public final class LocalStorage {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          LocalStorage.Header.TPM parsedMessage = null;
+          systems.obscure.client.protos.LocalStorage.Header.TPM parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (LocalStorage.Header.TPM) e.getUnfinishedMessage();
+            parsedMessage = (systems.obscure.client.protos.LocalStorage.Header.TPM) e.getUnfinishedMessage();
             throw e;
           } finally {
             if (parsedMessage != null) {
@@ -1257,7 +1257,7 @@ public final class LocalStorage {
     }
 
     public static final int SCRYPT_FIELD_NUMBER = 3;
-    private LocalStorage.Header.SCrypt scrypt_;
+    private systems.obscure.client.protos.LocalStorage.Header.SCrypt scrypt_;
     /**
      * <code>optional .Header.SCrypt scrypt = 3;</code>
      */
@@ -1267,18 +1267,18 @@ public final class LocalStorage {
     /**
      * <code>optional .Header.SCrypt scrypt = 3;</code>
      */
-    public LocalStorage.Header.SCrypt getScrypt() {
+    public systems.obscure.client.protos.LocalStorage.Header.SCrypt getScrypt() {
       return scrypt_;
     }
     /**
      * <code>optional .Header.SCrypt scrypt = 3;</code>
      */
-    public LocalStorage.Header.SCryptOrBuilder getScryptOrBuilder() {
+    public systems.obscure.client.protos.LocalStorage.Header.SCryptOrBuilder getScryptOrBuilder() {
       return scrypt_;
     }
 
     public static final int TPM_NVRAM_FIELD_NUMBER = 4;
-    private LocalStorage.Header.TPM tpmNvram_;
+    private systems.obscure.client.protos.LocalStorage.Header.TPM tpmNvram_;
     /**
      * <code>optional .Header.TPM tpm_nvram = 4;</code>
      */
@@ -1288,13 +1288,13 @@ public final class LocalStorage {
     /**
      * <code>optional .Header.TPM tpm_nvram = 4;</code>
      */
-    public LocalStorage.Header.TPM getTpmNvram() {
+    public systems.obscure.client.protos.LocalStorage.Header.TPM getTpmNvram() {
       return tpmNvram_;
     }
     /**
      * <code>optional .Header.TPM tpm_nvram = 4;</code>
      */
-    public LocalStorage.Header.TPMOrBuilder getTpmNvramOrBuilder() {
+    public systems.obscure.client.protos.LocalStorage.Header.TPMOrBuilder getTpmNvramOrBuilder() {
       return tpmNvram_;
     }
 
@@ -1328,8 +1328,8 @@ public final class LocalStorage {
     private void initFields() {
       nonceSmearCopies_ = 1365;
       kdfSalt_ = com.google.protobuf.ByteString.EMPTY;
-      scrypt_ = LocalStorage.Header.SCrypt.getDefaultInstance();
-      tpmNvram_ = LocalStorage.Header.TPM.getDefaultInstance();
+      scrypt_ = systems.obscure.client.protos.LocalStorage.Header.SCrypt.getDefaultInstance();
+      tpmNvram_ = systems.obscure.client.protos.LocalStorage.Header.TPM.getDefaultInstance();
       noErasureStorage_ = false;
     }
     private byte memoizedIsInitialized = -1;
@@ -1407,53 +1407,53 @@ public final class LocalStorage {
       return super.writeReplace();
     }
 
-    public static LocalStorage.Header parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Header parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.Header parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Header parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.Header parseFrom(byte[] data)
+    public static systems.obscure.client.protos.LocalStorage.Header parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.Header parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Header parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.Header parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.Header parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.Header parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Header parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static LocalStorage.Header parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.Header parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static LocalStorage.Header parseDelimitedFrom(
+    public static systems.obscure.client.protos.LocalStorage.Header parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static LocalStorage.Header parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Header parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.Header parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Header parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1462,7 +1462,7 @@ public final class LocalStorage {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(LocalStorage.Header prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.LocalStorage.Header prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1485,20 +1485,20 @@ public final class LocalStorage {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Header)
-        LocalStorage.HeaderOrBuilder {
+        systems.obscure.client.protos.LocalStorage.HeaderOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return LocalStorage.internal_static_protos_Header_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Header_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_Header_fieldAccessorTable
+        return systems.obscure.client.protos.LocalStorage.internal_static_Header_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LocalStorage.Header.class, LocalStorage.Header.Builder.class);
+                systems.obscure.client.protos.LocalStorage.Header.class, systems.obscure.client.protos.LocalStorage.Header.Builder.class);
       }
 
-      // Construct using LocalStorage.Header.newBuilder()
+      // Construct using systems.obscure.client.protos.LocalStorage.Header.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1525,13 +1525,13 @@ public final class LocalStorage {
         kdfSalt_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         if (scryptBuilder_ == null) {
-          scrypt_ = LocalStorage.Header.SCrypt.getDefaultInstance();
+          scrypt_ = systems.obscure.client.protos.LocalStorage.Header.SCrypt.getDefaultInstance();
         } else {
           scryptBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
         if (tpmNvramBuilder_ == null) {
-          tpmNvram_ = LocalStorage.Header.TPM.getDefaultInstance();
+          tpmNvram_ = systems.obscure.client.protos.LocalStorage.Header.TPM.getDefaultInstance();
         } else {
           tpmNvramBuilder_.clear();
         }
@@ -1547,23 +1547,23 @@ public final class LocalStorage {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return LocalStorage.internal_static_protos_Header_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Header_descriptor;
       }
 
-      public LocalStorage.Header getDefaultInstanceForType() {
-        return LocalStorage.Header.getDefaultInstance();
+      public systems.obscure.client.protos.LocalStorage.Header getDefaultInstanceForType() {
+        return systems.obscure.client.protos.LocalStorage.Header.getDefaultInstance();
       }
 
-      public LocalStorage.Header build() {
-        LocalStorage.Header result = buildPartial();
+      public systems.obscure.client.protos.LocalStorage.Header build() {
+        systems.obscure.client.protos.LocalStorage.Header result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public LocalStorage.Header buildPartial() {
-        LocalStorage.Header result = new LocalStorage.Header(this);
+      public systems.obscure.client.protos.LocalStorage.Header buildPartial() {
+        systems.obscure.client.protos.LocalStorage.Header result = new systems.obscure.client.protos.LocalStorage.Header(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1600,16 +1600,16 @@ public final class LocalStorage {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof LocalStorage.Header) {
-          return mergeFrom((LocalStorage.Header)other);
+        if (other instanceof systems.obscure.client.protos.LocalStorage.Header) {
+          return mergeFrom((systems.obscure.client.protos.LocalStorage.Header)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(LocalStorage.Header other) {
-        if (other == LocalStorage.Header.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.LocalStorage.Header other) {
+        if (other == systems.obscure.client.protos.LocalStorage.Header.getDefaultInstance()) return this;
         if (other.hasNonceSmearCopies()) {
           setNonceSmearCopies(other.getNonceSmearCopies());
         }
@@ -1643,11 +1643,11 @@ public final class LocalStorage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        LocalStorage.Header parsedMessage = null;
+        systems.obscure.client.protos.LocalStorage.Header parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (LocalStorage.Header) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.LocalStorage.Header) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1769,9 +1769,9 @@ public final class LocalStorage {
         return this;
       }
 
-      private LocalStorage.Header.SCrypt scrypt_ = LocalStorage.Header.SCrypt.getDefaultInstance();
+      private systems.obscure.client.protos.LocalStorage.Header.SCrypt scrypt_ = systems.obscure.client.protos.LocalStorage.Header.SCrypt.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          LocalStorage.Header.SCrypt, LocalStorage.Header.SCrypt.Builder, LocalStorage.Header.SCryptOrBuilder> scryptBuilder_;
+          systems.obscure.client.protos.LocalStorage.Header.SCrypt, systems.obscure.client.protos.LocalStorage.Header.SCrypt.Builder, systems.obscure.client.protos.LocalStorage.Header.SCryptOrBuilder> scryptBuilder_;
       /**
        * <code>optional .Header.SCrypt scrypt = 3;</code>
        */
@@ -1781,7 +1781,7 @@ public final class LocalStorage {
       /**
        * <code>optional .Header.SCrypt scrypt = 3;</code>
        */
-      public LocalStorage.Header.SCrypt getScrypt() {
+      public systems.obscure.client.protos.LocalStorage.Header.SCrypt getScrypt() {
         if (scryptBuilder_ == null) {
           return scrypt_;
         } else {
@@ -1791,7 +1791,7 @@ public final class LocalStorage {
       /**
        * <code>optional .Header.SCrypt scrypt = 3;</code>
        */
-      public Builder setScrypt(LocalStorage.Header.SCrypt value) {
+      public Builder setScrypt(systems.obscure.client.protos.LocalStorage.Header.SCrypt value) {
         if (scryptBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1808,7 +1808,7 @@ public final class LocalStorage {
        * <code>optional .Header.SCrypt scrypt = 3;</code>
        */
       public Builder setScrypt(
-          LocalStorage.Header.SCrypt.Builder builderForValue) {
+          systems.obscure.client.protos.LocalStorage.Header.SCrypt.Builder builderForValue) {
         if (scryptBuilder_ == null) {
           scrypt_ = builderForValue.build();
           onChanged();
@@ -1821,12 +1821,12 @@ public final class LocalStorage {
       /**
        * <code>optional .Header.SCrypt scrypt = 3;</code>
        */
-      public Builder mergeScrypt(LocalStorage.Header.SCrypt value) {
+      public Builder mergeScrypt(systems.obscure.client.protos.LocalStorage.Header.SCrypt value) {
         if (scryptBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              scrypt_ != LocalStorage.Header.SCrypt.getDefaultInstance()) {
+              scrypt_ != systems.obscure.client.protos.LocalStorage.Header.SCrypt.getDefaultInstance()) {
             scrypt_ =
-              LocalStorage.Header.SCrypt.newBuilder(scrypt_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.LocalStorage.Header.SCrypt.newBuilder(scrypt_).mergeFrom(value).buildPartial();
           } else {
             scrypt_ = value;
           }
@@ -1842,7 +1842,7 @@ public final class LocalStorage {
        */
       public Builder clearScrypt() {
         if (scryptBuilder_ == null) {
-          scrypt_ = LocalStorage.Header.SCrypt.getDefaultInstance();
+          scrypt_ = systems.obscure.client.protos.LocalStorage.Header.SCrypt.getDefaultInstance();
           onChanged();
         } else {
           scryptBuilder_.clear();
@@ -1853,7 +1853,7 @@ public final class LocalStorage {
       /**
        * <code>optional .Header.SCrypt scrypt = 3;</code>
        */
-      public LocalStorage.Header.SCrypt.Builder getScryptBuilder() {
+      public systems.obscure.client.protos.LocalStorage.Header.SCrypt.Builder getScryptBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
         return getScryptFieldBuilder().getBuilder();
@@ -1861,7 +1861,7 @@ public final class LocalStorage {
       /**
        * <code>optional .Header.SCrypt scrypt = 3;</code>
        */
-      public LocalStorage.Header.SCryptOrBuilder getScryptOrBuilder() {
+      public systems.obscure.client.protos.LocalStorage.Header.SCryptOrBuilder getScryptOrBuilder() {
         if (scryptBuilder_ != null) {
           return scryptBuilder_.getMessageOrBuilder();
         } else {
@@ -1872,11 +1872,11 @@ public final class LocalStorage {
        * <code>optional .Header.SCrypt scrypt = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          LocalStorage.Header.SCrypt, LocalStorage.Header.SCrypt.Builder, LocalStorage.Header.SCryptOrBuilder> 
+          systems.obscure.client.protos.LocalStorage.Header.SCrypt, systems.obscure.client.protos.LocalStorage.Header.SCrypt.Builder, systems.obscure.client.protos.LocalStorage.Header.SCryptOrBuilder> 
           getScryptFieldBuilder() {
         if (scryptBuilder_ == null) {
           scryptBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              LocalStorage.Header.SCrypt, LocalStorage.Header.SCrypt.Builder, LocalStorage.Header.SCryptOrBuilder>(
+              systems.obscure.client.protos.LocalStorage.Header.SCrypt, systems.obscure.client.protos.LocalStorage.Header.SCrypt.Builder, systems.obscure.client.protos.LocalStorage.Header.SCryptOrBuilder>(
                   getScrypt(),
                   getParentForChildren(),
                   isClean());
@@ -1885,9 +1885,9 @@ public final class LocalStorage {
         return scryptBuilder_;
       }
 
-      private LocalStorage.Header.TPM tpmNvram_ = LocalStorage.Header.TPM.getDefaultInstance();
+      private systems.obscure.client.protos.LocalStorage.Header.TPM tpmNvram_ = systems.obscure.client.protos.LocalStorage.Header.TPM.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          LocalStorage.Header.TPM, LocalStorage.Header.TPM.Builder, LocalStorage.Header.TPMOrBuilder> tpmNvramBuilder_;
+          systems.obscure.client.protos.LocalStorage.Header.TPM, systems.obscure.client.protos.LocalStorage.Header.TPM.Builder, systems.obscure.client.protos.LocalStorage.Header.TPMOrBuilder> tpmNvramBuilder_;
       /**
        * <code>optional .Header.TPM tpm_nvram = 4;</code>
        */
@@ -1897,7 +1897,7 @@ public final class LocalStorage {
       /**
        * <code>optional .Header.TPM tpm_nvram = 4;</code>
        */
-      public LocalStorage.Header.TPM getTpmNvram() {
+      public systems.obscure.client.protos.LocalStorage.Header.TPM getTpmNvram() {
         if (tpmNvramBuilder_ == null) {
           return tpmNvram_;
         } else {
@@ -1907,7 +1907,7 @@ public final class LocalStorage {
       /**
        * <code>optional .Header.TPM tpm_nvram = 4;</code>
        */
-      public Builder setTpmNvram(LocalStorage.Header.TPM value) {
+      public Builder setTpmNvram(systems.obscure.client.protos.LocalStorage.Header.TPM value) {
         if (tpmNvramBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1924,7 +1924,7 @@ public final class LocalStorage {
        * <code>optional .Header.TPM tpm_nvram = 4;</code>
        */
       public Builder setTpmNvram(
-          LocalStorage.Header.TPM.Builder builderForValue) {
+          systems.obscure.client.protos.LocalStorage.Header.TPM.Builder builderForValue) {
         if (tpmNvramBuilder_ == null) {
           tpmNvram_ = builderForValue.build();
           onChanged();
@@ -1937,12 +1937,12 @@ public final class LocalStorage {
       /**
        * <code>optional .Header.TPM tpm_nvram = 4;</code>
        */
-      public Builder mergeTpmNvram(LocalStorage.Header.TPM value) {
+      public Builder mergeTpmNvram(systems.obscure.client.protos.LocalStorage.Header.TPM value) {
         if (tpmNvramBuilder_ == null) {
           if (((bitField0_ & 0x00000008) == 0x00000008) &&
-              tpmNvram_ != LocalStorage.Header.TPM.getDefaultInstance()) {
+              tpmNvram_ != systems.obscure.client.protos.LocalStorage.Header.TPM.getDefaultInstance()) {
             tpmNvram_ =
-              LocalStorage.Header.TPM.newBuilder(tpmNvram_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.LocalStorage.Header.TPM.newBuilder(tpmNvram_).mergeFrom(value).buildPartial();
           } else {
             tpmNvram_ = value;
           }
@@ -1958,7 +1958,7 @@ public final class LocalStorage {
        */
       public Builder clearTpmNvram() {
         if (tpmNvramBuilder_ == null) {
-          tpmNvram_ = LocalStorage.Header.TPM.getDefaultInstance();
+          tpmNvram_ = systems.obscure.client.protos.LocalStorage.Header.TPM.getDefaultInstance();
           onChanged();
         } else {
           tpmNvramBuilder_.clear();
@@ -1969,7 +1969,7 @@ public final class LocalStorage {
       /**
        * <code>optional .Header.TPM tpm_nvram = 4;</code>
        */
-      public LocalStorage.Header.TPM.Builder getTpmNvramBuilder() {
+      public systems.obscure.client.protos.LocalStorage.Header.TPM.Builder getTpmNvramBuilder() {
         bitField0_ |= 0x00000008;
         onChanged();
         return getTpmNvramFieldBuilder().getBuilder();
@@ -1977,7 +1977,7 @@ public final class LocalStorage {
       /**
        * <code>optional .Header.TPM tpm_nvram = 4;</code>
        */
-      public LocalStorage.Header.TPMOrBuilder getTpmNvramOrBuilder() {
+      public systems.obscure.client.protos.LocalStorage.Header.TPMOrBuilder getTpmNvramOrBuilder() {
         if (tpmNvramBuilder_ != null) {
           return tpmNvramBuilder_.getMessageOrBuilder();
         } else {
@@ -1988,11 +1988,11 @@ public final class LocalStorage {
        * <code>optional .Header.TPM tpm_nvram = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          LocalStorage.Header.TPM, LocalStorage.Header.TPM.Builder, LocalStorage.Header.TPMOrBuilder> 
+          systems.obscure.client.protos.LocalStorage.Header.TPM, systems.obscure.client.protos.LocalStorage.Header.TPM.Builder, systems.obscure.client.protos.LocalStorage.Header.TPMOrBuilder> 
           getTpmNvramFieldBuilder() {
         if (tpmNvramBuilder_ == null) {
           tpmNvramBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              LocalStorage.Header.TPM, LocalStorage.Header.TPM.Builder, LocalStorage.Header.TPMOrBuilder>(
+              systems.obscure.client.protos.LocalStorage.Header.TPM, systems.obscure.client.protos.LocalStorage.Header.TPM.Builder, systems.obscure.client.protos.LocalStorage.Header.TPMOrBuilder>(
                   getTpmNvram(),
                   getParentForChildren(),
                   isClean());
@@ -2206,21 +2206,21 @@ public final class LocalStorage {
     /**
      * <code>optional .RatchetState ratchet = 14;</code>
      */
-    LocalStorage.RatchetState getRatchet();
+    systems.obscure.client.protos.LocalStorage.RatchetState getRatchet();
     /**
      * <code>optional .RatchetState ratchet = 14;</code>
      */
-    LocalStorage.RatchetStateOrBuilder getRatchetOrBuilder();
+    systems.obscure.client.protos.LocalStorage.RatchetStateOrBuilder getRatchetOrBuilder();
 
     /**
      * <code>repeated .Contact.Event events = 15;</code>
      */
-    java.util.List<LocalStorage.Contact.Event> 
+    java.util.List<systems.obscure.client.protos.LocalStorage.Contact.Event> 
         getEventsList();
     /**
      * <code>repeated .Contact.Event events = 15;</code>
      */
-    LocalStorage.Contact.Event getEvents(int index);
+    systems.obscure.client.protos.LocalStorage.Contact.Event getEvents(int index);
     /**
      * <code>repeated .Contact.Event events = 15;</code>
      */
@@ -2228,23 +2228,23 @@ public final class LocalStorage {
     /**
      * <code>repeated .Contact.Event events = 15;</code>
      */
-    java.util.List<? extends LocalStorage.Contact.EventOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.LocalStorage.Contact.EventOrBuilder> 
         getEventsOrBuilderList();
     /**
      * <code>repeated .Contact.Event events = 15;</code>
      */
-    LocalStorage.Contact.EventOrBuilder getEventsOrBuilder(
+    systems.obscure.client.protos.LocalStorage.Contact.EventOrBuilder getEventsOrBuilder(
         int index);
 
     /**
      * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    java.util.List<Pond.HMACPair> 
+    java.util.List<systems.obscure.client.protos.Pond.HMACPair> 
         getTheirPairsList();
     /**
      * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    Pond.HMACPair getTheirPairs(int index);
+    systems.obscure.client.protos.Pond.HMACPair getTheirPairs(int index);
     /**
      * <code>repeated .HMACPair theirPairs = 16;</code>
      */
@@ -2252,23 +2252,23 @@ public final class LocalStorage {
     /**
      * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    java.util.List<? extends Pond.HMACPairOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.Pond.HMACPairOrBuilder> 
         getTheirPairsOrBuilderList();
     /**
      * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    Pond.HMACPairOrBuilder getTheirPairsOrBuilder(
+    systems.obscure.client.protos.Pond.HMACPairOrBuilder getTheirPairsOrBuilder(
         int index);
 
     /**
      * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
      */
-    java.util.List<LocalStorage.Contact.MyHMACPair> 
+    java.util.List<systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair> 
         getMyPairsList();
     /**
      * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
      */
-    LocalStorage.Contact.MyHMACPair getMyPairs(int index);
+    systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair getMyPairs(int index);
     /**
      * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
      */
@@ -2276,12 +2276,12 @@ public final class LocalStorage {
     /**
      * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
      */
-    java.util.List<? extends LocalStorage.Contact.MyHMACPairOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.LocalStorage.Contact.MyHMACPairOrBuilder> 
         getMyPairsOrBuilderList();
     /**
      * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
      */
-    LocalStorage.Contact.MyHMACPairOrBuilder getMyPairsOrBuilder(
+    systems.obscure.client.protos.LocalStorage.Contact.MyHMACPairOrBuilder getMyPairsOrBuilder(
         int index);
 
     /**
@@ -2413,11 +2413,11 @@ public final class LocalStorage {
               break;
             }
             case 114: {
-              LocalStorage.RatchetState.Builder subBuilder = null;
+              systems.obscure.client.protos.LocalStorage.RatchetState.Builder subBuilder = null;
               if (((bitField0_ & 0x00002000) == 0x00002000)) {
                 subBuilder = ratchet_.toBuilder();
               }
-              ratchet_ = input.readMessage(LocalStorage.RatchetState.PARSER, extensionRegistry);
+              ratchet_ = input.readMessage(systems.obscure.client.protos.LocalStorage.RatchetState.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(ratchet_);
                 ratchet_ = subBuilder.buildPartial();
@@ -2427,26 +2427,26 @@ public final class LocalStorage {
             }
             case 122: {
               if (!((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
-                events_ = new java.util.ArrayList<LocalStorage.Contact.Event>();
+                events_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.Contact.Event>();
                 mutable_bitField0_ |= 0x00004000;
               }
-              events_.add(input.readMessage(LocalStorage.Contact.Event.PARSER, extensionRegistry));
+              events_.add(input.readMessage(systems.obscure.client.protos.LocalStorage.Contact.Event.PARSER, extensionRegistry));
               break;
             }
             case 130: {
               if (!((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
-                theirPairs_ = new java.util.ArrayList<Pond.HMACPair>();
+                theirPairs_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.HMACPair>();
                 mutable_bitField0_ |= 0x00008000;
               }
-              theirPairs_.add(input.readMessage(Pond.HMACPair.PARSER, extensionRegistry));
+              theirPairs_.add(input.readMessage(systems.obscure.client.protos.Pond.HMACPair.PARSER, extensionRegistry));
               break;
             }
             case 138: {
               if (!((mutable_bitField0_ & 0x00010000) == 0x00010000)) {
-                myPairs_ = new java.util.ArrayList<LocalStorage.Contact.MyHMACPair>();
+                myPairs_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair>();
                 mutable_bitField0_ |= 0x00010000;
               }
-              myPairs_.add(input.readMessage(LocalStorage.Contact.MyHMACPair.PARSER, extensionRegistry));
+              myPairs_.add(input.readMessage(systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.PARSER, extensionRegistry));
               break;
             }
             case 144: {
@@ -2477,14 +2477,14 @@ public final class LocalStorage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return LocalStorage.internal_static_protos_Contact_descriptor;
+      return systems.obscure.client.protos.LocalStorage.internal_static_Contact_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return LocalStorage.internal_static_protos_Contact_fieldAccessorTable
+      return systems.obscure.client.protos.LocalStorage.internal_static_Contact_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              LocalStorage.Contact.class, LocalStorage.Contact.Builder.class);
+              systems.obscure.client.protos.LocalStorage.Contact.class, systems.obscure.client.protos.LocalStorage.Contact.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Contact> PARSER =
@@ -2606,14 +2606,14 @@ public final class LocalStorage {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return LocalStorage.internal_static_protos_Contact_Event_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Contact_Event_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_Contact_Event_fieldAccessorTable
+        return systems.obscure.client.protos.LocalStorage.internal_static_Contact_Event_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LocalStorage.Contact.Event.class, LocalStorage.Contact.Event.Builder.class);
+                systems.obscure.client.protos.LocalStorage.Contact.Event.class, systems.obscure.client.protos.LocalStorage.Contact.Event.Builder.class);
       }
 
       public static com.google.protobuf.Parser<Event> PARSER =
@@ -2749,53 +2749,53 @@ public final class LocalStorage {
         return super.writeReplace();
       }
 
-      public static LocalStorage.Contact.Event parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.Event parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static LocalStorage.Contact.Event parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.Event parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static LocalStorage.Contact.Event parseFrom(byte[] data)
+      public static systems.obscure.client.protos.LocalStorage.Contact.Event parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static LocalStorage.Contact.Event parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.Event parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static LocalStorage.Contact.Event parseFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.LocalStorage.Contact.Event parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static LocalStorage.Contact.Event parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.Event parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
-      public static LocalStorage.Contact.Event parseDelimitedFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.LocalStorage.Contact.Event parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input);
       }
-      public static LocalStorage.Contact.Event parseDelimitedFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.Event parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
-      public static LocalStorage.Contact.Event parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.Event parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static LocalStorage.Contact.Event parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.Event parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -2804,7 +2804,7 @@ public final class LocalStorage {
 
       public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(LocalStorage.Contact.Event prototype) {
+      public static Builder newBuilder(systems.obscure.client.protos.LocalStorage.Contact.Event prototype) {
         return newBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() { return newBuilder(this); }
@@ -2821,20 +2821,20 @@ public final class LocalStorage {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:Contact.Event)
-          LocalStorage.Contact.EventOrBuilder {
+          systems.obscure.client.protos.LocalStorage.Contact.EventOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return LocalStorage.internal_static_protos_Contact_Event_descriptor;
+          return systems.obscure.client.protos.LocalStorage.internal_static_Contact_Event_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return LocalStorage.internal_static_protos_Contact_Event_fieldAccessorTable
+          return systems.obscure.client.protos.LocalStorage.internal_static_Contact_Event_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  LocalStorage.Contact.Event.class, LocalStorage.Contact.Event.Builder.class);
+                  systems.obscure.client.protos.LocalStorage.Contact.Event.class, systems.obscure.client.protos.LocalStorage.Contact.Event.Builder.class);
         }
 
-        // Construct using LocalStorage.Contact.Event.newBuilder()
+        // Construct using systems.obscure.client.protos.LocalStorage.Contact.Event.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -2867,23 +2867,23 @@ public final class LocalStorage {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return LocalStorage.internal_static_protos_Contact_Event_descriptor;
+          return systems.obscure.client.protos.LocalStorage.internal_static_Contact_Event_descriptor;
         }
 
-        public LocalStorage.Contact.Event getDefaultInstanceForType() {
-          return LocalStorage.Contact.Event.getDefaultInstance();
+        public systems.obscure.client.protos.LocalStorage.Contact.Event getDefaultInstanceForType() {
+          return systems.obscure.client.protos.LocalStorage.Contact.Event.getDefaultInstance();
         }
 
-        public LocalStorage.Contact.Event build() {
-          LocalStorage.Contact.Event result = buildPartial();
+        public systems.obscure.client.protos.LocalStorage.Contact.Event build() {
+          systems.obscure.client.protos.LocalStorage.Contact.Event result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public LocalStorage.Contact.Event buildPartial() {
-          LocalStorage.Contact.Event result = new LocalStorage.Contact.Event(this);
+        public systems.obscure.client.protos.LocalStorage.Contact.Event buildPartial() {
+          systems.obscure.client.protos.LocalStorage.Contact.Event result = new systems.obscure.client.protos.LocalStorage.Contact.Event(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2900,16 +2900,16 @@ public final class LocalStorage {
         }
 
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof LocalStorage.Contact.Event) {
-            return mergeFrom((LocalStorage.Contact.Event)other);
+          if (other instanceof systems.obscure.client.protos.LocalStorage.Contact.Event) {
+            return mergeFrom((systems.obscure.client.protos.LocalStorage.Contact.Event)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(LocalStorage.Contact.Event other) {
-          if (other == LocalStorage.Contact.Event.getDefaultInstance()) return this;
+        public Builder mergeFrom(systems.obscure.client.protos.LocalStorage.Contact.Event other) {
+          if (other == systems.obscure.client.protos.LocalStorage.Contact.Event.getDefaultInstance()) return this;
           if (other.hasTime()) {
             setTime(other.getTime());
           }
@@ -2938,11 +2938,11 @@ public final class LocalStorage {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          LocalStorage.Contact.Event parsedMessage = null;
+          systems.obscure.client.protos.LocalStorage.Contact.Event parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (LocalStorage.Contact.Event) e.getUnfinishedMessage();
+            parsedMessage = (systems.obscure.client.protos.LocalStorage.Contact.Event) e.getUnfinishedMessage();
             throw e;
           } finally {
             if (parsedMessage != null) {
@@ -3170,14 +3170,14 @@ public final class LocalStorage {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return LocalStorage.internal_static_protos_Contact_MyHMACPair_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Contact_MyHMACPair_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_Contact_MyHMACPair_fieldAccessorTable
+        return systems.obscure.client.protos.LocalStorage.internal_static_Contact_MyHMACPair_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LocalStorage.Contact.MyHMACPair.class, LocalStorage.Contact.MyHMACPair.Builder.class);
+                systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.class, systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.Builder.class);
       }
 
       public static com.google.protobuf.Parser<MyHMACPair> PARSER =
@@ -3286,53 +3286,53 @@ public final class LocalStorage {
         return super.writeReplace();
       }
 
-      public static LocalStorage.Contact.MyHMACPair parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static LocalStorage.Contact.MyHMACPair parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static LocalStorage.Contact.MyHMACPair parseFrom(byte[] data)
+      public static systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static LocalStorage.Contact.MyHMACPair parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static LocalStorage.Contact.MyHMACPair parseFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static LocalStorage.Contact.MyHMACPair parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
-      public static LocalStorage.Contact.MyHMACPair parseDelimitedFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input);
       }
-      public static LocalStorage.Contact.MyHMACPair parseDelimitedFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
-      public static LocalStorage.Contact.MyHMACPair parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static LocalStorage.Contact.MyHMACPair parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -3341,7 +3341,7 @@ public final class LocalStorage {
 
       public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(LocalStorage.Contact.MyHMACPair prototype) {
+      public static Builder newBuilder(systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair prototype) {
         return newBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() { return newBuilder(this); }
@@ -3358,20 +3358,20 @@ public final class LocalStorage {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:Contact.MyHMACPair)
-          LocalStorage.Contact.MyHMACPairOrBuilder {
+          systems.obscure.client.protos.LocalStorage.Contact.MyHMACPairOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return LocalStorage.internal_static_protos_Contact_MyHMACPair_descriptor;
+          return systems.obscure.client.protos.LocalStorage.internal_static_Contact_MyHMACPair_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return LocalStorage.internal_static_protos_Contact_MyHMACPair_fieldAccessorTable
+          return systems.obscure.client.protos.LocalStorage.internal_static_Contact_MyHMACPair_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  LocalStorage.Contact.MyHMACPair.class, LocalStorage.Contact.MyHMACPair.Builder.class);
+                  systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.class, systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.Builder.class);
         }
 
-        // Construct using LocalStorage.Contact.MyHMACPair.newBuilder()
+        // Construct using systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -3404,23 +3404,23 @@ public final class LocalStorage {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return LocalStorage.internal_static_protos_Contact_MyHMACPair_descriptor;
+          return systems.obscure.client.protos.LocalStorage.internal_static_Contact_MyHMACPair_descriptor;
         }
 
-        public LocalStorage.Contact.MyHMACPair getDefaultInstanceForType() {
-          return LocalStorage.Contact.MyHMACPair.getDefaultInstance();
+        public systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair getDefaultInstanceForType() {
+          return systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.getDefaultInstance();
         }
 
-        public LocalStorage.Contact.MyHMACPair build() {
-          LocalStorage.Contact.MyHMACPair result = buildPartial();
+        public systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair build() {
+          systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public LocalStorage.Contact.MyHMACPair buildPartial() {
-          LocalStorage.Contact.MyHMACPair result = new LocalStorage.Contact.MyHMACPair(this);
+        public systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair buildPartial() {
+          systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair result = new systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3437,16 +3437,16 @@ public final class LocalStorage {
         }
 
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof LocalStorage.Contact.MyHMACPair) {
-            return mergeFrom((LocalStorage.Contact.MyHMACPair)other);
+          if (other instanceof systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair) {
+            return mergeFrom((systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(LocalStorage.Contact.MyHMACPair other) {
-          if (other == LocalStorage.Contact.MyHMACPair.getDefaultInstance()) return this;
+        public Builder mergeFrom(systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair other) {
+          if (other == systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.getDefaultInstance()) return this;
           if (other.hasPublicKey()) {
             setPublicKey(other.getPublicKey());
           }
@@ -3473,11 +3473,11 @@ public final class LocalStorage {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          LocalStorage.Contact.MyHMACPair parsedMessage = null;
+          systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (LocalStorage.Contact.MyHMACPair) e.getUnfinishedMessage();
+            parsedMessage = (systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair) e.getUnfinishedMessage();
             throw e;
           } finally {
             if (parsedMessage != null) {
@@ -3820,7 +3820,7 @@ public final class LocalStorage {
     }
 
     public static final int RATCHET_FIELD_NUMBER = 14;
-    private LocalStorage.RatchetState ratchet_;
+    private systems.obscure.client.protos.LocalStorage.RatchetState ratchet_;
     /**
      * <code>optional .RatchetState ratchet = 14;</code>
      */
@@ -3830,28 +3830,28 @@ public final class LocalStorage {
     /**
      * <code>optional .RatchetState ratchet = 14;</code>
      */
-    public LocalStorage.RatchetState getRatchet() {
+    public systems.obscure.client.protos.LocalStorage.RatchetState getRatchet() {
       return ratchet_;
     }
     /**
      * <code>optional .RatchetState ratchet = 14;</code>
      */
-    public LocalStorage.RatchetStateOrBuilder getRatchetOrBuilder() {
+    public systems.obscure.client.protos.LocalStorage.RatchetStateOrBuilder getRatchetOrBuilder() {
       return ratchet_;
     }
 
     public static final int EVENTS_FIELD_NUMBER = 15;
-    private java.util.List<LocalStorage.Contact.Event> events_;
+    private java.util.List<systems.obscure.client.protos.LocalStorage.Contact.Event> events_;
     /**
      * <code>repeated .Contact.Event events = 15;</code>
      */
-    public java.util.List<LocalStorage.Contact.Event> getEventsList() {
+    public java.util.List<systems.obscure.client.protos.LocalStorage.Contact.Event> getEventsList() {
       return events_;
     }
     /**
      * <code>repeated .Contact.Event events = 15;</code>
      */
-    public java.util.List<? extends LocalStorage.Contact.EventOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.LocalStorage.Contact.EventOrBuilder> 
         getEventsOrBuilderList() {
       return events_;
     }
@@ -3864,29 +3864,29 @@ public final class LocalStorage {
     /**
      * <code>repeated .Contact.Event events = 15;</code>
      */
-    public LocalStorage.Contact.Event getEvents(int index) {
+    public systems.obscure.client.protos.LocalStorage.Contact.Event getEvents(int index) {
       return events_.get(index);
     }
     /**
      * <code>repeated .Contact.Event events = 15;</code>
      */
-    public LocalStorage.Contact.EventOrBuilder getEventsOrBuilder(
+    public systems.obscure.client.protos.LocalStorage.Contact.EventOrBuilder getEventsOrBuilder(
         int index) {
       return events_.get(index);
     }
 
     public static final int THEIRPAIRS_FIELD_NUMBER = 16;
-    private java.util.List<Pond.HMACPair> theirPairs_;
+    private java.util.List<systems.obscure.client.protos.Pond.HMACPair> theirPairs_;
     /**
      * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    public java.util.List<Pond.HMACPair> getTheirPairsList() {
+    public java.util.List<systems.obscure.client.protos.Pond.HMACPair> getTheirPairsList() {
       return theirPairs_;
     }
     /**
      * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    public java.util.List<? extends Pond.HMACPairOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.Pond.HMACPairOrBuilder> 
         getTheirPairsOrBuilderList() {
       return theirPairs_;
     }
@@ -3899,29 +3899,29 @@ public final class LocalStorage {
     /**
      * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    public Pond.HMACPair getTheirPairs(int index) {
+    public systems.obscure.client.protos.Pond.HMACPair getTheirPairs(int index) {
       return theirPairs_.get(index);
     }
     /**
      * <code>repeated .HMACPair theirPairs = 16;</code>
      */
-    public Pond.HMACPairOrBuilder getTheirPairsOrBuilder(
+    public systems.obscure.client.protos.Pond.HMACPairOrBuilder getTheirPairsOrBuilder(
         int index) {
       return theirPairs_.get(index);
     }
 
     public static final int MYPAIRS_FIELD_NUMBER = 17;
-    private java.util.List<LocalStorage.Contact.MyHMACPair> myPairs_;
+    private java.util.List<systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair> myPairs_;
     /**
      * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
      */
-    public java.util.List<LocalStorage.Contact.MyHMACPair> getMyPairsList() {
+    public java.util.List<systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair> getMyPairsList() {
       return myPairs_;
     }
     /**
      * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
      */
-    public java.util.List<? extends LocalStorage.Contact.MyHMACPairOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.LocalStorage.Contact.MyHMACPairOrBuilder> 
         getMyPairsOrBuilderList() {
       return myPairs_;
     }
@@ -3934,13 +3934,13 @@ public final class LocalStorage {
     /**
      * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
      */
-    public LocalStorage.Contact.MyHMACPair getMyPairs(int index) {
+    public systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair getMyPairs(int index) {
       return myPairs_.get(index);
     }
     /**
      * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
      */
-    public LocalStorage.Contact.MyHMACPairOrBuilder getMyPairsOrBuilder(
+    public systems.obscure.client.protos.LocalStorage.Contact.MyHMACPairOrBuilder getMyPairsOrBuilder(
         int index) {
       return myPairs_.get(index);
     }
@@ -3974,7 +3974,7 @@ public final class LocalStorage {
       currentPrivate_ = com.google.protobuf.ByteString.EMPTY;
       theirLastPublic_ = com.google.protobuf.ByteString.EMPTY;
       theirCurrentPublic_ = com.google.protobuf.ByteString.EMPTY;
-      ratchet_ = LocalStorage.RatchetState.getDefaultInstance();
+      ratchet_ = systems.obscure.client.protos.LocalStorage.RatchetState.getDefaultInstance();
       events_ = java.util.Collections.emptyList();
       theirPairs_ = java.util.Collections.emptyList();
       myPairs_ = java.util.Collections.emptyList();
@@ -4172,53 +4172,53 @@ public final class LocalStorage {
       return super.writeReplace();
     }
 
-    public static LocalStorage.Contact parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Contact parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.Contact parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Contact parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.Contact parseFrom(byte[] data)
+    public static systems.obscure.client.protos.LocalStorage.Contact parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.Contact parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Contact parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.Contact parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.Contact parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.Contact parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Contact parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static LocalStorage.Contact parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.Contact parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static LocalStorage.Contact parseDelimitedFrom(
+    public static systems.obscure.client.protos.LocalStorage.Contact parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static LocalStorage.Contact parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Contact parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.Contact parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Contact parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4227,7 +4227,7 @@ public final class LocalStorage {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(LocalStorage.Contact prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.LocalStorage.Contact prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -4244,20 +4244,20 @@ public final class LocalStorage {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Contact)
-        LocalStorage.ContactOrBuilder {
+        systems.obscure.client.protos.LocalStorage.ContactOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return LocalStorage.internal_static_protos_Contact_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Contact_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_Contact_fieldAccessorTable
+        return systems.obscure.client.protos.LocalStorage.internal_static_Contact_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LocalStorage.Contact.class, LocalStorage.Contact.Builder.class);
+                systems.obscure.client.protos.LocalStorage.Contact.class, systems.obscure.client.protos.LocalStorage.Contact.Builder.class);
       }
 
-      // Construct using LocalStorage.Contact.newBuilder()
+      // Construct using systems.obscure.client.protos.LocalStorage.Contact.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4308,7 +4308,7 @@ public final class LocalStorage {
         theirCurrentPublic_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00001000);
         if (ratchetBuilder_ == null) {
-          ratchet_ = LocalStorage.RatchetState.getDefaultInstance();
+          ratchet_ = systems.obscure.client.protos.LocalStorage.RatchetState.getDefaultInstance();
         } else {
           ratchetBuilder_.clear();
         }
@@ -4342,23 +4342,23 @@ public final class LocalStorage {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return LocalStorage.internal_static_protos_Contact_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Contact_descriptor;
       }
 
-      public LocalStorage.Contact getDefaultInstanceForType() {
-        return LocalStorage.Contact.getDefaultInstance();
+      public systems.obscure.client.protos.LocalStorage.Contact getDefaultInstanceForType() {
+        return systems.obscure.client.protos.LocalStorage.Contact.getDefaultInstance();
       }
 
-      public LocalStorage.Contact build() {
-        LocalStorage.Contact result = buildPartial();
+      public systems.obscure.client.protos.LocalStorage.Contact build() {
+        systems.obscure.client.protos.LocalStorage.Contact result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public LocalStorage.Contact buildPartial() {
-        LocalStorage.Contact result = new LocalStorage.Contact(this);
+      public systems.obscure.client.protos.LocalStorage.Contact buildPartial() {
+        systems.obscure.client.protos.LocalStorage.Contact result = new systems.obscure.client.protos.LocalStorage.Contact(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4458,16 +4458,16 @@ public final class LocalStorage {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof LocalStorage.Contact) {
-          return mergeFrom((LocalStorage.Contact)other);
+        if (other instanceof systems.obscure.client.protos.LocalStorage.Contact) {
+          return mergeFrom((systems.obscure.client.protos.LocalStorage.Contact)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(LocalStorage.Contact other) {
-        if (other == LocalStorage.Contact.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.LocalStorage.Contact other) {
+        if (other == systems.obscure.client.protos.LocalStorage.Contact.getDefaultInstance()) return this;
         if (other.hasId()) {
           setId(other.getId());
         }
@@ -4639,11 +4639,11 @@ public final class LocalStorage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        LocalStorage.Contact parsedMessage = null;
+        systems.obscure.client.protos.LocalStorage.Contact parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (LocalStorage.Contact) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.LocalStorage.Contact) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -5179,9 +5179,9 @@ public final class LocalStorage {
         return this;
       }
 
-      private LocalStorage.RatchetState ratchet_ = LocalStorage.RatchetState.getDefaultInstance();
+      private systems.obscure.client.protos.LocalStorage.RatchetState ratchet_ = systems.obscure.client.protos.LocalStorage.RatchetState.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          LocalStorage.RatchetState, LocalStorage.RatchetState.Builder, LocalStorage.RatchetStateOrBuilder> ratchetBuilder_;
+          systems.obscure.client.protos.LocalStorage.RatchetState, systems.obscure.client.protos.LocalStorage.RatchetState.Builder, systems.obscure.client.protos.LocalStorage.RatchetStateOrBuilder> ratchetBuilder_;
       /**
        * <code>optional .RatchetState ratchet = 14;</code>
        */
@@ -5191,7 +5191,7 @@ public final class LocalStorage {
       /**
        * <code>optional .RatchetState ratchet = 14;</code>
        */
-      public LocalStorage.RatchetState getRatchet() {
+      public systems.obscure.client.protos.LocalStorage.RatchetState getRatchet() {
         if (ratchetBuilder_ == null) {
           return ratchet_;
         } else {
@@ -5201,7 +5201,7 @@ public final class LocalStorage {
       /**
        * <code>optional .RatchetState ratchet = 14;</code>
        */
-      public Builder setRatchet(LocalStorage.RatchetState value) {
+      public Builder setRatchet(systems.obscure.client.protos.LocalStorage.RatchetState value) {
         if (ratchetBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5218,7 +5218,7 @@ public final class LocalStorage {
        * <code>optional .RatchetState ratchet = 14;</code>
        */
       public Builder setRatchet(
-          LocalStorage.RatchetState.Builder builderForValue) {
+          systems.obscure.client.protos.LocalStorage.RatchetState.Builder builderForValue) {
         if (ratchetBuilder_ == null) {
           ratchet_ = builderForValue.build();
           onChanged();
@@ -5231,12 +5231,12 @@ public final class LocalStorage {
       /**
        * <code>optional .RatchetState ratchet = 14;</code>
        */
-      public Builder mergeRatchet(LocalStorage.RatchetState value) {
+      public Builder mergeRatchet(systems.obscure.client.protos.LocalStorage.RatchetState value) {
         if (ratchetBuilder_ == null) {
           if (((bitField0_ & 0x00002000) == 0x00002000) &&
-              ratchet_ != LocalStorage.RatchetState.getDefaultInstance()) {
+              ratchet_ != systems.obscure.client.protos.LocalStorage.RatchetState.getDefaultInstance()) {
             ratchet_ =
-              LocalStorage.RatchetState.newBuilder(ratchet_).mergeFrom(value).buildPartial();
+              systems.obscure.client.protos.LocalStorage.RatchetState.newBuilder(ratchet_).mergeFrom(value).buildPartial();
           } else {
             ratchet_ = value;
           }
@@ -5252,7 +5252,7 @@ public final class LocalStorage {
        */
       public Builder clearRatchet() {
         if (ratchetBuilder_ == null) {
-          ratchet_ = LocalStorage.RatchetState.getDefaultInstance();
+          ratchet_ = systems.obscure.client.protos.LocalStorage.RatchetState.getDefaultInstance();
           onChanged();
         } else {
           ratchetBuilder_.clear();
@@ -5263,7 +5263,7 @@ public final class LocalStorage {
       /**
        * <code>optional .RatchetState ratchet = 14;</code>
        */
-      public LocalStorage.RatchetState.Builder getRatchetBuilder() {
+      public systems.obscure.client.protos.LocalStorage.RatchetState.Builder getRatchetBuilder() {
         bitField0_ |= 0x00002000;
         onChanged();
         return getRatchetFieldBuilder().getBuilder();
@@ -5271,7 +5271,7 @@ public final class LocalStorage {
       /**
        * <code>optional .RatchetState ratchet = 14;</code>
        */
-      public LocalStorage.RatchetStateOrBuilder getRatchetOrBuilder() {
+      public systems.obscure.client.protos.LocalStorage.RatchetStateOrBuilder getRatchetOrBuilder() {
         if (ratchetBuilder_ != null) {
           return ratchetBuilder_.getMessageOrBuilder();
         } else {
@@ -5282,11 +5282,11 @@ public final class LocalStorage {
        * <code>optional .RatchetState ratchet = 14;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          LocalStorage.RatchetState, LocalStorage.RatchetState.Builder, LocalStorage.RatchetStateOrBuilder> 
+          systems.obscure.client.protos.LocalStorage.RatchetState, systems.obscure.client.protos.LocalStorage.RatchetState.Builder, systems.obscure.client.protos.LocalStorage.RatchetStateOrBuilder> 
           getRatchetFieldBuilder() {
         if (ratchetBuilder_ == null) {
           ratchetBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              LocalStorage.RatchetState, LocalStorage.RatchetState.Builder, LocalStorage.RatchetStateOrBuilder>(
+              systems.obscure.client.protos.LocalStorage.RatchetState, systems.obscure.client.protos.LocalStorage.RatchetState.Builder, systems.obscure.client.protos.LocalStorage.RatchetStateOrBuilder>(
                   getRatchet(),
                   getParentForChildren(),
                   isClean());
@@ -5295,22 +5295,22 @@ public final class LocalStorage {
         return ratchetBuilder_;
       }
 
-      private java.util.List<LocalStorage.Contact.Event> events_ =
+      private java.util.List<systems.obscure.client.protos.LocalStorage.Contact.Event> events_ =
         java.util.Collections.emptyList();
       private void ensureEventsIsMutable() {
         if (!((bitField0_ & 0x00004000) == 0x00004000)) {
-          events_ = new java.util.ArrayList<LocalStorage.Contact.Event>(events_);
+          events_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.Contact.Event>(events_);
           bitField0_ |= 0x00004000;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Contact.Event, LocalStorage.Contact.Event.Builder, LocalStorage.Contact.EventOrBuilder> eventsBuilder_;
+          systems.obscure.client.protos.LocalStorage.Contact.Event, systems.obscure.client.protos.LocalStorage.Contact.Event.Builder, systems.obscure.client.protos.LocalStorage.Contact.EventOrBuilder> eventsBuilder_;
 
       /**
        * <code>repeated .Contact.Event events = 15;</code>
        */
-      public java.util.List<LocalStorage.Contact.Event> getEventsList() {
+      public java.util.List<systems.obscure.client.protos.LocalStorage.Contact.Event> getEventsList() {
         if (eventsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(events_);
         } else {
@@ -5330,7 +5330,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact.Event events = 15;</code>
        */
-      public LocalStorage.Contact.Event getEvents(int index) {
+      public systems.obscure.client.protos.LocalStorage.Contact.Event getEvents(int index) {
         if (eventsBuilder_ == null) {
           return events_.get(index);
         } else {
@@ -5341,7 +5341,7 @@ public final class LocalStorage {
        * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder setEvents(
-          int index, LocalStorage.Contact.Event value) {
+          int index, systems.obscure.client.protos.LocalStorage.Contact.Event value) {
         if (eventsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5358,7 +5358,7 @@ public final class LocalStorage {
        * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder setEvents(
-          int index, LocalStorage.Contact.Event.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.Contact.Event.Builder builderForValue) {
         if (eventsBuilder_ == null) {
           ensureEventsIsMutable();
           events_.set(index, builderForValue.build());
@@ -5371,7 +5371,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact.Event events = 15;</code>
        */
-      public Builder addEvents(LocalStorage.Contact.Event value) {
+      public Builder addEvents(systems.obscure.client.protos.LocalStorage.Contact.Event value) {
         if (eventsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5388,7 +5388,7 @@ public final class LocalStorage {
        * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder addEvents(
-          int index, LocalStorage.Contact.Event value) {
+          int index, systems.obscure.client.protos.LocalStorage.Contact.Event value) {
         if (eventsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5405,7 +5405,7 @@ public final class LocalStorage {
        * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder addEvents(
-          LocalStorage.Contact.Event.Builder builderForValue) {
+          systems.obscure.client.protos.LocalStorage.Contact.Event.Builder builderForValue) {
         if (eventsBuilder_ == null) {
           ensureEventsIsMutable();
           events_.add(builderForValue.build());
@@ -5419,7 +5419,7 @@ public final class LocalStorage {
        * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder addEvents(
-          int index, LocalStorage.Contact.Event.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.Contact.Event.Builder builderForValue) {
         if (eventsBuilder_ == null) {
           ensureEventsIsMutable();
           events_.add(index, builderForValue.build());
@@ -5433,7 +5433,7 @@ public final class LocalStorage {
        * <code>repeated .Contact.Event events = 15;</code>
        */
       public Builder addAllEvents(
-          java.lang.Iterable<? extends LocalStorage.Contact.Event> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.LocalStorage.Contact.Event> values) {
         if (eventsBuilder_ == null) {
           ensureEventsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -5473,14 +5473,14 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact.Event events = 15;</code>
        */
-      public LocalStorage.Contact.Event.Builder getEventsBuilder(
+      public systems.obscure.client.protos.LocalStorage.Contact.Event.Builder getEventsBuilder(
           int index) {
         return getEventsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .Contact.Event events = 15;</code>
        */
-      public LocalStorage.Contact.EventOrBuilder getEventsOrBuilder(
+      public systems.obscure.client.protos.LocalStorage.Contact.EventOrBuilder getEventsOrBuilder(
           int index) {
         if (eventsBuilder_ == null) {
           return events_.get(index);  } else {
@@ -5490,7 +5490,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact.Event events = 15;</code>
        */
-      public java.util.List<? extends LocalStorage.Contact.EventOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.LocalStorage.Contact.EventOrBuilder> 
            getEventsOrBuilderList() {
         if (eventsBuilder_ != null) {
           return eventsBuilder_.getMessageOrBuilderList();
@@ -5501,31 +5501,31 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact.Event events = 15;</code>
        */
-      public LocalStorage.Contact.Event.Builder addEventsBuilder() {
+      public systems.obscure.client.protos.LocalStorage.Contact.Event.Builder addEventsBuilder() {
         return getEventsFieldBuilder().addBuilder(
-            LocalStorage.Contact.Event.getDefaultInstance());
+            systems.obscure.client.protos.LocalStorage.Contact.Event.getDefaultInstance());
       }
       /**
        * <code>repeated .Contact.Event events = 15;</code>
        */
-      public LocalStorage.Contact.Event.Builder addEventsBuilder(
+      public systems.obscure.client.protos.LocalStorage.Contact.Event.Builder addEventsBuilder(
           int index) {
         return getEventsFieldBuilder().addBuilder(
-            index, LocalStorage.Contact.Event.getDefaultInstance());
+            index, systems.obscure.client.protos.LocalStorage.Contact.Event.getDefaultInstance());
       }
       /**
        * <code>repeated .Contact.Event events = 15;</code>
        */
-      public java.util.List<LocalStorage.Contact.Event.Builder> 
+      public java.util.List<systems.obscure.client.protos.LocalStorage.Contact.Event.Builder> 
            getEventsBuilderList() {
         return getEventsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Contact.Event, LocalStorage.Contact.Event.Builder, LocalStorage.Contact.EventOrBuilder> 
+          systems.obscure.client.protos.LocalStorage.Contact.Event, systems.obscure.client.protos.LocalStorage.Contact.Event.Builder, systems.obscure.client.protos.LocalStorage.Contact.EventOrBuilder> 
           getEventsFieldBuilder() {
         if (eventsBuilder_ == null) {
           eventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              LocalStorage.Contact.Event, LocalStorage.Contact.Event.Builder, LocalStorage.Contact.EventOrBuilder>(
+              systems.obscure.client.protos.LocalStorage.Contact.Event, systems.obscure.client.protos.LocalStorage.Contact.Event.Builder, systems.obscure.client.protos.LocalStorage.Contact.EventOrBuilder>(
                   events_,
                   ((bitField0_ & 0x00004000) == 0x00004000),
                   getParentForChildren(),
@@ -5535,22 +5535,22 @@ public final class LocalStorage {
         return eventsBuilder_;
       }
 
-      private java.util.List<Pond.HMACPair> theirPairs_ =
+      private java.util.List<systems.obscure.client.protos.Pond.HMACPair> theirPairs_ =
         java.util.Collections.emptyList();
       private void ensureTheirPairsIsMutable() {
         if (!((bitField0_ & 0x00008000) == 0x00008000)) {
-          theirPairs_ = new java.util.ArrayList<Pond.HMACPair>(theirPairs_);
+          theirPairs_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.HMACPair>(theirPairs_);
           bitField0_ |= 0x00008000;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> theirPairsBuilder_;
+          systems.obscure.client.protos.Pond.HMACPair, systems.obscure.client.protos.Pond.HMACPair.Builder, systems.obscure.client.protos.Pond.HMACPairOrBuilder> theirPairsBuilder_;
 
       /**
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public java.util.List<Pond.HMACPair> getTheirPairsList() {
+      public java.util.List<systems.obscure.client.protos.Pond.HMACPair> getTheirPairsList() {
         if (theirPairsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(theirPairs_);
         } else {
@@ -5570,7 +5570,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Pond.HMACPair getTheirPairs(int index) {
+      public systems.obscure.client.protos.Pond.HMACPair getTheirPairs(int index) {
         if (theirPairsBuilder_ == null) {
           return theirPairs_.get(index);
         } else {
@@ -5581,7 +5581,7 @@ public final class LocalStorage {
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
       public Builder setTheirPairs(
-          int index, Pond.HMACPair value) {
+          int index, systems.obscure.client.protos.Pond.HMACPair value) {
         if (theirPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5598,7 +5598,7 @@ public final class LocalStorage {
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
       public Builder setTheirPairs(
-          int index, Pond.HMACPair.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.HMACPair.Builder builderForValue) {
         if (theirPairsBuilder_ == null) {
           ensureTheirPairsIsMutable();
           theirPairs_.set(index, builderForValue.build());
@@ -5611,7 +5611,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Builder addTheirPairs(Pond.HMACPair value) {
+      public Builder addTheirPairs(systems.obscure.client.protos.Pond.HMACPair value) {
         if (theirPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5628,7 +5628,7 @@ public final class LocalStorage {
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
       public Builder addTheirPairs(
-          int index, Pond.HMACPair value) {
+          int index, systems.obscure.client.protos.Pond.HMACPair value) {
         if (theirPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5645,7 +5645,7 @@ public final class LocalStorage {
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
       public Builder addTheirPairs(
-          Pond.HMACPair.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.HMACPair.Builder builderForValue) {
         if (theirPairsBuilder_ == null) {
           ensureTheirPairsIsMutable();
           theirPairs_.add(builderForValue.build());
@@ -5659,7 +5659,7 @@ public final class LocalStorage {
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
       public Builder addTheirPairs(
-          int index, Pond.HMACPair.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.HMACPair.Builder builderForValue) {
         if (theirPairsBuilder_ == null) {
           ensureTheirPairsIsMutable();
           theirPairs_.add(index, builderForValue.build());
@@ -5673,7 +5673,7 @@ public final class LocalStorage {
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
       public Builder addAllTheirPairs(
-          java.lang.Iterable<? extends Pond.HMACPair> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.Pond.HMACPair> values) {
         if (theirPairsBuilder_ == null) {
           ensureTheirPairsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -5713,14 +5713,14 @@ public final class LocalStorage {
       /**
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Pond.HMACPair.Builder getTheirPairsBuilder(
+      public systems.obscure.client.protos.Pond.HMACPair.Builder getTheirPairsBuilder(
           int index) {
         return getTheirPairsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Pond.HMACPairOrBuilder getTheirPairsOrBuilder(
+      public systems.obscure.client.protos.Pond.HMACPairOrBuilder getTheirPairsOrBuilder(
           int index) {
         if (theirPairsBuilder_ == null) {
           return theirPairs_.get(index);  } else {
@@ -5730,7 +5730,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public java.util.List<? extends Pond.HMACPairOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.Pond.HMACPairOrBuilder> 
            getTheirPairsOrBuilderList() {
         if (theirPairsBuilder_ != null) {
           return theirPairsBuilder_.getMessageOrBuilderList();
@@ -5741,31 +5741,31 @@ public final class LocalStorage {
       /**
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Pond.HMACPair.Builder addTheirPairsBuilder() {
+      public systems.obscure.client.protos.Pond.HMACPair.Builder addTheirPairsBuilder() {
         return getTheirPairsFieldBuilder().addBuilder(
-            Pond.HMACPair.getDefaultInstance());
+            systems.obscure.client.protos.Pond.HMACPair.getDefaultInstance());
       }
       /**
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public Pond.HMACPair.Builder addTheirPairsBuilder(
+      public systems.obscure.client.protos.Pond.HMACPair.Builder addTheirPairsBuilder(
           int index) {
         return getTheirPairsFieldBuilder().addBuilder(
-            index, Pond.HMACPair.getDefaultInstance());
+            index, systems.obscure.client.protos.Pond.HMACPair.getDefaultInstance());
       }
       /**
        * <code>repeated .HMACPair theirPairs = 16;</code>
        */
-      public java.util.List<Pond.HMACPair.Builder> 
+      public java.util.List<systems.obscure.client.protos.Pond.HMACPair.Builder> 
            getTheirPairsBuilderList() {
         return getTheirPairsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder> 
+          systems.obscure.client.protos.Pond.HMACPair, systems.obscure.client.protos.Pond.HMACPair.Builder, systems.obscure.client.protos.Pond.HMACPairOrBuilder> 
           getTheirPairsFieldBuilder() {
         if (theirPairsBuilder_ == null) {
           theirPairsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              Pond.HMACPair, Pond.HMACPair.Builder, Pond.HMACPairOrBuilder>(
+              systems.obscure.client.protos.Pond.HMACPair, systems.obscure.client.protos.Pond.HMACPair.Builder, systems.obscure.client.protos.Pond.HMACPairOrBuilder>(
                   theirPairs_,
                   ((bitField0_ & 0x00008000) == 0x00008000),
                   getParentForChildren(),
@@ -5775,22 +5775,22 @@ public final class LocalStorage {
         return theirPairsBuilder_;
       }
 
-      private java.util.List<LocalStorage.Contact.MyHMACPair> myPairs_ =
+      private java.util.List<systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair> myPairs_ =
         java.util.Collections.emptyList();
       private void ensureMyPairsIsMutable() {
         if (!((bitField0_ & 0x00010000) == 0x00010000)) {
-          myPairs_ = new java.util.ArrayList<LocalStorage.Contact.MyHMACPair>(myPairs_);
+          myPairs_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair>(myPairs_);
           bitField0_ |= 0x00010000;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Contact.MyHMACPair, LocalStorage.Contact.MyHMACPair.Builder, LocalStorage.Contact.MyHMACPairOrBuilder> myPairsBuilder_;
+          systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair, systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.Builder, systems.obscure.client.protos.LocalStorage.Contact.MyHMACPairOrBuilder> myPairsBuilder_;
 
       /**
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
-      public java.util.List<LocalStorage.Contact.MyHMACPair> getMyPairsList() {
+      public java.util.List<systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair> getMyPairsList() {
         if (myPairsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(myPairs_);
         } else {
@@ -5810,7 +5810,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
-      public LocalStorage.Contact.MyHMACPair getMyPairs(int index) {
+      public systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair getMyPairs(int index) {
         if (myPairsBuilder_ == null) {
           return myPairs_.get(index);
         } else {
@@ -5821,7 +5821,7 @@ public final class LocalStorage {
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
       public Builder setMyPairs(
-          int index, LocalStorage.Contact.MyHMACPair value) {
+          int index, systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair value) {
         if (myPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5838,7 +5838,7 @@ public final class LocalStorage {
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
       public Builder setMyPairs(
-          int index, LocalStorage.Contact.MyHMACPair.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.Builder builderForValue) {
         if (myPairsBuilder_ == null) {
           ensureMyPairsIsMutable();
           myPairs_.set(index, builderForValue.build());
@@ -5851,7 +5851,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
-      public Builder addMyPairs(LocalStorage.Contact.MyHMACPair value) {
+      public Builder addMyPairs(systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair value) {
         if (myPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5868,7 +5868,7 @@ public final class LocalStorage {
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
       public Builder addMyPairs(
-          int index, LocalStorage.Contact.MyHMACPair value) {
+          int index, systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair value) {
         if (myPairsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5885,7 +5885,7 @@ public final class LocalStorage {
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
       public Builder addMyPairs(
-          LocalStorage.Contact.MyHMACPair.Builder builderForValue) {
+          systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.Builder builderForValue) {
         if (myPairsBuilder_ == null) {
           ensureMyPairsIsMutable();
           myPairs_.add(builderForValue.build());
@@ -5899,7 +5899,7 @@ public final class LocalStorage {
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
       public Builder addMyPairs(
-          int index, LocalStorage.Contact.MyHMACPair.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.Builder builderForValue) {
         if (myPairsBuilder_ == null) {
           ensureMyPairsIsMutable();
           myPairs_.add(index, builderForValue.build());
@@ -5913,7 +5913,7 @@ public final class LocalStorage {
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
       public Builder addAllMyPairs(
-          java.lang.Iterable<? extends LocalStorage.Contact.MyHMACPair> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair> values) {
         if (myPairsBuilder_ == null) {
           ensureMyPairsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -5953,14 +5953,14 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
-      public LocalStorage.Contact.MyHMACPair.Builder getMyPairsBuilder(
+      public systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.Builder getMyPairsBuilder(
           int index) {
         return getMyPairsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
-      public LocalStorage.Contact.MyHMACPairOrBuilder getMyPairsOrBuilder(
+      public systems.obscure.client.protos.LocalStorage.Contact.MyHMACPairOrBuilder getMyPairsOrBuilder(
           int index) {
         if (myPairsBuilder_ == null) {
           return myPairs_.get(index);  } else {
@@ -5970,7 +5970,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
-      public java.util.List<? extends LocalStorage.Contact.MyHMACPairOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.LocalStorage.Contact.MyHMACPairOrBuilder> 
            getMyPairsOrBuilderList() {
         if (myPairsBuilder_ != null) {
           return myPairsBuilder_.getMessageOrBuilderList();
@@ -5981,31 +5981,31 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
-      public LocalStorage.Contact.MyHMACPair.Builder addMyPairsBuilder() {
+      public systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.Builder addMyPairsBuilder() {
         return getMyPairsFieldBuilder().addBuilder(
-            LocalStorage.Contact.MyHMACPair.getDefaultInstance());
+            systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.getDefaultInstance());
       }
       /**
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
-      public LocalStorage.Contact.MyHMACPair.Builder addMyPairsBuilder(
+      public systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.Builder addMyPairsBuilder(
           int index) {
         return getMyPairsFieldBuilder().addBuilder(
-            index, LocalStorage.Contact.MyHMACPair.getDefaultInstance());
+            index, systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.getDefaultInstance());
       }
       /**
        * <code>repeated .Contact.MyHMACPair myPairs = 17;</code>
        */
-      public java.util.List<LocalStorage.Contact.MyHMACPair.Builder> 
+      public java.util.List<systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.Builder> 
            getMyPairsBuilderList() {
         return getMyPairsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Contact.MyHMACPair, LocalStorage.Contact.MyHMACPair.Builder, LocalStorage.Contact.MyHMACPairOrBuilder> 
+          systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair, systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.Builder, systems.obscure.client.protos.LocalStorage.Contact.MyHMACPairOrBuilder> 
           getMyPairsFieldBuilder() {
         if (myPairsBuilder_ == null) {
           myPairsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              LocalStorage.Contact.MyHMACPair, LocalStorage.Contact.MyHMACPair.Builder, LocalStorage.Contact.MyHMACPairOrBuilder>(
+              systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair, systems.obscure.client.protos.LocalStorage.Contact.MyHMACPair.Builder, systems.obscure.client.protos.LocalStorage.Contact.MyHMACPairOrBuilder>(
                   myPairs_,
                   ((bitField0_ & 0x00010000) == 0x00010000),
                   getParentForChildren(),
@@ -6209,12 +6209,12 @@ public final class LocalStorage {
     /**
      * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
      */
-    java.util.List<LocalStorage.RatchetState.SavedKeys> 
+    java.util.List<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys> 
         getSavedKeysList();
     /**
      * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
      */
-    LocalStorage.RatchetState.SavedKeys getSavedKeys(int index);
+    systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys getSavedKeys(int index);
     /**
      * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
      */
@@ -6222,12 +6222,12 @@ public final class LocalStorage {
     /**
      * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
      */
-    java.util.List<? extends LocalStorage.RatchetState.SavedKeysOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeysOrBuilder> 
         getSavedKeysOrBuilderList();
     /**
      * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
      */
-    LocalStorage.RatchetState.SavedKeysOrBuilder getSavedKeysOrBuilder(
+    systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeysOrBuilder getSavedKeysOrBuilder(
         int index);
   }
   /**
@@ -6359,10 +6359,10 @@ public final class LocalStorage {
             }
             case 130: {
               if (!((mutable_bitField0_ & 0x00010000) == 0x00010000)) {
-                savedKeys_ = new java.util.ArrayList<LocalStorage.RatchetState.SavedKeys>();
+                savedKeys_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys>();
                 mutable_bitField0_ |= 0x00010000;
               }
-              savedKeys_.add(input.readMessage(LocalStorage.RatchetState.SavedKeys.PARSER, extensionRegistry));
+              savedKeys_.add(input.readMessage(systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.PARSER, extensionRegistry));
               break;
             }
             case 136: {
@@ -6387,14 +6387,14 @@ public final class LocalStorage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return LocalStorage.internal_static_protos_RatchetState_descriptor;
+      return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return LocalStorage.internal_static_protos_RatchetState_fieldAccessorTable
+      return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              LocalStorage.RatchetState.class, LocalStorage.RatchetState.Builder.class);
+              systems.obscure.client.protos.LocalStorage.RatchetState.class, systems.obscure.client.protos.LocalStorage.RatchetState.Builder.class);
     }
 
     public static com.google.protobuf.Parser<RatchetState> PARSER =
@@ -6428,12 +6428,12 @@ public final class LocalStorage {
       /**
        * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
        */
-      java.util.List<LocalStorage.RatchetState.SavedKeys.MessageKey> 
+      java.util.List<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey> 
           getMessageKeysList();
       /**
        * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
        */
-      LocalStorage.RatchetState.SavedKeys.MessageKey getMessageKeys(int index);
+      systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey getMessageKeys(int index);
       /**
        * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
        */
@@ -6441,12 +6441,12 @@ public final class LocalStorage {
       /**
        * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
        */
-      java.util.List<? extends LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder> 
+      java.util.List<? extends systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder> 
           getMessageKeysOrBuilderList();
       /**
        * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
        */
-      LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder getMessageKeysOrBuilder(
+      systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder getMessageKeysOrBuilder(
           int index);
     }
     /**
@@ -6508,10 +6508,10 @@ public final class LocalStorage {
               }
               case 18: {
                 if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                  messageKeys_ = new java.util.ArrayList<LocalStorage.RatchetState.SavedKeys.MessageKey>();
+                  messageKeys_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey>();
                   mutable_bitField0_ |= 0x00000002;
                 }
-                messageKeys_.add(input.readMessage(LocalStorage.RatchetState.SavedKeys.MessageKey.PARSER, extensionRegistry));
+                messageKeys_.add(input.readMessage(systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.PARSER, extensionRegistry));
                 break;
               }
             }
@@ -6531,14 +6531,14 @@ public final class LocalStorage {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return LocalStorage.internal_static_protos_RatchetState_SavedKeys_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_SavedKeys_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_RatchetState_SavedKeys_fieldAccessorTable
+        return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_SavedKeys_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LocalStorage.RatchetState.SavedKeys.class, LocalStorage.RatchetState.SavedKeys.Builder.class);
+                systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.class, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.Builder.class);
       }
 
       public static com.google.protobuf.Parser<SavedKeys> PARSER =
@@ -6668,14 +6668,14 @@ public final class LocalStorage {
         }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return LocalStorage.internal_static_protos_RatchetState_SavedKeys_MessageKey_descriptor;
+          return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_SavedKeys_MessageKey_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return LocalStorage.internal_static_protos_RatchetState_SavedKeys_MessageKey_fieldAccessorTable
+          return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_SavedKeys_MessageKey_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  LocalStorage.RatchetState.SavedKeys.MessageKey.class, LocalStorage.RatchetState.SavedKeys.MessageKey.Builder.class);
+                  systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.class, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.Builder.class);
         }
 
         public static com.google.protobuf.Parser<MessageKey> PARSER =
@@ -6811,53 +6811,53 @@ public final class LocalStorage {
           return super.writeReplace();
         }
 
-        public static LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(
+        public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(
             com.google.protobuf.ByteString data)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data);
         }
-        public static LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(
+        public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(
             com.google.protobuf.ByteString data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data, extensionRegistry);
         }
-        public static LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(byte[] data)
+        public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(byte[] data)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data);
         }
-        public static LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(
+        public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(
             byte[] data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
           return PARSER.parseFrom(data, extensionRegistry);
         }
-        public static LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(java.io.InputStream input)
+        public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(java.io.InputStream input)
             throws java.io.IOException {
           return PARSER.parseFrom(input);
         }
-        public static LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(
+        public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
           return PARSER.parseFrom(input, extensionRegistry);
         }
-        public static LocalStorage.RatchetState.SavedKeys.MessageKey parseDelimitedFrom(java.io.InputStream input)
+        public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey parseDelimitedFrom(java.io.InputStream input)
             throws java.io.IOException {
           return PARSER.parseDelimitedFrom(input);
         }
-        public static LocalStorage.RatchetState.SavedKeys.MessageKey parseDelimitedFrom(
+        public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey parseDelimitedFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
           return PARSER.parseDelimitedFrom(input, extensionRegistry);
         }
-        public static LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(
+        public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(
             com.google.protobuf.CodedInputStream input)
             throws java.io.IOException {
           return PARSER.parseFrom(input);
         }
-        public static LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(
+        public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey parseFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -6866,7 +6866,7 @@ public final class LocalStorage {
 
         public static Builder newBuilder() { return Builder.create(); }
         public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder(LocalStorage.RatchetState.SavedKeys.MessageKey prototype) {
+        public static Builder newBuilder(systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey prototype) {
           return newBuilder().mergeFrom(prototype);
         }
         public Builder toBuilder() { return newBuilder(this); }
@@ -6883,20 +6883,20 @@ public final class LocalStorage {
         public static final class Builder extends
             com.google.protobuf.GeneratedMessage.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:RatchetState.SavedKeys.MessageKey)
-            LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder {
+            systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder {
           public static final com.google.protobuf.Descriptors.Descriptor
               getDescriptor() {
-            return LocalStorage.internal_static_protos_RatchetState_SavedKeys_MessageKey_descriptor;
+            return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_SavedKeys_MessageKey_descriptor;
           }
 
           protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
               internalGetFieldAccessorTable() {
-            return LocalStorage.internal_static_protos_RatchetState_SavedKeys_MessageKey_fieldAccessorTable
+            return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_SavedKeys_MessageKey_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
-                    LocalStorage.RatchetState.SavedKeys.MessageKey.class, LocalStorage.RatchetState.SavedKeys.MessageKey.Builder.class);
+                    systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.class, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.Builder.class);
           }
 
-          // Construct using LocalStorage.RatchetState.SavedKeys.MessageKey.newBuilder()
+          // Construct using systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.newBuilder()
           private Builder() {
             maybeForceBuilderInitialization();
           }
@@ -6931,23 +6931,23 @@ public final class LocalStorage {
 
           public com.google.protobuf.Descriptors.Descriptor
               getDescriptorForType() {
-            return LocalStorage.internal_static_protos_RatchetState_SavedKeys_MessageKey_descriptor;
+            return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_SavedKeys_MessageKey_descriptor;
           }
 
-          public LocalStorage.RatchetState.SavedKeys.MessageKey getDefaultInstanceForType() {
-            return LocalStorage.RatchetState.SavedKeys.MessageKey.getDefaultInstance();
+          public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey getDefaultInstanceForType() {
+            return systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.getDefaultInstance();
           }
 
-          public LocalStorage.RatchetState.SavedKeys.MessageKey build() {
-            LocalStorage.RatchetState.SavedKeys.MessageKey result = buildPartial();
+          public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey build() {
+            systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey result = buildPartial();
             if (!result.isInitialized()) {
               throw newUninitializedMessageException(result);
             }
             return result;
           }
 
-          public LocalStorage.RatchetState.SavedKeys.MessageKey buildPartial() {
-            LocalStorage.RatchetState.SavedKeys.MessageKey result = new LocalStorage.RatchetState.SavedKeys.MessageKey(this);
+          public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey buildPartial() {
+            systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey result = new systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey(this);
             int from_bitField0_ = bitField0_;
             int to_bitField0_ = 0;
             if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6968,16 +6968,16 @@ public final class LocalStorage {
           }
 
           public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof LocalStorage.RatchetState.SavedKeys.MessageKey) {
-              return mergeFrom((LocalStorage.RatchetState.SavedKeys.MessageKey)other);
+            if (other instanceof systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey) {
+              return mergeFrom((systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey)other);
             } else {
               super.mergeFrom(other);
               return this;
             }
           }
 
-          public Builder mergeFrom(LocalStorage.RatchetState.SavedKeys.MessageKey other) {
-            if (other == LocalStorage.RatchetState.SavedKeys.MessageKey.getDefaultInstance()) return this;
+          public Builder mergeFrom(systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey other) {
+            if (other == systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.getDefaultInstance()) return this;
             if (other.hasNum()) {
               setNum(other.getNum());
             }
@@ -7011,11 +7011,11 @@ public final class LocalStorage {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            LocalStorage.RatchetState.SavedKeys.MessageKey parsedMessage = null;
+            systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey parsedMessage = null;
             try {
               parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (LocalStorage.RatchetState.SavedKeys.MessageKey) e.getUnfinishedMessage();
+              parsedMessage = (systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey) e.getUnfinishedMessage();
               throw e;
             } finally {
               if (parsedMessage != null) {
@@ -7153,17 +7153,17 @@ public final class LocalStorage {
       }
 
       public static final int MESSAGE_KEYS_FIELD_NUMBER = 2;
-      private java.util.List<LocalStorage.RatchetState.SavedKeys.MessageKey> messageKeys_;
+      private java.util.List<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey> messageKeys_;
       /**
        * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
        */
-      public java.util.List<LocalStorage.RatchetState.SavedKeys.MessageKey> getMessageKeysList() {
+      public java.util.List<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey> getMessageKeysList() {
         return messageKeys_;
       }
       /**
        * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
        */
-      public java.util.List<? extends LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder> 
           getMessageKeysOrBuilderList() {
         return messageKeys_;
       }
@@ -7176,13 +7176,13 @@ public final class LocalStorage {
       /**
        * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
        */
-      public LocalStorage.RatchetState.SavedKeys.MessageKey getMessageKeys(int index) {
+      public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey getMessageKeys(int index) {
         return messageKeys_.get(index);
       }
       /**
        * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
        */
-      public LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder getMessageKeysOrBuilder(
+      public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder getMessageKeysOrBuilder(
           int index) {
         return messageKeys_.get(index);
       }
@@ -7249,53 +7249,53 @@ public final class LocalStorage {
         return super.writeReplace();
       }
 
-      public static LocalStorage.RatchetState.SavedKeys parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static LocalStorage.RatchetState.SavedKeys parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static LocalStorage.RatchetState.SavedKeys parseFrom(byte[] data)
+      public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static LocalStorage.RatchetState.SavedKeys parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static LocalStorage.RatchetState.SavedKeys parseFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static LocalStorage.RatchetState.SavedKeys parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseFrom(input, extensionRegistry);
       }
-      public static LocalStorage.RatchetState.SavedKeys parseDelimitedFrom(java.io.InputStream input)
+      public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input);
       }
-      public static LocalStorage.RatchetState.SavedKeys parseDelimitedFrom(
+      public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
-      public static LocalStorage.RatchetState.SavedKeys parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return PARSER.parseFrom(input);
       }
-      public static LocalStorage.RatchetState.SavedKeys parseFrom(
+      public static systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -7304,7 +7304,7 @@ public final class LocalStorage {
 
       public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(LocalStorage.RatchetState.SavedKeys prototype) {
+      public static Builder newBuilder(systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys prototype) {
         return newBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() { return newBuilder(this); }
@@ -7321,20 +7321,20 @@ public final class LocalStorage {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:RatchetState.SavedKeys)
-          LocalStorage.RatchetState.SavedKeysOrBuilder {
+          systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeysOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return LocalStorage.internal_static_protos_RatchetState_SavedKeys_descriptor;
+          return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_SavedKeys_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return LocalStorage.internal_static_protos_RatchetState_SavedKeys_fieldAccessorTable
+          return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_SavedKeys_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  LocalStorage.RatchetState.SavedKeys.class, LocalStorage.RatchetState.SavedKeys.Builder.class);
+                  systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.class, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.Builder.class);
         }
 
-        // Construct using LocalStorage.RatchetState.SavedKeys.newBuilder()
+        // Construct using systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -7372,23 +7372,23 @@ public final class LocalStorage {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return LocalStorage.internal_static_protos_RatchetState_SavedKeys_descriptor;
+          return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_SavedKeys_descriptor;
         }
 
-        public LocalStorage.RatchetState.SavedKeys getDefaultInstanceForType() {
-          return LocalStorage.RatchetState.SavedKeys.getDefaultInstance();
+        public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys getDefaultInstanceForType() {
+          return systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.getDefaultInstance();
         }
 
-        public LocalStorage.RatchetState.SavedKeys build() {
-          LocalStorage.RatchetState.SavedKeys result = buildPartial();
+        public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys build() {
+          systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public LocalStorage.RatchetState.SavedKeys buildPartial() {
-          LocalStorage.RatchetState.SavedKeys result = new LocalStorage.RatchetState.SavedKeys(this);
+        public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys buildPartial() {
+          systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys result = new systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys(this);
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7410,16 +7410,16 @@ public final class LocalStorage {
         }
 
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof LocalStorage.RatchetState.SavedKeys) {
-            return mergeFrom((LocalStorage.RatchetState.SavedKeys)other);
+          if (other instanceof systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys) {
+            return mergeFrom((systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(LocalStorage.RatchetState.SavedKeys other) {
-          if (other == LocalStorage.RatchetState.SavedKeys.getDefaultInstance()) return this;
+        public Builder mergeFrom(systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys other) {
+          if (other == systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.getDefaultInstance()) return this;
           if (other.hasHeaderKey()) {
             setHeaderKey(other.getHeaderKey());
           }
@@ -7471,11 +7471,11 @@ public final class LocalStorage {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          LocalStorage.RatchetState.SavedKeys parsedMessage = null;
+          systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (LocalStorage.RatchetState.SavedKeys) e.getUnfinishedMessage();
+            parsedMessage = (systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys) e.getUnfinishedMessage();
             throw e;
           } finally {
             if (parsedMessage != null) {
@@ -7521,22 +7521,22 @@ public final class LocalStorage {
           return this;
         }
 
-        private java.util.List<LocalStorage.RatchetState.SavedKeys.MessageKey> messageKeys_ =
+        private java.util.List<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey> messageKeys_ =
           java.util.Collections.emptyList();
         private void ensureMessageKeysIsMutable() {
           if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-            messageKeys_ = new java.util.ArrayList<LocalStorage.RatchetState.SavedKeys.MessageKey>(messageKeys_);
+            messageKeys_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey>(messageKeys_);
             bitField0_ |= 0x00000002;
            }
         }
 
         private com.google.protobuf.RepeatedFieldBuilder<
-            LocalStorage.RatchetState.SavedKeys.MessageKey, LocalStorage.RatchetState.SavedKeys.MessageKey.Builder, LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder> messageKeysBuilder_;
+            systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.Builder, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder> messageKeysBuilder_;
 
         /**
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
-        public java.util.List<LocalStorage.RatchetState.SavedKeys.MessageKey> getMessageKeysList() {
+        public java.util.List<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey> getMessageKeysList() {
           if (messageKeysBuilder_ == null) {
             return java.util.Collections.unmodifiableList(messageKeys_);
           } else {
@@ -7556,7 +7556,7 @@ public final class LocalStorage {
         /**
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
-        public LocalStorage.RatchetState.SavedKeys.MessageKey getMessageKeys(int index) {
+        public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey getMessageKeys(int index) {
           if (messageKeysBuilder_ == null) {
             return messageKeys_.get(index);
           } else {
@@ -7567,7 +7567,7 @@ public final class LocalStorage {
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
         public Builder setMessageKeys(
-            int index, LocalStorage.RatchetState.SavedKeys.MessageKey value) {
+            int index, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey value) {
           if (messageKeysBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -7584,7 +7584,7 @@ public final class LocalStorage {
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
         public Builder setMessageKeys(
-            int index, LocalStorage.RatchetState.SavedKeys.MessageKey.Builder builderForValue) {
+            int index, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.Builder builderForValue) {
           if (messageKeysBuilder_ == null) {
             ensureMessageKeysIsMutable();
             messageKeys_.set(index, builderForValue.build());
@@ -7597,7 +7597,7 @@ public final class LocalStorage {
         /**
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
-        public Builder addMessageKeys(LocalStorage.RatchetState.SavedKeys.MessageKey value) {
+        public Builder addMessageKeys(systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey value) {
           if (messageKeysBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -7614,7 +7614,7 @@ public final class LocalStorage {
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
         public Builder addMessageKeys(
-            int index, LocalStorage.RatchetState.SavedKeys.MessageKey value) {
+            int index, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey value) {
           if (messageKeysBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -7631,7 +7631,7 @@ public final class LocalStorage {
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
         public Builder addMessageKeys(
-            LocalStorage.RatchetState.SavedKeys.MessageKey.Builder builderForValue) {
+            systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.Builder builderForValue) {
           if (messageKeysBuilder_ == null) {
             ensureMessageKeysIsMutable();
             messageKeys_.add(builderForValue.build());
@@ -7645,7 +7645,7 @@ public final class LocalStorage {
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
         public Builder addMessageKeys(
-            int index, LocalStorage.RatchetState.SavedKeys.MessageKey.Builder builderForValue) {
+            int index, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.Builder builderForValue) {
           if (messageKeysBuilder_ == null) {
             ensureMessageKeysIsMutable();
             messageKeys_.add(index, builderForValue.build());
@@ -7659,7 +7659,7 @@ public final class LocalStorage {
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
         public Builder addAllMessageKeys(
-            java.lang.Iterable<? extends LocalStorage.RatchetState.SavedKeys.MessageKey> values) {
+            java.lang.Iterable<? extends systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey> values) {
           if (messageKeysBuilder_ == null) {
             ensureMessageKeysIsMutable();
             com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -7699,14 +7699,14 @@ public final class LocalStorage {
         /**
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
-        public LocalStorage.RatchetState.SavedKeys.MessageKey.Builder getMessageKeysBuilder(
+        public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.Builder getMessageKeysBuilder(
             int index) {
           return getMessageKeysFieldBuilder().getBuilder(index);
         }
         /**
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
-        public LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder getMessageKeysOrBuilder(
+        public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder getMessageKeysOrBuilder(
             int index) {
           if (messageKeysBuilder_ == null) {
             return messageKeys_.get(index);  } else {
@@ -7716,7 +7716,7 @@ public final class LocalStorage {
         /**
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
-        public java.util.List<? extends LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder> 
+        public java.util.List<? extends systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder> 
              getMessageKeysOrBuilderList() {
           if (messageKeysBuilder_ != null) {
             return messageKeysBuilder_.getMessageOrBuilderList();
@@ -7727,31 +7727,31 @@ public final class LocalStorage {
         /**
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
-        public LocalStorage.RatchetState.SavedKeys.MessageKey.Builder addMessageKeysBuilder() {
+        public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.Builder addMessageKeysBuilder() {
           return getMessageKeysFieldBuilder().addBuilder(
-              LocalStorage.RatchetState.SavedKeys.MessageKey.getDefaultInstance());
+              systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.getDefaultInstance());
         }
         /**
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
-        public LocalStorage.RatchetState.SavedKeys.MessageKey.Builder addMessageKeysBuilder(
+        public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.Builder addMessageKeysBuilder(
             int index) {
           return getMessageKeysFieldBuilder().addBuilder(
-              index, LocalStorage.RatchetState.SavedKeys.MessageKey.getDefaultInstance());
+              index, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.getDefaultInstance());
         }
         /**
          * <code>repeated .RatchetState.SavedKeys.MessageKey message_keys = 2;</code>
          */
-        public java.util.List<LocalStorage.RatchetState.SavedKeys.MessageKey.Builder> 
+        public java.util.List<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.Builder> 
              getMessageKeysBuilderList() {
           return getMessageKeysFieldBuilder().getBuilderList();
         }
         private com.google.protobuf.RepeatedFieldBuilder<
-            LocalStorage.RatchetState.SavedKeys.MessageKey, LocalStorage.RatchetState.SavedKeys.MessageKey.Builder, LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder> 
+            systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.Builder, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder> 
             getMessageKeysFieldBuilder() {
           if (messageKeysBuilder_ == null) {
             messageKeysBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-                LocalStorage.RatchetState.SavedKeys.MessageKey, LocalStorage.RatchetState.SavedKeys.MessageKey.Builder, LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder>(
+                systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKey.Builder, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.MessageKeyOrBuilder>(
                     messageKeys_,
                     ((bitField0_ & 0x00000002) == 0x00000002),
                     getParentForChildren(),
@@ -8014,17 +8014,17 @@ public final class LocalStorage {
     }
 
     public static final int SAVED_KEYS_FIELD_NUMBER = 16;
-    private java.util.List<LocalStorage.RatchetState.SavedKeys> savedKeys_;
+    private java.util.List<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys> savedKeys_;
     /**
      * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
      */
-    public java.util.List<LocalStorage.RatchetState.SavedKeys> getSavedKeysList() {
+    public java.util.List<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys> getSavedKeysList() {
       return savedKeys_;
     }
     /**
      * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
      */
-    public java.util.List<? extends LocalStorage.RatchetState.SavedKeysOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeysOrBuilder> 
         getSavedKeysOrBuilderList() {
       return savedKeys_;
     }
@@ -8037,13 +8037,13 @@ public final class LocalStorage {
     /**
      * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
      */
-    public LocalStorage.RatchetState.SavedKeys getSavedKeys(int index) {
+    public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys getSavedKeys(int index) {
       return savedKeys_.get(index);
     }
     /**
      * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
      */
-    public LocalStorage.RatchetState.SavedKeysOrBuilder getSavedKeysOrBuilder(
+    public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeysOrBuilder getSavedKeysOrBuilder(
         int index) {
       return savedKeys_.get(index);
     }
@@ -8278,53 +8278,53 @@ public final class LocalStorage {
       return super.writeReplace();
     }
 
-    public static LocalStorage.RatchetState parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.RatchetState parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.RatchetState parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.RatchetState parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.RatchetState parseFrom(byte[] data)
+    public static systems.obscure.client.protos.LocalStorage.RatchetState parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.RatchetState parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.RatchetState parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.RatchetState parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.RatchetState parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.RatchetState parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.RatchetState parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static LocalStorage.RatchetState parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.RatchetState parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static LocalStorage.RatchetState parseDelimitedFrom(
+    public static systems.obscure.client.protos.LocalStorage.RatchetState parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static LocalStorage.RatchetState parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.RatchetState parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.RatchetState parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.RatchetState parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8333,7 +8333,7 @@ public final class LocalStorage {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(LocalStorage.RatchetState prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.LocalStorage.RatchetState prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -8350,20 +8350,20 @@ public final class LocalStorage {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:RatchetState)
-        LocalStorage.RatchetStateOrBuilder {
+        systems.obscure.client.protos.LocalStorage.RatchetStateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return LocalStorage.internal_static_protos_RatchetState_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_RatchetState_fieldAccessorTable
+        return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LocalStorage.RatchetState.class, LocalStorage.RatchetState.Builder.class);
+                systems.obscure.client.protos.LocalStorage.RatchetState.class, systems.obscure.client.protos.LocalStorage.RatchetState.Builder.class);
       }
 
-      // Construct using LocalStorage.RatchetState.newBuilder()
+      // Construct using systems.obscure.client.protos.LocalStorage.RatchetState.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8431,23 +8431,23 @@ public final class LocalStorage {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return LocalStorage.internal_static_protos_RatchetState_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_RatchetState_descriptor;
       }
 
-      public LocalStorage.RatchetState getDefaultInstanceForType() {
-        return LocalStorage.RatchetState.getDefaultInstance();
+      public systems.obscure.client.protos.LocalStorage.RatchetState getDefaultInstanceForType() {
+        return systems.obscure.client.protos.LocalStorage.RatchetState.getDefaultInstance();
       }
 
-      public LocalStorage.RatchetState build() {
-        LocalStorage.RatchetState result = buildPartial();
+      public systems.obscure.client.protos.LocalStorage.RatchetState build() {
+        systems.obscure.client.protos.LocalStorage.RatchetState result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public LocalStorage.RatchetState buildPartial() {
-        LocalStorage.RatchetState result = new LocalStorage.RatchetState(this);
+      public systems.obscure.client.protos.LocalStorage.RatchetState buildPartial() {
+        systems.obscure.client.protos.LocalStorage.RatchetState result = new systems.obscure.client.protos.LocalStorage.RatchetState(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8529,16 +8529,16 @@ public final class LocalStorage {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof LocalStorage.RatchetState) {
-          return mergeFrom((LocalStorage.RatchetState)other);
+        if (other instanceof systems.obscure.client.protos.LocalStorage.RatchetState) {
+          return mergeFrom((systems.obscure.client.protos.LocalStorage.RatchetState)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(LocalStorage.RatchetState other) {
-        if (other == LocalStorage.RatchetState.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.LocalStorage.RatchetState other) {
+        if (other == systems.obscure.client.protos.LocalStorage.RatchetState.getDefaultInstance()) return this;
         if (other.hasRootKey()) {
           setRootKey(other.getRootKey());
         }
@@ -8683,11 +8683,11 @@ public final class LocalStorage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        LocalStorage.RatchetState parsedMessage = null;
+        systems.obscure.client.protos.LocalStorage.RatchetState parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (LocalStorage.RatchetState) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.LocalStorage.RatchetState) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -9243,22 +9243,22 @@ public final class LocalStorage {
         return this;
       }
 
-      private java.util.List<LocalStorage.RatchetState.SavedKeys> savedKeys_ =
+      private java.util.List<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys> savedKeys_ =
         java.util.Collections.emptyList();
       private void ensureSavedKeysIsMutable() {
         if (!((bitField0_ & 0x00010000) == 0x00010000)) {
-          savedKeys_ = new java.util.ArrayList<LocalStorage.RatchetState.SavedKeys>(savedKeys_);
+          savedKeys_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys>(savedKeys_);
           bitField0_ |= 0x00010000;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.RatchetState.SavedKeys, LocalStorage.RatchetState.SavedKeys.Builder, LocalStorage.RatchetState.SavedKeysOrBuilder> savedKeysBuilder_;
+          systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.Builder, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeysOrBuilder> savedKeysBuilder_;
 
       /**
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
-      public java.util.List<LocalStorage.RatchetState.SavedKeys> getSavedKeysList() {
+      public java.util.List<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys> getSavedKeysList() {
         if (savedKeysBuilder_ == null) {
           return java.util.Collections.unmodifiableList(savedKeys_);
         } else {
@@ -9278,7 +9278,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
-      public LocalStorage.RatchetState.SavedKeys getSavedKeys(int index) {
+      public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys getSavedKeys(int index) {
         if (savedKeysBuilder_ == null) {
           return savedKeys_.get(index);
         } else {
@@ -9289,7 +9289,7 @@ public final class LocalStorage {
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
       public Builder setSavedKeys(
-          int index, LocalStorage.RatchetState.SavedKeys value) {
+          int index, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys value) {
         if (savedKeysBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -9306,7 +9306,7 @@ public final class LocalStorage {
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
       public Builder setSavedKeys(
-          int index, LocalStorage.RatchetState.SavedKeys.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.Builder builderForValue) {
         if (savedKeysBuilder_ == null) {
           ensureSavedKeysIsMutable();
           savedKeys_.set(index, builderForValue.build());
@@ -9319,7 +9319,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
-      public Builder addSavedKeys(LocalStorage.RatchetState.SavedKeys value) {
+      public Builder addSavedKeys(systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys value) {
         if (savedKeysBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -9336,7 +9336,7 @@ public final class LocalStorage {
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
       public Builder addSavedKeys(
-          int index, LocalStorage.RatchetState.SavedKeys value) {
+          int index, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys value) {
         if (savedKeysBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -9353,7 +9353,7 @@ public final class LocalStorage {
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
       public Builder addSavedKeys(
-          LocalStorage.RatchetState.SavedKeys.Builder builderForValue) {
+          systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.Builder builderForValue) {
         if (savedKeysBuilder_ == null) {
           ensureSavedKeysIsMutable();
           savedKeys_.add(builderForValue.build());
@@ -9367,7 +9367,7 @@ public final class LocalStorage {
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
       public Builder addSavedKeys(
-          int index, LocalStorage.RatchetState.SavedKeys.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.Builder builderForValue) {
         if (savedKeysBuilder_ == null) {
           ensureSavedKeysIsMutable();
           savedKeys_.add(index, builderForValue.build());
@@ -9381,7 +9381,7 @@ public final class LocalStorage {
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
       public Builder addAllSavedKeys(
-          java.lang.Iterable<? extends LocalStorage.RatchetState.SavedKeys> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys> values) {
         if (savedKeysBuilder_ == null) {
           ensureSavedKeysIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -9421,14 +9421,14 @@ public final class LocalStorage {
       /**
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
-      public LocalStorage.RatchetState.SavedKeys.Builder getSavedKeysBuilder(
+      public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.Builder getSavedKeysBuilder(
           int index) {
         return getSavedKeysFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
-      public LocalStorage.RatchetState.SavedKeysOrBuilder getSavedKeysOrBuilder(
+      public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeysOrBuilder getSavedKeysOrBuilder(
           int index) {
         if (savedKeysBuilder_ == null) {
           return savedKeys_.get(index);  } else {
@@ -9438,7 +9438,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
-      public java.util.List<? extends LocalStorage.RatchetState.SavedKeysOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeysOrBuilder> 
            getSavedKeysOrBuilderList() {
         if (savedKeysBuilder_ != null) {
           return savedKeysBuilder_.getMessageOrBuilderList();
@@ -9449,31 +9449,31 @@ public final class LocalStorage {
       /**
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
-      public LocalStorage.RatchetState.SavedKeys.Builder addSavedKeysBuilder() {
+      public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.Builder addSavedKeysBuilder() {
         return getSavedKeysFieldBuilder().addBuilder(
-            LocalStorage.RatchetState.SavedKeys.getDefaultInstance());
+            systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.getDefaultInstance());
       }
       /**
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
-      public LocalStorage.RatchetState.SavedKeys.Builder addSavedKeysBuilder(
+      public systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.Builder addSavedKeysBuilder(
           int index) {
         return getSavedKeysFieldBuilder().addBuilder(
-            index, LocalStorage.RatchetState.SavedKeys.getDefaultInstance());
+            index, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.getDefaultInstance());
       }
       /**
        * <code>repeated .RatchetState.SavedKeys saved_keys = 16;</code>
        */
-      public java.util.List<LocalStorage.RatchetState.SavedKeys.Builder> 
+      public java.util.List<systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.Builder> 
            getSavedKeysBuilderList() {
         return getSavedKeysFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.RatchetState.SavedKeys, LocalStorage.RatchetState.SavedKeys.Builder, LocalStorage.RatchetState.SavedKeysOrBuilder> 
+          systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.Builder, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeysOrBuilder> 
           getSavedKeysFieldBuilder() {
         if (savedKeysBuilder_ == null) {
           savedKeysBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              LocalStorage.RatchetState.SavedKeys, LocalStorage.RatchetState.SavedKeys.Builder, LocalStorage.RatchetState.SavedKeysOrBuilder>(
+              systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeys.Builder, systems.obscure.client.protos.LocalStorage.RatchetState.SavedKeysOrBuilder>(
                   savedKeys_,
                   ((bitField0_ & 0x00010000) == 0x00010000),
                   getParentForChildren(),
@@ -9676,14 +9676,14 @@ public final class LocalStorage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return LocalStorage.internal_static_protos_Inbox_descriptor;
+      return systems.obscure.client.protos.LocalStorage.internal_static_Inbox_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return LocalStorage.internal_static_protos_Inbox_fieldAccessorTable
+      return systems.obscure.client.protos.LocalStorage.internal_static_Inbox_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              LocalStorage.Inbox.class, LocalStorage.Inbox.Builder.class);
+              systems.obscure.client.protos.LocalStorage.Inbox.class, systems.obscure.client.protos.LocalStorage.Inbox.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Inbox> PARSER =
@@ -9942,53 +9942,53 @@ public final class LocalStorage {
       return super.writeReplace();
     }
 
-    public static LocalStorage.Inbox parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Inbox parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.Inbox parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Inbox parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.Inbox parseFrom(byte[] data)
+    public static systems.obscure.client.protos.LocalStorage.Inbox parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.Inbox parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Inbox parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.Inbox parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.Inbox parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.Inbox parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Inbox parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static LocalStorage.Inbox parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.Inbox parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static LocalStorage.Inbox parseDelimitedFrom(
+    public static systems.obscure.client.protos.LocalStorage.Inbox parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static LocalStorage.Inbox parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Inbox parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.Inbox parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Inbox parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -9997,7 +9997,7 @@ public final class LocalStorage {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(LocalStorage.Inbox prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.LocalStorage.Inbox prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -10014,20 +10014,20 @@ public final class LocalStorage {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Inbox)
-        LocalStorage.InboxOrBuilder {
+        systems.obscure.client.protos.LocalStorage.InboxOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return LocalStorage.internal_static_protos_Inbox_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Inbox_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_Inbox_fieldAccessorTable
+        return systems.obscure.client.protos.LocalStorage.internal_static_Inbox_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LocalStorage.Inbox.class, LocalStorage.Inbox.Builder.class);
+                systems.obscure.client.protos.LocalStorage.Inbox.class, systems.obscure.client.protos.LocalStorage.Inbox.Builder.class);
       }
 
-      // Construct using LocalStorage.Inbox.newBuilder()
+      // Construct using systems.obscure.client.protos.LocalStorage.Inbox.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -10072,23 +10072,23 @@ public final class LocalStorage {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return LocalStorage.internal_static_protos_Inbox_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Inbox_descriptor;
       }
 
-      public LocalStorage.Inbox getDefaultInstanceForType() {
-        return LocalStorage.Inbox.getDefaultInstance();
+      public systems.obscure.client.protos.LocalStorage.Inbox getDefaultInstanceForType() {
+        return systems.obscure.client.protos.LocalStorage.Inbox.getDefaultInstance();
       }
 
-      public LocalStorage.Inbox build() {
-        LocalStorage.Inbox result = buildPartial();
+      public systems.obscure.client.protos.LocalStorage.Inbox build() {
+        systems.obscure.client.protos.LocalStorage.Inbox result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public LocalStorage.Inbox buildPartial() {
-        LocalStorage.Inbox result = new LocalStorage.Inbox(this);
+      public systems.obscure.client.protos.LocalStorage.Inbox buildPartial() {
+        systems.obscure.client.protos.LocalStorage.Inbox result = new systems.obscure.client.protos.LocalStorage.Inbox(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10129,16 +10129,16 @@ public final class LocalStorage {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof LocalStorage.Inbox) {
-          return mergeFrom((LocalStorage.Inbox)other);
+        if (other instanceof systems.obscure.client.protos.LocalStorage.Inbox) {
+          return mergeFrom((systems.obscure.client.protos.LocalStorage.Inbox)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(LocalStorage.Inbox other) {
-        if (other == LocalStorage.Inbox.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.LocalStorage.Inbox other) {
+        if (other == systems.obscure.client.protos.LocalStorage.Inbox.getDefaultInstance()) return this;
         if (other.hasId()) {
           setId(other.getId());
         }
@@ -10195,11 +10195,11 @@ public final class LocalStorage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        LocalStorage.Inbox parsedMessage = null;
+        systems.obscure.client.protos.LocalStorage.Inbox parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (LocalStorage.Inbox) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.LocalStorage.Inbox) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -10685,14 +10685,14 @@ public final class LocalStorage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return LocalStorage.internal_static_protos_Outbox_descriptor;
+      return systems.obscure.client.protos.LocalStorage.internal_static_Outbox_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return LocalStorage.internal_static_protos_Outbox_fieldAccessorTable
+      return systems.obscure.client.protos.LocalStorage.internal_static_Outbox_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              LocalStorage.Outbox.class, LocalStorage.Outbox.Builder.class);
+              systems.obscure.client.protos.LocalStorage.Outbox.class, systems.obscure.client.protos.LocalStorage.Outbox.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Outbox> PARSER =
@@ -10997,53 +10997,53 @@ public final class LocalStorage {
       return super.writeReplace();
     }
 
-    public static LocalStorage.Outbox parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Outbox parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.Outbox parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Outbox parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.Outbox parseFrom(byte[] data)
+    public static systems.obscure.client.protos.LocalStorage.Outbox parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.Outbox parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Outbox parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.Outbox parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.Outbox parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.Outbox parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Outbox parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static LocalStorage.Outbox parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.Outbox parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static LocalStorage.Outbox parseDelimitedFrom(
+    public static systems.obscure.client.protos.LocalStorage.Outbox parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static LocalStorage.Outbox parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Outbox parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.Outbox parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Outbox parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11052,7 +11052,7 @@ public final class LocalStorage {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(LocalStorage.Outbox prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.LocalStorage.Outbox prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -11069,20 +11069,20 @@ public final class LocalStorage {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Outbox)
-        LocalStorage.OutboxOrBuilder {
+        systems.obscure.client.protos.LocalStorage.OutboxOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return LocalStorage.internal_static_protos_Outbox_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Outbox_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_Outbox_fieldAccessorTable
+        return systems.obscure.client.protos.LocalStorage.internal_static_Outbox_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LocalStorage.Outbox.class, LocalStorage.Outbox.Builder.class);
+                systems.obscure.client.protos.LocalStorage.Outbox.class, systems.obscure.client.protos.LocalStorage.Outbox.Builder.class);
       }
 
-      // Construct using LocalStorage.Outbox.newBuilder()
+      // Construct using systems.obscure.client.protos.LocalStorage.Outbox.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11129,23 +11129,23 @@ public final class LocalStorage {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return LocalStorage.internal_static_protos_Outbox_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Outbox_descriptor;
       }
 
-      public LocalStorage.Outbox getDefaultInstanceForType() {
-        return LocalStorage.Outbox.getDefaultInstance();
+      public systems.obscure.client.protos.LocalStorage.Outbox getDefaultInstanceForType() {
+        return systems.obscure.client.protos.LocalStorage.Outbox.getDefaultInstance();
       }
 
-      public LocalStorage.Outbox build() {
-        LocalStorage.Outbox result = buildPartial();
+      public systems.obscure.client.protos.LocalStorage.Outbox build() {
+        systems.obscure.client.protos.LocalStorage.Outbox result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public LocalStorage.Outbox buildPartial() {
-        LocalStorage.Outbox result = new LocalStorage.Outbox(this);
+      public systems.obscure.client.protos.LocalStorage.Outbox buildPartial() {
+        systems.obscure.client.protos.LocalStorage.Outbox result = new systems.obscure.client.protos.LocalStorage.Outbox(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11190,16 +11190,16 @@ public final class LocalStorage {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof LocalStorage.Outbox) {
-          return mergeFrom((LocalStorage.Outbox)other);
+        if (other instanceof systems.obscure.client.protos.LocalStorage.Outbox) {
+          return mergeFrom((systems.obscure.client.protos.LocalStorage.Outbox)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(LocalStorage.Outbox other) {
-        if (other == LocalStorage.Outbox.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.LocalStorage.Outbox other) {
+        if (other == systems.obscure.client.protos.LocalStorage.Outbox.getDefaultInstance()) return this;
         if (other.hasId()) {
           setId(other.getId());
         }
@@ -11257,11 +11257,11 @@ public final class LocalStorage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        LocalStorage.Outbox parsedMessage = null;
+        systems.obscure.client.protos.LocalStorage.Outbox parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (LocalStorage.Outbox) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.LocalStorage.Outbox) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -11678,12 +11678,12 @@ public final class LocalStorage {
     /**
      * <code>repeated .Message.Attachment attachments = 6;</code>
      */
-    java.util.List<Pond.Message.Attachment> 
+    java.util.List<systems.obscure.client.protos.Pond.Message.Attachment> 
         getAttachmentsList();
     /**
      * <code>repeated .Message.Attachment attachments = 6;</code>
      */
-    Pond.Message.Attachment getAttachments(int index);
+    systems.obscure.client.protos.Pond.Message.Attachment getAttachments(int index);
     /**
      * <code>repeated .Message.Attachment attachments = 6;</code>
      */
@@ -11691,23 +11691,23 @@ public final class LocalStorage {
     /**
      * <code>repeated .Message.Attachment attachments = 6;</code>
      */
-    java.util.List<? extends Pond.Message.AttachmentOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder> 
         getAttachmentsOrBuilderList();
     /**
      * <code>repeated .Message.Attachment attachments = 6;</code>
      */
-    Pond.Message.AttachmentOrBuilder getAttachmentsOrBuilder(
+    systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder getAttachmentsOrBuilder(
         int index);
 
     /**
      * <code>repeated .Message.Detachment detachments = 7;</code>
      */
-    java.util.List<Pond.Message.Detachment> 
+    java.util.List<systems.obscure.client.protos.Pond.Message.Detachment> 
         getDetachmentsList();
     /**
      * <code>repeated .Message.Detachment detachments = 7;</code>
      */
-    Pond.Message.Detachment getDetachments(int index);
+    systems.obscure.client.protos.Pond.Message.Detachment getDetachments(int index);
     /**
      * <code>repeated .Message.Detachment detachments = 7;</code>
      */
@@ -11715,12 +11715,12 @@ public final class LocalStorage {
     /**
      * <code>repeated .Message.Detachment detachments = 7;</code>
      */
-    java.util.List<? extends Pond.Message.DetachmentOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder> 
         getDetachmentsOrBuilderList();
     /**
      * <code>repeated .Message.Detachment detachments = 7;</code>
      */
-    Pond.Message.DetachmentOrBuilder getDetachmentsOrBuilder(
+    systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder getDetachmentsOrBuilder(
         int index);
   }
   /**
@@ -11803,18 +11803,18 @@ public final class LocalStorage {
             }
             case 50: {
               if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                attachments_ = new java.util.ArrayList<Pond.Message.Attachment>();
+                attachments_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.Message.Attachment>();
                 mutable_bitField0_ |= 0x00000020;
               }
-              attachments_.add(input.readMessage(Pond.Message.Attachment.PARSER, extensionRegistry));
+              attachments_.add(input.readMessage(systems.obscure.client.protos.Pond.Message.Attachment.PARSER, extensionRegistry));
               break;
             }
             case 58: {
               if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-                detachments_ = new java.util.ArrayList<Pond.Message.Detachment>();
+                detachments_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.Message.Detachment>();
                 mutable_bitField0_ |= 0x00000040;
               }
-              detachments_.add(input.readMessage(Pond.Message.Detachment.PARSER, extensionRegistry));
+              detachments_.add(input.readMessage(systems.obscure.client.protos.Pond.Message.Detachment.PARSER, extensionRegistry));
               break;
             }
           }
@@ -11837,14 +11837,14 @@ public final class LocalStorage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return LocalStorage.internal_static_protos_Draft_descriptor;
+      return systems.obscure.client.protos.LocalStorage.internal_static_Draft_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return LocalStorage.internal_static_protos_Draft_fieldAccessorTable
+      return systems.obscure.client.protos.LocalStorage.internal_static_Draft_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              LocalStorage.Draft.class, LocalStorage.Draft.Builder.class);
+              systems.obscure.client.protos.LocalStorage.Draft.class, systems.obscure.client.protos.LocalStorage.Draft.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Draft> PARSER =
@@ -11966,17 +11966,17 @@ public final class LocalStorage {
     }
 
     public static final int ATTACHMENTS_FIELD_NUMBER = 6;
-    private java.util.List<Pond.Message.Attachment> attachments_;
+    private java.util.List<systems.obscure.client.protos.Pond.Message.Attachment> attachments_;
     /**
      * <code>repeated .Message.Attachment attachments = 6;</code>
      */
-    public java.util.List<Pond.Message.Attachment> getAttachmentsList() {
+    public java.util.List<systems.obscure.client.protos.Pond.Message.Attachment> getAttachmentsList() {
       return attachments_;
     }
     /**
      * <code>repeated .Message.Attachment attachments = 6;</code>
      */
-    public java.util.List<? extends Pond.Message.AttachmentOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder> 
         getAttachmentsOrBuilderList() {
       return attachments_;
     }
@@ -11989,29 +11989,29 @@ public final class LocalStorage {
     /**
      * <code>repeated .Message.Attachment attachments = 6;</code>
      */
-    public Pond.Message.Attachment getAttachments(int index) {
+    public systems.obscure.client.protos.Pond.Message.Attachment getAttachments(int index) {
       return attachments_.get(index);
     }
     /**
      * <code>repeated .Message.Attachment attachments = 6;</code>
      */
-    public Pond.Message.AttachmentOrBuilder getAttachmentsOrBuilder(
+    public systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder getAttachmentsOrBuilder(
         int index) {
       return attachments_.get(index);
     }
 
     public static final int DETACHMENTS_FIELD_NUMBER = 7;
-    private java.util.List<Pond.Message.Detachment> detachments_;
+    private java.util.List<systems.obscure.client.protos.Pond.Message.Detachment> detachments_;
     /**
      * <code>repeated .Message.Detachment detachments = 7;</code>
      */
-    public java.util.List<Pond.Message.Detachment> getDetachmentsList() {
+    public java.util.List<systems.obscure.client.protos.Pond.Message.Detachment> getDetachmentsList() {
       return detachments_;
     }
     /**
      * <code>repeated .Message.Detachment detachments = 7;</code>
      */
-    public java.util.List<? extends Pond.Message.DetachmentOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder> 
         getDetachmentsOrBuilderList() {
       return detachments_;
     }
@@ -12024,13 +12024,13 @@ public final class LocalStorage {
     /**
      * <code>repeated .Message.Detachment detachments = 7;</code>
      */
-    public Pond.Message.Detachment getDetachments(int index) {
+    public systems.obscure.client.protos.Pond.Message.Detachment getDetachments(int index) {
       return detachments_.get(index);
     }
     /**
      * <code>repeated .Message.Detachment detachments = 7;</code>
      */
-    public Pond.Message.DetachmentOrBuilder getDetachmentsOrBuilder(
+    public systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder getDetachmentsOrBuilder(
         int index) {
       return detachments_.get(index);
     }
@@ -12151,53 +12151,53 @@ public final class LocalStorage {
       return super.writeReplace();
     }
 
-    public static LocalStorage.Draft parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Draft parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.Draft parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Draft parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.Draft parseFrom(byte[] data)
+    public static systems.obscure.client.protos.LocalStorage.Draft parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.Draft parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Draft parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.Draft parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.Draft parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.Draft parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Draft parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static LocalStorage.Draft parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.Draft parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static LocalStorage.Draft parseDelimitedFrom(
+    public static systems.obscure.client.protos.LocalStorage.Draft parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static LocalStorage.Draft parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Draft parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.Draft parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.Draft parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12206,7 +12206,7 @@ public final class LocalStorage {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(LocalStorage.Draft prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.LocalStorage.Draft prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -12223,20 +12223,20 @@ public final class LocalStorage {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Draft)
-        LocalStorage.DraftOrBuilder {
+        systems.obscure.client.protos.LocalStorage.DraftOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return LocalStorage.internal_static_protos_Draft_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Draft_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_Draft_fieldAccessorTable
+        return systems.obscure.client.protos.LocalStorage.internal_static_Draft_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LocalStorage.Draft.class, LocalStorage.Draft.Builder.class);
+                systems.obscure.client.protos.LocalStorage.Draft.class, systems.obscure.client.protos.LocalStorage.Draft.Builder.class);
       }
 
-      // Construct using LocalStorage.Draft.newBuilder()
+      // Construct using systems.obscure.client.protos.LocalStorage.Draft.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12289,23 +12289,23 @@ public final class LocalStorage {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return LocalStorage.internal_static_protos_Draft_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_Draft_descriptor;
       }
 
-      public LocalStorage.Draft getDefaultInstanceForType() {
-        return LocalStorage.Draft.getDefaultInstance();
+      public systems.obscure.client.protos.LocalStorage.Draft getDefaultInstanceForType() {
+        return systems.obscure.client.protos.LocalStorage.Draft.getDefaultInstance();
       }
 
-      public LocalStorage.Draft build() {
-        LocalStorage.Draft result = buildPartial();
+      public systems.obscure.client.protos.LocalStorage.Draft build() {
+        systems.obscure.client.protos.LocalStorage.Draft result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public LocalStorage.Draft buildPartial() {
-        LocalStorage.Draft result = new LocalStorage.Draft(this);
+      public systems.obscure.client.protos.LocalStorage.Draft buildPartial() {
+        systems.obscure.client.protos.LocalStorage.Draft result = new systems.obscure.client.protos.LocalStorage.Draft(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12352,16 +12352,16 @@ public final class LocalStorage {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof LocalStorage.Draft) {
-          return mergeFrom((LocalStorage.Draft)other);
+        if (other instanceof systems.obscure.client.protos.LocalStorage.Draft) {
+          return mergeFrom((systems.obscure.client.protos.LocalStorage.Draft)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(LocalStorage.Draft other) {
-        if (other == LocalStorage.Draft.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.LocalStorage.Draft other) {
+        if (other == systems.obscure.client.protos.LocalStorage.Draft.getDefaultInstance()) return this;
         if (other.hasId()) {
           setId(other.getId());
         }
@@ -12467,11 +12467,11 @@ public final class LocalStorage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        LocalStorage.Draft parsedMessage = null;
+        systems.obscure.client.protos.LocalStorage.Draft parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (LocalStorage.Draft) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.LocalStorage.Draft) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -12686,22 +12686,22 @@ public final class LocalStorage {
         return this;
       }
 
-      private java.util.List<Pond.Message.Attachment> attachments_ =
+      private java.util.List<systems.obscure.client.protos.Pond.Message.Attachment> attachments_ =
         java.util.Collections.emptyList();
       private void ensureAttachmentsIsMutable() {
         if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-          attachments_ = new java.util.ArrayList<Pond.Message.Attachment>(attachments_);
+          attachments_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.Message.Attachment>(attachments_);
           bitField0_ |= 0x00000020;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.Message.Attachment, Pond.Message.Attachment.Builder, Pond.Message.AttachmentOrBuilder> attachmentsBuilder_;
+          systems.obscure.client.protos.Pond.Message.Attachment, systems.obscure.client.protos.Pond.Message.Attachment.Builder, systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder> attachmentsBuilder_;
 
       /**
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
-      public java.util.List<Pond.Message.Attachment> getAttachmentsList() {
+      public java.util.List<systems.obscure.client.protos.Pond.Message.Attachment> getAttachmentsList() {
         if (attachmentsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(attachments_);
         } else {
@@ -12721,7 +12721,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
-      public Pond.Message.Attachment getAttachments(int index) {
+      public systems.obscure.client.protos.Pond.Message.Attachment getAttachments(int index) {
         if (attachmentsBuilder_ == null) {
           return attachments_.get(index);
         } else {
@@ -12732,7 +12732,7 @@ public final class LocalStorage {
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
       public Builder setAttachments(
-          int index, Pond.Message.Attachment value) {
+          int index, systems.obscure.client.protos.Pond.Message.Attachment value) {
         if (attachmentsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12749,7 +12749,7 @@ public final class LocalStorage {
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
       public Builder setAttachments(
-          int index, Pond.Message.Attachment.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.Message.Attachment.Builder builderForValue) {
         if (attachmentsBuilder_ == null) {
           ensureAttachmentsIsMutable();
           attachments_.set(index, builderForValue.build());
@@ -12762,7 +12762,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
-      public Builder addAttachments(Pond.Message.Attachment value) {
+      public Builder addAttachments(systems.obscure.client.protos.Pond.Message.Attachment value) {
         if (attachmentsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12779,7 +12779,7 @@ public final class LocalStorage {
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
       public Builder addAttachments(
-          int index, Pond.Message.Attachment value) {
+          int index, systems.obscure.client.protos.Pond.Message.Attachment value) {
         if (attachmentsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12796,7 +12796,7 @@ public final class LocalStorage {
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
       public Builder addAttachments(
-          Pond.Message.Attachment.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.Message.Attachment.Builder builderForValue) {
         if (attachmentsBuilder_ == null) {
           ensureAttachmentsIsMutable();
           attachments_.add(builderForValue.build());
@@ -12810,7 +12810,7 @@ public final class LocalStorage {
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
       public Builder addAttachments(
-          int index, Pond.Message.Attachment.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.Message.Attachment.Builder builderForValue) {
         if (attachmentsBuilder_ == null) {
           ensureAttachmentsIsMutable();
           attachments_.add(index, builderForValue.build());
@@ -12824,7 +12824,7 @@ public final class LocalStorage {
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
       public Builder addAllAttachments(
-          java.lang.Iterable<? extends Pond.Message.Attachment> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.Pond.Message.Attachment> values) {
         if (attachmentsBuilder_ == null) {
           ensureAttachmentsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -12864,14 +12864,14 @@ public final class LocalStorage {
       /**
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
-      public Pond.Message.Attachment.Builder getAttachmentsBuilder(
+      public systems.obscure.client.protos.Pond.Message.Attachment.Builder getAttachmentsBuilder(
           int index) {
         return getAttachmentsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
-      public Pond.Message.AttachmentOrBuilder getAttachmentsOrBuilder(
+      public systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder getAttachmentsOrBuilder(
           int index) {
         if (attachmentsBuilder_ == null) {
           return attachments_.get(index);  } else {
@@ -12881,7 +12881,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
-      public java.util.List<? extends Pond.Message.AttachmentOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder> 
            getAttachmentsOrBuilderList() {
         if (attachmentsBuilder_ != null) {
           return attachmentsBuilder_.getMessageOrBuilderList();
@@ -12892,31 +12892,31 @@ public final class LocalStorage {
       /**
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
-      public Pond.Message.Attachment.Builder addAttachmentsBuilder() {
+      public systems.obscure.client.protos.Pond.Message.Attachment.Builder addAttachmentsBuilder() {
         return getAttachmentsFieldBuilder().addBuilder(
-            Pond.Message.Attachment.getDefaultInstance());
+            systems.obscure.client.protos.Pond.Message.Attachment.getDefaultInstance());
       }
       /**
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
-      public Pond.Message.Attachment.Builder addAttachmentsBuilder(
+      public systems.obscure.client.protos.Pond.Message.Attachment.Builder addAttachmentsBuilder(
           int index) {
         return getAttachmentsFieldBuilder().addBuilder(
-            index, Pond.Message.Attachment.getDefaultInstance());
+            index, systems.obscure.client.protos.Pond.Message.Attachment.getDefaultInstance());
       }
       /**
        * <code>repeated .Message.Attachment attachments = 6;</code>
        */
-      public java.util.List<Pond.Message.Attachment.Builder> 
+      public java.util.List<systems.obscure.client.protos.Pond.Message.Attachment.Builder> 
            getAttachmentsBuilderList() {
         return getAttachmentsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.Message.Attachment, Pond.Message.Attachment.Builder, Pond.Message.AttachmentOrBuilder> 
+          systems.obscure.client.protos.Pond.Message.Attachment, systems.obscure.client.protos.Pond.Message.Attachment.Builder, systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder> 
           getAttachmentsFieldBuilder() {
         if (attachmentsBuilder_ == null) {
           attachmentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              Pond.Message.Attachment, Pond.Message.Attachment.Builder, Pond.Message.AttachmentOrBuilder>(
+              systems.obscure.client.protos.Pond.Message.Attachment, systems.obscure.client.protos.Pond.Message.Attachment.Builder, systems.obscure.client.protos.Pond.Message.AttachmentOrBuilder>(
                   attachments_,
                   ((bitField0_ & 0x00000020) == 0x00000020),
                   getParentForChildren(),
@@ -12926,22 +12926,22 @@ public final class LocalStorage {
         return attachmentsBuilder_;
       }
 
-      private java.util.List<Pond.Message.Detachment> detachments_ =
+      private java.util.List<systems.obscure.client.protos.Pond.Message.Detachment> detachments_ =
         java.util.Collections.emptyList();
       private void ensureDetachmentsIsMutable() {
         if (!((bitField0_ & 0x00000040) == 0x00000040)) {
-          detachments_ = new java.util.ArrayList<Pond.Message.Detachment>(detachments_);
+          detachments_ = new java.util.ArrayList<systems.obscure.client.protos.Pond.Message.Detachment>(detachments_);
           bitField0_ |= 0x00000040;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.Message.Detachment, Pond.Message.Detachment.Builder, Pond.Message.DetachmentOrBuilder> detachmentsBuilder_;
+          systems.obscure.client.protos.Pond.Message.Detachment, systems.obscure.client.protos.Pond.Message.Detachment.Builder, systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder> detachmentsBuilder_;
 
       /**
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
-      public java.util.List<Pond.Message.Detachment> getDetachmentsList() {
+      public java.util.List<systems.obscure.client.protos.Pond.Message.Detachment> getDetachmentsList() {
         if (detachmentsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(detachments_);
         } else {
@@ -12961,7 +12961,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
-      public Pond.Message.Detachment getDetachments(int index) {
+      public systems.obscure.client.protos.Pond.Message.Detachment getDetachments(int index) {
         if (detachmentsBuilder_ == null) {
           return detachments_.get(index);
         } else {
@@ -12972,7 +12972,7 @@ public final class LocalStorage {
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
       public Builder setDetachments(
-          int index, Pond.Message.Detachment value) {
+          int index, systems.obscure.client.protos.Pond.Message.Detachment value) {
         if (detachmentsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12989,7 +12989,7 @@ public final class LocalStorage {
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
       public Builder setDetachments(
-          int index, Pond.Message.Detachment.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.Message.Detachment.Builder builderForValue) {
         if (detachmentsBuilder_ == null) {
           ensureDetachmentsIsMutable();
           detachments_.set(index, builderForValue.build());
@@ -13002,7 +13002,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
-      public Builder addDetachments(Pond.Message.Detachment value) {
+      public Builder addDetachments(systems.obscure.client.protos.Pond.Message.Detachment value) {
         if (detachmentsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -13019,7 +13019,7 @@ public final class LocalStorage {
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
       public Builder addDetachments(
-          int index, Pond.Message.Detachment value) {
+          int index, systems.obscure.client.protos.Pond.Message.Detachment value) {
         if (detachmentsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -13036,7 +13036,7 @@ public final class LocalStorage {
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
       public Builder addDetachments(
-          Pond.Message.Detachment.Builder builderForValue) {
+          systems.obscure.client.protos.Pond.Message.Detachment.Builder builderForValue) {
         if (detachmentsBuilder_ == null) {
           ensureDetachmentsIsMutable();
           detachments_.add(builderForValue.build());
@@ -13050,7 +13050,7 @@ public final class LocalStorage {
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
       public Builder addDetachments(
-          int index, Pond.Message.Detachment.Builder builderForValue) {
+          int index, systems.obscure.client.protos.Pond.Message.Detachment.Builder builderForValue) {
         if (detachmentsBuilder_ == null) {
           ensureDetachmentsIsMutable();
           detachments_.add(index, builderForValue.build());
@@ -13064,7 +13064,7 @@ public final class LocalStorage {
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
       public Builder addAllDetachments(
-          java.lang.Iterable<? extends Pond.Message.Detachment> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.Pond.Message.Detachment> values) {
         if (detachmentsBuilder_ == null) {
           ensureDetachmentsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -13104,14 +13104,14 @@ public final class LocalStorage {
       /**
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
-      public Pond.Message.Detachment.Builder getDetachmentsBuilder(
+      public systems.obscure.client.protos.Pond.Message.Detachment.Builder getDetachmentsBuilder(
           int index) {
         return getDetachmentsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
-      public Pond.Message.DetachmentOrBuilder getDetachmentsOrBuilder(
+      public systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder getDetachmentsOrBuilder(
           int index) {
         if (detachmentsBuilder_ == null) {
           return detachments_.get(index);  } else {
@@ -13121,7 +13121,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
-      public java.util.List<? extends Pond.Message.DetachmentOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder> 
            getDetachmentsOrBuilderList() {
         if (detachmentsBuilder_ != null) {
           return detachmentsBuilder_.getMessageOrBuilderList();
@@ -13132,31 +13132,31 @@ public final class LocalStorage {
       /**
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
-      public Pond.Message.Detachment.Builder addDetachmentsBuilder() {
+      public systems.obscure.client.protos.Pond.Message.Detachment.Builder addDetachmentsBuilder() {
         return getDetachmentsFieldBuilder().addBuilder(
-            Pond.Message.Detachment.getDefaultInstance());
+            systems.obscure.client.protos.Pond.Message.Detachment.getDefaultInstance());
       }
       /**
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
-      public Pond.Message.Detachment.Builder addDetachmentsBuilder(
+      public systems.obscure.client.protos.Pond.Message.Detachment.Builder addDetachmentsBuilder(
           int index) {
         return getDetachmentsFieldBuilder().addBuilder(
-            index, Pond.Message.Detachment.getDefaultInstance());
+            index, systems.obscure.client.protos.Pond.Message.Detachment.getDefaultInstance());
       }
       /**
        * <code>repeated .Message.Detachment detachments = 7;</code>
        */
-      public java.util.List<Pond.Message.Detachment.Builder> 
+      public java.util.List<systems.obscure.client.protos.Pond.Message.Detachment.Builder> 
            getDetachmentsBuilderList() {
         return getDetachmentsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          Pond.Message.Detachment, Pond.Message.Detachment.Builder, Pond.Message.DetachmentOrBuilder> 
+          systems.obscure.client.protos.Pond.Message.Detachment, systems.obscure.client.protos.Pond.Message.Detachment.Builder, systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder> 
           getDetachmentsFieldBuilder() {
         if (detachmentsBuilder_ == null) {
           detachmentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              Pond.Message.Detachment, Pond.Message.Detachment.Builder, Pond.Message.DetachmentOrBuilder>(
+              systems.obscure.client.protos.Pond.Message.Detachment, systems.obscure.client.protos.Pond.Message.Detachment.Builder, systems.obscure.client.protos.Pond.Message.DetachmentOrBuilder>(
                   detachments_,
                   ((bitField0_ & 0x00000040) == 0x00000040),
                   getParentForChildren(),
@@ -13273,12 +13273,12 @@ public final class LocalStorage {
     /**
      * <code>repeated .Contact contacts = 4;</code>
      */
-    java.util.List<LocalStorage.Contact> 
+    java.util.List<systems.obscure.client.protos.LocalStorage.Contact> 
         getContactsList();
     /**
      * <code>repeated .Contact contacts = 4;</code>
      */
-    LocalStorage.Contact getContacts(int index);
+    systems.obscure.client.protos.LocalStorage.Contact getContacts(int index);
     /**
      * <code>repeated .Contact contacts = 4;</code>
      */
@@ -13286,23 +13286,23 @@ public final class LocalStorage {
     /**
      * <code>repeated .Contact contacts = 4;</code>
      */
-    java.util.List<? extends LocalStorage.ContactOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.LocalStorage.ContactOrBuilder> 
         getContactsOrBuilderList();
     /**
      * <code>repeated .Contact contacts = 4;</code>
      */
-    LocalStorage.ContactOrBuilder getContactsOrBuilder(
+    systems.obscure.client.protos.LocalStorage.ContactOrBuilder getContactsOrBuilder(
         int index);
 
     /**
      * <code>repeated .Inbox inbox = 5;</code>
      */
-    java.util.List<LocalStorage.Inbox> 
+    java.util.List<systems.obscure.client.protos.LocalStorage.Inbox> 
         getInboxList();
     /**
      * <code>repeated .Inbox inbox = 5;</code>
      */
-    LocalStorage.Inbox getInbox(int index);
+    systems.obscure.client.protos.LocalStorage.Inbox getInbox(int index);
     /**
      * <code>repeated .Inbox inbox = 5;</code>
      */
@@ -13310,23 +13310,23 @@ public final class LocalStorage {
     /**
      * <code>repeated .Inbox inbox = 5;</code>
      */
-    java.util.List<? extends LocalStorage.InboxOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.LocalStorage.InboxOrBuilder> 
         getInboxOrBuilderList();
     /**
      * <code>repeated .Inbox inbox = 5;</code>
      */
-    LocalStorage.InboxOrBuilder getInboxOrBuilder(
+    systems.obscure.client.protos.LocalStorage.InboxOrBuilder getInboxOrBuilder(
         int index);
 
     /**
      * <code>repeated .Outbox outbox = 6;</code>
      */
-    java.util.List<LocalStorage.Outbox> 
+    java.util.List<systems.obscure.client.protos.LocalStorage.Outbox> 
         getOutboxList();
     /**
      * <code>repeated .Outbox outbox = 6;</code>
      */
-    LocalStorage.Outbox getOutbox(int index);
+    systems.obscure.client.protos.LocalStorage.Outbox getOutbox(int index);
     /**
      * <code>repeated .Outbox outbox = 6;</code>
      */
@@ -13334,23 +13334,23 @@ public final class LocalStorage {
     /**
      * <code>repeated .Outbox outbox = 6;</code>
      */
-    java.util.List<? extends LocalStorage.OutboxOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.LocalStorage.OutboxOrBuilder> 
         getOutboxOrBuilderList();
     /**
      * <code>repeated .Outbox outbox = 6;</code>
      */
-    LocalStorage.OutboxOrBuilder getOutboxOrBuilder(
+    systems.obscure.client.protos.LocalStorage.OutboxOrBuilder getOutboxOrBuilder(
         int index);
 
     /**
      * <code>repeated .Draft drafts = 7;</code>
      */
-    java.util.List<LocalStorage.Draft> 
+    java.util.List<systems.obscure.client.protos.LocalStorage.Draft> 
         getDraftsList();
     /**
      * <code>repeated .Draft drafts = 7;</code>
      */
-    LocalStorage.Draft getDrafts(int index);
+    systems.obscure.client.protos.LocalStorage.Draft getDrafts(int index);
     /**
      * <code>repeated .Draft drafts = 7;</code>
      */
@@ -13358,12 +13358,12 @@ public final class LocalStorage {
     /**
      * <code>repeated .Draft drafts = 7;</code>
      */
-    java.util.List<? extends LocalStorage.DraftOrBuilder> 
+    java.util.List<? extends systems.obscure.client.protos.LocalStorage.DraftOrBuilder> 
         getDraftsOrBuilderList();
     /**
      * <code>repeated .Draft drafts = 7;</code>
      */
-    LocalStorage.DraftOrBuilder getDraftsOrBuilder(
+    systems.obscure.client.protos.LocalStorage.DraftOrBuilder getDraftsOrBuilder(
         int index);
   }
   /**
@@ -13436,34 +13436,34 @@ public final class LocalStorage {
             }
             case 34: {
               if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                contacts_ = new java.util.ArrayList<LocalStorage.Contact>();
+                contacts_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.Contact>();
                 mutable_bitField0_ |= 0x00000020;
               }
-              contacts_.add(input.readMessage(LocalStorage.Contact.PARSER, extensionRegistry));
+              contacts_.add(input.readMessage(systems.obscure.client.protos.LocalStorage.Contact.PARSER, extensionRegistry));
               break;
             }
             case 42: {
               if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-                inbox_ = new java.util.ArrayList<LocalStorage.Inbox>();
+                inbox_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.Inbox>();
                 mutable_bitField0_ |= 0x00000040;
               }
-              inbox_.add(input.readMessage(LocalStorage.Inbox.PARSER, extensionRegistry));
+              inbox_.add(input.readMessage(systems.obscure.client.protos.LocalStorage.Inbox.PARSER, extensionRegistry));
               break;
             }
             case 50: {
               if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-                outbox_ = new java.util.ArrayList<LocalStorage.Outbox>();
+                outbox_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.Outbox>();
                 mutable_bitField0_ |= 0x00000080;
               }
-              outbox_.add(input.readMessage(LocalStorage.Outbox.PARSER, extensionRegistry));
+              outbox_.add(input.readMessage(systems.obscure.client.protos.LocalStorage.Outbox.PARSER, extensionRegistry));
               break;
             }
             case 58: {
               if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-                drafts_ = new java.util.ArrayList<LocalStorage.Draft>();
+                drafts_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.Draft>();
                 mutable_bitField0_ |= 0x00000100;
               }
-              drafts_.add(input.readMessage(LocalStorage.Draft.PARSER, extensionRegistry));
+              drafts_.add(input.readMessage(systems.obscure.client.protos.LocalStorage.Draft.PARSER, extensionRegistry));
               break;
             }
             case 64: {
@@ -13502,14 +13502,14 @@ public final class LocalStorage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return LocalStorage.internal_static_protos_State_descriptor;
+      return systems.obscure.client.protos.LocalStorage.internal_static_State_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return LocalStorage.internal_static_protos_State_fieldAccessorTable
+      return systems.obscure.client.protos.LocalStorage.internal_static_State_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              LocalStorage.State.class, LocalStorage.State.Builder.class);
+              systems.obscure.client.protos.LocalStorage.State.class, systems.obscure.client.protos.LocalStorage.State.Builder.class);
     }
 
     public static com.google.protobuf.Parser<State> PARSER =
@@ -13670,17 +13670,17 @@ public final class LocalStorage {
     }
 
     public static final int CONTACTS_FIELD_NUMBER = 4;
-    private java.util.List<LocalStorage.Contact> contacts_;
+    private java.util.List<systems.obscure.client.protos.LocalStorage.Contact> contacts_;
     /**
      * <code>repeated .Contact contacts = 4;</code>
      */
-    public java.util.List<LocalStorage.Contact> getContactsList() {
+    public java.util.List<systems.obscure.client.protos.LocalStorage.Contact> getContactsList() {
       return contacts_;
     }
     /**
      * <code>repeated .Contact contacts = 4;</code>
      */
-    public java.util.List<? extends LocalStorage.ContactOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.LocalStorage.ContactOrBuilder> 
         getContactsOrBuilderList() {
       return contacts_;
     }
@@ -13693,29 +13693,29 @@ public final class LocalStorage {
     /**
      * <code>repeated .Contact contacts = 4;</code>
      */
-    public LocalStorage.Contact getContacts(int index) {
+    public systems.obscure.client.protos.LocalStorage.Contact getContacts(int index) {
       return contacts_.get(index);
     }
     /**
      * <code>repeated .Contact contacts = 4;</code>
      */
-    public LocalStorage.ContactOrBuilder getContactsOrBuilder(
+    public systems.obscure.client.protos.LocalStorage.ContactOrBuilder getContactsOrBuilder(
         int index) {
       return contacts_.get(index);
     }
 
     public static final int INBOX_FIELD_NUMBER = 5;
-    private java.util.List<LocalStorage.Inbox> inbox_;
+    private java.util.List<systems.obscure.client.protos.LocalStorage.Inbox> inbox_;
     /**
      * <code>repeated .Inbox inbox = 5;</code>
      */
-    public java.util.List<LocalStorage.Inbox> getInboxList() {
+    public java.util.List<systems.obscure.client.protos.LocalStorage.Inbox> getInboxList() {
       return inbox_;
     }
     /**
      * <code>repeated .Inbox inbox = 5;</code>
      */
-    public java.util.List<? extends LocalStorage.InboxOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.LocalStorage.InboxOrBuilder> 
         getInboxOrBuilderList() {
       return inbox_;
     }
@@ -13728,29 +13728,29 @@ public final class LocalStorage {
     /**
      * <code>repeated .Inbox inbox = 5;</code>
      */
-    public LocalStorage.Inbox getInbox(int index) {
+    public systems.obscure.client.protos.LocalStorage.Inbox getInbox(int index) {
       return inbox_.get(index);
     }
     /**
      * <code>repeated .Inbox inbox = 5;</code>
      */
-    public LocalStorage.InboxOrBuilder getInboxOrBuilder(
+    public systems.obscure.client.protos.LocalStorage.InboxOrBuilder getInboxOrBuilder(
         int index) {
       return inbox_.get(index);
     }
 
     public static final int OUTBOX_FIELD_NUMBER = 6;
-    private java.util.List<LocalStorage.Outbox> outbox_;
+    private java.util.List<systems.obscure.client.protos.LocalStorage.Outbox> outbox_;
     /**
      * <code>repeated .Outbox outbox = 6;</code>
      */
-    public java.util.List<LocalStorage.Outbox> getOutboxList() {
+    public java.util.List<systems.obscure.client.protos.LocalStorage.Outbox> getOutboxList() {
       return outbox_;
     }
     /**
      * <code>repeated .Outbox outbox = 6;</code>
      */
-    public java.util.List<? extends LocalStorage.OutboxOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.LocalStorage.OutboxOrBuilder> 
         getOutboxOrBuilderList() {
       return outbox_;
     }
@@ -13763,29 +13763,29 @@ public final class LocalStorage {
     /**
      * <code>repeated .Outbox outbox = 6;</code>
      */
-    public LocalStorage.Outbox getOutbox(int index) {
+    public systems.obscure.client.protos.LocalStorage.Outbox getOutbox(int index) {
       return outbox_.get(index);
     }
     /**
      * <code>repeated .Outbox outbox = 6;</code>
      */
-    public LocalStorage.OutboxOrBuilder getOutboxOrBuilder(
+    public systems.obscure.client.protos.LocalStorage.OutboxOrBuilder getOutboxOrBuilder(
         int index) {
       return outbox_.get(index);
     }
 
     public static final int DRAFTS_FIELD_NUMBER = 7;
-    private java.util.List<LocalStorage.Draft> drafts_;
+    private java.util.List<systems.obscure.client.protos.LocalStorage.Draft> drafts_;
     /**
      * <code>repeated .Draft drafts = 7;</code>
      */
-    public java.util.List<LocalStorage.Draft> getDraftsList() {
+    public java.util.List<systems.obscure.client.protos.LocalStorage.Draft> getDraftsList() {
       return drafts_;
     }
     /**
      * <code>repeated .Draft drafts = 7;</code>
      */
-    public java.util.List<? extends LocalStorage.DraftOrBuilder> 
+    public java.util.List<? extends systems.obscure.client.protos.LocalStorage.DraftOrBuilder> 
         getDraftsOrBuilderList() {
       return drafts_;
     }
@@ -13798,13 +13798,13 @@ public final class LocalStorage {
     /**
      * <code>repeated .Draft drafts = 7;</code>
      */
-    public LocalStorage.Draft getDrafts(int index) {
+    public systems.obscure.client.protos.LocalStorage.Draft getDrafts(int index) {
       return drafts_.get(index);
     }
     /**
      * <code>repeated .Draft drafts = 7;</code>
      */
-    public LocalStorage.DraftOrBuilder getDraftsOrBuilder(
+    public systems.obscure.client.protos.LocalStorage.DraftOrBuilder getDraftsOrBuilder(
         int index) {
       return drafts_.get(index);
     }
@@ -13957,53 +13957,53 @@ public final class LocalStorage {
       return super.writeReplace();
     }
 
-    public static LocalStorage.State parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.State parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.State parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.State parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.State parseFrom(byte[] data)
+    public static systems.obscure.client.protos.LocalStorage.State parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static LocalStorage.State parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.State parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static LocalStorage.State parseFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.State parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.State parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.State parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static LocalStorage.State parseDelimitedFrom(java.io.InputStream input)
+    public static systems.obscure.client.protos.LocalStorage.State parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static LocalStorage.State parseDelimitedFrom(
+    public static systems.obscure.client.protos.LocalStorage.State parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static LocalStorage.State parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.State parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static LocalStorage.State parseFrom(
+    public static systems.obscure.client.protos.LocalStorage.State parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -14012,7 +14012,7 @@ public final class LocalStorage {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(LocalStorage.State prototype) {
+    public static Builder newBuilder(systems.obscure.client.protos.LocalStorage.State prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -14029,20 +14029,20 @@ public final class LocalStorage {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:State)
-        LocalStorage.StateOrBuilder {
+        systems.obscure.client.protos.LocalStorage.StateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return LocalStorage.internal_static_protos_State_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_State_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return LocalStorage.internal_static_protos_State_fieldAccessorTable
+        return systems.obscure.client.protos.LocalStorage.internal_static_State_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                LocalStorage.State.class, LocalStorage.State.Builder.class);
+                systems.obscure.client.protos.LocalStorage.State.class, systems.obscure.client.protos.LocalStorage.State.Builder.class);
       }
 
-      // Construct using LocalStorage.State.newBuilder()
+      // Construct using systems.obscure.client.protos.LocalStorage.State.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -14109,23 +14109,23 @@ public final class LocalStorage {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return LocalStorage.internal_static_protos_State_descriptor;
+        return systems.obscure.client.protos.LocalStorage.internal_static_State_descriptor;
       }
 
-      public LocalStorage.State getDefaultInstanceForType() {
-        return LocalStorage.State.getDefaultInstance();
+      public systems.obscure.client.protos.LocalStorage.State getDefaultInstanceForType() {
+        return systems.obscure.client.protos.LocalStorage.State.getDefaultInstance();
       }
 
-      public LocalStorage.State build() {
-        LocalStorage.State result = buildPartial();
+      public systems.obscure.client.protos.LocalStorage.State build() {
+        systems.obscure.client.protos.LocalStorage.State result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public LocalStorage.State buildPartial() {
-        LocalStorage.State result = new LocalStorage.State(this);
+      public systems.obscure.client.protos.LocalStorage.State buildPartial() {
+        systems.obscure.client.protos.LocalStorage.State result = new systems.obscure.client.protos.LocalStorage.State(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -14190,16 +14190,16 @@ public final class LocalStorage {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof LocalStorage.State) {
-          return mergeFrom((LocalStorage.State)other);
+        if (other instanceof systems.obscure.client.protos.LocalStorage.State) {
+          return mergeFrom((systems.obscure.client.protos.LocalStorage.State)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(LocalStorage.State other) {
-        if (other == LocalStorage.State.getDefaultInstance()) return this;
+      public Builder mergeFrom(systems.obscure.client.protos.LocalStorage.State other) {
+        if (other == systems.obscure.client.protos.LocalStorage.State.getDefaultInstance()) return this;
         if (other.hasIdentity()) {
           setIdentity(other.getIdentity());
         }
@@ -14373,11 +14373,11 @@ public final class LocalStorage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        LocalStorage.State parsedMessage = null;
+        systems.obscure.client.protos.LocalStorage.State parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (LocalStorage.State) e.getUnfinishedMessage();
+          parsedMessage = (systems.obscure.client.protos.LocalStorage.State) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -14679,22 +14679,22 @@ public final class LocalStorage {
         return this;
       }
 
-      private java.util.List<LocalStorage.Contact> contacts_ =
+      private java.util.List<systems.obscure.client.protos.LocalStorage.Contact> contacts_ =
         java.util.Collections.emptyList();
       private void ensureContactsIsMutable() {
         if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-          contacts_ = new java.util.ArrayList<LocalStorage.Contact>(contacts_);
+          contacts_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.Contact>(contacts_);
           bitField0_ |= 0x00000020;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Contact, LocalStorage.Contact.Builder, LocalStorage.ContactOrBuilder> contactsBuilder_;
+          systems.obscure.client.protos.LocalStorage.Contact, systems.obscure.client.protos.LocalStorage.Contact.Builder, systems.obscure.client.protos.LocalStorage.ContactOrBuilder> contactsBuilder_;
 
       /**
        * <code>repeated .Contact contacts = 4;</code>
        */
-      public java.util.List<LocalStorage.Contact> getContactsList() {
+      public java.util.List<systems.obscure.client.protos.LocalStorage.Contact> getContactsList() {
         if (contactsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(contacts_);
         } else {
@@ -14714,7 +14714,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact contacts = 4;</code>
        */
-      public LocalStorage.Contact getContacts(int index) {
+      public systems.obscure.client.protos.LocalStorage.Contact getContacts(int index) {
         if (contactsBuilder_ == null) {
           return contacts_.get(index);
         } else {
@@ -14725,7 +14725,7 @@ public final class LocalStorage {
        * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder setContacts(
-          int index, LocalStorage.Contact value) {
+          int index, systems.obscure.client.protos.LocalStorage.Contact value) {
         if (contactsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -14742,7 +14742,7 @@ public final class LocalStorage {
        * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder setContacts(
-          int index, LocalStorage.Contact.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.Contact.Builder builderForValue) {
         if (contactsBuilder_ == null) {
           ensureContactsIsMutable();
           contacts_.set(index, builderForValue.build());
@@ -14755,7 +14755,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact contacts = 4;</code>
        */
-      public Builder addContacts(LocalStorage.Contact value) {
+      public Builder addContacts(systems.obscure.client.protos.LocalStorage.Contact value) {
         if (contactsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -14772,7 +14772,7 @@ public final class LocalStorage {
        * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder addContacts(
-          int index, LocalStorage.Contact value) {
+          int index, systems.obscure.client.protos.LocalStorage.Contact value) {
         if (contactsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -14789,7 +14789,7 @@ public final class LocalStorage {
        * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder addContacts(
-          LocalStorage.Contact.Builder builderForValue) {
+          systems.obscure.client.protos.LocalStorage.Contact.Builder builderForValue) {
         if (contactsBuilder_ == null) {
           ensureContactsIsMutable();
           contacts_.add(builderForValue.build());
@@ -14803,7 +14803,7 @@ public final class LocalStorage {
        * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder addContacts(
-          int index, LocalStorage.Contact.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.Contact.Builder builderForValue) {
         if (contactsBuilder_ == null) {
           ensureContactsIsMutable();
           contacts_.add(index, builderForValue.build());
@@ -14817,7 +14817,7 @@ public final class LocalStorage {
        * <code>repeated .Contact contacts = 4;</code>
        */
       public Builder addAllContacts(
-          java.lang.Iterable<? extends LocalStorage.Contact> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.LocalStorage.Contact> values) {
         if (contactsBuilder_ == null) {
           ensureContactsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -14857,14 +14857,14 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact contacts = 4;</code>
        */
-      public LocalStorage.Contact.Builder getContactsBuilder(
+      public systems.obscure.client.protos.LocalStorage.Contact.Builder getContactsBuilder(
           int index) {
         return getContactsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .Contact contacts = 4;</code>
        */
-      public LocalStorage.ContactOrBuilder getContactsOrBuilder(
+      public systems.obscure.client.protos.LocalStorage.ContactOrBuilder getContactsOrBuilder(
           int index) {
         if (contactsBuilder_ == null) {
           return contacts_.get(index);  } else {
@@ -14874,7 +14874,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact contacts = 4;</code>
        */
-      public java.util.List<? extends LocalStorage.ContactOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.LocalStorage.ContactOrBuilder> 
            getContactsOrBuilderList() {
         if (contactsBuilder_ != null) {
           return contactsBuilder_.getMessageOrBuilderList();
@@ -14885,31 +14885,31 @@ public final class LocalStorage {
       /**
        * <code>repeated .Contact contacts = 4;</code>
        */
-      public LocalStorage.Contact.Builder addContactsBuilder() {
+      public systems.obscure.client.protos.LocalStorage.Contact.Builder addContactsBuilder() {
         return getContactsFieldBuilder().addBuilder(
-            LocalStorage.Contact.getDefaultInstance());
+            systems.obscure.client.protos.LocalStorage.Contact.getDefaultInstance());
       }
       /**
        * <code>repeated .Contact contacts = 4;</code>
        */
-      public LocalStorage.Contact.Builder addContactsBuilder(
+      public systems.obscure.client.protos.LocalStorage.Contact.Builder addContactsBuilder(
           int index) {
         return getContactsFieldBuilder().addBuilder(
-            index, LocalStorage.Contact.getDefaultInstance());
+            index, systems.obscure.client.protos.LocalStorage.Contact.getDefaultInstance());
       }
       /**
        * <code>repeated .Contact contacts = 4;</code>
        */
-      public java.util.List<LocalStorage.Contact.Builder> 
+      public java.util.List<systems.obscure.client.protos.LocalStorage.Contact.Builder> 
            getContactsBuilderList() {
         return getContactsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Contact, LocalStorage.Contact.Builder, LocalStorage.ContactOrBuilder> 
+          systems.obscure.client.protos.LocalStorage.Contact, systems.obscure.client.protos.LocalStorage.Contact.Builder, systems.obscure.client.protos.LocalStorage.ContactOrBuilder> 
           getContactsFieldBuilder() {
         if (contactsBuilder_ == null) {
           contactsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              LocalStorage.Contact, LocalStorage.Contact.Builder, LocalStorage.ContactOrBuilder>(
+              systems.obscure.client.protos.LocalStorage.Contact, systems.obscure.client.protos.LocalStorage.Contact.Builder, systems.obscure.client.protos.LocalStorage.ContactOrBuilder>(
                   contacts_,
                   ((bitField0_ & 0x00000020) == 0x00000020),
                   getParentForChildren(),
@@ -14919,22 +14919,22 @@ public final class LocalStorage {
         return contactsBuilder_;
       }
 
-      private java.util.List<LocalStorage.Inbox> inbox_ =
+      private java.util.List<systems.obscure.client.protos.LocalStorage.Inbox> inbox_ =
         java.util.Collections.emptyList();
       private void ensureInboxIsMutable() {
         if (!((bitField0_ & 0x00000040) == 0x00000040)) {
-          inbox_ = new java.util.ArrayList<LocalStorage.Inbox>(inbox_);
+          inbox_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.Inbox>(inbox_);
           bitField0_ |= 0x00000040;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Inbox, LocalStorage.Inbox.Builder, LocalStorage.InboxOrBuilder> inboxBuilder_;
+          systems.obscure.client.protos.LocalStorage.Inbox, systems.obscure.client.protos.LocalStorage.Inbox.Builder, systems.obscure.client.protos.LocalStorage.InboxOrBuilder> inboxBuilder_;
 
       /**
        * <code>repeated .Inbox inbox = 5;</code>
        */
-      public java.util.List<LocalStorage.Inbox> getInboxList() {
+      public java.util.List<systems.obscure.client.protos.LocalStorage.Inbox> getInboxList() {
         if (inboxBuilder_ == null) {
           return java.util.Collections.unmodifiableList(inbox_);
         } else {
@@ -14954,7 +14954,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Inbox inbox = 5;</code>
        */
-      public LocalStorage.Inbox getInbox(int index) {
+      public systems.obscure.client.protos.LocalStorage.Inbox getInbox(int index) {
         if (inboxBuilder_ == null) {
           return inbox_.get(index);
         } else {
@@ -14965,7 +14965,7 @@ public final class LocalStorage {
        * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder setInbox(
-          int index, LocalStorage.Inbox value) {
+          int index, systems.obscure.client.protos.LocalStorage.Inbox value) {
         if (inboxBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -14982,7 +14982,7 @@ public final class LocalStorage {
        * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder setInbox(
-          int index, LocalStorage.Inbox.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.Inbox.Builder builderForValue) {
         if (inboxBuilder_ == null) {
           ensureInboxIsMutable();
           inbox_.set(index, builderForValue.build());
@@ -14995,7 +14995,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Inbox inbox = 5;</code>
        */
-      public Builder addInbox(LocalStorage.Inbox value) {
+      public Builder addInbox(systems.obscure.client.protos.LocalStorage.Inbox value) {
         if (inboxBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15012,7 +15012,7 @@ public final class LocalStorage {
        * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder addInbox(
-          int index, LocalStorage.Inbox value) {
+          int index, systems.obscure.client.protos.LocalStorage.Inbox value) {
         if (inboxBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15029,7 +15029,7 @@ public final class LocalStorage {
        * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder addInbox(
-          LocalStorage.Inbox.Builder builderForValue) {
+          systems.obscure.client.protos.LocalStorage.Inbox.Builder builderForValue) {
         if (inboxBuilder_ == null) {
           ensureInboxIsMutable();
           inbox_.add(builderForValue.build());
@@ -15043,7 +15043,7 @@ public final class LocalStorage {
        * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder addInbox(
-          int index, LocalStorage.Inbox.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.Inbox.Builder builderForValue) {
         if (inboxBuilder_ == null) {
           ensureInboxIsMutable();
           inbox_.add(index, builderForValue.build());
@@ -15057,7 +15057,7 @@ public final class LocalStorage {
        * <code>repeated .Inbox inbox = 5;</code>
        */
       public Builder addAllInbox(
-          java.lang.Iterable<? extends LocalStorage.Inbox> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.LocalStorage.Inbox> values) {
         if (inboxBuilder_ == null) {
           ensureInboxIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -15097,14 +15097,14 @@ public final class LocalStorage {
       /**
        * <code>repeated .Inbox inbox = 5;</code>
        */
-      public LocalStorage.Inbox.Builder getInboxBuilder(
+      public systems.obscure.client.protos.LocalStorage.Inbox.Builder getInboxBuilder(
           int index) {
         return getInboxFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .Inbox inbox = 5;</code>
        */
-      public LocalStorage.InboxOrBuilder getInboxOrBuilder(
+      public systems.obscure.client.protos.LocalStorage.InboxOrBuilder getInboxOrBuilder(
           int index) {
         if (inboxBuilder_ == null) {
           return inbox_.get(index);  } else {
@@ -15114,7 +15114,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Inbox inbox = 5;</code>
        */
-      public java.util.List<? extends LocalStorage.InboxOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.LocalStorage.InboxOrBuilder> 
            getInboxOrBuilderList() {
         if (inboxBuilder_ != null) {
           return inboxBuilder_.getMessageOrBuilderList();
@@ -15125,31 +15125,31 @@ public final class LocalStorage {
       /**
        * <code>repeated .Inbox inbox = 5;</code>
        */
-      public LocalStorage.Inbox.Builder addInboxBuilder() {
+      public systems.obscure.client.protos.LocalStorage.Inbox.Builder addInboxBuilder() {
         return getInboxFieldBuilder().addBuilder(
-            LocalStorage.Inbox.getDefaultInstance());
+            systems.obscure.client.protos.LocalStorage.Inbox.getDefaultInstance());
       }
       /**
        * <code>repeated .Inbox inbox = 5;</code>
        */
-      public LocalStorage.Inbox.Builder addInboxBuilder(
+      public systems.obscure.client.protos.LocalStorage.Inbox.Builder addInboxBuilder(
           int index) {
         return getInboxFieldBuilder().addBuilder(
-            index, LocalStorage.Inbox.getDefaultInstance());
+            index, systems.obscure.client.protos.LocalStorage.Inbox.getDefaultInstance());
       }
       /**
        * <code>repeated .Inbox inbox = 5;</code>
        */
-      public java.util.List<LocalStorage.Inbox.Builder> 
+      public java.util.List<systems.obscure.client.protos.LocalStorage.Inbox.Builder> 
            getInboxBuilderList() {
         return getInboxFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Inbox, LocalStorage.Inbox.Builder, LocalStorage.InboxOrBuilder> 
+          systems.obscure.client.protos.LocalStorage.Inbox, systems.obscure.client.protos.LocalStorage.Inbox.Builder, systems.obscure.client.protos.LocalStorage.InboxOrBuilder> 
           getInboxFieldBuilder() {
         if (inboxBuilder_ == null) {
           inboxBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              LocalStorage.Inbox, LocalStorage.Inbox.Builder, LocalStorage.InboxOrBuilder>(
+              systems.obscure.client.protos.LocalStorage.Inbox, systems.obscure.client.protos.LocalStorage.Inbox.Builder, systems.obscure.client.protos.LocalStorage.InboxOrBuilder>(
                   inbox_,
                   ((bitField0_ & 0x00000040) == 0x00000040),
                   getParentForChildren(),
@@ -15159,22 +15159,22 @@ public final class LocalStorage {
         return inboxBuilder_;
       }
 
-      private java.util.List<LocalStorage.Outbox> outbox_ =
+      private java.util.List<systems.obscure.client.protos.LocalStorage.Outbox> outbox_ =
         java.util.Collections.emptyList();
       private void ensureOutboxIsMutable() {
         if (!((bitField0_ & 0x00000080) == 0x00000080)) {
-          outbox_ = new java.util.ArrayList<LocalStorage.Outbox>(outbox_);
+          outbox_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.Outbox>(outbox_);
           bitField0_ |= 0x00000080;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Outbox, LocalStorage.Outbox.Builder, LocalStorage.OutboxOrBuilder> outboxBuilder_;
+          systems.obscure.client.protos.LocalStorage.Outbox, systems.obscure.client.protos.LocalStorage.Outbox.Builder, systems.obscure.client.protos.LocalStorage.OutboxOrBuilder> outboxBuilder_;
 
       /**
        * <code>repeated .Outbox outbox = 6;</code>
        */
-      public java.util.List<LocalStorage.Outbox> getOutboxList() {
+      public java.util.List<systems.obscure.client.protos.LocalStorage.Outbox> getOutboxList() {
         if (outboxBuilder_ == null) {
           return java.util.Collections.unmodifiableList(outbox_);
         } else {
@@ -15194,7 +15194,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Outbox outbox = 6;</code>
        */
-      public LocalStorage.Outbox getOutbox(int index) {
+      public systems.obscure.client.protos.LocalStorage.Outbox getOutbox(int index) {
         if (outboxBuilder_ == null) {
           return outbox_.get(index);
         } else {
@@ -15205,7 +15205,7 @@ public final class LocalStorage {
        * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder setOutbox(
-          int index, LocalStorage.Outbox value) {
+          int index, systems.obscure.client.protos.LocalStorage.Outbox value) {
         if (outboxBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15222,7 +15222,7 @@ public final class LocalStorage {
        * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder setOutbox(
-          int index, LocalStorage.Outbox.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.Outbox.Builder builderForValue) {
         if (outboxBuilder_ == null) {
           ensureOutboxIsMutable();
           outbox_.set(index, builderForValue.build());
@@ -15235,7 +15235,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Outbox outbox = 6;</code>
        */
-      public Builder addOutbox(LocalStorage.Outbox value) {
+      public Builder addOutbox(systems.obscure.client.protos.LocalStorage.Outbox value) {
         if (outboxBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15252,7 +15252,7 @@ public final class LocalStorage {
        * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder addOutbox(
-          int index, LocalStorage.Outbox value) {
+          int index, systems.obscure.client.protos.LocalStorage.Outbox value) {
         if (outboxBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15269,7 +15269,7 @@ public final class LocalStorage {
        * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder addOutbox(
-          LocalStorage.Outbox.Builder builderForValue) {
+          systems.obscure.client.protos.LocalStorage.Outbox.Builder builderForValue) {
         if (outboxBuilder_ == null) {
           ensureOutboxIsMutable();
           outbox_.add(builderForValue.build());
@@ -15283,7 +15283,7 @@ public final class LocalStorage {
        * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder addOutbox(
-          int index, LocalStorage.Outbox.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.Outbox.Builder builderForValue) {
         if (outboxBuilder_ == null) {
           ensureOutboxIsMutable();
           outbox_.add(index, builderForValue.build());
@@ -15297,7 +15297,7 @@ public final class LocalStorage {
        * <code>repeated .Outbox outbox = 6;</code>
        */
       public Builder addAllOutbox(
-          java.lang.Iterable<? extends LocalStorage.Outbox> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.LocalStorage.Outbox> values) {
         if (outboxBuilder_ == null) {
           ensureOutboxIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -15337,14 +15337,14 @@ public final class LocalStorage {
       /**
        * <code>repeated .Outbox outbox = 6;</code>
        */
-      public LocalStorage.Outbox.Builder getOutboxBuilder(
+      public systems.obscure.client.protos.LocalStorage.Outbox.Builder getOutboxBuilder(
           int index) {
         return getOutboxFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .Outbox outbox = 6;</code>
        */
-      public LocalStorage.OutboxOrBuilder getOutboxOrBuilder(
+      public systems.obscure.client.protos.LocalStorage.OutboxOrBuilder getOutboxOrBuilder(
           int index) {
         if (outboxBuilder_ == null) {
           return outbox_.get(index);  } else {
@@ -15354,7 +15354,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Outbox outbox = 6;</code>
        */
-      public java.util.List<? extends LocalStorage.OutboxOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.LocalStorage.OutboxOrBuilder> 
            getOutboxOrBuilderList() {
         if (outboxBuilder_ != null) {
           return outboxBuilder_.getMessageOrBuilderList();
@@ -15365,31 +15365,31 @@ public final class LocalStorage {
       /**
        * <code>repeated .Outbox outbox = 6;</code>
        */
-      public LocalStorage.Outbox.Builder addOutboxBuilder() {
+      public systems.obscure.client.protos.LocalStorage.Outbox.Builder addOutboxBuilder() {
         return getOutboxFieldBuilder().addBuilder(
-            LocalStorage.Outbox.getDefaultInstance());
+            systems.obscure.client.protos.LocalStorage.Outbox.getDefaultInstance());
       }
       /**
        * <code>repeated .Outbox outbox = 6;</code>
        */
-      public LocalStorage.Outbox.Builder addOutboxBuilder(
+      public systems.obscure.client.protos.LocalStorage.Outbox.Builder addOutboxBuilder(
           int index) {
         return getOutboxFieldBuilder().addBuilder(
-            index, LocalStorage.Outbox.getDefaultInstance());
+            index, systems.obscure.client.protos.LocalStorage.Outbox.getDefaultInstance());
       }
       /**
        * <code>repeated .Outbox outbox = 6;</code>
        */
-      public java.util.List<LocalStorage.Outbox.Builder> 
+      public java.util.List<systems.obscure.client.protos.LocalStorage.Outbox.Builder> 
            getOutboxBuilderList() {
         return getOutboxFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Outbox, LocalStorage.Outbox.Builder, LocalStorage.OutboxOrBuilder> 
+          systems.obscure.client.protos.LocalStorage.Outbox, systems.obscure.client.protos.LocalStorage.Outbox.Builder, systems.obscure.client.protos.LocalStorage.OutboxOrBuilder> 
           getOutboxFieldBuilder() {
         if (outboxBuilder_ == null) {
           outboxBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              LocalStorage.Outbox, LocalStorage.Outbox.Builder, LocalStorage.OutboxOrBuilder>(
+              systems.obscure.client.protos.LocalStorage.Outbox, systems.obscure.client.protos.LocalStorage.Outbox.Builder, systems.obscure.client.protos.LocalStorage.OutboxOrBuilder>(
                   outbox_,
                   ((bitField0_ & 0x00000080) == 0x00000080),
                   getParentForChildren(),
@@ -15399,22 +15399,22 @@ public final class LocalStorage {
         return outboxBuilder_;
       }
 
-      private java.util.List<LocalStorage.Draft> drafts_ =
+      private java.util.List<systems.obscure.client.protos.LocalStorage.Draft> drafts_ =
         java.util.Collections.emptyList();
       private void ensureDraftsIsMutable() {
         if (!((bitField0_ & 0x00000100) == 0x00000100)) {
-          drafts_ = new java.util.ArrayList<LocalStorage.Draft>(drafts_);
+          drafts_ = new java.util.ArrayList<systems.obscure.client.protos.LocalStorage.Draft>(drafts_);
           bitField0_ |= 0x00000100;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Draft, LocalStorage.Draft.Builder, LocalStorage.DraftOrBuilder> draftsBuilder_;
+          systems.obscure.client.protos.LocalStorage.Draft, systems.obscure.client.protos.LocalStorage.Draft.Builder, systems.obscure.client.protos.LocalStorage.DraftOrBuilder> draftsBuilder_;
 
       /**
        * <code>repeated .Draft drafts = 7;</code>
        */
-      public java.util.List<LocalStorage.Draft> getDraftsList() {
+      public java.util.List<systems.obscure.client.protos.LocalStorage.Draft> getDraftsList() {
         if (draftsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(drafts_);
         } else {
@@ -15434,7 +15434,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Draft drafts = 7;</code>
        */
-      public LocalStorage.Draft getDrafts(int index) {
+      public systems.obscure.client.protos.LocalStorage.Draft getDrafts(int index) {
         if (draftsBuilder_ == null) {
           return drafts_.get(index);
         } else {
@@ -15445,7 +15445,7 @@ public final class LocalStorage {
        * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder setDrafts(
-          int index, LocalStorage.Draft value) {
+          int index, systems.obscure.client.protos.LocalStorage.Draft value) {
         if (draftsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15462,7 +15462,7 @@ public final class LocalStorage {
        * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder setDrafts(
-          int index, LocalStorage.Draft.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.Draft.Builder builderForValue) {
         if (draftsBuilder_ == null) {
           ensureDraftsIsMutable();
           drafts_.set(index, builderForValue.build());
@@ -15475,7 +15475,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Draft drafts = 7;</code>
        */
-      public Builder addDrafts(LocalStorage.Draft value) {
+      public Builder addDrafts(systems.obscure.client.protos.LocalStorage.Draft value) {
         if (draftsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15492,7 +15492,7 @@ public final class LocalStorage {
        * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder addDrafts(
-          int index, LocalStorage.Draft value) {
+          int index, systems.obscure.client.protos.LocalStorage.Draft value) {
         if (draftsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15509,7 +15509,7 @@ public final class LocalStorage {
        * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder addDrafts(
-          LocalStorage.Draft.Builder builderForValue) {
+          systems.obscure.client.protos.LocalStorage.Draft.Builder builderForValue) {
         if (draftsBuilder_ == null) {
           ensureDraftsIsMutable();
           drafts_.add(builderForValue.build());
@@ -15523,7 +15523,7 @@ public final class LocalStorage {
        * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder addDrafts(
-          int index, LocalStorage.Draft.Builder builderForValue) {
+          int index, systems.obscure.client.protos.LocalStorage.Draft.Builder builderForValue) {
         if (draftsBuilder_ == null) {
           ensureDraftsIsMutable();
           drafts_.add(index, builderForValue.build());
@@ -15537,7 +15537,7 @@ public final class LocalStorage {
        * <code>repeated .Draft drafts = 7;</code>
        */
       public Builder addAllDrafts(
-          java.lang.Iterable<? extends LocalStorage.Draft> values) {
+          java.lang.Iterable<? extends systems.obscure.client.protos.LocalStorage.Draft> values) {
         if (draftsBuilder_ == null) {
           ensureDraftsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -15577,14 +15577,14 @@ public final class LocalStorage {
       /**
        * <code>repeated .Draft drafts = 7;</code>
        */
-      public LocalStorage.Draft.Builder getDraftsBuilder(
+      public systems.obscure.client.protos.LocalStorage.Draft.Builder getDraftsBuilder(
           int index) {
         return getDraftsFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .Draft drafts = 7;</code>
        */
-      public LocalStorage.DraftOrBuilder getDraftsOrBuilder(
+      public systems.obscure.client.protos.LocalStorage.DraftOrBuilder getDraftsOrBuilder(
           int index) {
         if (draftsBuilder_ == null) {
           return drafts_.get(index);  } else {
@@ -15594,7 +15594,7 @@ public final class LocalStorage {
       /**
        * <code>repeated .Draft drafts = 7;</code>
        */
-      public java.util.List<? extends LocalStorage.DraftOrBuilder> 
+      public java.util.List<? extends systems.obscure.client.protos.LocalStorage.DraftOrBuilder> 
            getDraftsOrBuilderList() {
         if (draftsBuilder_ != null) {
           return draftsBuilder_.getMessageOrBuilderList();
@@ -15605,31 +15605,31 @@ public final class LocalStorage {
       /**
        * <code>repeated .Draft drafts = 7;</code>
        */
-      public LocalStorage.Draft.Builder addDraftsBuilder() {
+      public systems.obscure.client.protos.LocalStorage.Draft.Builder addDraftsBuilder() {
         return getDraftsFieldBuilder().addBuilder(
-            LocalStorage.Draft.getDefaultInstance());
+            systems.obscure.client.protos.LocalStorage.Draft.getDefaultInstance());
       }
       /**
        * <code>repeated .Draft drafts = 7;</code>
        */
-      public LocalStorage.Draft.Builder addDraftsBuilder(
+      public systems.obscure.client.protos.LocalStorage.Draft.Builder addDraftsBuilder(
           int index) {
         return getDraftsFieldBuilder().addBuilder(
-            index, LocalStorage.Draft.getDefaultInstance());
+            index, systems.obscure.client.protos.LocalStorage.Draft.getDefaultInstance());
       }
       /**
        * <code>repeated .Draft drafts = 7;</code>
        */
-      public java.util.List<LocalStorage.Draft.Builder> 
+      public java.util.List<systems.obscure.client.protos.LocalStorage.Draft.Builder> 
            getDraftsBuilderList() {
         return getDraftsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          LocalStorage.Draft, LocalStorage.Draft.Builder, LocalStorage.DraftOrBuilder> 
+          systems.obscure.client.protos.LocalStorage.Draft, systems.obscure.client.protos.LocalStorage.Draft.Builder, systems.obscure.client.protos.LocalStorage.DraftOrBuilder> 
           getDraftsFieldBuilder() {
         if (draftsBuilder_ == null) {
           draftsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              LocalStorage.Draft, LocalStorage.Draft.Builder, LocalStorage.DraftOrBuilder>(
+              systems.obscure.client.protos.LocalStorage.Draft, systems.obscure.client.protos.LocalStorage.Draft.Builder, systems.obscure.client.protos.LocalStorage.DraftOrBuilder>(
                   drafts_,
                   ((bitField0_ & 0x00000100) == 0x00000100),
                   getParentForChildren(),
@@ -15651,70 +15651,70 @@ public final class LocalStorage {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Header_descriptor;
+    internal_static_Header_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Header_fieldAccessorTable;
+      internal_static_Header_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Header_SCrypt_descriptor;
+    internal_static_Header_SCrypt_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Header_SCrypt_fieldAccessorTable;
+      internal_static_Header_SCrypt_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Header_TPM_descriptor;
+    internal_static_Header_TPM_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Header_TPM_fieldAccessorTable;
+      internal_static_Header_TPM_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Contact_descriptor;
+    internal_static_Contact_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Contact_fieldAccessorTable;
+      internal_static_Contact_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Contact_Event_descriptor;
+    internal_static_Contact_Event_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Contact_Event_fieldAccessorTable;
+      internal_static_Contact_Event_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Contact_MyHMACPair_descriptor;
+    internal_static_Contact_MyHMACPair_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Contact_MyHMACPair_fieldAccessorTable;
+      internal_static_Contact_MyHMACPair_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_RatchetState_descriptor;
+    internal_static_RatchetState_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_RatchetState_fieldAccessorTable;
+      internal_static_RatchetState_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_RatchetState_SavedKeys_descriptor;
+    internal_static_RatchetState_SavedKeys_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_RatchetState_SavedKeys_fieldAccessorTable;
+      internal_static_RatchetState_SavedKeys_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_RatchetState_SavedKeys_MessageKey_descriptor;
+    internal_static_RatchetState_SavedKeys_MessageKey_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_RatchetState_SavedKeys_MessageKey_fieldAccessorTable;
+      internal_static_RatchetState_SavedKeys_MessageKey_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Inbox_descriptor;
+    internal_static_Inbox_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Inbox_fieldAccessorTable;
+      internal_static_Inbox_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Outbox_descriptor;
+    internal_static_Outbox_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Outbox_fieldAccessorTable;
+      internal_static_Outbox_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Draft_descriptor;
+    internal_static_Draft_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_Draft_fieldAccessorTable;
+      internal_static_Draft_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_State_descriptor;
+    internal_static_State_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_protos_State_fieldAccessorTable;
+      internal_static_State_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -15724,61 +15724,59 @@ public final class LocalStorage {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022localStorage.proto\022\006protos\032\npond.proto" +
-      "\"\365\001\n\006Header\022 \n\022nonce_smear_copies\030\001 \001(\005:" +
-      "\0041365\022\020\n\010kdf_salt\030\002 \001(\014\022%\n\006scrypt\030\003 \001(\0132" +
-      "\025.Header.SCrypt\022%\n\ttpm_nvram\030\004 \001(" +
-      "\0132\022.Header.TPM\022\032\n\022no_erasure_stor" +
-      "age\030\005 \001(\010\0327\n\006SCrypt\022\020\n\001N\030\002 \001(\005:\00532768\022\r\n" +
-      "\001r\030\003 \001(\005:\00216\022\014\n\001p\030\004 \001(\005:\0011\032\024\n\003TPM\022\r\n\005ind" +
-      "ex\030\001 \002(\r\"\305\004\n\007Contact\022\n\n\002id\030\001 \002(\006\022\014\n\004name" +
-      "\030\002 \002(\t\022\031\n\021supported_version\030\003 \001(\005\022\032\n\022key" +
-      "_exchange_bytes\030\004 \001(\014\022\022\n\ngeneration\030\005 \001(",
-      "\r\022\024\n\014their_server\030\006 \001(\t\022\021\n\ttheir_pub\030\007 \001" +
-      "(\014\022\035\n\025their_identity_public\030\010 \001(\014\022\022\n\nrev" +
-      "oked_us\030\t \001(\010\022\024\n\014last_private\030\n \001(\014\022\027\n\017c" +
-      "urrent_private\030\013 \001(\014\022\031\n\021their_last_publi" +
-      "c\030\014 \001(\014\022\034\n\024their_current_public\030\r \001(\014\022%\n" +
-      "\007ratchet\030\016 \001(\0132\024.RatchetState\022%\n\006" +
-      "events\030\017 \003(\0132\025.Contact.Event\022$\n\nt" +
-      "heirPairs\030\020 \003(\0132\020.HMACPair\022+\n\007myP" +
-      "airs\030\021 \003(\0132\032.Contact.MyHMACPair\022\031" +
-      "\n\nis_pending\030\022 \001(\010:\005false\032&\n\005Event\022\014\n\004ti",
-      "me\030\001 \002(\003\022\017\n\007message\030\002 \002(\t\032-\n\nMyHMACPair\022" +
-      "\021\n\tpublicKey\030\001 \002(\014\022\014\n\004hmac\030\002 \002(\014\"\321\004\n\014Rat" +
-      "chetState\022\020\n\010root_key\030\001 \002(\014\022\027\n\017send_head" +
-      "er_key\030\002 \002(\014\022\027\n\017recv_header_key\030\003 \002(\014\022\034\n" +
-      "\024next_send_header_key\030\004 \002(\014\022\034\n\024next_recv" +
-      "_header_key\030\005 \002(\014\022\026\n\016send_chain_key\030\006 \002(" +
-      "\014\022\026\n\016recv_chain_key\030\007 \002(\014\022\034\n\024send_ratche" +
-      "t_private\030\010 \002(\014\022\033\n\023recv_ratchet_public\030\t" +
-      " \002(\014\022\022\n\nsend_count\030\n \002(\r\022\022\n\nrecv_count\030\013" +
-      " \002(\r\022\027\n\017prev_send_count\030\014 \002(\r\022\017\n\007ratchet",
-      "\030\r \002(\010\022\n\n\002v2\030\021 \001(\010\022\020\n\010private0\030\016 \001(\014\022\020\n\010" +
-      "private1\030\017 \001(\014\0222\n\nsaved_keys\030\020 \003(\0132\036.pro" +
-      "tos.RatchetState.SavedKeys\032\237\001\n\tSavedKeys" +
-      "\022\022\n\nheader_key\030\001 \002(\014\022?\n\014message_keys\030\002 \003" +
-      "(\0132).RatchetState.SavedKeys.Messa" +
-      "geKey\032=\n\nMessageKey\022\013\n\003num\030\001 \002(\r\022\013\n\003key\030" +
-      "\002 \002(\014\022\025\n\rcreation_time\030\003 \002(\003\"\217\001\n\005Inbox\022\n" +
-      "\n\002id\030\001 \002(\006\022\014\n\004from\030\002 \002(\006\022\025\n\rreceived_tim" +
-      "e\030\003 \002(\003\022\r\n\005acked\030\004 \002(\010\022\017\n\007message\030\005 \001(\014\022" +
-      "\014\n\004read\030\006 \002(\010\022\016\n\006sealed\030\007 \001(\014\022\027\n\010retaine",
-      "d\030\010 \001(\010:\005false\"\224\001\n\006Outbox\022\n\n\002id\030\001 \002(\006\022\n\n" +
-      "\002to\030\002 \002(\006\022\016\n\006server\030\003 \002(\t\022\017\n\007created\030\004 \002" +
-      "(\003\022\014\n\004sent\030\005 \001(\003\022\017\n\007message\030\006 \001(\014\022\017\n\007req" +
-      "uest\030\007 \001(\014\022\r\n\005acked\030\010 \001(\003\022\022\n\nrevocation\030" +
-      "\t \001(\010\"\265\001\n\005Draft\022\n\n\002id\030\001 \002(\006\022\017\n\007created\030\002" +
-      " \002(\003\022\n\n\002to\030\003 \001(\006\022\014\n\004body\030\004 \002(\t\022\023\n\013in_rep" +
-      "ly_to\030\005 \001(\006\022/\n\013attachments\030\006 \003(\0132\032.proto" +
-      "s.Message.Attachment\022/\n\013detachments\030\007 \003(" +
-      "\0132\032.Message.Detachment\"\353\001\n\005State\022" +
-      "\020\n\010identity\030\001 \002(\014\022\014\n\004seed\030\002 \002(\014\022\017\n\007hmacK",
-      "ey\030\t \002(\014\022\016\n\006server\030\003 \002(\t\022!\n\031last_erasure" +
-      "_storage_time\030\010 \001(\003\022!\n\010contacts\030\004 \003(\0132\017." +
-      "Contact\022\034\n\005inbox\030\005 \003(\0132\r.I" +
-      "nbox\022\036\n\006outbox\030\006 \003(\0132\016.Outbox\022\035\n\006" +
-      "drafts\030\007 \003(\0132\r.Draft"
+      "\n\022localStorage.proto\032\npond.proto\"\347\001\n\006Hea" +
+      "der\022 \n\022nonce_smear_copies\030\001 \001(\005:\0041365\022\020\n" +
+      "\010kdf_salt\030\002 \001(\014\022\036\n\006scrypt\030\003 \001(\0132\016.Header" +
+      ".SCrypt\022\036\n\ttpm_nvram\030\004 \001(\0132\013.Header.TPM\022" +
+      "\032\n\022no_erasure_storage\030\005 \001(\010\0327\n\006SCrypt\022\020\n" +
+      "\001N\030\002 \001(\005:\00532768\022\r\n\001r\030\003 \001(\005:\00216\022\014\n\001p\030\004 \001(" +
+      "\005:\0011\032\024\n\003TPM\022\r\n\005index\030\001 \002(\r\"\251\004\n\007Contact\022\n" +
+      "\n\002id\030\001 \002(\006\022\014\n\004name\030\002 \002(\t\022\031\n\021supported_ve" +
+      "rsion\030\003 \001(\005\022\032\n\022key_exchange_bytes\030\004 \001(\014\022" +
+      "\022\n\ngeneration\030\005 \001(\r\022\024\n\014their_server\030\006 \001(",
+      "\t\022\021\n\ttheir_pub\030\007 \001(\014\022\035\n\025their_identity_p" +
+      "ublic\030\010 \001(\014\022\022\n\nrevoked_us\030\t \001(\010\022\024\n\014last_" +
+      "private\030\n \001(\014\022\027\n\017current_private\030\013 \001(\014\022\031" +
+      "\n\021their_last_public\030\014 \001(\014\022\034\n\024their_curre" +
+      "nt_public\030\r \001(\014\022\036\n\007ratchet\030\016 \001(\0132\r.Ratch" +
+      "etState\022\036\n\006events\030\017 \003(\0132\016.Contact.Event\022" +
+      "\035\n\ntheirPairs\030\020 \003(\0132\t.HMACPair\022$\n\007myPair" +
+      "s\030\021 \003(\0132\023.Contact.MyHMACPair\022\031\n\nis_pendi" +
+      "ng\030\022 \001(\010:\005false\032&\n\005Event\022\014\n\004time\030\001 \002(\003\022\017" +
+      "\n\007message\030\002 \002(\t\032-\n\nMyHMACPair\022\021\n\tpublicK",
+      "ey\030\001 \002(\014\022\014\n\004hmac\030\002 \002(\014\"\303\004\n\014RatchetState\022" +
+      "\020\n\010root_key\030\001 \002(\014\022\027\n\017send_header_key\030\002 \002" +
+      "(\014\022\027\n\017recv_header_key\030\003 \002(\014\022\034\n\024next_send" +
+      "_header_key\030\004 \002(\014\022\034\n\024next_recv_header_ke" +
+      "y\030\005 \002(\014\022\026\n\016send_chain_key\030\006 \002(\014\022\026\n\016recv_" +
+      "chain_key\030\007 \002(\014\022\034\n\024send_ratchet_private\030" +
+      "\010 \002(\014\022\033\n\023recv_ratchet_public\030\t \002(\014\022\022\n\nse" +
+      "nd_count\030\n \002(\r\022\022\n\nrecv_count\030\013 \002(\r\022\027\n\017pr" +
+      "ev_send_count\030\014 \002(\r\022\017\n\007ratchet\030\r \002(\010\022\n\n\002" +
+      "v2\030\021 \001(\010\022\020\n\010private0\030\016 \001(\014\022\020\n\010private1\030\017",
+      " \001(\014\022+\n\nsaved_keys\030\020 \003(\0132\027.RatchetState." +
+      "SavedKeys\032\230\001\n\tSavedKeys\022\022\n\nheader_key\030\001 " +
+      "\002(\014\0228\n\014message_keys\030\002 \003(\0132\".RatchetState" +
+      ".SavedKeys.MessageKey\032=\n\nMessageKey\022\013\n\003n" +
+      "um\030\001 \002(\r\022\013\n\003key\030\002 \002(\014\022\025\n\rcreation_time\030\003" +
+      " \002(\003\"\217\001\n\005Inbox\022\n\n\002id\030\001 \002(\006\022\014\n\004from\030\002 \002(\006" +
+      "\022\025\n\rreceived_time\030\003 \002(\003\022\r\n\005acked\030\004 \002(\010\022\017" +
+      "\n\007message\030\005 \001(\014\022\014\n\004read\030\006 \002(\010\022\016\n\006sealed\030" +
+      "\007 \001(\014\022\027\n\010retained\030\010 \001(\010:\005false\"\224\001\n\006Outbo" +
+      "x\022\n\n\002id\030\001 \002(\006\022\n\n\002to\030\002 \002(\006\022\016\n\006server\030\003 \002(",
+      "\t\022\017\n\007created\030\004 \002(\003\022\014\n\004sent\030\005 \001(\003\022\017\n\007mess" +
+      "age\030\006 \001(\014\022\017\n\007request\030\007 \001(\014\022\r\n\005acked\030\010 \001(" +
+      "\003\022\022\n\nrevocation\030\t \001(\010\"\247\001\n\005Draft\022\n\n\002id\030\001 " +
+      "\002(\006\022\017\n\007created\030\002 \002(\003\022\n\n\002to\030\003 \001(\006\022\014\n\004body" +
+      "\030\004 \002(\t\022\023\n\013in_reply_to\030\005 \001(\006\022(\n\013attachmen" +
+      "ts\030\006 \003(\0132\023.Message.Attachment\022(\n\013detachm" +
+      "ents\030\007 \003(\0132\023.Message.Detachment\"\317\001\n\005Stat" +
+      "e\022\020\n\010identity\030\001 \002(\014\022\014\n\004seed\030\002 \002(\014\022\017\n\007hma" +
+      "cKey\030\t \002(\014\022\016\n\006server\030\003 \002(\t\022!\n\031last_erasu" +
+      "re_storage_time\030\010 \001(\003\022\032\n\010contacts\030\004 \003(\0132",
+      "\010.Contact\022\025\n\005inbox\030\005 \003(\0132\006.Inbox\022\027\n\006outb" +
+      "ox\030\006 \003(\0132\007.Outbox\022\026\n\006drafts\030\007 \003(\0132\006.Draf" +
+      "tB\037\n\035systems.obscure.client.protos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -15791,87 +15789,87 @@ public final class LocalStorage {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          Pond.getDescriptor(),
+          systems.obscure.client.protos.Pond.getDescriptor(),
         }, assigner);
-    internal_static_protos_Header_descriptor =
+    internal_static_Header_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_protos_Header_fieldAccessorTable = new
+    internal_static_Header_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Header_descriptor,
+        internal_static_Header_descriptor,
         new java.lang.String[] { "NonceSmearCopies", "KdfSalt", "Scrypt", "TpmNvram", "NoErasureStorage", });
-    internal_static_protos_Header_SCrypt_descriptor =
-      internal_static_protos_Header_descriptor.getNestedTypes().get(0);
-    internal_static_protos_Header_SCrypt_fieldAccessorTable = new
+    internal_static_Header_SCrypt_descriptor =
+      internal_static_Header_descriptor.getNestedTypes().get(0);
+    internal_static_Header_SCrypt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Header_SCrypt_descriptor,
+        internal_static_Header_SCrypt_descriptor,
         new java.lang.String[] { "N", "R", "P", });
-    internal_static_protos_Header_TPM_descriptor =
-      internal_static_protos_Header_descriptor.getNestedTypes().get(1);
-    internal_static_protos_Header_TPM_fieldAccessorTable = new
+    internal_static_Header_TPM_descriptor =
+      internal_static_Header_descriptor.getNestedTypes().get(1);
+    internal_static_Header_TPM_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Header_TPM_descriptor,
+        internal_static_Header_TPM_descriptor,
         new java.lang.String[] { "Index", });
-    internal_static_protos_Contact_descriptor =
+    internal_static_Contact_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_protos_Contact_fieldAccessorTable = new
+    internal_static_Contact_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Contact_descriptor,
+        internal_static_Contact_descriptor,
         new java.lang.String[] { "Id", "Name", "SupportedVersion", "KeyExchangeBytes", "Generation", "TheirServer", "TheirPub", "TheirIdentityPublic", "RevokedUs", "LastPrivate", "CurrentPrivate", "TheirLastPublic", "TheirCurrentPublic", "Ratchet", "Events", "TheirPairs", "MyPairs", "IsPending", });
-    internal_static_protos_Contact_Event_descriptor =
-      internal_static_protos_Contact_descriptor.getNestedTypes().get(0);
-    internal_static_protos_Contact_Event_fieldAccessorTable = new
+    internal_static_Contact_Event_descriptor =
+      internal_static_Contact_descriptor.getNestedTypes().get(0);
+    internal_static_Contact_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Contact_Event_descriptor,
+        internal_static_Contact_Event_descriptor,
         new java.lang.String[] { "Time", "Message", });
-    internal_static_protos_Contact_MyHMACPair_descriptor =
-      internal_static_protos_Contact_descriptor.getNestedTypes().get(1);
-    internal_static_protos_Contact_MyHMACPair_fieldAccessorTable = new
+    internal_static_Contact_MyHMACPair_descriptor =
+      internal_static_Contact_descriptor.getNestedTypes().get(1);
+    internal_static_Contact_MyHMACPair_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Contact_MyHMACPair_descriptor,
+        internal_static_Contact_MyHMACPair_descriptor,
         new java.lang.String[] { "PublicKey", "Hmac", });
-    internal_static_protos_RatchetState_descriptor =
+    internal_static_RatchetState_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_protos_RatchetState_fieldAccessorTable = new
+    internal_static_RatchetState_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_RatchetState_descriptor,
+        internal_static_RatchetState_descriptor,
         new java.lang.String[] { "RootKey", "SendHeaderKey", "RecvHeaderKey", "NextSendHeaderKey", "NextRecvHeaderKey", "SendChainKey", "RecvChainKey", "SendRatchetPrivate", "RecvRatchetPublic", "SendCount", "RecvCount", "PrevSendCount", "Ratchet", "V2", "Private0", "Private1", "SavedKeys", });
-    internal_static_protos_RatchetState_SavedKeys_descriptor =
-      internal_static_protos_RatchetState_descriptor.getNestedTypes().get(0);
-    internal_static_protos_RatchetState_SavedKeys_fieldAccessorTable = new
+    internal_static_RatchetState_SavedKeys_descriptor =
+      internal_static_RatchetState_descriptor.getNestedTypes().get(0);
+    internal_static_RatchetState_SavedKeys_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_RatchetState_SavedKeys_descriptor,
+        internal_static_RatchetState_SavedKeys_descriptor,
         new java.lang.String[] { "HeaderKey", "MessageKeys", });
-    internal_static_protos_RatchetState_SavedKeys_MessageKey_descriptor =
-      internal_static_protos_RatchetState_SavedKeys_descriptor.getNestedTypes().get(0);
-    internal_static_protos_RatchetState_SavedKeys_MessageKey_fieldAccessorTable = new
+    internal_static_RatchetState_SavedKeys_MessageKey_descriptor =
+      internal_static_RatchetState_SavedKeys_descriptor.getNestedTypes().get(0);
+    internal_static_RatchetState_SavedKeys_MessageKey_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_RatchetState_SavedKeys_MessageKey_descriptor,
+        internal_static_RatchetState_SavedKeys_MessageKey_descriptor,
         new java.lang.String[] { "Num", "Key", "CreationTime", });
-    internal_static_protos_Inbox_descriptor =
+    internal_static_Inbox_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_protos_Inbox_fieldAccessorTable = new
+    internal_static_Inbox_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Inbox_descriptor,
+        internal_static_Inbox_descriptor,
         new java.lang.String[] { "Id", "From", "ReceivedTime", "Acked", "Message", "Read", "Sealed", "Retained", });
-    internal_static_protos_Outbox_descriptor =
+    internal_static_Outbox_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_protos_Outbox_fieldAccessorTable = new
+    internal_static_Outbox_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Outbox_descriptor,
+        internal_static_Outbox_descriptor,
         new java.lang.String[] { "Id", "To", "Server", "Created", "Sent", "Message", "Request", "Acked", "Revocation", });
-    internal_static_protos_Draft_descriptor =
+    internal_static_Draft_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_protos_Draft_fieldAccessorTable = new
+    internal_static_Draft_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_Draft_descriptor,
+        internal_static_Draft_descriptor,
         new java.lang.String[] { "Id", "Created", "To", "Body", "InReplyTo", "Attachments", "Detachments", });
-    internal_static_protos_State_descriptor =
+    internal_static_State_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_protos_State_fieldAccessorTable = new
+    internal_static_State_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_protos_State_descriptor,
+        internal_static_State_descriptor,
         new java.lang.String[] { "Identity", "Seed", "HmacKey", "Server", "LastErasureStorageTime", "Contacts", "Inbox", "Outbox", "Drafts", });
-    Pond.getDescriptor();
+    systems.obscure.client.protos.Pond.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

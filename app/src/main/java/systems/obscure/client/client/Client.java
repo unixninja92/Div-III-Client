@@ -337,7 +337,7 @@ public class Client {
     //TODO newRatchet func
 
     public Pond.SignedKeyExchange newKeyExchange(Contact contact) {
-        contact.ratchet = new Ratchet(rand);
+        contact.ratchet = new Ratchet(contact, rand);
         Pond.KeyExchange.Builder kx = Pond.KeyExchange.newBuilder();
         kx.setPublicKey(ByteString.copyFrom(signingKey.getVerifyKey().toBytes()));
         kx.setIdentityPublic(ByteString.copyFrom(identity.getPublicKey().toBytes()));
@@ -345,7 +345,7 @@ public class Client {
 
         contact.ratchet.fillKeyExchagne(kx);
 
-        kx.addAllHmacPairs(contact.generateHMACPairs(2));
+        kx.addAllHmacPairs(contact.generateHMACPairs(4));
 
 
         byte[] sig = signingKey.sign(kx.build().toByteArray());

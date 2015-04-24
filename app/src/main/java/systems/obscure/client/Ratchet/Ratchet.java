@@ -5,7 +5,6 @@ import com.google.protobuf.ByteString;
 import org.abstractj.kalium.crypto.Point;
 import org.abstractj.kalium.crypto.SecretBox;
 import org.abstractj.kalium.keys.KeyPair;
-import org.abstractj.kalium.keys.VerifyKey;
 import org.spongycastle.pqc.math.linearalgebra.ByteUtils;
 
 import java.nio.ByteBuffer;
@@ -20,6 +19,8 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 import systems.obscure.client.Globals;
+import systems.obscure.client.client.Client;
+import systems.obscure.client.client.Contact;
 import systems.obscure.client.protos.Pond;
 
 /**
@@ -44,10 +45,11 @@ public class Ratchet {
     private final static int nonceInHeaderOffset = 4 + 4 + 32;
     private final static int maxMissingMessages = 8;
 
-    KeyPair myIdentity;
-    KeyPair theirIdentity;
-    VerifyKey myVerifyKey;
-    VerifyKey theirVerifyKey;
+    Contact them;
+//    KeyPair myIdentity;
+//    KeyPair theirIdentity;
+//    VerifyKey myVerifyKey;
+//    VerifyKey theirVerifyKey;
 
     byte[] rootkey;
     byte[] sendHeaderKey;
@@ -71,7 +73,8 @@ public class Ratchet {
 
     SecureRandom rand;
 
-    public Ratchet(SecureRandom rand) {
+    public Ratchet(Contact contact, SecureRandom rand) {
+        them = contact;
         this.rand = rand;
         kxPrivate0 = new byte[32];
         kxPrivate1 = new byte[32];
@@ -89,6 +92,10 @@ public class Ratchet {
 
         kx.setDh(ByteString.copyFrom(pair0.getPublicKey().toBytes()));
         kx.setDh1(ByteString.copyFrom(pair1.getPublicKey().toBytes()));
+
+//        ByteString temp = ByteString.copyFrom(new byte[32]);
+//        kx.setDh(temp);
+//        kx.setDh1(temp);
     }
 //
 //    public byte[] deriveKey(byte[] label, Mac hmac) {
@@ -128,15 +135,16 @@ public class Ratchet {
         ByteBuffer keyMaterial = ByteBuffer.allocate(32*5);
         keyMaterial.put(sharedKey.toBytes());
 
-        Point theirIdentityPublic = new Point(theirIdentity.getPublicKey().toBytes());
+        Point theirIdentityPublic = new Point(them.theirIdentityPublic.toBytes());
 
+        byte[] priv = Client.getInstance().identity.getPrivateKey().toBytes();
         if(amAlice) {
-            keyMaterial.put(theirDH.mult(myIdentity.getPrivateKey().toBytes()).toBytes());
+            keyMaterial.put(theirDH.mult(priv).toBytes());
             keyMaterial.put(theirIdentityPublic.mult(kxPrivate0).toBytes());
         }
         else {
             keyMaterial.put(theirIdentityPublic.mult(kxPrivate0).toBytes());
-            keyMaterial.put(theirDH.mult(myIdentity.getPrivateKey().toBytes()).toBytes());
+            keyMaterial.put(theirDH.mult(priv).toBytes());
         }
 
         try {
