@@ -3,6 +3,7 @@ package systems.obscure.client.service;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.IBinder;
 
 import org.apache.commons.math3.distribution.ExponentialDistribution;
@@ -26,6 +27,7 @@ import info.guardianproject.onionkit.ui.OrbotHelper;
 import systems.obscure.client.Globals;
 import systems.obscure.client.client.Client;
 import systems.obscure.client.client.Network;
+import systems.obscure.client.client.NewMessage;
 import systems.obscure.client.client.QueuedMessage;
 import systems.obscure.client.client.SigningRequest;
 import systems.obscure.client.client.Transport;
@@ -235,7 +237,16 @@ public class TransactService extends Service implements Runnable, InjectableType
             head = null;
         } else if(reply.hasFetched() || reply.hasAnnounce()) {
             ackChan = Channel.any2one();
-//            client.newMessageChan.out().write(new NewMessage(reply.getFetched(), reply.getAnnounce(), ackChan.out()));TODO read this channel somewhere
+            final Pond.Reply finalReply = reply;
+            new AsyncTask<Void, Void, Void>() {
+                @Override
+                protected Void doInBackground(Void... params) {
+                    Network.processNewMessage(new NewMessage(finalReply.getFetched(), finalReply.getAnnounce(), ackChan.out()));
+                    return null;
+                }
+            }.execute();
+            //TODO poke gui?
+//            client.newMessageChan.out().write(new NewMessage(reply.getFetched(), reply.getAnnounce(), ackChan.out()));
             ackChan.in().read();
         }
 
@@ -265,7 +276,14 @@ public class TransactService extends Service implements Runnable, InjectableType
             SigningRequest signingRequest = new SigningRequest();
             signingRequest.msg = head;
             signingRequest.resultChan = resultChan.out();
-//            client.signingRequestChan.out().write(signingRequest);TODO read this channel somewhere
+            final SigningRequest finalSR = signingRequest;
+            new AsyncTask<Void, Void, Void>() {
+                    @Override
+                    protected Void doInBackground(Void... params) {
+                        Network.processSigningRequest(finalSR);
+                        return null;
+                    }
+            }.execute();
             req = resultChan.in().read();
             if(req == null)
                 conn.Close();

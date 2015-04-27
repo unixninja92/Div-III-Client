@@ -133,7 +133,7 @@ public class Network {
         }
     }
 
-    private byte[] decryptMessage(byte[] sealed, Contact from) {
+    private static byte[] decryptMessage(byte[] sealed, Contact from) {
         return from.ratchet.decrypt(sealed);
     }
 
@@ -144,7 +144,7 @@ public class Network {
 //        }
 //    }
 
-    public void processNewMessage(NewMessage m) {
+    public static void processNewMessage(NewMessage m) {
         if(m.fetched != null)
             processFetch(m);
 //        else
@@ -152,7 +152,7 @@ public class Network {
         m.ack.write(true);
     }
 
-    private void processFetch(NewMessage m) {
+    private static void processFetch(NewMessage m) {
         Pond.Fetched f = m.fetched;
 
 
@@ -198,7 +198,7 @@ public class Network {
         //TODO notify UI
     }
 
-    public boolean unsealMessage(InboxMessage message, Contact from) {
+    public static boolean unsealMessage(InboxMessage message, Contact from) {
         if(from.isPending)
             throw new RuntimeException("was asked to unseal message from pending contact");
 
@@ -226,6 +226,8 @@ public class Network {
             e.printStackTrace();
             return false;
         }
+        System.out.println("We got a message!!!!!!!!!");
+        System.out.println("Message as follows: "+msg.getBody().toStringUtf8());
         for(InboxMessage candidate: client.inbox.values()) {
             if(candidate.from == from.id &&
                     candidate.id != message.id &&
