@@ -6,7 +6,6 @@ import com.google.protobuf.InvalidProtocolBufferException;
 
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.PublicKey;
-import org.abstractj.kalium.keys.SigningKey;
 import org.abstractj.kalium.keys.VerifyKey;
 import org.thoughtcrime.securesms.util.TextSecurePreferences;
 
@@ -17,6 +16,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import systems.obscure.client.Globals;
+import systems.obscure.client.crypto.SigningKey;
 import systems.obscure.client.protos.Pond;
 
 /**
@@ -108,29 +108,23 @@ public class Network {
 
         byte[] sealed = to.ratchet.encrypt(plaintext.array());
 
-        try {
-            MessageDigest sha = MessageDigest.getInstance("SHA256");
-            byte[] digest = sha.digest(sealed);
-            Pond.HMACPair pair = to.theirHMACPairs.get(0);
-            to.theirHMACPairs.remove(0);
-            //TODO revoke HMAC pair
-            SigningKey signingKey = new SigningKey(pair.getPrivateKey().toByteArray());
-            byte[] sig = signingKey.sign(digest);
+        Pond.HMACPair pair = to.theirHMACPairs.get(0);
+        to.theirHMACPairs.remove(0);
+        //TODO revoke HMAC pair
+        SigningKey signingKey = new SigningKey(pair.getPrivateKey().toByteArray());
+        byte[] sig = signingKey.sign(sealed);
 
-            Pond.Delivery.Builder deliver = Pond.Delivery.newBuilder();
-            deliver.setTo(ByteString.copyFrom(to.theirIdentityPublic.toBytes()));
-            deliver.setMessage(ByteString.copyFrom(sealed));
-            deliver.setHmacOfPublicKey(pair.getHmacOfPublicKey());
-            deliver.setOneTimePublicKey(ByteString.copyFrom(signingKey.toBytes()));
-            deliver.setOneTimeSignature(ByteString.copyFrom(sig));
+        Pond.Delivery.Builder deliver = Pond.Delivery.newBuilder();
+        deliver.setTo(ByteString.copyFrom(to.theirIdentityPublic.toBytes()));
+        deliver.setMessage(ByteString.copyFrom(sealed));
+        deliver.setHmacOfPublicKey(pair.getHmacOfPublicKey());
+        deliver.setOneTimePublicKey(ByteString.copyFrom(signingKey.getVerifyKey().toBytes()));
+        deliver.setOneTimeSignature(ByteString.copyFrom(sig));
 
-            Pond.Request.Builder request = Pond.Request.newBuilder();
-            request.setDeliver(deliver);
-            System.out.println("request signed!!!");
-            signingRequest.resultChan.write(request);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
+        Pond.Request.Builder request = Pond.Request.newBuilder();
+        request.setDeliver(deliver);
+        System.out.println("request signed!!!");
+        signingRequest.resultChan.write(request);
     }
 
     private static byte[] decryptMessage(byte[] sealed, Contact from) {
