@@ -180,8 +180,9 @@ public class Ratchet {
         try {
             Mac h = Mac.getInstance("HmacSHA256");
             if (rachet) {
+                sendRatchetPrivate = new byte[32];
                 rand.nextBytes(sendRatchetPrivate);
-                nextSendHeaderKey = sendHeaderKey.clone();
+                sendHeaderKey = nextSendHeaderKey.clone();
                 Point recvRatchetPublicPoint = new Point(recvRatchetPublic);
                 Point sharedKey = recvRatchetPublicPoint.mult(sendRatchetPrivate);
                 MessageDigest md = MessageDigest.getInstance("SHA256");
@@ -197,7 +198,7 @@ public class Ratchet {
                 sendCount = 0;
                 rachet = false;
             }
-            h.reset();
+//            h.reset();
             h.init(new SecretKeySpec(sendChainKey, "HmacSHA256"));
 
             byte[] messageKey = h.doFinal(messageKeyLabel);
@@ -216,14 +217,19 @@ public class Ratchet {
             header.put(sendRachet.getPublicKey().toBytes());
             header.position(nonceInHeaderOffset);
             header.put(headerNonce);
-            ByteBuffer out = ByteBuffer.allocate(headerNonce.length+headerSize+msg.length);
+
+            SecretBox secretBox = new SecretBox(messageKey);
+            byte[] ciphertext = secretBox.encrypt(messageNonce, msg);
+
+            secretBox = new SecretBox(sendHeaderKey);
+            byte[] cipherheader = secretBox.encrypt(headerNonce, header.array());
+
+            ByteBuffer out = ByteBuffer.allocate(headerNonce.length+cipherheader.length+ciphertext.length);
             out.put(headerNonce);
 
-            SecretBox secretBox = new SecretBox(sendHeaderKey);
-            out.put(secretBox.encrypt(headerNonce, header.array()));
+            out.put(cipherheader);
             sendCount++;
-            secretBox = new SecretBox(messageKey);
-            out.put(secretBox.encrypt(messageNonce, msg));
+            out.put(ciphertext);
             return out.array();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();

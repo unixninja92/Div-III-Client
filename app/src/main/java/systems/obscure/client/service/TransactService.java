@@ -200,7 +200,7 @@ public class TransactService extends Service implements Runnable, InjectableType
         System.out.println("we get here?");
 //        client.messageSentChan.out().write(new MessageSendResult());TODO read this channel somewhere
 
-        System.out.println("how about here...");
+//        System.out.println("how about here...");
         Pond.Reply reply = sendRecv(server, useAnonymousIdentity, lastWasSend, head, req);
         System.out.println("sendRecv done");
 
@@ -227,6 +227,7 @@ public class TransactService extends Service implements Runnable, InjectableType
                 client.queueLock.writeLock().unlock();
 //                client.messageSentChan.out().write(new MessageSendResult(head.id));TODO read this channel somewhere
             } else {
+                System.out.println("Reply from server: "+reply.getStatus().getNumber());
                 client.moveContactsMessagesToEndOfQueue(head.to);
                 client.queueLock.writeLock().unlock();
 
@@ -236,6 +237,7 @@ public class TransactService extends Service implements Runnable, InjectableType
             }
             head = null;
         } else if(reply.hasFetched() || reply.hasAnnounce()) {
+            System.out.println("Fetched!!");
             ackChan = Channel.any2one();
             final Pond.Reply finalReply = reply;
             new AsyncTask<Void, Void, Void>() {
@@ -285,9 +287,11 @@ public class TransactService extends Service implements Runnable, InjectableType
                     }
             }.execute();
             req = resultChan.in().read();
-            if(req == null)
+            if(req == null) {
+                System.out.println("Connection closed as no signed result read.");
                 conn.Close();
-            return null;
+                return null;
+            }
         }
 
         try {

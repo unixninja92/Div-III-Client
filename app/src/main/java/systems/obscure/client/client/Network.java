@@ -99,7 +99,7 @@ public class Network {
         if(message.length > Globals.MAX_SERIALIZED_MESSAGE)
             throw new RuntimeException("Failed to sign outgoing message because it's too large");
 
-        ByteBuffer plaintext = ByteBuffer.allocate(Globals.MAX_SERIALIZED_MESSAGE+4);
+        ByteBuffer plaintext = ByteBuffer.wrap(new byte[Globals.MAX_SERIALIZED_MESSAGE+4]);
         plaintext.putInt(message.length);
         plaintext.put(message);
         byte[] randBytes = new byte[plaintext.remaining()];
@@ -126,7 +126,7 @@ public class Network {
 
             Pond.Request.Builder request = Pond.Request.newBuilder();
             request.setDeliver(deliver);
-
+            System.out.println("request signed!!!");
             signingRequest.resultChan.write(request);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -154,6 +154,8 @@ public class Network {
 
     private static void processFetch(NewMessage m) {
         Pond.Fetched f = m.fetched;
+
+        System.out.println("processing fetch!");
 
 
         Long id = client.hmacIndex.get(f.getHmacOfPublicKey());

@@ -72,5 +72,6 @@ public class Globals {
     // transactionRateSeconds is the mean of the exponential distribution that
     // we'll sample in order to distribute the time between our network
     // connections. TRANSACTION_RATE_SECONDS
-    public static final int TRANSACTION_RATE_SECONDS = 300;
+//    public static final int TRANSACTION_RATE_SECONDS = 300;
+    public static final int TRANSACTION_RATE_SECONDS = 50;
 }

@@ -22,6 +22,11 @@ import systems.obscure.client.ratchet.Ratchet;
  * @author unixninja92
  */
 public class Contact {
+
+    // hmacValueMask is the bottom 63 bits. This is used for HMAC values
+    // where the HMAC is only 63 bits wide and the MSB is used to signal
+    // whether a revocation was used or not.
+    public final long hmacValueMask = 0x7fffffffffffffffL;
     // id is only locally valid.
     public long id;
 
@@ -118,6 +123,7 @@ public class Contact {
                 hmac.init(Client.getInstance().hmacKey);
                 SigningKey newSKey = new SigningKey();
                 byte[] hmacBytes = hmac.doFinal(newSKey.getVerifyKey().toBytes());
+                System.out.println("Lenght of HMAC: "+hmacBytes.length);
 
                 myHMACs.add(new HMACPair(newSKey.getVerifyKey().toBytes(), hmacBytes));
 
